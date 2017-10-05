@@ -35,7 +35,7 @@ Location: https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-00500
 
 <span class=c1># Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)</span>
 <span class=n>customer</span> <span class=o>=</span> <span class=n>account_token</span><span class=p>.</span><span class=nf>post</span> <span class=s2>"customers"</span><span class=p>,</span> <span class=n>request_body</span>
-<span class=n>customer</span><span class=p>.</span><span class=nf>headers</span><span class=p>[</span><span class=ss>:location</span><span class=p>]</span> <span class=c1># =&gt; "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747"</span>
+<span class=n>customer</span><span class=p>.</span><span class=nf>response_headers</span><span class=p>[</span><span class=ss>:location</span><span class=p>]</span> <span class=c1># =&gt; "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747"</span>
 
 <span class=c1># Using DwollaSwagger - https://github.com/Dwolla/dwolla-swagger-ruby</span>
 <span class=n>customer</span> <span class=o>=</span> <span class=no>DwollaSwagger</span><span class=o>::</span><span class=no>CustomersApi</span><span class=p>.</span><span class=nf>create</span><span class=p>(</span><span class=ss>:body</span> <span class=o>=&gt;</span> <span class=n>request_body</span><span class=p>)</span>
@@ -118,7 +118,7 @@ Location: https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7
 
 <span class=c1># Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)</span>
 <span class=n>funding_source</span> <span class=o>=</span> <span class=n>account_token</span><span class=p>.</span><span class=nf>post</span> <span class=s2>"</span><span class=si>#{</span><span class=n>customer_url</span><span class=si>}</span><span class=s2>/funding-sources"</span><span class=p>,</span> <span class=n>request_body</span>
-<span class=n>funding_source</span><span class=p>.</span><span class=nf>headers</span><span class=p>[</span><span class=ss>:location</span><span class=p>]</span> <span class=c1># =&gt; "https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31"</span>
+<span class=n>funding_source</span><span class=p>.</span><span class=nf>response_headers</span><span class=p>[</span><span class=ss>:location</span><span class=p>]</span> <span class=c1># =&gt; "https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31"</span>
 
 <span class=c1># Using DwollaSwagger - https://github.com/Dwolla/dwolla-swagger-ruby</span>
 <span class=n>funding_source</span> <span class=o>=</span> <span class=no>DwollaSwagger</span><span class=o>::</span><span class=no>FundingsourcesApi</span><span class=p>.</span><span class=nf>create_customer_funding_source</span><span class=p>(</span><span class=n>customer_url</span><span class=p>,</span> <span class=ss>:body</span> <span class=o>=&gt;</span> <span class=n>request_body</span><span class=p>)</span>

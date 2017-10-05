@@ -55,7 +55,7 @@ Location: https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727
 <span class=p>}</span>
 <span class=c1># Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)</span>
 <span class=n>customer</span> <span class=o>=</span> <span class=n>app_token</span><span class=p>.</span><span class=nf>post</span> <span class=s2>"customers"</span><span class=p>,</span> <span class=n>request_body</span>
-<span class=n>customer</span><span class=p>.</span><span class=nf>headers</span><span class=p>[</span><span class=ss>:location</span><span class=p>]</span> <span class=c1># =&gt; "https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C"</span>
+<span class=n>customer</span><span class=p>.</span><span class=nf>response_headers</span><span class=p>[</span><span class=ss>:location</span><span class=p>]</span> <span class=c1># =&gt; "https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C"</span>
 
 <span class=c1># Using DwollaSwagger - https://github.com/Dwolla/dwolla-swagger-ruby</span>
 <span class=n>customer</span> <span class=o>=</span> <span class=no>DwollaSwagger</span><span class=o>::</span><span class=no>CustomersApi</span><span class=p>.</span><span class=nf>create</span><span class=p>(</span><span class=ss>:body</span> <span class=o>=&gt;</span> <span class=n>request_body</span><span class=p>)</span>
