@@ -11,11 +11,11 @@ description: "Programmatically send bank transfers with our developer API."
     </a>
     <a href="/guides/send-money" class="icon-guides-send-small grid-nav__item">
         <h3>Send money to your users</h3>
-        <p>Send ACH transfers. Choose custom (Access API) onboarding or Transfer (OAuth) account creation.</p>
+        <p>Send ACH transfers.</p>
     </a>
     <a href="/guides/receive-money" class="icon-guides-receive-small grid-nav__item">
         <h3>Receive money from your users</h3>
-        <p>Accept ACH transfers. Covers both Access API and Transfer integrations.</p>
+        <p>Accept ACH transfers.</p>
     </a>
     <a href="/guides/transfer-money-between-users" class="icon-guides-transfer-small grid-nav__item">
         <h3>Transfer money betwen users</h3>
@@ -30,7 +30,7 @@ description: "Programmatically send bank transfers with our developer API."
       <p>Implement simple, real-time, event notifications regarding account and transaction status, and more.</p>
     </a>
     <a href="/guides/migrate-to-v2" class="icon-guides-v1-to-v2-small grid-nav__item">
-        <h3>Migrate to the Access API</h3>
-        <p>Underlying principles of our Access API and guidance on upgrading your application from Dwolla’s legacy v1 API.</p>
+        <h3>Migrate to the Dwolla v2 API</h3>
+        <p>Underlying principles of migrating from the v1 API.</p>
     </a>
 </nav>

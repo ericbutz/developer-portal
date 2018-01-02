@@ -11,9 +11,9 @@ description: Link an unverified bank account to a customer within Dwolla's bank 
 
 # Step 3: Attach an unverified funding source
 
-Next, we’ll add Jane Merchant’s bank or credit union account as an unverified funding source.  Unverified funding sources can only receive funds, not send. 
+Next, we’ll add Jane Merchant’s bank or credit union account as an unverified funding source.  Unverified funding sources can only receive funds, not send.
 
-The example below shows sample bank information, but you will include actual bank name, routing, and account numbers after prompting your customer for this information within your application. Possible values for `type` can be either “checking” or “savings”. More detail is available in [API docs](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer). 
+The example below shows sample bank information, but you will include actual bank name, routing, and account numbers after prompting your customer for this information within your application. Possible values for `type` can be either “checking” or “savings”. More detail is available in [API docs](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer).
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C/funding-sources
@@ -30,6 +30,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 HTTP/1.1 201 Created
 Location: https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31
 ```
+
 ```ruby
 customer_url = 'https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C'
 request_body = {
@@ -43,6 +44,7 @@ request_body = {
 funding_source = app_token.post "#{customer_url}/funding-sources", request_body
 funding_source.response_headers[:location] # => "https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31"
 ```
+
 ```javascript
 var customerUrl = 'https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C';
 var requestBody = {
@@ -56,6 +58,7 @@ appToken
   .post(`${customerUrl}/funding-sources`, requestBody)
   .then(res => res.headers.get('location')); // => 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
 ```
+
 ```python
 customer_url = 'https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C'
 request_body = {
@@ -69,6 +72,7 @@ request_body = {
 customer = app_token.post('%s/funding-sources' % customer_url, request_body)
 customer.headers['location'] # => 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
 ```
+
 ```php
 <?php
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);

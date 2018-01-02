@@ -53,7 +53,7 @@ request_body = {
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-# For Access API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
+# For Dwolla API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
 transfer = app_token.post "transfers", request_body
 transfer.response_headers[:location] # => "https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
 ```
@@ -73,7 +73,7 @@ var requestBody = {
   }
 };
 
-// For Access API applications, an appToken can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
+// For Dwolla API applications, an appToken can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
 appToken
   .post('transfers', requestBody)
   .then(res => res.headers.get('location')); // => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
@@ -95,7 +95,7 @@ request_body = {
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-# For Access API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
+# For Dwolla API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
 transfer = app_token.post('transfers', request_body)
 transfer.headers['location'] # => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 ```

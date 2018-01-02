@@ -5,16 +5,16 @@ guide:
     name: send-money
     step: 1a
 type: guide
-title:  "Step 1: Access API onboarding"
+title:  "Step 1: Dwolla API onboarding"
 description: Use Dwolla's ACH payment API to send money to other users. 
 ---
-
-# Step 1: Create recipients using the Access API
+# Step 1: Create recipients using the Dwolla API
 
 In this experience, end users create their accounts entirely within your application and you prompt for their bank or credit union account information. Dwolla will securely store this sensitive information.
 
 ### Step A. Obtain an application access token
-Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an [application access token](https://docsv2.dwolla.com/#application-authorization). An application access token can then be used to make calls to the Dwolla API on behalf of your application for Access API related endpoints.
+
+Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an [application access token](https://docsv2.dwolla.com/#application-authorization). An application access token can then be used to make calls to the API on behalf of your application for Dwolla API related endpoints.
 
 ### Step B. Create a Customer
 
@@ -35,6 +35,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 HTTP/1.1 201 Created
 Location: https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747
 ```
+
 ```ruby
 request_body = {
   :firstName => 'Jane',
@@ -47,6 +48,7 @@ request_body = {
 customer = account_token.post "customers", request_body
 customer.response_headers[:location] # => "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747"
 ```
+
 ```javascript
 var requestBody = {
   firstName: 'Jane',
@@ -61,6 +63,7 @@ accountToken
     res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747'
   });
 ```
+
 ```python
 request_body = {
   'firstName': 'Jane',
@@ -73,6 +76,7 @@ request_body = {
 customer = account_token.post('customers', request_body)
 customer.headers['location'] # => 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747'
 ```
+
 ```php
 <?php
 $customersApi = new DwollaSwagger\CustomersApi($apiClient);
@@ -87,6 +91,7 @@ $customer = $customersApi->create([
 print($customer); # => "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747"
 ?>
 ```
+
 ```java
 CustomersApi cApi = new CustomersApi(a);
 
@@ -106,15 +111,15 @@ catch (Exception e) {
 }
 ```
 
-When the Customer is created, you’ll receive the Customer URL in the location header. 
+When the Customer is created, you’ll receive the Customer URL in the location header.
 
-*Important*: Provide the IP address of the end-user accessing your application as the ipAddress parameter. This enhances Dwolla’s  ability to detect fraud.
+**Important**: Provide the IP address of the end-user accessing your application as the `ipAddress` parameter. This enhances fraud detection and tracking.
 
 ### Step C. Attach a funding source to the Customer
 
-The next step is to attach a bank or credit union account to the Customer by providing the bank account’s routing number, account number, account type, and an arbitrary name. 
+The next step is to attach a bank or credit union account to the Customer by providing the bank account’s routing number, account number, account type, and an arbitrary name.
 
-Funds transferred to this Customer will be automatically swept into the funding source. The example below shows sample bank information, but you will include actual routing, account, and bank name after prompting your customer for this information within your application. Possible values for `type` can be either “checking” or “savings”. More detail is available in [API docs](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer). 
+Funds transferred to this Customer will be automatically swept into the funding source. The example below shows sample bank information, but you will include actual routing, account, and bank name after prompting your customer for this information within your application. Possible values for `type` can be either “checking” or “savings”. More detail is available in [API docs](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer).
 
 ```raw
 POST https://api.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747/funding-sources
@@ -131,6 +136,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 HTTP/1.1 201 Created
 Location: https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31
 ```
+
 ```ruby
 customer_url = 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747'
 request_body = {
@@ -145,6 +151,7 @@ funding_source = account_token.post "#{customer_url}/funding-sources", request_b
 funding_source.response_headers[:location] # => "https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31"
 
 ```
+
 ```javascript
 var customerUrl = 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747';
 var requestBody = {
@@ -160,6 +167,7 @@ accountToken
     res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
   });
 ```
+
 ```python
 customer_url = 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747'
 request_body = {
@@ -174,6 +182,7 @@ customer = account_token.post('%s/funding-sources' % customer_url, request_body)
 customer.headers['location'] # => 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
 
 ```
+
 ```php
 <?php
 $fundingApi = new DwollaSwagger\FundingsourcesApi($apiClient);

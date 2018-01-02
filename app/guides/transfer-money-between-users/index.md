@@ -11,7 +11,7 @@ description: Send money online between customers by utilizing our open bank tran
 
 # Overview: Transfer money between your users
 
-The most common scenario for this guide is to facilitate marketplace or peer-to-peer transfers between your customers. This guide only outlines the steps involved using Dwolla’s Access API.
+The most common scenario for this guide is to facilitate marketplace or peer-to-peer transfers between your customers. This guide only outlines the steps involved using the Dwolla API.
 
 In this guide, we’ll cover the key points of transferring money:
 

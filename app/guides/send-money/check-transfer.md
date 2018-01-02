@@ -14,6 +14,7 @@ description: Use Dwolla's ACH payment API to check the transfer status of bank t
 You can check the status of the newly created transfer by retrieving the transfer by its URL.
 
 #### Request and response (view schema in 'raw')
+
 ```raw
 GET https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
 Accept: application/vnd.dwolla.v1.hal+json
@@ -59,6 +60,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
   }
 }
 ```
+
 ```ruby
 transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 
@@ -66,6 +68,7 @@ transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9
 transfer = account_token.get transfer_url
 transfer.status # => "pending"
 ```
+
 ```javascript
 var transferUrl = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388';
 
@@ -75,6 +78,7 @@ accountToken
     res.body.status; // => 'pending'
   });
 ```
+
 ```python
 transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 
@@ -82,6 +86,7 @@ transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9
 fees = account_token.get(transfer_url)
 fees.body['status'] # => 'pending'
 ```
+
 ```php
 <?php
 $transferUrl = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388';
