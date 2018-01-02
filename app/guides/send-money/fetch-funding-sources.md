@@ -10,7 +10,7 @@ description: Fetch funding sources within Dwolla's bank transfer API.
 ---
 # Step 2: Fetch funding sources
 
-Now that you’ve created a Customer associated its funding source, you can initiate your first transfer. The transfer requires the following information:
+Now that you’ve created a Customer and associated its funding source, you can initiate your first transfer. The transfer requires the following information:
 
 - The funding source to pull the funds from (your linked bank account)
 - The recipient to push the funds to
@@ -114,6 +114,6 @@ print($fundingSources->_embedded) # => PHP associative array of _embedded conten
 ```
 
 <nav class="pager-nav">
-    <a href="/guides/send-money/dwolla-api-onboarding.html">Back to: Create a Customer, add a funding source</a>
+    <a href="/guides/send-money/onboarding.html">Back to: Customer onboarding</a>
     <a href="create-transfer.html">Next step: Create a transfer</a>
 </nav>

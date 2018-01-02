@@ -1,12 +1,12 @@
 ---
 layout: twoColumn
 section: guides
-guide: 
+guide:
     name: send-money
-    step: 1a
+    step: '1'
 type: guide
-title:  "Step 1: Dwolla API onboarding"
-description: Use Dwolla's ACH payment API to send money to other users. 
+title:  "Step 1: Customer onboarding"
+description: Use Dwolla's ACH payment API to send money to other users.
 ---
 # Step 1: Create recipients using the Dwolla API
 
@@ -14,7 +14,7 @@ In this experience, end users create their accounts entirely within your applica
 
 ### Step A. Obtain an application access token
 
-Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an [application access token](https://docsv2.dwolla.com/#application-authorization). An application access token can then be used to make calls to the API on behalf of your application for Dwolla API related endpoints.
+Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an [application access token](https://docsv2.dwolla.com/#application-authorization). An application access token can then be used to make calls to the API on behalf of your application.
 
 ### Step B. Create a Customer
 
@@ -129,7 +129,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 {
     "routingNumber": "222222226",
     "accountNumber": "123456789",
-    "type": "checking",
+    "bankAccountType": "checking",
     "name": "Jane Merchant - Checking 6789"
 }
 
@@ -142,7 +142,7 @@ customer_url = 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe
 request_body = {
   routingNumber: '222222226',
   accountNumber: '123456789',
-  type: 'checking',
+  bankAccountType: 'checking',
   name: 'Jane Merchant - Checking 6789'
 }
 
@@ -157,7 +157,7 @@ var customerUrl = 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9
 var requestBody = {
   'routingNumber': '222222226',
   'accountNumber': '123456789',
-  'type': 'checking',
+  'bankAccountType': 'checking',
   'name': 'Jane Merchant - Checking 6789'
 };
 
@@ -173,7 +173,7 @@ customer_url = 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe
 request_body = {
   'routingNumber': '222222226',
   'accountNumber': '123456789',
-  'type': 'checking',
+  'bankAccountType': 'checking',
   'name': 'Jane Merchant - Checking 6789'
 }
 
@@ -190,7 +190,7 @@ $fundingApi = new DwollaSwagger\FundingsourcesApi($apiClient);
 $new_fs = $fundingApi->createCustomerFundingSource([
   "routingNumber" => "222222226",
   "accountNumber" => "123456789",
-  "type" => "checking",
+  "bankAccountType" => "checking",
   "name" => "Jane Merchant - Checking 6789"
 ], "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747");
 

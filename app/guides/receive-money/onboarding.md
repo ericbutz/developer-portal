@@ -1,14 +1,14 @@
 ---
 layout: twoColumn
 section: guides
-guide: 
-    name: receive-money
-    step: 1a
 type: guide
-title:  "Step 1: Access API onboarding"
+guide:
+    name: receive-money
+    step: '1'
+title:  "Step 1: Customer onboarding"
 description: Leverage Dwolla's ach payment API to receive money via bank transfer.
 ---
-# Step 1: Create a customer using the Access API
+# Step 1: Customer onboarding
 
 ### Step A: Obtain an application access token
 
@@ -25,7 +25,7 @@ Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 
 {
-"firstName": "Joe", 
+"firstName": "Joe",
 "lastName": "Buyer",
 "email": "jbuyer@mail.net",
 "ipAddress": "99.99.99.99"
@@ -118,7 +118,7 @@ When the Customer is created, you’ll receive the Customer URL in the location 
 
 ### Step C: Attach a funding source to the Customer
 
-Next you will attach a verified funding source to the Customer, which will be done using Instant Account Verification (IAV). This method will give the Customer the ability to add and verify their bank account in a matter of seconds by authenticating with their online banking credentials. Once the Customer reaches the page in your application to add a bank account you'll ask Dwolla’s server to [generate an IAV token](http://docsv2.dwolla.com/#generate-an-iav-token). 
+Next you will attach a verified funding source to the Customer, which will be done using Instant Account Verification (IAV). This method will give the Customer the ability to add and verify their bank account in a matter of seconds by authenticating with their online banking credentials. Once the Customer reaches the page in your application to add a bank account you'll ask Dwolla’s server to [generate an IAV token](http://docsv2.dwolla.com/#generate-an-iav-token).
 
 Generate a single-use IAV token for our Customer:
 

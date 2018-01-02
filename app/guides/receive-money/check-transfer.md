@@ -99,6 +99,6 @@ print($transfer->status) # => pending
 That’s it! You’ve successfully received money from a user. Please continue to the Webhooks guide for information on implementing notifications for your customers about the transfer.
 
 <nav class="pager-nav">
-    <a href="/guides/receive-money/dwolla-api-onboarding.html">Back: Create a Customer and transfer</a>
+    <a href="/guides/receive-money/onboarding.html">Back: Create a Customer and transfer</a>
     <a href="/guides/webhooks">Next guide: Webhooks</a>
 </nav>
