@@ -4,7 +4,7 @@ section: guides
 guide: 
     name: receive-money
     step: 1b
-type: guide
+type: archive
 title:  "Step 1: Transfer onboarding"
 description: Use Dwolla's Transfer API to receive bank transfers from customers. 
 ---

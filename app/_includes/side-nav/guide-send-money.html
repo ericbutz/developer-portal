@@ -4,16 +4,10 @@
         <li>
             <a href="/guides/send-money" {% if page.guide.step == 'overview' %}class="active"{% endif %}>Overview: Send money to your users</a>
             <div class="dot"></div>
-            <ol>
-                <li>
-                    <a href="/guides/send-money/access-api-onboarding.html" {% if page.guide.step == '1a' %}class="active"{% endif %}>Option 1: Access API</a>
-                    <div class="dot"></div>
-                </li>
-                <li>
-                    <a href="/guides/send-money/transfer-onboarding.html" {% if page.guide.step == '1b' %}class="active"{% endif %}>Option 2: Transfer</a>
-                    <div class="dot"></div>
-                </li>
-            </ol>
+        </li>
+        <li>
+            <a href="/guides/send-money/onboarding.html" {% if page.guide.step == '1' %}class="active"{% endif %}>Customer onboarding</a>
+            <div class="dot"></div>
         </li>
         <li>
             <a href="/guides/send-money/fetch-funding-sources.html" {% if page.guide.step == '2' %}class="active"{% endif %}>Fetch funding sources</a>

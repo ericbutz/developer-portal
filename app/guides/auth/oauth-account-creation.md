@@ -1,7 +1,7 @@
 ---
 layout: twoColumn
 section: guides
-type: guide
+type: archive
 guide: 
     name: auth
     step: '1a'

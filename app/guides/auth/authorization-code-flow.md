@@ -1,7 +1,7 @@
 ---
 layout: twoColumn
 section: guides
-type: guide
+type: archive
 guide: 
     name: auth
     step: '1'
@@ -11,13 +11,13 @@ description:  Obtain an OAuth access token, used to access data in the Dwolla AP
 
 # Overview - Obtaining an account access token
 
-The [authorization code](https://tools.ietf.org/html/rfc6749#section-4.1) flow is the most common OAuth flow and is used when an application is wanting to obtain permission to act on behalf of a user. This is a redirection-based flow where the user (Resource owner) is sent from your application to Dwolla (typically in a web-browser) to authenticate and authorize your app. Once the user grants authorization, Dwolla (the Authorization Server) will redirect them back to your application where you'll exchange a temporary authorization code for an account `access_token` and `refresh_token` pair. An account access token can then be used to make calls  like transfer money, add funding sources, and more to the Dwolla API on behalf of the user. 
+The [authorization code](https://tools.ietf.org/html/rfc6749#section-4.1) flow is the most common OAuth flow and is used when an application is wanting to obtain permission to act on behalf of a user. This is a redirection-based flow where the user (Resource owner) is sent from your application to Dwolla (typically in a web-browser) to authenticate and authorize your app. Once the user grants authorization, Dwolla (the Authorization Server) will redirect them back to your application where you'll exchange a temporary authorization code for an account `access_token` and `refresh_token` pair. An account access token can then be used to make calls  like transfer money, add funding sources, and more to the Dwolla API on behalf of the user.
 
-**OAuth account creation:** If the user does not yet have a Dwolla account they are given the option to sign up before granting permission using Dwolla's [OAuth account creation](/guides/auth/oauth-account-creation.html) experience. 
+**OAuth account creation:** If the user does not yet have a Dwolla account they are given the option to sign up before granting permission using Dwolla's [OAuth account creation](/guides/auth/oauth-account-creation.html) experience.
 
 > **Important:** Dwolla’s implementation of the OAuth 2.0 standard uses short-lived access tokens and long-lived refresh tokens.
 > A refresh token is paired with an access token and can be used within 60 days to generate a new access token and refresh token pair. 
-> Learn more on how to refresh authorization towards the end of this guide. 
+> Learn more on how to refresh authorization towards the end of this guide.
 
 #### Scopes
 Before sending a user through the OAuth flow, you must explicitly specify which access scopes you will require. This helps users better understand what kind of data your application wishes to access, and which permissions they are granting your application. Multiple scopes may be included in your authorization request using the pipe ("|") character (e.g. scope=send|transactions).

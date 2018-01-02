@@ -16,7 +16,7 @@
                 {% elsif page.url contains 'webhooks' %}
                     Webhooks
                 {% elsif page.url contains 'migrate-to-v2' %}
-                    Migrate to the Access API
+                    Migrate to the Dwolla v2 API
                 {% else %}
                     Please select a guide
                 {% endif %}
@@ -44,7 +44,7 @@
                 <a href="/guides/webhooks/">Webhooks</a>
             {% endunless %}
             {% unless page.url contains '/guides/migrate-to-v2/' %}
-                <a href="/guides/migrate-to-v2/">Migrate to the Access API</a>
+                <a href="/guides/migrate-to-v2/">Migrate to the Dwolla v2 API</a>
             {% endunless %}
         </nav>
     </section>
@@ -64,4 +64,3 @@
         </ul>
     </section>
 </nav>
-

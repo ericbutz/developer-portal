@@ -1,7 +1,7 @@
 ---
 layout: twoColumn
 section: guides
-type: guide
+type: archive
 guide:
     name: send-money
     step: 1b

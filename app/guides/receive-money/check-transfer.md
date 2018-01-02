@@ -8,12 +8,12 @@ guide:
 title:  "Step 2: Check the transfer status"
 description: Use Dwolla's ACH payment API to receive bank transfers and check transfer statuses.
 ---
-
 # Step 2: Check the transfer status
 
 You can check the status of the newly created transfer by retrieving the transfer by its URL.
 
 #### Request and response (view schema in 'raw'):
+
 ```raw
 GET https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
 Accept: application/vnd.dwolla.v1.hal+json
@@ -58,6 +58,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
   }
 }
 ```
+
 ```ruby
 transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 
@@ -65,6 +66,7 @@ transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9
 transfer = account_token.get transfer_url
 transfer.status # => "pending"
 ```
+
 ```javascript
 var transferUrl = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388';
 
@@ -74,6 +76,7 @@ accountToken
     res.body.status; // => 'pending'
   });
 ```
+
 ```python
 transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 
@@ -81,6 +84,7 @@ transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9
 transfer = account_token.get(transfer_url)
 transfer.body['status'] # => 'pending'
 ```
+
 ```php
 <?php
 $transferUrl = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388';
@@ -95,6 +99,6 @@ print($transfer->status) # => pending
 That’s it! You’ve successfully received money from a user. Please continue to the Webhooks guide for information on implementing notifications for your customers about the transfer.
 
 <nav class="pager-nav">
-    <a href="./">Back: Overview</a>
+    <a href="/guides/receive-money/onboarding.html">Back: Create a Customer and transfer</a>
     <a href="/guides/webhooks">Next guide: Webhooks</a>
 </nav>

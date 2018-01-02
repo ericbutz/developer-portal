@@ -8,17 +8,9 @@ guide:
 title:  "Step 2: Fetch funding sources"
 description: Fetch funding sources within Dwolla's bank transfer API.
 ---
-
 # Step 2: Fetch funding sources
 
-No matter which method you used to set up your customers, the remaining steps of sending money are the same. Please note the difference in terminology between the two onboarding experiences:
-
-| Solution | Recipient|
-|----------|----------|
-|Access API|Customer|
-|Transfer|Account|
-
-Now that you’ve created a Customer or an Account and associated its funding source, you can initiate your first transfer. The transfer requires the following information:
+Now that you’ve created a Customer and associated its funding source, you can initiate your first transfer. The transfer requires the following information:
 
 - The funding source to pull the funds from (your linked bank account)
 - The recipient to push the funds to
@@ -81,6 +73,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
   }
 }
 ```
+
 ```ruby
 account_url = 'https://api.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1'
 
@@ -88,6 +81,7 @@ account_url = 'https://api.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f2
 funding_sources = account_token.get "#{account_url}/funding-sources"
 funding_sources._embedded['funding-sources'][0].name # => "ABC Bank Checking"
 ```
+
 ```javascript
 var accountUrl = 'https://api-sandbox.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1';
 
@@ -97,6 +91,7 @@ accountToken
     res.body._embedded['funding-sources'][0].name; // => 'ABC Bank Checking'
   });
 ```
+
 ```python
 account_url = 'https://api.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1'
 
@@ -105,6 +100,7 @@ funding_sources = account_token.get('%s/funding-sources' % account_url)
 funding_sources.body['_embedded']['funding-sources'][0]['name'] # => 'ABC Bank Checking'
 
 ```
+
 ```php
 <?php
 $accountUrl = 'https://api.dwolla.com/accounts/4BB512E4-AD4D-4F7E-BFD0-A232007F21A1';
@@ -118,6 +114,6 @@ print($fundingSources->_embedded) # => PHP associative array of _embedded conten
 ```
 
 <nav class="pager-nav">
-    <a href="./">Back to Overview</a>
+    <a href="/guides/send-money/onboarding.html">Back to: Customer onboarding</a>
     <a href="create-transfer.html">Next step: Create a transfer</a>
 </nav>
