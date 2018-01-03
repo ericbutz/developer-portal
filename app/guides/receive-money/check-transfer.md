@@ -63,14 +63,14 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-transfer = account_token.get transfer_url
+transfer = app_token.get transfer_url
 transfer.status # => "pending"
 ```
 
 ```javascript
 var transferUrl = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388';
 
-accountToken
+appToken
   .get(transferUrl)
   .then(function(res) {
     res.body.status; // => 'pending'
@@ -81,7 +81,7 @@ accountToken
 transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-transfer = account_token.get(transfer_url)
+transfer = app_token.get(transfer_url)
 transfer.body['status'] # => 'pending'
 ```
 

@@ -143,7 +143,7 @@ request_body = {
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-funding_source = account_token.post "#{funding_source_url}", request_body
+funding_source = app_token.post "#{funding_source_url}", request_body
 funding_source.name # => "R03"
 ```
 ```php
@@ -158,7 +158,7 @@ request_body = {
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-funding_source = account_token.post('funding-sources', request_body)
+funding_source = app_token.post('funding-sources', request_body)
 funding_source.body['name'] # => 'R03'
 ```
 ```javascript
@@ -167,7 +167,7 @@ var requestBody = {
   name: "R03"
 };
 
-accountToken
+appToken
   .post(fundingSourceUrl, requestBody)
   .then(res => res.body.name); // => "R03"
 ```

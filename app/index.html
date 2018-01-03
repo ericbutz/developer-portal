@@ -15,7 +15,7 @@ sampleRuby: >
     end
 
 
-    account_token = $dwolla.tokens.new access_token: "GnlMMOlLLTTwRRC44gGPkjfsVbVtwzkptDVdIB0fwGwLnV481N"
+    app_token = $dwolla.tokens.new access_token: "GnlMMOlLLTTwRRC44gGPkjfsVbVtwzkptDVdIB0fwGwLnV481N"
 
 
     request_body = {
@@ -34,7 +34,7 @@ sampleRuby: >
     }
 
 
-    transfer = account_token.post "transfers", request_body
+    transfer = app_token.post "transfers", request_body
 
     transfer.response_headers[:location] # => "https://api-sandbox.dwolla.com/transfers/74c9129b-d14a-e511-80da-0aa34a9b2388"
 
@@ -77,7 +77,7 @@ samplePython: >
     )
 
 
-    account_token = client.Token(access_token = 'GnlMMOlLLTTwRRC44gGPkjfsVbVtwzkptDVdIB0fwGwLnV481N')
+    app_token = client.Token(access_token = 'GnlMMOlLLTTwRRC44gGPkjfsVbVtwzkptDVdIB0fwGwLnV481N')
 
 
     request_body = {
@@ -96,7 +96,7 @@ samplePython: >
     }
 
 
-    transfer = account_token.post('transfers', request_body)
+    transfer = app_token.post('transfers', request_body)
 
     transfer.headers['location'] # => 'https://api-sandbox.dwolla.com/transfers/74c9129b-d14a-e511-80da-0aa34a9b2388'
 
@@ -153,7 +153,7 @@ sampleJavascript: >
     var client = new dwolla.Client({id: "...", secret: "..."});
 
 
-    var accountToken = new client.Token({access_token: "GnlMMOlLLTTwRRC44gGPkjfsVbVtwzkptDVdIB0fwGwLnV481N"});
+    var appToken = new client.Token({access_token: "GnlMMOlLLTTwRRC44gGPkjfsVbVtwzkptDVdIB0fwGwLnV481N"});
 
 
     var requestBody = {
@@ -172,7 +172,7 @@ sampleJavascript: >
     };
 
 
-    accountToken
+    appToken
       .post('transfers', requestBody)
       .then(function(res) {
         res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/transfers/74c9129b-d14a-e511-80da-0aa34a9b2388'

@@ -2,20 +2,20 @@
 layout: twoColumn
 section: guides
 type: guide
-guide: 
+guide:
     name: webhooks
     step: '1'
 title: Webhooks | Obtain Authorization
-description: Obtain authorization webhooks for payments within your application by utilizing our open bank transfer API with no transaction fees. 
+description: Obtain authorization webhooks for payments within your application by utilizing our open bank transfer API with no transaction fees.
 ---
 
 # Step 1: Obtain authorization
 
-To subscribe to webhooks, you must first obtain client authorization via OAuth. You will be requesting these credentials on the behalf of your own application, so there will be no OAuth permissions dialog; you are only required to provide your `client_id` and `client_secret`. 
+To subscribe to webhooks, you must first obtain client authorization via OAuth. You will be requesting these credentials on the behalf of your own application, so there will be no OAuth permissions dialog; you are only required to provide your `client_id` and `client_secret`.
 
 To generate an application access token, you'll need to initiate a POST request to `https://sandbox.dwolla.com/oauth/v2/token` in our Sandbox environment or `https://www.dwolla.com/oauth/v2/token` in our production environment. The request must include a `Content-Type` header with the value of `application/x-www-form-urlencoded`.
 
-**NOTE**: Currently, the Dwolla/Swagger SDKs do not contain the capability to do this, so you must use an external REST client. 
+**NOTE**: Currently, the Dwolla/Swagger SDKs do not contain the capability to do this, so you must use an external REST client.
 
 #### Example request
 ```raw
@@ -23,15 +23,15 @@ POST https://sandbox.dwolla.com/oauth/v2/token
 Content-Type: application/x-www-form-urlencoded
 
 client_id=CGQXLrlfuOqdUYdTcLz3rBiCZQDRvdWIUPkwasGMuGhkem9Bo&client_secret=g7QLwvO37aN2HoKx1amekWi8a2g7AIuPbD5CcJSLqXIcDOxfTr&grant_type=client_credentials
-``` 
+```
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python
-# This example assumes you've already intialized the client. Reference the SDKs page for more information: https://developers.dwolla.com/pages/sdks.html
+# This example assumes you've already initialized the client. Reference the SDKs page for more information: https://developers.dwolla.com/pages/sdks.html
 application_token = client.Auth.client()
 ```
 ```javascript
 // Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-node
-// This example assumes you've already intialized the client. Reference the SDKs page for more information: https://developers.dwolla.com/pages/sdks.html
+// This example assumes you've already initialized the client. Reference the SDKs page for more information: https://developers.dwolla.com/pages/sdks.html
 client.auth.client()
   .then(function(appToken) {
     return appToken.get('webhook-subscriptions');
@@ -42,7 +42,7 @@ client.auth.client()
 ```
 ```ruby
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby
-# This example assumes you've already intialized the client. Reference the SDKs page for more information: https://developers.dwolla.com/pages/sdks.html
+# This example assumes you've already initialized the client. Reference the SDKs page for more information: https://developers.dwolla.com/pages/sdks.html
 application_token = $dwolla.auths.client
 # => #<DwollaV2::Token client=#<DwollaV2::Client id="..." secret="..." environment=:sandbox> access_token="..." expires_in=3600 scope="...">
 ```

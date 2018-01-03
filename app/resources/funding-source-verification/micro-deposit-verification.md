@@ -45,7 +45,7 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 funding_source_url = 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-retrieved = account_token.get funding_source_url
+retrieved = app_token.get funding_source_url
 retrieved.name # => "Test checking account"
 
 ```
@@ -63,21 +63,21 @@ print($retrieved->name); # => "Test checking account"
 funding_source_url = 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-retrieved = account_token.get(funding_source_url)
+retrieved = app_token.get(funding_source_url)
 retrieved.body['name'] # => 'Test checking account'
 
 ```
 ```javascript
 var fundingSourceUrl = 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
 
-accountToken
+appToken
   .get(fundingSourceUrl)
   .then(function(res) {
     res.body.name; // => "Test checking account"
   });
 ```
 
-### Initiate micro-deposits 
+### Initiate micro-deposits
 Once you POST to the [initiate-micro-deposits](https://docsv2.dwolla.com/#initiate-micro-deposits) link, Dwolla will send two small amounts to your customer's bank or credit union account. If the request is successful, Dwolla returns a `HTTP 201` and a link to the created micro-deposits resource `funding-sources/{id}/micro-deposits` in the location header. The micro-deposits resource can be later used to retrieve the status of micro-deposits or verify micro-deposit amounts. If your application is subscribed to webhooks, a webhook will be sent with the `microdeposits_added` event, notifying your application that micro-deposits are en route to your customer’s bank account.
 
 ```raw
@@ -94,18 +94,18 @@ Location: https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f
 retrieved = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-account_token.post "#{funding_source_url}/micro-deposits"
+app_token.post "#{funding_source_url}/micro-deposits"
 ```
 ```javascript
 var retrieved = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
 
-accountToken.post(`#{retrieved}/micro-deposits`);
+appToken.post(`#{retrieved}/micro-deposits`);
 ```
 ```python
 retrieved = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-account_token.post('%s/micro-deposits' % retrieved)
+app_token.post('%s/micro-deposits' % retrieved)
 
 ```
 ```php
@@ -118,7 +118,7 @@ $micro_deposits = $fsApi->micro_deposits($retrieved);
 ### Verify micro-deposits
 In the Dwolla production environment, you must wait until the micro-deposits actually post to the customer’s bank account before the account can be verified, which can take 1-2 business days. A `microdeposits_completed` event will be triggered once micro-deposits have successfully posted to the bank. Once micro-deposits have completed, a `verify-micro-deposits` link relation will return on the funding source letting your application know the funding source can be verified.
 
-**Note**: In the Sandbox environment, any amount **below** $0.10 will allow you to verify the account immediately. 
+**Note**: In the Sandbox environment, any amount **below** $0.10 will allow you to verify the account immediately.
 
 ```raw
 POST /funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909/micro-deposits
@@ -153,7 +153,7 @@ request_body = {
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-account_token.post "#{funding_source_url}/micro-deposits", request_body
+app_token.post "#{funding_source_url}/micro-deposits", request_body
 
 ```
 ```javascript
@@ -169,7 +169,7 @@ var requestBody = {
   }
 };
 
-accountToken.post(`${fundingSourceUrl}/micro-deposits`, requestBody);
+appToken.post(`${fundingSourceUrl}/micro-deposits`, requestBody);
 ```
 ```python
 funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
@@ -185,7 +185,7 @@ request_body = {
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-account_token.post('%s/micro-deposits' % funding_source_url, request_body)
+app_token.post('%s/micro-deposits' % funding_source_url, request_body)
 ```
 ```php
 <?php

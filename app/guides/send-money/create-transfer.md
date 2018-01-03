@@ -65,7 +65,7 @@ transfer_request = {
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-transfer = account_token.post "transfers", transfer_request
+transfer = app_token.post "transfers", transfer_request
 transfer.response_headers[:location] # => "https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
 ```
 
@@ -89,7 +89,7 @@ var transferRequest = {
   }
 };
 
-accountToken
+appToken
   .post('transfers', transferRequest)
   .then(function(res) {
     res.headers.get('location'); // => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
@@ -117,30 +117,30 @@ transfer_request = {
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-transfer = account_token.post('transfers', transfer_request)
+transfer = app_token.post('transfers', transfer_request)
 transfer.headers['location'] # => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 ```
 
 ```php
 <?php
 $transfer_request = array (
-  '_links' => 
+  '_links' =>
   array (
-    'source' => 
+    'source' =>
     array (
       'href' => 'https://api-sandbox.dwolla.com/funding-sources/5cfcdc41-10f6-4a45-b11d-7ac89893d985',
     ),
-    'destination' => 
+    'destination' =>
     array (
       'href' => 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747',
     ),
   ),
-  'amount' => 
+  'amount' =>
   array (
     'currency' => 'USD',
     'value' => '225.00',
   ),
-  'metadata' => 
+  'metadata' =>
   array (
     'customerId' => '8675309',
     'notes' => 'For work completed on Sept. 1, 2015',
