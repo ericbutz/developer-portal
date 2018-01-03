@@ -1,12 +1,12 @@
 ---
 layout: twoColumn
 section: guides
-guide: 
+guide:
     name: receive-money
     step: 1b
 type: archive
 title:  "Step 1: Transfer onboarding"
-description: Use Dwolla's Transfer API to receive bank transfers from customers. 
+description: Use Dwolla's Transfer API to receive bank transfers from customers.
 ---
 
 # Step 1: Create a Dwolla Direct account for the payer
@@ -128,7 +128,7 @@ $fundingSources->_embedded->{'funding-sources'}[0]->name); # => "Joe Buyer - Che
 account_url = 'https://api.dwolla.com/accounts/ca32853c-48fa-40be-ae75-77b37504581b'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-funding_sources = account_token.get('%s/funding-sources' % account_url)
+funding_sources = app_token.get('%s/funding-sources' % account_url)
 funding_sources.body['_embedded']['funding-sources'][0]['name'] # => 'Joe Buyer - Checking 1234'
 ```
 ```javascript
@@ -246,18 +246,18 @@ transfer.headers['location'] # => 'https://api-sandbox.dwolla.com/transfers/d762
 ```php
 <?php
 $transfer_request = array (
-  '_links' => 
+  '_links' =>
   array (
-    'source' => 
+    'source' =>
     array (
       'href' => 'https://api-sandbox.dwolla.com/funding-sources/04173e17-6398-4d36-a167-9d98c4b1f1c3',
     ),
-    'destination' => 
+    'destination' =>
     array (
       'href' => 'https://api-sandbox.dwolla.com/accounts/ab443d36-3757-44c1-a1b4-29727fb3111c',
     ),
   ),
-  'amount' => 
+  'amount' =>
   array (
     'currency' => 'USD',
     'value' => '225.00',

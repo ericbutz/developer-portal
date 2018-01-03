@@ -2,7 +2,7 @@
 layout: twoColumn
 section: guides
 type: guide
-guide: 
+guide:
     name: transfer-money-between-users
     step: overview
 title:  Transfer money between Customers in your application
@@ -11,20 +11,20 @@ description: Send money online between customers by utilizing our open bank tran
 
 # Overview: Transfer money between your users
 
-The most common scenario for this guide is to facilitate marketplace or peer-to-peer transfers between your customers. This guide only outlines the steps involved using the Dwolla API.
+The most common scenario for this guide is to facilitate marketplace or peer-to-peer transfers between your customers.
 
 In this guide, we’ll cover the key points of transferring money:
 
  - Create a `Verified Customer` who will receive the transfer
  - Create an `Unverified Customer` who will send the transfer
- - Associate a verified funding source (bank or credit union account) with the  sender
- - Associate an unverified funding source (bank or credit union account) with  recipient
- - Transfer funds from the sender’s funding source to the recipient’s funding  source
+ - Associate a verified funding source (bank or credit union account) with the sender
+ - Associate an unverified funding source (bank or credit union account) with recipient
+ - Transfer funds from the sender’s funding source to the recipient’s funding source
 
 
 ### Before you begin
 
-You need to have a [Sandbox account](/guides/sandbox-setup) already set up. 
+You need to have a [Sandbox account](/guides/sandbox-setup) already set up.
 
 ### Verified and Unverified Customers
 Here are some rules to keep in mind:

@@ -19,7 +19,7 @@ description: "Programmatically send bank transfers with our developer API."
     </a>
     <a href="/guides/transfer-money-between-users" class="icon-guides-transfer-small grid-nav__item">
         <h3>Transfer money betwen users</h3>
-        <p>Facilitate ACH transfers between two distinct parties, e.g. for marketplace applications that connect buyers with sellers for bank to bank payments. Features Access API integration.</p>
+        <p>Facilitate ACH transfers between two distinct parties, e.g. for marketplace applications that connect buyers with sellers for bank to bank payments.</p>
     </a>
     <a href="/guides/auth" class="icon-guides-oauth-small grid-nav__item">
         <h3>Authorization</h3>
@@ -28,9 +28,5 @@ description: "Programmatically send bank transfers with our developer API."
     <a href="/guides/webhooks" class="icon-guides-web-hooks-small grid-nav__item">
       <h3>Webhooks</h3>
       <p>Implement simple, real-time, event notifications regarding account and transaction status, and more.</p>
-    </a>
-    <a href="/guides/migrate-to-v2" class="icon-guides-v1-to-v2-small grid-nav__item">
-        <h3>Migrate to the Dwolla v2 API</h3>
-        <p>Underlying principles of migrating from the v1 API.</p>
     </a>
 </nav>

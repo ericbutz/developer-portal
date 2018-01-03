@@ -2,11 +2,11 @@
 layout: twoColumn
 section: guides
 type: guide
-guide: 
+guide:
     name: sandbox-setup
     step: overview
 title:  Get started with integrating bank transfers into your application
-description: Test programmatic bank transfers with Dwolla's bank transfer API in our developer sandbox. 
+description: Test programmatic bank transfers with Dwolla's bank transfer API in our developer sandbox.
 ---
 
 # Getting started in Sandbox
@@ -19,11 +19,11 @@ The Sandbox environment is a complete replica of the Dwolla production environme
 
 - The Sandbox contains only test data and is completely separate from your production account
 - Actual money is not sent or received as part of test transactions. Real financial data should never be used in the Sandbox
-- All Dwolla API endpoints have a base URL of `https://api-sandbox.dwolla.com/` instead of `https://api.dwolla.com/`
+- All API endpoints have a base URL of `https://api-sandbox.dwolla.com/` instead of `https://api.dwolla.com/`
 
 #### Transfer behavior in the Sandbox
 
-Unlike balance sourced transfers, which are processed instantaneously, bank-sourced transfers exist in the pending state for a few business days until they are `processed`, `failed`, `cancelled`, or `reclaimed`.
+Unlike balance sourced transfers, which are processed instantaneously, bank-sourced transfers exist in the pending state for a few business days until they are `processed`, `failed`, or `cancelled`.
 
 The Sandbox environment does not replicate any ACH processes, so a `pending` transfer will not clear or fail automatically after a few business days as it would in production. It will simply remain in the `pending` state indefinitely. Reference our [testing resource article](/resources/testing.html) for more information on how-to simulate bank transfer processing in the Sandbox environment.
 

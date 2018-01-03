@@ -78,14 +78,14 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 account_url = 'https://api.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-funding_sources = account_token.get "#{account_url}/funding-sources"
+funding_sources = app_token.get "#{account_url}/funding-sources"
 funding_sources._embedded['funding-sources'][0].name # => "ABC Bank Checking"
 ```
 
 ```javascript
 var accountUrl = 'https://api-sandbox.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1';
 
-accountToken
+appToken
   .get(`${accountUrl}/funding-sources`)
   .then(function(res) {
     res.body._embedded['funding-sources'][0].name; // => 'ABC Bank Checking'
@@ -96,7 +96,7 @@ accountToken
 account_url = 'https://api.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-funding_sources = account_token.get('%s/funding-sources' % account_url)
+funding_sources = app_token.get('%s/funding-sources' % account_url)
 funding_sources.body['_embedded']['funding-sources'][0]['name'] # => 'ABC Bank Checking'
 
 ```

@@ -8,11 +8,11 @@ guide:
 title:  "Step 1: Customer onboarding"
 description: Leverage Dwolla's ach payment API to receive money via bank transfer.
 ---
-# Step 1: Customer onboarding
+# Step 1: Create a Customer and transfer
 
 ### Step A: Obtain an application access token
 
-Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an application access token. An application access token can then be used to make calls to the Dwolla API on behalf of your application for Access API related endpoints.
+Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an application access token. An application access token can then be used to make calls to the Dwolla API on behalf of your application.
 
 ### Step B: Create a Customer
 
@@ -44,7 +44,7 @@ request_body = {
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-new_customer = account_token.post "customers", request_body
+new_customer = app_token.post "customers", request_body
 new_customer.response_headers[:location] # => "https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c"
 
 ```
@@ -57,7 +57,7 @@ var requestBody = {
   ipAddress: '99.99.99.99'
 };
 
-accountToken
+appToken
   .post('customers', requestBody)
   .then(function(res) {
     res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
@@ -73,7 +73,7 @@ request_body = {
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-new_customer = account_token.post('customers', request_body)
+new_customer = app_token.post('customers', request_body)
 new_customer.headers['location'] # => 'https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
 
 ```
@@ -144,7 +144,7 @@ HTTP/1.1 200 OK
 customer_url = 'https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-customer = account_token.post "#{customer_url}/iav-token"
+customer = app_token.post "#{customer_url}/iav-token"
 customer.token # => "lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL"
 ```
 
@@ -152,7 +152,7 @@ customer.token # => "lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL"
 // Using dwolla-v2 - https://github.com/Dwolla/dwolla-v2-node
 var customerUrl = 'https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c';
 
-accountToken
+appToken
   .post(`${customerUrl}/iav-token`)
   .then(function(res) {
     res.body.token; // => 'lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL'
@@ -163,7 +163,7 @@ accountToken
 customer_url = 'http://api.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-customer = account_token.post('%s/iav-token' % customer_url)
+customer = app_token.post('%s/iav-token' % customer_url)
 customer.body['token'] # => 'lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL'
 ```
 
@@ -271,7 +271,7 @@ request_body = {
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-transfer = account_token.post "transfers", request_body
+transfer = app_token.post "transfers", request_body
 transfer.response_headers[:location] # => "https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
 ```
 
@@ -295,7 +295,7 @@ var requestBody = {
   }
 };
 
-accountToken
+appToken
   .post('transfers', requestBody)
   .then(function(res) {
     res.headers.get('location'); // => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
@@ -323,7 +323,7 @@ request_body = {
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-transfer = account_token.post('transfers', request_body)
+transfer = app_token.post('transfers', request_body)
 transfer.headers['location'] # => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 ```
 
