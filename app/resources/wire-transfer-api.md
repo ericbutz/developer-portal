@@ -1,19 +1,19 @@
 ---
 layout: twoColumn
 section: resources
-type: access-api-article
+type: article
 title:  "Wire transfer API"
 description: "A walkthrough of sending wire transfers through the Dwolla API."
 ---
 
 # Overview
-Wire transfers continue to be a staple functionality in the world of B2B and B2C commerce, so we’ve made the ability to wire funds out of the Dwolla platform available to Access API partners. In some instances, wire transfers may prove beneficial to Access API partners over standard ACH; for example, they provide the ability to move large transactions out of the Dwolla platform at a faster speed. In this article we'll cover how to wire out funds to a bank from the Dwolla platform.
+Wire transfers continue to be a staple functionality in the world of B2B and B2C commerce, so we’ve made the ability to wire funds out of the Dwolla platform available to Dwolla API partners. In some instances, wire transfers may prove beneficial to Dwolla API partners over standard ACH; for example, they provide the ability to move large transactions out of the Dwolla platform at a faster speed. In this article we'll cover how to wire out funds to a bank from the Dwolla platform.
 
 A few key items to note are:
 
 *  Funds are available the **same business day**, rather than days later.
 *  Wire transfers are more expensive than ACH transfers to send and receive.
-*  A wire transfer can only be facilitated out of the Dwolla platform to a bank for an Access API partner Dwolla Account or its [Verified Customers](/resources/account-types/access-api-accounts.html).
+*  A wire transfer can only be facilitated out of the Dwolla platform to a bank for a Dwolla API partner account or its [Verified Customers](/resources/account-types.html).
 *  Funds can only be wired to customers with domestic (U.S.) bank accounts.
 
 #### Wire transfer processing times and events
@@ -88,7 +88,7 @@ appToken
 
 
 ### Initiating a wire transfer
-When initiating the wire transfer out of the Dwolla platform we'll need to specify the *source* as our `balance` and the *destination* as the `wire` funding source we created in the previous step. 
+When initiating the wire transfer out of the Dwolla platform we'll need to specify the *source* as our `balance` and the *destination* as the `wire` funding source we created in the previous step.
 
 In order to obtain the Customer's `balance` funding source, you'll need to fetch the [list of funding sources](https://docsv2.dwolla.com/#list-funding-sources-for-a-customer) for the Customer. The balance funding source should be made available when the Customer has a status of `verified`.
 

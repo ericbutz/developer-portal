@@ -7,17 +7,16 @@ description: "Keep track of changes to the Dwolla API and official SDKs."
 ---
 
 <section class="change-log">
-	<h1>Upcoming</h1>
+	<h1>Completed</h1>
 	<h3>2017-06-29</h3>
 	<h4><em>CHANGED/DEPRECATED</em></h4>
 	<ul class="bullet">
 	    <li>Changing "uat” in the subdomain of public facing and API URLs with “sandbox”. Reference <a href="https://www.dwolla.com/updates/important-sandbox-updates-subdomain-change-and-sunsetting-of-the-sandbox-console/">this blog post</a> for more information. </li>
 	</ul>
-	<h1>Completed</h1>
 	<h3>2016-05-02</h3>
 	<h4><em>ADDED</em></h4>
 	<ul class="bullet">
-	    <li>Release support for a new (optional) <code>backButton</code> and <code>subscriber</code> options for IAV within <a href="https://developers.dwolla.com/resources/dwolla-js/instant-account-verification.html">dwolla.js</a>. <b>Note:</b> Dwolla.js is a premium feature only available for Dwolla <a href="https://www.dwolla.com/access-api">Access API</a> partners.</li>
+	    <li>Release support for a new (optional) <code>backButton</code> and <code>subscriber</code> options for IAV within <a href="https://developers.dwolla.com/resources/dwolla-js/instant-account-verification.html">dwolla.js</a>. <b>Note:</b> Dwolla.js is a premium feature only available for Dwolla <a href="https://www.dwolla.com/platform">API</a> partners.</li>
 	</ul>
 	<h3>2017-04-27</h3>
 	<h4><em>DEPRECATED</em></h4>
@@ -27,7 +26,7 @@ description: "Keep track of changes to the Dwolla API and official SDKs."
 	<h3>2016-12-01</h3>
 	<h4><em>ADDED</em></h4>
 	<ul class="bullet">
-	    <li>Release support for a new <code>clearing</code> request parameter when <a href="https://docsv2.dwolla.com/#initiate-a-transfer">initiating a transfer</a>. Clearing is a JSON object that supports specifying same-day and standard ACH clearing per API request. <b>Note:</b> The clearing request parameter is a premium feature available for Dwolla <a href="https://www.dwolla.com/access-api">Access API</a> partners.</li>
+	    <li>Release support for a new <code>clearing</code> request parameter when <a href="https://docsv2.dwolla.com/#initiate-a-transfer">initiating a transfer</a>. Clearing is a JSON object that supports specifying same-day and standard ACH clearing per API request. <b>Note:</b> The clearing request parameter is a premium feature available for Dwolla <a href="https://www.dwolla.com/platform">API</a> partners.</li>
 	</ul>
 	<h3>2016-12-01</h3>
 	<h4><em>DEPRECATED</em></h4>
@@ -63,10 +62,10 @@ description: "Keep track of changes to the Dwolla API and official SDKs."
 	<h3>2016-06-01</h3>
 	<h4><em>CHANGED/DEPRECATED</em></h4>
 	<ul class="bullet">
-	    <li>Change in functionality for removing a funding source in API v2. The method for <a href="https://docsv2.dwolla.com/#remove-a-funding-source">removing a funding source</a> 
+	    <li>Change in functionality for removing a funding source in API v2. The method for <a href="https://docsv2.dwolla.com/#remove-a-funding-source">removing a funding source</a>
 	    changes from a <code>DELETE</code> to a <code>POST</code> with the need to supply <code>{ "removed": true }</code> in the body of the request.</li>
 	    <li>A <code>removed</code> attribute is added to the <a href="https://docsv2.dwolla.com/#funding-source-resource">funding source object.</a></li>
-	    <li>A <code>removed</code> querystring request parameter is supplied when listing an <a href="https://docsv2.dwolla.com/#list-funding-sources-for-an-account">Account</a> or <a href="https://docsv2.dwolla.com/#list-funding-sources-for-a-customer">Customer's</a> funding sources. By default, all funding sources are returned from the listing unless the <code>removed</code> request parameter 
+	    <li>A <code>removed</code> querystring request parameter is supplied when listing an <a href="https://docsv2.dwolla.com/#list-funding-sources-for-an-account">Account</a> or <a href="https://docsv2.dwolla.com/#list-funding-sources-for-a-customer">Customer's</a> funding sources. By default, all funding sources are returned from the listing unless the <code>removed</code> request parameter
 	   	is set to <code>false</code>.
 	</ul>
 	<h3>2016-02-29</h3>

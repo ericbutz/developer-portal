@@ -1,14 +1,14 @@
 ---
 layout: twoColumn
 section: resources
-type: access-api-article
+type: article
 title:  "Dwolla.js"
 description: "Quickly integrate instant bank verification for developers using the Dwolla ACH API."
 ---
 
 # Dwolla.js
 
-Dwolla.js is a client-side JavaScript library with the primary function of securely transmitting sensitive data (bank account and routing number) from your application's front-end to Dwolla without the data passing through your server. When you attach a bank account to a Dwolla Account or Access API Customer, use dwolla.js and let Dwolla reduce your risk of handling sensitive data. Additionally, Dwolla.js includes an added function available to Access API partners providing the ability to render the instant bank account verification flow within a specified container on the partner's application. However you're using dwolla.js, both server-side and client-side interaction is required.
+Dwolla.js is a client-side JavaScript library with the primary function of securely transmitting sensitive data (bank account and routing number) from your application's front-end to Dwolla without the data passing through your server. When you attach a bank account to a Customer, use dwolla.js and let Dwolla reduce your risk of handling sensitive data. Additionally, Dwolla.js includes an added function available to Dwolla API partners providing the ability to render the instant bank account verification flow within a specified container on the partner's application. However you're using dwolla.js, both server-side and client-side interaction is required.
 
 ### Getting Started: Usage and configuration
 
@@ -22,7 +22,7 @@ Begin the client-side implementation by including dwolla.js in the HEAD of your 
 ```
 
 #### Configure
-Configuration options are available for utilizing dwolla.js in both our Sandbox and production environments. Configuration of an environment should take place after you have included the dwolla.js library. 
+Configuration options are available for utilizing dwolla.js in both our Sandbox and production environments. Configuration of an environment should take place after you have included the dwolla.js library.
 
 ```javascriptnoselect
 // Sandbox
