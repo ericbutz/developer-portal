@@ -1,14 +1,14 @@
 ---
 layout: twoColumn
 section: resources
-type: access-api-article
+type: article
 title:  "Customer verification"
 description: "How to verify a customer before sending a bank transfer with Dwolla's ACH API."
 ---
 
 # Customer Verification
 
-This article will walk through the identity verification process for verified Customers within the Access API. For more information on going live with the Access API, please [contact sales](https://www.dwolla.com/contact).
+This article will walk through the identity verification process for verified Customers within the Dwolla API. For more information on going live with the Dwolla API, please [contact sales](https://www.dwolla.com/contact).
 
 A `Customer` represents an individual or business that intends to send or receive funds on your platform. In any transaction at least one party—either the sender or the recipient—must complete the [identity verification](https://www.dwolla.com/updates/guide-to-cip-customer-identification-program-dwolla-payments-api/) process as outlined in this article. In cases where a Customer is only sending funds to or receiving funds from your full Dwolla account, the Customer is not required to complete the process set out below.
 

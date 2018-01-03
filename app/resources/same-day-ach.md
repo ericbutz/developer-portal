@@ -1,13 +1,13 @@
 ---
 layout: twoColumn
 section: resources
-type: access-api-article
+type: article
 title:  "Same Day ACH"
 description: "A walkthrough of Same Day ACH and leveraging 'next available' processing times for faster transfers."
 ---
 
 # Overview
-Dwolla enables Access API partners to take advantage of Same Day ACH credit transfers on a [per transfer request](https://docsv2.dwolla.com/#initiate-a-transfer) basis. A `clearing` request parameter is supplied in the request to the Dwolla API which tells Dwolla to expedite clearing for the destination account involved in the transaction. Same Day ACH currently only supports credits, however NACHA (the "managers" of the ACH network) is expected to rollout Same Day debits in late 2017. Same-day ACH is a simple and powerful feature for platforms looking to more to differentiate themselves, streamline cash flows, and improve their end-user experiences.
+Dwolla enables API partners to take advantage of Same Day ACH credit transfers on a [per transfer request](https://docsv2.dwolla.com/#initiate-a-transfer) basis. A `clearing` request parameter is supplied in the request to the Dwolla API which tells Dwolla to expedite clearing for the destination account involved in the transaction. Same Day ACH currently only supports credits, however NACHA (the "managers" of the ACH network) is expected to rollout Same Day debits in late 2017. Same-day ACH is a simple and powerful feature for platforms looking to more to differentiate themselves, streamline cash flows, and improve their end-user experiences.
 
 A few key differences between Standard ACH and Same Day ACH are:
 
@@ -26,12 +26,12 @@ Your application can initiate a transfer from a Dwolla balance prior to 12:00PM 
 *&ast;This time is the latest observed clearing to customer accounts, but the Fed only requires funds to be available by the end of the day.*
 
 ### Creating a Customer and attaching a bank account
-Before you can initiate a transfer using same day clearing, you must first have a [Customer created](https://docsv2.dwolla.com/#create-a-customer) and a [funding source](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer) attached for the user receiving the Same Day ACH credit. 
+Before you can initiate a transfer using same day clearing, you must first have a [Customer created](https://docsv2.dwolla.com/#create-a-customer) and a [funding source](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer) attached for the user receiving the Same Day ACH credit.
 
 Once your customer has connected a bank account, you'll then want to store the funding source id (e.g. `https://api-sandbox.dwolla.com/funding-sources/ecf993e2-fa22-4cea-8022-c7861200288f`) which will be used when specifying the bank account as the destination href in the request to the [Transfers API](https://docsv2.dwolla.com/#initiate-a-transfer).
 
 ### Initiating a Same Day ACH credit transfer
-In order to initiate a transfer with Same Day processing, an optional `clearing` JSON object must be included in the transfer request. The clearing object contains `source` and `destination` keys with respective values of `standard` or `next-available`. 
+In order to initiate a transfer with Same Day processing, an optional `clearing` JSON object must be included in the transfer request. The clearing object contains `source` and `destination` keys with respective values of `standard` or `next-available`.
 
 Specifying the destination clearing as `next-available` will allow requests to default to the earliest available processing window based on the time submitted. In addition, transfers greater than $25,000 will default to a processing window permitting larger amounts.
 
@@ -179,7 +179,7 @@ appToken
 
 
 ### Retrieving a transfer with Same Day clearing
-When retrieving the [transfer from the API](https://docsv2.dwolla.com/#retrieve-a-transfer), the response should contain the clearing object with a `destination` key and a value of either `same-day` or `next-day` depending on if the transfer was initiated prior to the last same day processing window and the transfer amount is less than $25,000 (as mentioned above). 
+When retrieving the [transfer from the API](https://docsv2.dwolla.com/#retrieve-a-transfer), the response should contain the clearing object with a `destination` key and a value of either `same-day` or `next-day` depending on if the transfer was initiated prior to the last same day processing window and the transfer amount is less than $25,000 (as mentioned above).
 
 ```raw
 GET https://api-sandbox.dwolla.com/transfers/636de847-7d02-e711-80ee-0aa34a9b2388

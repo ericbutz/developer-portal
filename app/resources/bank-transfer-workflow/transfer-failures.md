@@ -27,7 +27,7 @@ When a bank transfer failure occurs there are a subset of systematic actions Dwo
 
 ### Retrieving the reason for a failed bank transfer
 
-When a bank transfer fails its status will be updated to `failed`. If your application is subscribed to webhooks, you’ll receive either the `transfer_failed` event if the transfer belongs to a Dwolla account or the `customer_transfer_failed`/`customer_bank_transfer_failed`(*Verified Customer only*) event if the transfer belongs to an Access API Customer. The event contains a links to the associated account as well as the transfer resource. To obtain more information on the transfer failure, you’ll first retrieve the transfer by its ID. The response from the API when retrieving the transfer should contain a `"failure"` link that your application will follow to [retrieve the transfer failure reason](https://docsv2.dwolla.com/#retrieve-a-transfer-failure-reason). Upon success, the response will contain information on the ACH return code and description, as well as `_links` to the Funding Source and Customer that triggered the bank transfer failure.
+When a bank transfer fails its status will be updated to `failed`. If your application is subscribed to webhooks, you’ll receive either the `transfer_failed` event if the transfer belongs to a Dwolla account or the `customer_transfer_failed`/`customer_bank_transfer_failed`(*Verified Customer only*) event if the transfer belongs to an API Customer. The event contains a links to the associated account as well as the transfer resource. To obtain more information on the transfer failure, you’ll first retrieve the transfer by its ID. The response from the API when retrieving the transfer should contain a `"failure"` link that your application will follow to [retrieve the transfer failure reason](https://docsv2.dwolla.com/#retrieve-a-transfer-failure-reason). Upon success, the response will contain information on the ACH return code and description, as well as `_links` to the Funding Source and Customer that triggered the bank transfer failure.
 
 #### Request and response (view schema in 'raw')
 ```raw
@@ -62,7 +62,6 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 transfer_url = 'https://api-sandbox.dwolla.com/transfers/8997ebed-69be-e611-80ea-0aa34a9b2388'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby
-# For Access API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
 failure = app_token.get "#{transfer_url}/failure"
 failure.code # => "R1"
 ```
@@ -80,14 +79,12 @@ print($failureReason->code); # => "R01"
 transfer_url = 'https://api-sandbox.dwolla.com/transfers/8997ebed-69be-e611-80ea-0aa34a9b2388'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-# For Access API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
 failure = app_token.get('%s/failure' % transfer_url)
 failure.body['code'] # => 'R1'
 ```
 ```javascript
 var transferUrl = 'https://api-sandbox.dwolla.com/transfers/8997ebed-69be-e611-80ea-0aa34a9b2388';
 
-// For Access API applications, an appToken can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
 appToken
   .get(`${transferUrl}/failure`)
   .then(res => res.body.code); // => 'R1'

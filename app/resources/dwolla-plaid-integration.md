@@ -1,33 +1,33 @@
 ---
 layout: twoColumn
 section: resources
-type: access-api-article
+type: article
 title:  "Dwolla + Plaid Integration"
 description: "Leverage Plaid’s bank verification with Dwolla’s ACH API for secure account ownership validation."
 ---
 
 # Dwolla + Plaid Integration
 
-Dwolla and Plaid are collaborating to offer [Access API Partners](https://www.dwolla.com/products/access-api) a solution that enables customers to quickly and securely verify bank account ownership. 
+Dwolla and Plaid are collaborating to offer [Dwolla API Partners](https://www.dwolla.com/platform) a solution that enables customers to quickly and securely verify bank account ownership.
 
-Using [Plaid Link](https://blog.plaid.com/plaid-link/), your customers will authenticate information with their financial institution through Plaid, and select the bank or credit union account they wish to use for initiating bank transfers. Behind the scenes, you’ll receive a unique token from Plaid that will be used to [create a funding source for a Customer](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer) via the Dwolla Access API. The Dwolla and Plaid partnership offers an elegantly designed and secure way for our joint customers to verify account ownership with access tokens, removing sensitive financial information from the transaction stream.
+Using [Plaid Link](https://blog.plaid.com/plaid-link/), your customers will authenticate information with their financial institution through Plaid, and select the bank or credit union account they wish to use for initiating bank transfers. Behind the scenes, you’ll receive a unique token from Plaid that will be used to [create a funding source for a Customer](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer) via the Dwolla API. The Dwolla and Plaid partnership offers an elegantly designed and secure way for our joint customers to verify account ownership with access tokens, removing sensitive financial information from the transaction stream.
 
-In this article we’ll cover the steps involved with obtaining a plaidToken, which will be sent to the Dwolla API in exchange for a funding source URL, used to identify a bank for an Access API Customer. To test the integration in the Sandbox, you’ll use your Plaid [Sandbox Credentials](https://plaid.com/docs/api#sandbox) along with your Dwolla [Sandbox Credentials](https://developers.dwolla.com/guides/sandbox-setup/).
+In this article we’ll cover the steps involved with obtaining a plaidToken, which will be sent to the Dwolla API in exchange for a funding source URL, used to identify a bank for a Dwolla API Customer. To test the integration in the Sandbox, you’ll use your Plaid [Sandbox Credentials](https://plaid.com/docs/api#sandbox) along with your Dwolla [Sandbox Credentials](https://developers.dwolla.com/guides/sandbox-setup/).
 
 ### Quick overview
 
 * Register for a Plaid account and integrate with Plaid Link
-* Create a funding source for an Access API Customer using a `plaidToken`
-* Obtain and store a unique funding source URL that belongs to the Access API Customer
+* Create a funding source for an Dwolla API Customer using a `plaidToken`
+* Obtain and store a unique funding source URL that belongs to the Dwolla API Customer
 
 ![Screenshot of Dwolla and Plaid Integration](/images/dwolla-plaid-flow.png "Dwolla and Plaid Integration")
 
 ## Using Plaid + Dwolla
 
 ### Step 1 - Set up an account and integrate with Plaid Link
-To get started, verify that your Plaid account is enabled for the Dwolla integration. Your account will be automatically enabled for Plaid's Sandbox and Development environments once you’ve created an account. Once your Plaid account is setup, add Plaid Link to your site. 
+To get started, verify that your Plaid account is enabled for the Dwolla integration. Your account will be automatically enabled for Plaid's Sandbox and Development environments once you’ve created an account. Once your Plaid account is setup, add Plaid Link to your site.
 
-A high-level overview of Plaid Link can be referenced below, however reference the [Plaid documentation](https://plaid.com/docs/link/dwolla/) for more information on integrating with Plaid Link. 
+A high-level overview of Plaid Link can be referenced below, however reference the [Plaid documentation](https://plaid.com/docs/link/dwolla/) for more information on integrating with Plaid Link.
 
 #### Plaid Link
 Plaid Link is handled completely on the client-side using JavaScript. Set up Link using only a few lines of Javascript, and then specify callbacks to handle the `public_token` after the user has authenticated and created an Item.
@@ -38,7 +38,7 @@ This  public token, along with the account id must be exchanged for a Plaid `acc
 
 ### Step 2 - Create a funding source for a Customer using a plaidToken
 
-This step assumes you’ve [created an Access API Customer](https://docsv2.dwolla.com/#create-a-customer) for the user that you’ve authenticated or will authenticate with Plaid. Using the processor_token obtained from the previous step, you’ll pass this in as the value of the `plaidToken` request parameter; along with a funding source `name` in the request to [create a funding source for a Customer](https://docsv2.dwolla.com/#new-funding-source-for-a-customer). 
+This step assumes you’ve [created a Customer](https://docsv2.dwolla.com/#create-a-customer) for the user that you’ve authenticated or will authenticate with Plaid. Using the processor_token obtained from the previous step, you’ll pass this in as the value of the `plaidToken` request parameter; along with a funding source `name` in the request to [create a funding source for a Customer](https://docsv2.dwolla.com/#new-funding-source-for-a-customer).
 
 ##### Request and response (view schema in 'raw')
 ```raw
@@ -54,7 +54,7 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 
 ...
 
-HTTP/1.1 201 Created 
+HTTP/1.1 201 Created
 Location: https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31
 ```
 ```ruby
@@ -97,5 +97,5 @@ appToken
 
 ```
 
-### Step 3 - Obtain a funding source URL that belongs to the Access API Customer
-Once you’ve received a successful response from the Access API, you’ll use the unique funding source URL to identify the customer’s bank when initiating ACH transfers. 
+### Step 3 - Obtain a funding source URL that belongs to the Customer
+Once you’ve received a successful response from the API, you’ll use the unique funding source URL to identify the customer’s bank when initiating ACH transfers.
