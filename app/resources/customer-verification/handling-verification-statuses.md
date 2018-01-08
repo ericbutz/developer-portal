@@ -375,5 +375,6 @@ If the Customer is `suspended`, there’s no further action you can take to corr
 ***
 
 View
+
 * [Personal verified Customers](/resources/customer-verification/personal-verified-customers.html) creation and verification.
 * [Business verified Customer](/resources/customer-verification/business-verified-customers.html) creation and verification.
