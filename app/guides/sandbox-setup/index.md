@@ -19,7 +19,7 @@ The Sandbox environment is a complete replica of the Dwolla production environme
 
 - The Sandbox contains only test data and is completely separate from your production account.
 - All API endpoints have a base URL of `https://api-sandbox.dwolla.com/` instead of `https://api.dwolla.com/`
-- Actual money is not sent or received as part of test transactions. 
+- Actual money is not sent or received as part of test transactions.
 
 <ol class = "alerts">
     <li class="alert icon-alert-info">
@@ -51,14 +51,14 @@ Once you have a valid Sandbox account, you can start making calls to the API. To
     <a href="/guides/send-money" class="icon-guides-send-small grid-nav__item">
         <h3>Send money to your users</h3>
         <p><strong>Funds flows</strong></p>
-        <p>-  Pay-ins</p>
-        <p>-  Facilitator pay-ins</p>
+        <p>-  Pay-outs</p>
+        <p>-  Facilitator pay-outs</p>
     </a>
     <a href="/guides/receive-money" class="icon-guides-receive-small grid-nav__item">
         <h3>Receive money from your users</h3>
         <p><strong>Funds flows</strong></p>
-        <p>-  Pay-outs</p>
-        <p>-  Facilitator pay-outs</p>
+        <p>-  Pay-ins</p>
+        <p>-  Facilitator pay-ins</p>
     </a>
     <a href="/guides/transfer-money-between-users" class="icon-guides-transfer-small grid-nav__item">
         <h3>Transfer money betwen users</h3>
