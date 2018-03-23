@@ -127,8 +127,9 @@ customer.body.id # => '132681fa-1b4d-4181-8ff2-619ca46235b1'
 ```php
 <?php
 $customersApi = DwollaSwagger\CustomersApi($apiClient);
+$customerUrl = 'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1'
 
-$retryCustomer = $customersApi->create(array (
+$retryCustomer = $customersApi->updateCustomer(array (
   'firstName' => 'John',
   'lastName' => 'Doe',
   'email' => 'johndoe@nomail.net',
@@ -141,7 +142,7 @@ $retryCustomer = $customersApi->create(array (
   'postalCode' => '11385',
   'dateOfBirth' => '1990-07-11',
   'ssn' => '202-99-1516',
-));
+),$customerUrl);
 
 print($retryCustomer); # => 132681fa-1b4d-4181-8ff2-619ca46235b1
 ?>
@@ -161,11 +162,18 @@ A scanned photo of the Customer's identifying document can be specified as docum
 
 ##### Businesses
 
-Documents that are used to help identify a business are specified as documentType `other`. Business Identifying documents can include the following:
+Documents that are used to help identify a business are specified as documentType `other`. Business Identifying documents we recommend uploading can include the following:
 
-* Partnership, General Partnership: EIN Letter (IRS-issued SS4 confirmation letter).
-* Limited Liability Corporation (LLC), Corporation: EIN Letter (IRS-issued SS4 confirmation letter).
-* Sole Proprietorship: One or more of the following, as applicable to your sole proprietorship: Fictitious Business Name Statement; EIN documentation (IRS-issued SS4 confirmation letter); Color copy of a valid government-issued photo ID (e.g., a driver’s license, passport, or state ID card).
+* **Partnership, General Partnership**: EIN Letter (IRS-issued SS4 confirmation letter).
+* **Limited Liability Corporation (LLC), Corporation**: EIN Letter (IRS-issued SS4 confirmation letter).
+* **Sole Proprietorship**: One or more of the following, as applicable to your sole proprietorship: Fictitious Business Name Statement; Certificate of Assumed Name; Business License; Sales/Use Tax License; Registration of Trade Name; EIN documentation (IRS-issued SS4 confirmation letter); Color copy of a valid government-issued photo ID (e.g., a driver’s license, passport, or state ID card).
+
+Other business documents that are applicable includes any US government entity (federal, state, local) issued business formation or licensing exhibiting the name of the business enrolling with Dwolla, or; Any business formation documents exhibiting the name of the business entity in addition to being filed and stamped by a US government entity. Examples include:
+
+* Filed and stamped Articles of Organization or Incorporation
+* Sales/Use Tax License
+* Business License
+* Certificate of Good Standing
 
 ### Determining verification documents needed
 

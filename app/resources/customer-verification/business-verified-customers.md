@@ -146,7 +146,7 @@ customer.headers['location'] # => 'https://api-sandbox.dwolla.com/customers/62c3
 <?php
 $customersApi = new DwollaSwagger\CustomersApi($apiClient);
 
-$new_customer = $customersApi->create([
+$new_customer = $customersApi->update([
   'firstName' => 'Jane',
   'lastName' => 'Merchant',
   'email' => 'janeMerchant@email.com',
@@ -161,7 +161,7 @@ $new_customer = $customersApi->create([
   'businessType' => 'llc',
   'businessName' => 'Jane Corp',
   'ein' => '12-3456789'
-]);
+], $customerUrl);
 
 print($new_customer); # => https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
 ?>
