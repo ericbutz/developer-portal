@@ -18,16 +18,32 @@ There are several reasons bank transfers can fail, a few of which are outlined b
 - **Customer Advises Not Authorized (R10):** The owner of a bank account has told their bank that this transfer was unauthorized.
 
 ### What occurs in the Dwolla system when a bank transfer fails?
-When a bank transfer failure occurs there are a subset of systematic actions Dwolla may take on the `Customer` and/or `Funding Source` based on the ACH return code. It is recommended to have an active [webhook subscription](https://docsv2.dwolla.com/#create-a-webhook-subscription), which is used to listen for events relating to any Customer or Funding Source state change. Please refer to the table below to understand the systematic actions that Dwolla may take for Customer and Funding Source resources, as well as the events that are created.
 
-| Customer action | Funding Source action |
-|-----------------|-----------------------|
-| &#8226; **none** <br/> &#8226; **deactivated** - `customer_deactivated` | &#8226; **none** <br/> &#8226; **unverified** - `customer_funding_source_unverified` <br/> &#8226; **removed** - `customer_funding_source_removed` <br/> &#8226; **unverified** - `customer_funding_source_unverified` and **removed** - `customer_funding_source_removed` |
+When a bank transfer failure occurs there is a subset of systematic actions Dwolla may take on the Customer and/or the funding source based on the ACH return code. It is recommended to have an active [webhook subscription](https://docsv2.dwolla.com/#create-a-webhook-subscription), which is used to listen for events relating to any Customer or funding source state change. Please refer to the table below to understand the systematic actions that Dwolla may take for Customer and funding source resources, as well as the events that are created.
+
+### Why does Dwolla automatically take these actions?
+
+Being able to catch and take action errors can be beneficial on many levels. For instance, if your Customer initiates a transaction which fails with an R10 (Customer Advises Not Authorized) return code, Dwolla will automatically put the suspected Customer in a `deactivated` status, thereby not allowing them to initiate or receive more transfers. This gives you the ability investigate the Customer to determine if they are a valid party without worrying about them sending funds. Other return codes may only affect bank funding sources in which Dwolla may automatically unverify or remove a bank in response to various return codes.
+
+#### Systematic actions taken against the Customer
+
+| Customer action | Description | Webhook Event |
+|-----------------|-------------|---------------|
+| None            | No action taken against the Customer account as result of transfer failure | N/A |
+| Deactivated     | Customer account has been deactivated                | `customer_deactivated`|
+
+#### Systematic actions taken against the bank funding source
+
+| Funding Source action | Description | Webhook Event |
+|-----------------------|-------------|---------------|
+| None                  | No action taken against the Customer bank funding source     | N/A |
+| Unverified            | A Customer's bank has been unverified, but not removed       | `customer_funding_source_unverified` |
+| Removed               | A Customer's bank has been removed                           | `customer_funding_source_removed` |
 
 
 ### Retrieving the reason for a failed bank transfer
 
-When a bank transfer fails its status will be updated to `failed`. If your application is subscribed to webhooks, you’ll receive either the `transfer_failed` event if the transfer belongs to a Dwolla account or the `customer_transfer_failed`/`customer_bank_transfer_failed`(*Verified Customer only*) event if the transfer belongs to an API Customer. The event contains a links to the associated account as well as the transfer resource. To obtain more information on the transfer failure, you’ll first retrieve the transfer by its ID. The response from the API when retrieving the transfer should contain a `"failure"` link that your application will follow to [retrieve the transfer failure reason](https://docsv2.dwolla.com/#retrieve-a-transfer-failure-reason). Upon success, the response will contain information on the ACH return code and description, as well as `_links` to the Funding Source and Customer that triggered the bank transfer failure.
+When a bank transfer is unable to be completed, its status will be updated to `failed`. If your application is subscribed to webhooks, you’ll receive either the `transfer_failed` event if the transfer belongs to a Dwolla account or the `customer_transfer_failed`/`customer_bank_transfer_failed`(*Verified Customer only*) event if the transfer belongs to an API Customer. The event contains a links to the associated account as well as the transfer resource. To obtain more information on the transfer failure, you’ll first retrieve the transfer by its ID. The response from the API when retrieving the transfer should contain a `"failure"` link that your application will follow to [retrieve the transfer failure reason](https://docsv2.dwolla.com/#retrieve-a-transfer-failure-reason). Upon success, the response will contain information on the ACH return code and description, as well as `_links` to the Funding Source and Customer that triggered the bank transfer failure.
 
 #### Request and response (view schema in 'raw')
 ```raw
@@ -63,7 +79,7 @@ transfer_url = 'https://api-sandbox.dwolla.com/transfers/8997ebed-69be-e611-80ea
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby
 failure = app_token.get "#{transfer_url}/failure"
-failure.code # => "R1"
+failure.code # => "R01"
 ```
 ```php
 <?php
@@ -80,292 +96,34 @@ transfer_url = 'https://api-sandbox.dwolla.com/transfers/8997ebed-69be-e611-80ea
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
 failure = app_token.get('%s/failure' % transfer_url)
-failure.body['code'] # => 'R1'
+failure.body['code'] # => 'R01'
 ```
 ```javascript
 var transferUrl = 'https://api-sandbox.dwolla.com/transfers/8997ebed-69be-e611-80ea-0aa34a9b2388';
 
 appToken
   .get(`${transferUrl}/failure`)
-  .then(res => res.body.code); // => 'R1'
+  .then(res => res.body.code); // => 'R01'
 ```
 
-### List of possible return codes and descriptions
-<table class="table table-bordered table-striped">
-	<thead>
-		<tr>
-			<th>Return Code</th>
-			<th>Description</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>R01</td>
-			<td>Insufficient Funds</td>
-		</tr>
-		<tr>
-			<td>R02</td>
-			<td>Account Closed</td>
-		</tr>
-		<tr>
-			<td>R03</td>
-			<td>No Account/Unable to Locate Account</td>
-		</tr>
-		<tr>
-			<td>R04</td>
-			<td>Invalid Account Number Structure</td>
-		</tr>
-		<tr>
-			<td>R05</td>
-			<td>Unauthorized Debit to Consumer Account Using Corporate SEC Code</td>
-		</tr>
-		<tr>
-			<td>R06</td>
-			<td>Returned per ODFI's Request</td>
-		</tr>
-		<tr>
-			<td>R07</td>
-			<td>Authorization Revoked by Customer</td>
-		</tr>
-		<tr>
-			<td>R08</td>
-			<td>Payment Stopped</td>
-		</tr>
-		<tr>
-			<td>R09</td>
-			<td>Uncollected Funds</td>
-		</tr>
-		<tr>
-			<td>R10</td>
-			<td>Customer Advises Not Authorized, Improper, or Ineligible</td>
-		</tr>
-		<tr>
-			<td>R11</td>
-			<td>Check Truncation Entry Returned</td>
-		</tr>
-		<tr>
-			<td>R12</td>
-			<td>Account Sold to Another DFI</td>
-		</tr>
-		<tr>
-			<td>R13</td>
-			<td>Invalid ACH Routing Number</td>
-		</tr>
-		<tr>
-			<td>R14</td>
-			<td>Representative Payee Deceased or Unable to Continue in that Capacity</td>
-		</tr>
-		<tr>
-			<td>R15</td>
-			<td>Beneficiary or Account Holder (Other Than a Representative Payee) Deceased</td>
-		</tr>
-		<tr>
-			<td>R16</td>
-			<td>Account Frozen</td>
-		</tr>
-		<tr>
-			<td>R17</td>
-			<td>File Record Edit Criteria</td>
-		</tr>
-		<tr>
-			<td>R18</td>
-			<td>Improper Effective Entry Date</td>
-		</tr>
-		<tr>
-			<td>R19</td>
-			<td>Amount Field Error</td>
-		</tr>
-		<tr>
-			<td>R20</td>
-			<td>Non-Transaction Account</td>
-		</tr>
-		<tr>
-			<td>R21</td>
-			<td>Invalid Company Identification</td>
-		</tr>
-		<tr>
-			<td>R22</td>
-			<td>Invalid Individual ID Number</td>
-		</tr>
-		<tr>
-			<td>R23</td>
-			<td>Credit Entry Refused by Receiver</td>
-		</tr>
-		<tr>
-			<td>R24</td>
-			<td>Duplicate Entry</td>
-		</tr>
-		<tr>
-			<td>R25</td>
-			<td>Addenda Error</td>
-		</tr>
-		<tr>
-			<td>R26</td>
-			<td>Mandatory Field Error</td>
-		</tr>
-		<tr>
-			<td>R27</td>
-			<td>Trace Number Error</td>
-		</tr>
-		<tr>
-			<td>R28</td>
-			<td>Routing Number Check Digit Error</td>
-		</tr>
-		<tr>
-			<td>R29</td>
-			<td>Corporate Customer Advises Not Authorized</td>
-		</tr>
-		<tr>
-			<td>R30</td>
-			<td>RDFI Not Participant in Check Truncation Program</td>
-		</tr>
-		<tr>
-			<td>R31</td>
-			<td>Permissible Return Entry (CCD and CTX only)</td>
-		</tr>
-		<tr>
-			<td>R32</td>
-			<td>RDFI Non-Settlement</td>
-		</tr>
-		<tr>
-			<td>R33</td>
-			<td>Return of XCK Entry</td>
-		</tr>
-		<tr>
-			<td>R34</td>
-			<td>Limited Participation DFI</td>
-		</tr>
-		<tr>
-			<td>R35</td>
-			<td>Return of Improper Debit Entry</td>
-		</tr>
-		<tr>
-			<td>R36</td>
-			<td>Return of Improper Credit Entry</td>
-		</tr>
-		<tr>
-			<td>R37</td>
-			<td>Source Document Presented for Payment</td>
-		</tr>
-		<tr>
-			<td>R38</td>
-			<td>Stop Payment on Source Document</td>
-		</tr>
-		<tr>
-			<td>R39</td>
-			<td>Improper Source Document/Source Document Presented for Payment</td>
-		</tr>
-		<tr>
-			<td>R40</td>
-			<td>Return of ENR Entry by Federal Government Agency</td>
-		</tr>
-		<tr>
-			<td>R41</td>
-			<td>Invalid Transaction Code</td>
-		</tr>
-		<tr>
-			<td>R42</td>
-			<td>Routing Number/Check Digit Error</td>
-		</tr>
-		<tr>
-			<td>R43</td>
-			<td>Invalid DFI Account Number</td>
-		</tr>
-		<tr>
-			<td>R44</td>
-			<td>Invalid Individual ID Number/Identification Number</td>
-		</tr>
-		<tr>
-			<td>R45</td>
-			<td>Invalid Individual Name/Company Name</td>
-		</tr>
-		<tr>
-			<td>R46</td>
-			<td>Invalid Representative Payee Indicator</td>
-		</tr>
-		<tr>
-			<td>R47</td>
-			<td>Duplicate Enrollment</td>
-		</tr>
-		<tr>
-			<td>R50</td>
-			<td>State Law Affecting RCK Acceptance</td>
-		</tr>
-		<tr>
-			<td>R51</td>
-			<td>Item Related to RCK Entry is Ineligible or RCK Entry is Improper</td>
-		</tr>
-		<tr>
-			<td>R52</td>
-			<td>Stop Payment on Item Related to RCK Entry</td>
-		</tr>
-		<tr>
-			<td>R53</td>
-			<td>Item and RCK Entry Presented for Payment</td>
-		</tr>
-		<tr>
-			<td>R61</td>
-			<td>Misrouted Return</td>
-		</tr>
-		<tr>
-			<td>R67</td>
-			<td>Duplicate Return</td>
-		</tr>
-		<tr>
-			<td>R68</td>
-			<td>Untimely Return</td>
-		</tr>
-		<tr>
-			<td>R69</td>
-			<td>Field Error(s)</td>
-		</tr>
-		<tr>
-			<td>R70</td>
-			<td>Permissible Return Entry Not Accepted/Return Not Requested by ODFI</td>
-		</tr>
-		<tr>
-			<td>R71</td>
-			<td>Misrouted Dishonored Return</td>
-		</tr>
-		<tr>
-			<td>R72</td>
-			<td>Untimely Dishonored Return</td>
-		</tr>
-		<tr>
-			<td>R73</td>
-			<td>Timely Original Return</td>
-		</tr>
-		<tr>
-			<td>R74</td>
-			<td>Corrected Return</td>
-		</tr>
-		<tr>
-			<td>R75</td>
-			<td>Return Not a Duplicate</td>
-		</tr>
-		<tr>
-			<td>R76</td>
-			<td>No Errors Found</td>
-		</tr>
-		<tr>
-			<td>R80</td>
-			<td>IAT Entry Coding Error</td>
-		</tr>
-		<tr>
-			<td>R81</td>
-			<td>Non-Particpant in IAT Program</td>
-		</tr>
-		<tr>
-			<td>R82</td>
-			<td>Invalid Foreign Receiving DFI Identification</td>
-		</tr>
-		<tr>
-			<td>R83</td>
-			<td>Foreign Receiving DFI Unable to Settle</td>
-		</tr>
-		<tr>
-			<td>R84</td>
-			<td>Entry Not Processed by Gateway</td>
-		</tr>
-	</tbody>
-</table>
+### List of possible return codes, descriptions, and actions
+
+Below is a table of the most common return codes we see involved in transactions. For a full list of return codes, you can check out the [official NACHA Return Reason Code Guide](https://www.nacha.org/products/return-reason-code-guide).
+
+**Note:** As a best practice, we recommend handling any systematic actions (Customer or bank funding source state change events) that are triggered as a result of a transfer failure. Rather than relying on the specific actions as referenced below. We do not recommend building a workflow around each individual return code in the table below. This table is a meant to be a reference for you to be aware of the actions Dwolla takes on common transfer failures.
+
+| Return Code | Description | Customer Deactivated | Bank Unverified | Bank Removed |
+|-------------|-------------|----------------------|-----------------|--------------|
+| R01 | Insufficient Funds                                           | No | No | No |
+| R02 | Bank Account Closed                                          | No | Yes | Yes |
+| R03 | No Account/Unable to Locate Account                          | No | Yes | Yes |
+| R04 | Invalid Bank Account Number Structure                        | No | Yes | Yes |
+| R06 | Returned per ODFI’s Request                                  | No | No | No |
+| R07 | Authorization Revoked by Customer                            | Yes | Yes | Yes |
+| R08 | Payment Stopped                                              | Yes | Yes | Yes |
+| R09 | Uncollected Funds                                            | No | Yes | Yes |
+| R10 | Customer Advises Not Authorized, Improper, or Ineligible     | Yes | Yes | Yes |
+| R16 | Bank Account Frozen                                          | No | No | No |
+| R20 | Non-Transaction Account                                      | No | Yes | Yes |
+| R23 | Credit Entry Refused by Receiver                             | No | Yes | Yes |
+| R29 | Corporate Customer Advises Not Authorized                    | Yes | Yes | Yes |
