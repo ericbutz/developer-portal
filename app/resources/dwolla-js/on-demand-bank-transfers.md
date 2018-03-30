@@ -14,7 +14,7 @@ On-demand bank transfers allow Dwolla API partners to receive variable totals fr
 
 This is an account level setting for an Dwolla API partner. When enabled, the end user is presented with text on the bank selection screen within the IAV flow giving authorization to Dwolla for future variable payments.
 
-![Screenshot of On-demand](/images/on-demand-iav.png "On-demand bank transfers")
+![Screenshot of On-demand](/images/OnDemandIAV.png "On-demand bank transfers")
 
 Once you have collected all of the authorizations required for a bank transfer, including the additional authorization from the Customer for on-demand transfers, you will be able to <a href="https://docsv2.dwolla.com/#initiate-a-transfer">initiate transfers</a> for variable amounts and dates.
 
