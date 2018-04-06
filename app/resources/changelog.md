@@ -5,9 +5,61 @@ type: tool
 title:  Change log
 description: "Keep track of changes to the Dwolla API and official SDKs."
 ---
+# Upcoming
+
+### 2018-04-11
+
+#### Beneficial Ownership and Business Verified Customers
+
+Benficial ownership and business verified Customers creation changing. Read [our blog post](https://www.dwolla.com/partner-resources/customer-due-diligence) to learn more about these changes.
+
+### 2018-05-30
+
+#### Deprecation of TLS 1.0 and 1.1 in Sandbox
+
+Dwolla will discontinue support for TLS 1.0 and TLS 1.1. This change will occur in Dwolla’s sandbox environment on May 30th, 2018.
+
+### 2018-06-30
+
+##### Deprecation of TLS 1.0 and 1.1 across Platform
+
+Dwolla will discontinue support for TLS 1.0 and TLS 1.1. This change will occur across the platform on June 30th, 2018. 
+We recommend that you test your Dwolla integrations to ensure a seamless transition.
+
 
 <section class="change-log">
 	<h1>Completed</h1>
+	<h3>2018-04-05</h3>
+	<h4><em>ADDED - Developer Resources Article</em></h4>
+	<ul class="bullet">
+	    <li>Added a new Developer Resource Article that goes over the Regalii integration with Dwolla.</li>
+		<li><a href = "https://developers.dwolla.com/resources/dwolla-billpayment-integration.html"> Click here </a> to view the article</li>
+	</ul>
+	<h3>2018-04-03</h3>
+	<h4><em>UPDATED - Dev Docs update</em></h4>
+	<ul class="bullet">
+	    <li>Added method and URL to Documents section</li>
+		<li>View commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/commit/b8ccd4fe9fa0988b54843a9ed6b3d3c8799f9290"> Github </a> </li>
+	</ul>
+	<h3>2018-03-30</h3>
+	<h4><em>UPDATED - Developer Resources Article</em></h4>
+	<ul class="bullet">
+	    <li>Changed screenshot to reflect the proper On-Demand Auth Language.</li>
+		<li>View commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/commit/https://github.com/Dwolla/open-source-developer-portal/commit/ecdb32c0770621b4ca9555efd4b6d0403cba2d1f"> Github </a> </li>
+	</ul>
+	<h3>2018-03-28</h3>
+	<h4><em>UPDATED - Developer Resources Article</em></h4>
+	<ul class="bullet">
+	    <li>Updated transfer failures doc</li>
+		<li>Updated verification handling doc</li>
+		<li>View commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/commit/https://github.com/Dwolla/open-source-developer-portal/commit/2814249bc3e4f25dff1d80bbbe8ea1b3f81521dd"> Github </a></li>
+	</ul>
+	<h3>2018-02-12</h3>
+	<h4><em>UPDATED - Dev Docs update</em></h4>
+	<ul class="bullet">
+	    <li>Updated docs to reflect business name updates.</li>
+		<li>View commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/commit/b27ffe0abcd419cdd2ce44ef3dbd86e8ed29e492"> Github </a> </li>
+	</ul>
 	<h3>2017-11-16</h3>
 	<h4><em>CHANGED</em></h4>
 	<ul class="bullet">
@@ -75,13 +127,12 @@ description: "Keep track of changes to the Dwolla API and official SDKs."
 	    <li>Release support for an optional <code>Idempotency-Key</code> header on requests to API v2.</li>
 	</ul>
 	<h3>2016-06-01</h3>
-	<h4><em>CHANGED/DEPRECATED</em></h4>
-	<ul class="bullet">
-	    <li>Change in functionality for removing a funding source in API v2. The method for <a href="https://docsv2.dwolla.com/#remove-a-funding-source">removing a funding source</a>
-	    changes from a <code>DELETE</code> to a <code>POST</code> with the need to supply <code>{ "removed": true }</code> in the body of the request.</li>
-	    <li>A <code>removed</code> attribute is added to the <a href="https://docsv2.dwolla.com/#funding-source-resource">funding source object.</a></li>
-	    <li>A <code>removed</code> querystring request parameter is supplied when listing an <a href="https://docsv2.dwolla.com/#list-funding-sources-for-an-account">Account</a> or <a href="https://docsv2.dwolla.com/#list-funding-sources-for-a-customer">Customer's</a> funding sources. By default, all funding sources are returned from the listing unless the <code>removed</code> request parameter
-	   	is set to <code>false</code>.
+    <h4><em>CHANGED/DEPRECATED</em></h4>
+    <ul class="bullet">
+        <li>Change in functionality for removing a funding source in API v2. The method for <a href="https://docsv2.dwolla.com/#remove-a-funding-source">removing a funding source</a>
+        changes from a <code>DELETE</code> to a <code>POST</code> with the need to supply <code>{ "removed": true }</code> in the body of the request.</li>
+        <li>A <code>removed</code> attribute is added to the <a href="https://docsv2.dwolla.com/#funding-source-resource">funding source object.</a></li>
+        <li>A <code>removed</code> querystring request parameter is supplied when listing an <a href="https://docsv2.dwolla.com/#list-funding-sources-for-an-account">Account</a> or <a href="https://docsv2.dwolla.com/#list-funding-sources-for-a-customer">Customer's</a> funding sources. By default, all funding sources are returned from the listing unless the <code>removed</code> request parameter is set to <code>false</code></li>.
 	</ul>
 	<h3>2016-02-29</h3>
 	<h4><em>DEPRECATED</em></h4>
@@ -139,8 +190,7 @@ description: "Keep track of changes to the Dwolla API and official SDKs."
 	<h3>2015-10-30</h3>
 	<h4><em>ADDED</em></h4>
 	<ul class="bullet">
-		<li>Release endpoint in API v2: initiate or verify micro-deposits
-	    for bank verification. <code>POST
+		<li>Release endpoint in API v2: initiate or verify micro-deposits for bank verification. <code>POST
 	    /funding-sources/{id}/micro-deposits</code></li>
 	    <li>Launched the new developer portal!</li>
 	</ul>
