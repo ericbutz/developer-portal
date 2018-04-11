@@ -56,11 +56,15 @@ description: "Getting started with Dwolla's bank transfer API."
 <h1>Integrations</h1>
 <ul class="article-list">
     <li>
-        <h3><a href="/resources/dwolla-plaid-integration.html">Dwolla + Plaid Integration</a></h3>
+        <h3><a href="/resources/dwolla-plaid-integration.html">Dwolla + Plaid</a></h3>
         <p>Leverage Plaid’s bank verification with Dwolla’s ACH API for secure account ownership validation.</p>
     </li>
     <li>
-        <h3><a href="/resources/dwolla-sift-science-integration.html">Sift Science Integration</a></h3>
+        <h3><a href="/resources/dwolla-billpayment-integration.html">Dwolla + Regalii</a></h3>
+        <p>Utilize a tokenized solution with Regalii to integrate bill payment functionality in your application</p>
+    </li>
+    <li>
+        <h3><a href="/resources/dwolla-sift-science-integration.html">Dwolla + Sift Science</a></h3>
         <p>Implement Sift Science’s machine learning model for real-time ACH fraud monitoring.</p>
     </li>
 </ul>

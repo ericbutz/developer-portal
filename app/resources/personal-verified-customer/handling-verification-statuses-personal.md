@@ -1,12 +1,10 @@
 ---
 layout: twoColumn
-section: Customer verification
+section: Personal Verified Customer
 type: article
 title:  "Handling verification statuses"
 weight: 2
 description: "How to handle customer verification statuses before sending a bank transfer with Dwolla's ACH API."
-redirect_to:  
-  - /resources/customer-verification.html
 ---
 
 # Handling verification statuses
@@ -129,9 +127,8 @@ customer.body.id # => '132681fa-1b4d-4181-8ff2-619ca46235b1'
 ```php
 <?php
 $customersApi = DwollaSwagger\CustomersApi($apiClient);
-$customerUrl = 'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1'
 
-$retryCustomer = $customersApi->updateCustomer(array (
+$retryCustomer = $customersApi->create(array (
   'firstName' => 'John',
   'lastName' => 'Doe',
   'email' => 'johndoe@nomail.net',
@@ -144,7 +141,7 @@ $retryCustomer = $customersApi->updateCustomer(array (
   'postalCode' => '11385',
   'dateOfBirth' => '1990-07-11',
   'ssn' => '202-99-1516',
-),$customerUrl);
+));
 
 print($retryCustomer); # => 132681fa-1b4d-4181-8ff2-619ca46235b1
 ?>
@@ -170,8 +167,9 @@ Documents that are used to help identify a business are specified as documentTyp
 * **Limited Liability Corporation (LLC), Corporation**: EIN Letter (IRS-issued SS4 confirmation letter).
 * **Sole Proprietorship**: One or more of the following, as applicable to your sole proprietorship: Fictitious Business Name Statement; Certificate of Assumed Name; Business License; Sales/Use Tax License; Registration of Trade Name; EIN documentation (IRS-issued SS4 confirmation letter); Color copy of a valid government-issued photo ID (e.g., a driver’s license, passport, or state ID card).
 
-Other business documents that are applicable includes any US government entity (federal, state, local) issued business formation or licensing exhibiting the name of the business enrolling with Dwolla, or; Any business formation documents exhibiting the name of the business entity in addition to being filed and stamped by a US government entity. Examples include:
+Other documents that are applicable includes any US government entity (federal, state, local) issued business formation or licensing exhibiting the name of the business enrolling with Dwolla, or; Any business formation documents exhibiting the name of the business entity in addition to being filed and stamped by a US government entity.
 
+Examples of these include:
 * Filed and stamped Articles of Organization or Incorporation
 * Sales/Use Tax License
 * Business License
