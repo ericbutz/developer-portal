@@ -23,11 +23,15 @@ The Sandbox environment allows you to test the Dwolla API without any real-world
 The [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) allows you to manage Customers, as well as transfers associated with the Customers that belong to your Sandbox account. Once your application has [created its Customers](https://docsv2.dwolla.com/#create-a-customer), you can access the [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) to validate that the request was recorded properly in our test environment.
 
 #### `Verified Customers`
+
 ##### **Simulate identity verification statuses**
 
 There are various reasons a Verified Customer may have a status other than “verified” after the initial Customer creation. You will want your app to be prepared to handle these alternative statuses.
 
-In production, Dwolla will place the Verified Customer in either the `retry`, `document`, `verified`, or `suspended` state of verification after an initial identity verification check. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the firstName parameter in order to [create a new Verified Customer](https://docsv2.dwolla.com/#request-parameters---verified-customer) with that status. Reference the resource article on [customer verification](https://developers.dwolla.com/resources/customer-verification.html) for more information on handling identity verification for `Verified Customers`.
+In production, Dwolla will place the Verified Customer in either the `retry`, `document`, `verified`, or `suspended` state of verification after an initial identity verification check. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the firstName parameter in order to [create a new Verified Customer](https://docsv2.dwolla.com/#request-parameters---verified-customer) with that status.
+
+For personal verified Customers, reference the resource article on [customer verification](https://developers.dwolla.com/resources/personal-verified-customer/handling-verification-statuses-personal.html) for more information on handling identity verification for `Verified Customers`.
+For business verified Customers, reference the resource article on [customer verification](https://developers.dwolla.com/resources/business-verified-customer/create-business-verified-customers.html) article that goes over information on properly verifying your Controllers and Beneficial Owners.
 
 ##### **Simulate document upload approved and failed events**
 If a Verified Customer isn't systematically identity-verified, the Customer may be placed in a `document` status and will require an identifying document to be uploaded and reviewed. Reference the [customer verification](https://developers.dwolla.com/resources/customer-verification.html) resource article for acceptable forms of identifying documents for `Verified Customers`.
@@ -43,6 +47,7 @@ Since the document review process requires interaction from Dwolla, sample test 
 * * *
 
 # Testing Funding Sources
+
 ### Test bank account numbers
 Dwolla requires a valid U.S. routing number and a random account number between 3-17 digits to add a bank account. For testing purposes, you can use the routing number `222222226` or refer to the list of routing numbers from the [Federal Reserve Bank Services](https://www.frbservices.org/operations/epayments/epayments.html) website.
 
@@ -52,7 +57,7 @@ Dwolla's Sandbox environment uses a [fake service](https://www.google.com/url?q=
 To help you test error scenarios, a flag and an option can be used in the first field (usually username or ID) for the bank you are trying authenticate. The remaining input fields in the flow can be any string of text, as we allow you to proceed through the flow regardless of the information entered. Use the following flag and option values to test various error scenarios:
 
 |     Flag      |   Option     | User-facing message |
-|:------------- |:----------------- |----------------|-------------|
+|------------- |----------------- |----------------|
 | -e  | InvalidLogin | Please make sure your login or security information is correct. |
 | -e  | AccountNotFound | Sorry, we’re unable to find your {BANK NAME} account. Please try again or use a different account. |
 | -e  | UnsupportedSite | Sorry, that financial institution is not supported. If possible, please choose a different one or an alternative method for connecting your financial institution. |
