@@ -55,10 +55,6 @@ description: "Getting started with Dwolla's bank transfer API."
 </ul>
 <h1>Integrations</h1>
 <ul class="article-list">
-     <li>
-        <h3><a href="/resources/dwolla-billpayment-integration.html">Dwolla + Regalii Integration</a></h3>
-        <p>Utilize a tokenized solution with Regalii to integrate bill payment functionality in your application</p>
-    </li>
     <li>
         <h3><a href="/resources/dwolla-plaid-integration.html">Dwolla + Plaid</a></h3>
         <p>Leverage Plaid’s bank verification with Dwolla’s ACH API for secure account ownership validation.</p>
