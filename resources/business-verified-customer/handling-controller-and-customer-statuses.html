@@ -1,0 +1,360 @@
+<!DOCTYPE html><html class=no-js><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Handling business verified Customer Statuses | Dwolla API</title><meta name=description content="How to handle the Controller and Business identity verification"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=apple-touch-icon sizes=180x180 href=/images/favicons/apple-touch-icon.89bb.png><link rel=icon type=image/png sizes=32x32 href=/images/favicons/favicon-32x32.d965.png><link rel=icon type=image/png sizes=16x16 href=/images/favicons/favicon-16x16.0423.png><link rel=manifest href=/images/favicons/manifest.json><link rel=mask-icon href=/images/favicons/safari-pinned-tab.5f15.svg color=#ff7404><meta name=theme-color content=#ffffff><link rel=stylesheet href=/css/main.b7e3.css><link rel=stylesheet href="//fonts.googleapis.com/css?family=Roboto+Slab:300|Open+Sans:300,400,600,700"><script src=/js/head-scripts.e5a6.js></script><script src=https://cdn.statuspage.io/se-v2.js></script><script>(function(w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+      'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-WRT5LD6');</script></head><body><!--[if lt IE 8]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--><header><div class="header__primary js-two-col-header-primary"><div class=page-wrap><div><a href=https://www.dwolla.com class="logo icon-logo-dwolla-white">Dwolla</a><div class=hamburger><a href="https://www.dwolla.com/contact?b=nav">Contact Sales</a> <a class="btn primary js-hamburger">Menu</a></div></div><nav class=js-hamburger-nav><a href=https://www.dwolla.com/platform>Platform</a> <a href=https://www.dwolla.com/pricing>Pricing</a> <a href="/">Developers</a> <a href="https://www.dwolla.com/updates/">Blog</a> <a href=https://www.dwolla.com/login>Login</a> <a class="btn primary" href="https://www.dwolla.com/contact?b=nav">Contact Sales</a></nav></div></div><nav class="header__secondary js-two-col-nav-toggle"><div class=js-two-col-header-secondary><div class=page-wrap><a href="/guides/">Guides</a> <a href="/resources/" class=active>Resources</a> <a href="https://docsv2.dwolla.com/">API docs</a> <a href=/pages/sdks.html class="no-nav js-two-col-no-toggle">SDKs</a><div class="custom-select custom-select--blue js-global-language-select"><select name=select class=js-language-select><option value=raw>raw</option><option value=php>php</option><option value=ruby>ruby</option><option value=python>python</option><option value=javascript>javascript</option></select><div class=arrow></div></div></div></div></nav></header><div class=content><div class=cnt-two-col><div class=page-wrap><section class="cnt-two-col__nav js-two-col-nav"><div class=close><button class="js-two-col-nav-close icon-cnt-two-col-close"></button></div><div class=language-picker><h6>Language</h6><div class="custom-select custom-select--blue"><select class=js-language-select name=select><option value=raw>raw</option><option value=php selected>php</option><option value=ruby>ruby</option><option value=python>python</option><option value=javascript>javascript</option></select><div class=arrow></div></div></div><!-- nav elements below should be in the same order of the secondary navigation --><nav class="side-nav js-side-nav"><section id=js-sidenav-dropdown class=side-nav__dropdown><h6>Choose a guide</h6><div class=picker id=js-sidenav-dropdown-button><button>Please select a guide</button><div class="icon icon-side-nav-collapse-plus"></div><div class="icon icon-side-nav-collapse-minus"></div></div><nav id=js-sidenav-dropdown-nav><a href="/guides/sandbox-setup/">Getting started in Sandbox</a> <a href="/guides/send-money/">Send money to your users</a> <a href="/guides/receive-money/">Receive money from your users</a> <a href="/guides/transfer-money-between-users/">Transfer money between users</a> <a href="/guides/auth/">Authorization</a> <a href="/guides/webhooks/">Webhooks</a></nav></section><section class=steps-nav style=display:none><h6>Follow the steps</h6><ol><li><a href=/guides/send-money>Overview: Send money to your users</a><div class=dot></div></li><li><a href=/guides/send-money/onboarding.html>Customer onboarding</a><div class=dot></div></li><li><a href=/guides/send-money/fetch-funding-sources.html>Fetch funding sources</a><div class=dot></div></li><li><a href=/guides/send-money/create-transfer.html>Create a transfer</a><div class=dot></div></li><li><a href=/guides/send-money/check-transfer.html>Check transfer status</a><div class=dot></div></li></ol></section><section class=steps-nav style=display:none><h6>Follow the steps</h6><ol><li><a href=/guides/receive-money>Overview: Receive money from your users</a><div class=dot></div></li><li><a href=/guides/receive-money/onboarding.html>Customer onboarding</a><div class=dot></div></li><li><a href=/guides/receive-money/check-transfer.html>Check transfer status</a><div class=dot></div></li></ol></section><section class=steps-nav style=display:none><h6>Follow the steps</h6><ol><li><a href=/guides/transfer-money-between-users>Overview: transfer money between your users</a><div class=dot></div></li><li><a href=/guides/transfer-money-between-users/obtain-access-token.html>Obtain an application access token</a><div class=dot></div></li><li><a href=/guides/transfer-money-between-users/create-verified-customer.html>Create a Verified Customer</a><div class=dot></div></li><li><a href=/guides/transfer-money-between-users/attach-unverified-bank.html>Attach an unverified funding source</a><div class=dot></div></li><li><a href=/guides/transfer-money-between-users/create-unverified-customer.html>Create an Unverified Customer</a><div class=dot></div></li><li><a href=/guides/transfer-money-between-users/attach-verified-bank.html>Attach a verified funding source</a><div class=dot></div></li><li><a href=/guides/transfer-money-between-users/create-transfer.html>Create a transfer</a><div class=dot></div></li><li><a href=/guides/transfer-money-between-users/check-transfer.html>Check the status of your transfer</a><div class=dot></div></li></ol></section><section class=steps-nav style=display:none><h6>In this guide</h6><ol><li><a href=/guides/auth>Overview: Authorization</a><div class=dot></div></li><li><a href=/guides/auth/client-credentials-flow.html>Client credentials flow</a><div class=dot></div></li><li><a href=/guides/auth/using-an-access-token.html>Using an access token</a><div class=dot></div></li></ol></section><section class=steps-nav style=display:none><h6>Follow the steps</h6><ol><li><a href=/guides/webhooks>Overview: Webhooks</a><div class=dot></div></li><li><a href=/guides/webhooks/obtain-authorization.html>Obtain authorization</a><div class=dot></div></li><li><a href=/guides/webhooks/create-subscription.html>Create a webhook subscription</a><div class=dot></div></li><li><a href=/guides/webhooks/validating-webhooks.html>Validating webhooks</a><div class=dot></div></li><li><a href=/guides/webhooks/process-webhooks.html>Processing webhooks</a><div class=dot></div></li></ol></section><section class=steps-nav style=display:none><h6>Follow the steps</h6><ol><li><a href=/guides/migrate-to-v2>Overview: Migrate to the Dwolla v2 API</a><div class=dot></div></li><li><a href=/guides/migrate-to-v2/01-api-v2-principles.html>Dwolla v2 API principles</a><div class=dot></div></li><li><a href=/guides/migrate-to-v2/02-making-requests.html>Making requests</a><div class=dot></div></li><li><a href=/guides/migrate-to-v2/03-authentication.html>Authentication</a><div class=dot></div></li><li><a href=/guides/migrate-to-v2/04-sdk-support.html>SDK support</a><div class=dot></div></li><li><a href=/guides/migrate-to-v2/05-v1-to-v2-endpoint-changes.html>v1 to Dwolla v2 API endpoint changes</a><div class=dot></div></li><li><a href=/guides/migrate-to-v2/06-other-notable-changes.html>Other notable changes</a><div class=dot></div></li><li><a href=/guides/migrate-to-v2/07-faq.html>FAQ</a><div class=dot></div></li></ol></section><section class=steps-nav style=display:none><h6>In this guide</h6><ol><li><a href=/guides/offsite-gateway>Overview: Off-Site Gateway</a><div class=dot></div></li><li><a href=/guides/offsite-gateway/direct-submit.html>Direct submit option</a><div class=dot></div></li><li><a href=/guides/offsite-gateway/server-to-server.html>Server-to-server option</a><div class=dot></div></li></ol></section><section class=side-nav__options style=display:none><h6>Other Resources</h6><ul><li><a href="/guides/migrate-to-v2/"><span>Migrate to the Dwolla v2 API</span></a></li><li><a href="/guides/offsite-gateway/"><span>Off-Site Gateway</span></a></li><li class=external-link><a href="https://docs.dwolla.com/" target=_blank><span class=icon-sidenav-option>API v1 reference docs</span></a></li><li class=external-link><a href="https://docsv2.dwolla.com/transfer/" target=_blank><span class=icon-sidenav-option>Transfer API Docs</span></a></li></ul></section></nav><nav class="side-nav js-side-nav active"><section><h6>Tools</h6><ul><li class=external-link><a href="http://dashboard-sandbox.dwolla.com/" target=_blank><span class=icon-sidenav-option>Sandbox Dashboard</span></a></li><li><a href=/resources/token-generator.html>Token generator</a></li><li><a href=/resources/changelog.html>Change log</a></li><li class=external-link><a href="http://status.dwolla.com/" target=_blank><span class=icon-sidenav-option>Status</span></a></li></ul><h6>The API Basics</h6><ul><li><a href=/resources/account-types.html>Account types</a><ul></ul></li><li><a href=/resources/bank-transfer-workflow.html>Bank transfer workflow</a><ul><li><a href=/resources/bank-transfer-workflow/processing-times.html>Processing times</a></li><li><a href=/resources/bank-transfer-workflow/transfer-failures.html>Transfer failures</a></li></ul></li><li><a href=/resources/business-verified-customer.html class=active>Business Verified Customer</a><ul><li><a href=/resources/business-verified-customer/create-business-verified-customers.html>Creating Business verified Customers</a></li><li><a href=/resources/business-verified-customer/handling-controller-and-customer-statuses.html class=active>Handling business verified Customer Statuses</a></li><li><a href=/resources/business-verified-customer/adding-beneficial-owners.html>Adding beneficial owners</a></li><li><a href=/resources/business-verified-customer/handling-beneficial-owner-certification.html>Certifying beneficial ownership</a></li></ul></li><li><a href=/resources/funding-source-verification.html>Funding source verification</a><ul><li><a href=/resources/funding-source-verification/micro-deposit-verification.html>Micro-deposit verification</a></li><li><a href=/resources/funding-source-verification/instant-account-verification.html>Instant account verification</a></li></ul></li><li><a href=/resources/personal-verified-customer.html>Personal Verified Customer</a><ul><li><a href=/resources/personal-verified-customer/create-personal-verified-customers.html>Personal verified Customers</a></li><li><a href=/resources/personal-verified-customer/handling-verification-statuses-personal.html>Handling verification statuses</a></li></ul></li><li><a href=/resources/testing.html>Testing in the Sandbox</a><ul></ul></li></ul><h6>Features</h6><ul><li><a href=/resources/dwolla-js.html>Dwolla.js</a><ul><li><a href=/resources/dwolla-js/add-a-bank-account.html>Add a bank account</a></li><li><a href=/resources/dwolla-js/instant-account-verification.html>Instant account verification</a></li><li><a href=/resources/dwolla-js/on-demand-bank-transfers.html>On-demand bank transfers</a></li></ul></li><li><a href=/resources/facilitator-fee.html>Facilitator fee</a><ul></ul></li><li><a href=/resources/same-day-ach.html>Same Day ACH</a><ul></ul></li><li><a href=/resources/wire-transfer-api.html>Wire transfer API</a><ul></ul></li></ul><h6>Integrations</h6><ul><li><a href=/resources/dwolla-billpayment-integration.html>Dwolla + Regalii Integration</a><ul></ul></li><li><a href=/resources/dwolla-plaid-integration.html>Dwolla + Plaid</a><ul></ul></li><li><a href=/resources/dwolla-sift-science-integration.html>Dwolla + Sift Science</a><ul></ul></li></ul></section></nav><nav class="side-nav js-side-nav"><section id=js-sidenav-dropdown class=side-nav__dropdown><ul><li><a href=https://docsv2.dwolla.com/#introduction>Introduction</a></li><li><a href=https://docsv2.dwolla.com/#oauth>OAuth</a></li><li><a href=https://docsv2.dwolla.com/#customers>Customers</a></li><li><a href=https://docsv2.dwolla.com/#documents>Documents</a></li><li><a href=https://docsv2.dwolla.com/#funding-sources>Funding Sources</a></li><li><a href=https://docsv2.dwolla.com/#transfers>Transfers</a></li><li><a href=https://docsv2.dwolla.com/#events>Events</a></li><li><a href=https://docsv2.dwolla.com/#webhook-subscriptions>Webhook Subscriptions</a></li><li><a href=https://docsv2.dwolla.com/#webhooks>Webhooks</a></li></ul></section></nav></section><section class=cnt-two-col__content><h1 id=handling-business-verified-customer-statuses>Handling business verified Customer statuses</h1><p>You have successfully created a business verified Customer; however, there are cases where Dwolla will need more information to fully verify the identity of the Controller or Business. Read on to learn more.</p><p><strong>If your Controller and Business are identity verified,</strong> you can skip to the <a href=/resources/business-verified-customer/handling-controller-and-customer-statuses.html#retrieve-beneficial-ownership-status>retrieve beneficial owner status</a> at the bottom of the page to continue with your business verified Customer creation.</p><h2 id=verification-statuses>Verification statuses</h2><table><thead><tr><th>Customer status</th><th>Event</th><th>Description</th></tr></thead><tbody><tr><td>verified</td><td>customer_verified</td><td>The identifying information submitted was sufficient in verifying the Customer account.</td></tr><tr><td>retry</td><td>customer_reverification_needed</td><td>The initial identity verification attempt failed because the information provided did not satisfy Dwolla’s verification check. You can make one additional attempt by changing some or all the attributes of the existing Customer with a POST request. All fields are required on the retry attempt. If the additional attempt fails, the resulting status will be either <code>document</code> or <code>suspended</code>.</td></tr><tr><td>document</td><td>customer_verification_document_needed</td><td>Dwolla requires additional documentation to identify the Customer in the document status. Once a document is uploaded it will be reviewed for verification.</td></tr><tr><td>suspended</td><td>customer_suspended</td><td>The Customer is suspended and may neither send nor receive funds. Contact Account Management for more information.</td></tr></tbody></table><h2 id=handling-retry-status>Handling <code>retry</code> status</h2><p>A <code>retry</code> status occurs when a Customer’s identity scores are too low during the initial verification attempt. Dwolla will require the <strong>full 9-digits</strong> of the Controller’s SSN on the retry attempt in order to give our identity vendor more information in an attempt to receive a sufficient score to approve the Customer account. The Customer will have one more opportunity to correct any mistakes.</p><ol class=alerts><li class="alert icon-alert-info">You need to gather **new** information if the Customer is placed into the `retry` status; simply passing the same information will result in the same insufficient scores.</li></ol><p>All fields that were required in the initial Customer creation attempt will be required in the retry attempt, along with the full 9-digit SSN.</p><h4 id=request-and-response>Request and response</h4><div class="code-snippet js-code-snippet language-raw"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-raw data-lang=raw>POST https://api-sandbox.dwolla.com/customers
+Content-Type: application/vnd.dwolla.v1.hal+json
+Accept: application/vnd.dwolla.v1.hal+json
+Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
+
+{
+    "firstName": "Jane",
+    "lastName": "Merchant",
+    "email": "mybusiness@email.com",
+    "ipAddress": "143.156.7.8",
+    "type": "business",
+    "address1": "99-99 33rd St",
+    "city": "Some City",
+    "state": "NY",
+    "postalCode": "11101",
+    "dateOfBirth": "1980-01-01",
+    "controller": {
+        "firstName": "John",
+        "lastName": "Controller",
+        "title": "CEO",
+        "dateOfBirth": "02/19/1990",
+        "ssn": "123-45-6789"
+        "address": {
+            "address1": "1749 18th st",
+            "address2": "apt 12",
+            "city": "Des Moines",
+            "stateProvinceRegion": "IA",
+            "postalCode": "50266",
+            "country": "United States"
+        }
+    }
+    "phone": "5554321234",
+    "businessClassification": "9ed3f670-7d6f-11e3-b1ce-5404a6144203",
+    "businessType": "llc",
+    "businessName":"Jane Corp",
+    "ein":"00-0000000"
+}
+
+HTTP/1.1 201 Created
+Location: https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
+</code></pre></div></div><div class="code-snippet js-code-snippet language-php"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-php data-lang=php><span class=cp>&lt;?php</span>
+<span class=nv>$customersApi</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>DwollaSwagger\CustomersApi</span><span class=p>(</span><span class=nv>$apiClient</span><span class=p>);</span>
+
+<span class=nv>$new_customer</span> <span class=o>=</span> <span class=nv>$customersApi</span><span class=o>-&gt;</span><span class=na>update</span><span class=p>([</span>
+  <span class=s1>'firstName'</span> <span class=o>=&gt;</span> <span class=s1>'Jane'</span><span class=p>,</span>
+  <span class=s1>'lastName'</span> <span class=o>=&gt;</span> <span class=s1>'Merchant'</span><span class=p>,</span>
+  <span class=s1>'email'</span> <span class=o>=&gt;</span> <span class=s1>'janeMerchant@email.com'</span><span class=p>,</span>
+  <span class=s1>'type'</span> <span class=o>=&gt;</span> <span class=s1>'business'</span><span class=p>,</span>
+  <span class=s1>'address1'</span> <span class=o>=&gt;</span> <span class=s1>'99-99 33rd St'</span><span class=p>,</span>
+  <span class=s1>'city'</span> <span class=o>=&gt;</span> <span class=s1>'Some City'</span><span class=p>,</span>
+  <span class=s1>'state'</span> <span class=o>=&gt;</span> <span class=s1>'NY'</span><span class=p>,</span>
+  <span class=s1>'postalCode'</span> <span class=o>=&gt;</span> <span class=s1>'11101'</span><span class=p>,</span>
+  <span class=s1>'controller'</span> <span class=p>{</span>
+      <span class=s1>'firstName'</span> <span class=o>=&gt;</span> <span class=s1>'John'</span><span class=p>,</span>
+      <span class=s1>'lastName'</span><span class=o>=&gt;</span> <span class=s1>'Controller'</span><span class=p>,</span>
+      <span class=s1>'title'</span> <span class=o>=&gt;</span> <span class=s1>'CEO'</span><span class=p>,</span>
+      <span class=s1>'dateOfBirth'</span> <span class=o>=&gt;</span> <span class=s1>'02/19/1990'</span><span class=p>,</span>
+      <span class=s1>'ssn'</span><span class=o>:</span> <span class=s1>'1234'</span>
+      <span class=s1>'address'</span> <span class=p>{</span>
+          <span class=s1>'address1'</span> <span class=o>=&gt;</span> <span class=s1>'18749 18th st'</span><span class=p>,</span>
+          <span class=s1>'address2'</span> <span class=o>=&gt;</span> <span class=s1>'apt 12'</span><span class=p>,</span>
+          <span class=s1>'city'</span> <span class=o>=&gt;</span> <span class=s1>'Des Moines'</span><span class=p>,</span>
+          <span class=s1>'stateProvinceRegion'</span> <span class=o>=&gt;</span> <span class=s1>'IA'</span><span class=p>,</span>
+          <span class=s1>'postalCode'</span> <span class=o>=&gt;</span> <span class=s1>'50265'</span><span class=p>,</span>
+          <span class=s1>'country'</span> <span class=o>=&gt;</span> <span class=s1>'United States'</span>
+      <span class=p>}</span>
+  <span class=p>}</span>
+  <span class=s1>'phone'</span><span class=o>:</span> <span class=s1>'5554321234'</span><span class=p>,</span>
+  <span class=s1>'businessClassification'</span><span class=o>:</span> <span class=s1>'9ed3f670-7d6f-11e3-b1ce-5404a6144203'</span><span class=p>,</span>
+  <span class=s1>'businessType'</span><span class=o>:</span> <span class=s1>'llc'</span><span class=p>,</span>
+  <span class=s1>'businessName'</span><span class=o>:</span><span class=s1>'Jane Corp'</span><span class=p>,</span>
+  <span class=s1>'ein'</span><span class=o>:</span><span class=s1>'00-0000000'</span>
+<span class=p>],</span> <span class=nv>$customerUrl</span><span class=p>);</span>
+<span class=k>print</span><span class=p>(</span><span class=nv>$new_customer</span><span class=p>);</span> <span class=c1># =&gt; https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
+</span><span class=cp>?&gt;</span>
+</code></pre></div></div><div class="code-snippet js-code-snippet language-ruby"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-ruby data-lang=ruby><span class=c1># Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)</span>
+<span class=n>request_body</span> <span class=o>=</span> <span class=p>{</span>
+  <span class=ss>:firstName</span> <span class=o>=&gt;</span> <span class=s1>'Jane'</span><span class=p>,</span>
+  <span class=ss>:lastName</span> <span class=o>=&gt;</span> <span class=s1>'Merchant'</span><span class=p>,</span>
+  <span class=ss>:email</span> <span class=o>=&gt;</span> <span class=s1>'janeMerchant@email.com'</span><span class=p>,</span>
+  <span class=ss>:type</span> <span class=o>=&gt;</span> <span class=s1>'business'</span><span class=p>,</span>
+  <span class=ss>:address1</span> <span class=o>=&gt;</span> <span class=s1>'99-99 33rd St'</span><span class=p>,</span>
+  <span class=ss>:city</span> <span class=o>=&gt;</span> <span class=s1>'Some City'</span><span class=p>,</span>
+  <span class=ss>:state</span> <span class=o>=&gt;</span> <span class=s1>'NY'</span><span class=p>,</span>
+  <span class=ss>:postalCode</span> <span class=o>=&gt;</span> <span class=s1>'11101'</span><span class=p>,</span>
+  <span class=ss>:controller</span> <span class=o>=&gt;</span> <span class=p>{</span>
+      <span class=ss>:firstName</span> <span class=o>=&gt;</span> <span class=s1>'John'</span><span class=p>,</span>
+      <span class=ss>:lastName</span> <span class=o>=&gt;</span> <span class=s1>'Controller'</span><span class=p>,</span>
+      <span class=ss>:title</span> <span class=o>=&gt;</span> <span class=s1>'CEO'</span><span class=p>,</span>
+      <span class=ss>:dateOfBirth</span> <span class=o>=&gt;</span> <span class=s1>'02/19/1990'</span><span class=p>,</span>
+      <span class=ss>:ssn</span> <span class=o>=&gt;</span> <span class=s1>'1234'</span>
+      <span class=ss>:address</span> <span class=o>=&gt;</span> <span class=p>{</span>
+        <span class=ss>:address1</span> <span class=o>=&gt;</span> <span class=s1>'1749 18th st'</span><span class=p>,</span>
+        <span class=ss>:address2</span> <span class=o>=&gt;</span> <span class=s1>'apt 12'</span><span class=p>,</span>
+        <span class=ss>:city</span> <span class=o>=&gt;</span> <span class=s1>'Des Moines'</span><span class=p>,</span>
+        <span class=ss>:stateProvinceRegion</span> <span class=o>=&gt;</span> <span class=s1>'IA'</span><span class=p>,</span>
+        <span class=ss>:postalCode</span> <span class=o>=&gt;</span> <span class=s1>'50266'</span><span class=p>,</span>
+        <span class=ss>:country</span> <span class=o>=&gt;</span> <span class=s1>'United States'</span><span class=p>,</span>
+      <span class=p>}</span>
+  <span class=p>}</span>
+  <span class=ss>:phone</span> <span class=o>=&gt;</span> <span class=s1>'5554321234'</span><span class=p>,</span>
+  <span class=ss>:businessClassification</span> <span class=o>=&gt;</span> <span class=s1>'9ed38155-7d6f-11e3-83c3-5404a6144203'</span><span class=p>,</span>
+  <span class=ss>:businessType</span> <span class=o>=&gt;</span> <span class=s1>'llc'</span><span class=p>,</span>
+  <span class=ss>:businessName</span> <span class=o>=&gt;</span> <span class=s1>'Jane Corp'</span><span class=p>,</span>
+  <span class=ss>:ein</span> <span class=o>=&gt;</span> <span class=s1>'12-3456789'</span>
+<span class=p>}</span>
+
+<span class=n>customer</span> <span class=o>=</span> <span class=n>app_token</span><span class=p>.</span><span class=nf>post</span> <span class=s2>"customers"</span><span class=p>,</span> <span class=n>request_body</span>
+<span class=n>customer</span><span class=p>.</span><span class=nf>response_headers</span><span class=p>[</span><span class=ss>:location</span><span class=p>]</span> <span class=c1># =&gt; "https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5"</span>
+</code></pre></div></div><div class="code-snippet js-code-snippet language-python"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-python data-lang=python><span class=c># Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)</span>
+<span class=n>request_body</span> <span class=o>=</span> <span class=p>{</span>
+  <span class=s>'firstName'</span><span class=p>:</span> <span class=s>'Jane'</span><span class=p>,</span>
+  <span class=s>'lastName'</span><span class=p>:</span> <span class=s>'Merchant'</span><span class=p>,</span>
+  <span class=s>'email'</span><span class=p>:</span> <span class=s>'janeMerchant@email.com'</span><span class=p>,</span>
+  <span class=s>'type'</span><span class=p>:</span> <span class=s>'business'</span><span class=p>,</span>
+  <span class=s>'address1'</span><span class=p>:</span> <span class=s>'99-99 33rd St'</span><span class=p>,</span>
+  <span class=s>'city'</span><span class=p>:</span> <span class=s>'Some City'</span><span class=p>,</span>
+  <span class=s>'state'</span><span class=p>:</span> <span class=s>'NY'</span><span class=p>,</span>
+  <span class=s>'postalCode'</span><span class=p>:</span> <span class=s>'11101'</span><span class=p>,</span>
+  <span class=s>'controller'</span><span class=p>:</span> <span class=p>{</span>
+      <span class=s>'firstName'</span><span class=p>:</span> <span class=s>'John'</span><span class=p>,</span>
+      <span class=s>'lastName'</span><span class=p>:</span> <span class=s>'Controller'</span><span class=p>,</span>
+      <span class=s>'title'</span><span class=p>:</span> <span class=s>'CEO'</span><span class=p>,</span>
+      <span class=s>'dateOfBirth'</span><span class=p>:</span> <span class=s>'02/19/1990'</span><span class=p>,</span>
+      <span class=s>'ssn'</span><span class=p>:</span> <span class=s>'1234'</span>
+      <span class=s>'address'</span><span class=p>:</span> <span class=p>{</span>
+        <span class=s>'address1'</span><span class=p>:</span> <span class=s>'1749 18th st'</span><span class=p>,</span>
+        <span class=s>'address2'</span><span class=p>:</span> <span class=s>'apt12'</span><span class=p>,</span>
+        <span class=s>'city'</span><span class=p>:</span> <span class=s>'Des Moines'</span><span class=p>,</span>
+        <span class=s>'stateProvinceRegion'</span><span class=p>:</span> <span class=s>'IA'</span><span class=p>,</span>
+        <span class=s>'postalCode'</span><span class=p>:</span> <span class=s>'50266'</span><span class=p>,</span>
+        <span class=s>'country'</span><span class=p>:</span> <span class=s>'United States'</span>
+      <span class=p>}</span>
+  <span class=p>}</span>
+  <span class=s>'phone'</span><span class=p>:</span> <span class=s>'5554321234'</span><span class=p>,</span>
+  <span class=s>'businessClassification'</span><span class=p>:</span> <span class=s>'9ed38155-7d6f-11e3-83c3-5404a6144203'</span><span class=p>,</span>
+  <span class=s>'businessType'</span><span class=p>:</span> <span class=s>'llc'</span><span class=p>,</span>
+  <span class=s>'businessName'</span><span class=p>:</span> <span class=s>'Jane Corp'</span><span class=p>,</span>
+  <span class=s>'ein'</span><span class=p>:</span> <span class=s>'12-3456789'</span>
+<span class=p>}</span>
+
+<span class=n>customer</span> <span class=o>=</span> <span class=n>app_token</span><span class=o>.</span><span class=n>post</span><span class=p>(</span><span class=s>'customers'</span><span class=p>,</span> <span class=n>request_body</span><span class=p>)</span>
+<span class=n>customer</span><span class=o>.</span><span class=n>headers</span><span class=p>[</span><span class=s>'location'</span><span class=p>]</span> <span class=c># =&gt; 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'</span>
+</code></pre></div></div><div class="code-snippet js-code-snippet language-javascript"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-javascript data-lang=javascript><span class=kd>var</span> <span class=nx>requestBody</span> <span class=o>=</span> <span class=p>{</span>
+  <span class=na>firstName</span><span class=p>:</span> <span class=s1>'Jane'</span><span class=p>,</span>
+  <span class=na>lastName</span><span class=p>:</span> <span class=s1>'Merchant'</span><span class=p>,</span>
+  <span class=na>email</span><span class=p>:</span> <span class=s1>'janeMerchant@email.com'</span><span class=p>,</span>
+  <span class=na>type</span><span class=p>:</span> <span class=s1>'business'</span><span class=p>,</span>
+  <span class=na>address1</span><span class=p>:</span> <span class=s1>'99-99 33rd St'</span><span class=p>,</span>
+  <span class=na>city</span><span class=p>:</span> <span class=s1>'Some City'</span><span class=p>,</span>
+  <span class=na>state</span><span class=p>:</span> <span class=s1>'NY'</span><span class=p>,</span>
+  <span class=na>postalCode</span><span class=p>:</span> <span class=s1>'11101'</span><span class=p>,</span>
+  <span class=na>controller</span><span class=p>:</span> <span class=p>{</span>
+      <span class=na>firstName</span><span class=p>:</span> <span class=s1>'John'</span><span class=p>,</span>
+      <span class=na>lastName</span><span class=p>:</span> <span class=s1>'Controller'</span><span class=p>,</span>
+      <span class=na>title</span><span class=p>:</span> <span class=s1>'CEO'</span><span class=p>,</span>
+      <span class=na>dateOfBirth</span><span class=p>:</span> <span class=s1>'02/19/1990'</span><span class=p>,</span>
+      <span class=na>ssn</span><span class=p>:</span> <span class=s1>'1234'</span>
+      <span class=na>address</span><span class=p>:</span> <span class=p>{</span>
+        <span class=na>address1</span><span class=p>:</span> <span class=s1>'1749 18th st'</span><span class=p>,</span> 
+        <span class=na>address2</span><span class=p>:</span> <span class=s1>'apt 12'</span><span class=p>,</span>
+        <span class=na>city</span><span class=p>:</span> <span class=s1>'Des Moines'</span><span class=p>,</span>
+        <span class=na>stateProvinceRegion</span><span class=p>:</span> <span class=s1>'IA'</span><span class=p>,</span>
+        <span class=na>postalCode</span><span class=p>:</span> <span class=s1>'50266'</span><span class=p>,</span>
+        <span class=na>country</span><span class=p>:</span> <span class=s1>'United States'</span>
+      <span class=p>}</span>
+  <span class=p>}</span>
+  <span class=nl>phone</span><span class=p>:</span> <span class=s1>'5554321234'</span><span class=p>,</span>
+  <span class=na>businessClassification</span><span class=p>:</span> <span class=s1>'9ed38155-7d6f-11e3-83c3-5404a6144203'</span><span class=p>,</span>
+  <span class=na>businessType</span><span class=p>:</span> <span class=s1>'llc'</span><span class=p>,</span>
+  <span class=na>businessName</span><span class=p>:</span> <span class=s1>'Jane Corp'</span><span class=p>,</span>
+  <span class=na>ein</span><span class=p>:</span> <span class=s1>'12-3456789'</span>
+<span class=p>};</span>
+
+<span class=nx>appToken</span>
+  <span class=p>.</span><span class=nx>post</span><span class=p>(</span><span class=s1>'customers'</span><span class=p>,</span> <span class=nx>requestBody</span><span class=p>)</span>
+  <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=o>=&gt;</span> <span class=nx>res</span><span class=p>.</span><span class=nx>headers</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=s1>'location'</span><span class=p>));</span> <span class=c1>// =&gt; 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'</span>
+</code></pre></div></div><h2 id=handling-document-status>Handling <code>document</code> status</h2><p>If the Customer has a status of <code>document</code>, the Customer will need to upload additional pieces of information in order to verify the account. Use the <a href=https://docsv2.dwolla.com/#create-a-document>create a document</a> endpoint when uploading a colored scan of the identifying document. The document(s) will then be reviewed by Dwolla; this review may take up to 1-2 business days to approve or reject.</p><h3 id=determining-verification-documents-needed>Determining verification documents needed</h3><p>When a business verified Customer’s Controller is placed in the <code>document</code> verification status, Dwolla will return a link in the API response after retrieving a Customer, which will be used by an application to determine if documentation is needed. For business verified Customers, different links can be returned depending on whether or not documents are needed for a Controller, the business, or both the controller and business. Refer to the table below for the list of possible links and their description.</p><table><thead><tr><th>Link name</th><th>Description</th></tr></thead><tbody><tr><td>verify-with-document</td><td>Identifies if documents are needed only for a Controller</td></tr><tr><td>verify-business-with-document</td><td>Identifies if documents are needed only for a business.</td></tr><tr><td>verify-authorized-representative-and-business-with-document</td><td>Identifies if documents are needed for both the Controller and business.</td></tr></tbody></table><h4 id=example-response>Example response</h4><div class="code-snippet js-code-snippet language-nohide"><button class="btn alternative">copy</button><div class="code-snippet__cnt highlight"><pre><code class=language-nohide data-lang=nohide><span class=p>{</span><span class=w>
+    </span><span class=nt>"_links"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+        </span><span class=nt>"document-form"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+
+            </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921/documents"</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json; profile=\"https://github.com/dwolla/hal-forms\""</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"document"</span><span class=w>
+        </span><span class=p>},</span><span class=w>
+        </span><span class=nt>"self"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+            </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921"</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"customer"</span><span class=w>
+        </span><span class=p>},</span><span class=w>
+        </span><span class=nt>"funding-sources"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+            </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921/funding-sources"</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"funding-source"</span><span class=w>
+        </span><span class=p>},</span><span class=w>
+        </span><span class=nt>"transfers"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+            </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921/transfers"</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"transfer"</span><span class=w>
+        </span><span class=p>},</span><span class=w>
+        </span><span class=nt>"verify-with-document"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+            </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921/documents"</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+            </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"document"</span><span class=w>
+        </span><span class=p>}</span><span class=w>
+    </span><span class=p>},</span><span class=w>
+    </span><span class=nt>"id"</span><span class=p>:</span><span class=w> </span><span class=s2>"64dd2beb-fe56-4cdc-80dd-82a3d7f5b921"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"firstName"</span><span class=p>:</span><span class=w> </span><span class=s2>"document"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"lastName"</span><span class=p>:</span><span class=w> </span><span class=s2>"doctest"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"email"</span><span class=p>:</span><span class=w> </span><span class=s2>"docTest@email.com"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"personal"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"status"</span><span class=p>:</span><span class=w> </span><span class=s2>"document"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"created"</span><span class=p>:</span><span class=w> </span><span class=s2>"2017-08-31T14:28:11.047Z"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"address1"</span><span class=p>:</span><span class=w> </span><span class=s2>"99-99 33rd St"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"address2"</span><span class=p>:</span><span class=w> </span><span class=s2>"Apt 8"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"city"</span><span class=p>:</span><span class=w> </span><span class=s2>"Some City"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"state"</span><span class=p>:</span><span class=w> </span><span class=s2>"NY"</span><span class=p>,</span><span class=w>
+    </span><span class=nt>"postalCode"</span><span class=p>:</span><span class=w> </span><span class=s2>"11101"</span><span class=w>
+</span><span class=p>}</span><span class=w>
+</span></code></pre></div></div><h4 id=document-types>Document Types</h4><h5 id=controllers>Controllers</h5><p>A scanned photo of the Controller’s identifying document can be specified as documentType: <code>passport</code>, <code>license</code> (state issued driver&rsquo;s license), or <code>idCard</code> (other U.S. government-issued photo id card).</p><h5 id=businesses>Businesses</h5><p>Documents that are used to help identify a business are specified as documentType <code>other</code>. Business Identifying documents we recommend uploading can include the following:</p><ul><li><strong>Partnership, General Partnership</strong>: EIN Letter (IRS-issued SS4 confirmation letter).</li><li><strong>Limited Liability Corporation (LLC), Corporation</strong>: EIN Letter (IRS-issued SS4 confirmation letter).</li><li><strong>Sole Proprietorship</strong>: One or more of the following, as applicable to your sole proprietorship: Fictitious Business Name Statement; Certificate of Assumed Name; Business License; Sales/Use Tax License; Registration of Trade Name; EIN documentation (IRS-issued SS4 confirmation letter); Color copy of a valid government-issued photo ID (e.g., a driver’s license, passport, or state ID card).</li></ul><p>Other business documents that are applicable includes any US government entity (federal, state, local) issued business formation or licensing exhibiting the name of the business enrolling with Dwolla, or; Any business formation documents exhibiting the name of the business entity in addition to being filed and stamped by a US government entity. Examples include:</p><ul><li>Filed and stamped Articles of Organization or Incorporation</li><li>Sales/Use Tax License</li><li>Business License</li><li>Certificate of Good Standing</li></ul><h3 id=uploading-a-document>Uploading a document</h3><p>To upload a photo of the document, you’ll initiate a multipart form-data POST request from your backend server to <code>https://api.dwolla.com/customers/{id}/documents</code>. The file must be either a .jpg, .jpeg, .png, .tif, or .pdf. Files must be no larger than 10MB in size.</p><p>You’ll also get a webhook with a <code>customer_verification_document_uploaded</code> event to let you know the document was successfully uploaded.</p><h4 id=request-and-response>Request and response</h4><div class="code-snippet js-code-snippet language-raw"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-raw data-lang=raw>{
+    "_links": {
+        "document-form": {
+
+            "href": "https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921/documents",
+            "type": "application/vnd.dwolla.v1.hal+json; profile=\"https://github.com/dwolla/hal-forms\"",
+            "resource-type": "document"
+        },
+        "self": {
+            "href": "https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "customer"
+        },
+        "funding-sources": {
+            "href": "https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921/funding-sources",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "funding-source"
+        },
+        "transfers": {
+            "href": "https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921/transfers",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "transfer"
+        },
+        "verify-with-document": {
+            "href": "https://api-sandbox.dwolla.com/customers/64dd2beb-fe56-4cdc-80dd-82a3d7f5b921/documents",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "document"
+        }
+    },
+    "id": "64dd2beb-fe56-4cdc-80dd-82a3d7f5b921",
+    "firstName": "document",
+    "lastName": "doctest",
+    "email": "docTest@email.com",
+    "type": "personal",
+    "status": "document",
+    "created": "2017-08-31T14:28:11.047Z",
+    "address1": "99-99 33rd St",
+    "address2": "Apt 8",
+    "city": "Some City",
+    "state": "NY",
+    "postalCode": "11101"
+}
+</code></pre></div></div><div class="code-snippet js-code-snippet language-php"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-php data-lang=php>No example for this language yet.
+</code></pre></div></div><div class="code-snippet js-code-snippet language-ruby"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-ruby data-lang=ruby><span class=c1># Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby</span>
+<span class=n>customer_url</span> <span class=o>=</span> <span class=s1>'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1'</span>
+
+<span class=n>file</span> <span class=o>=</span> <span class=no>Faraday</span><span class=o>::</span><span class=no>UploadIO</span><span class=p>.</span><span class=nf>new</span><span class=p>(</span><span class=s1>'mclovin.jpg'</span><span class=p>,</span> <span class=s1>'image/jpeg'</span><span class=p>)</span>
+<span class=n>document</span> <span class=o>=</span> <span class=n>app_token</span><span class=p>.</span><span class=nf>post</span> <span class=s2>"</span><span class=si>#{</span><span class=n>customer_url</span><span class=si>}</span><span class=s2>/documents"</span><span class=p>,</span> <span class=ss>file: </span><span class=n>file</span><span class=p>,</span> <span class=ss>documentType: </span><span class=s1>'license'</span>
+<span class=n>document</span><span class=p>.</span><span class=nf>response_headers</span><span class=p>[</span><span class=ss>:location</span><span class=p>]</span> <span class=c1># =&gt; "https://api.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0"</span>
+</code></pre></div></div><div class="code-snippet js-code-snippet language-python"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-python data-lang=python><span class=c># Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)</span>
+<span class=n>customer_url</span> <span class=o>=</span> <span class=s>'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1'</span>
+
+<span class=n>document</span> <span class=o>=</span> <span class=n>app_token</span><span class=o>.</span><span class=n>post</span><span class=p>(</span><span class=s>'</span><span class=si>%</span><span class=s>s/documents'</span> <span class=o>%</span> <span class=n>customer_url</span><span class=p>,</span> <span class=nb>file</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s>'mclovin.jpg'</span><span class=p>,</span> <span class=s>'rb'</span><span class=p>),</span> <span class=n>documentType</span> <span class=o>=</span> <span class=s>'license'</span><span class=p>)</span>
+<span class=n>document</span><span class=o>.</span><span class=n>headers</span><span class=p>[</span><span class=s>'location'</span><span class=p>]</span> <span class=c># =&gt; 'https://api.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0'</span>
+</code></pre></div></div><div class="code-snippet js-code-snippet language-javascript"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-javascript data-lang=javascript><span class=c1>// Using dwolla-v2 - https://github.com/Dwolla/dwolla-v2-node</span>
+<span class=kd>var</span> <span class=nx>customerUrl</span> <span class=o>=</span> <span class=s1>'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1'</span><span class=p>;</span>
+
+<span class=kd>var</span> <span class=nx>requestBody</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>FormData</span><span class=p>();</span>
+<span class=nx>body</span><span class=p>.</span><span class=nx>append</span><span class=p>(</span><span class=s1>'file'</span><span class=p>,</span> <span class=nx>fs</span><span class=p>.</span><span class=nx>createReadStream</span><span class=p>(</span><span class=s1>'mclovin.jpg'</span><span class=p>),</span> <span class=p>{</span>
+  <span class=na>filename</span><span class=p>:</span> <span class=s1>'mclovin.jpg'</span><span class=p>,</span>
+  <span class=na>contentType</span><span class=p>:</span> <span class=s1>'image/jpeg'</span><span class=p>,</span>
+  <span class=na>knownLength</span><span class=p>:</span> <span class=nx>fs</span><span class=p>.</span><span class=nx>statSync</span><span class=p>(</span><span class=s1>'mclovin.jpg'</span><span class=p>).</span><span class=nx>size</span>
+<span class=p>});</span>
+<span class=nx>body</span><span class=p>.</span><span class=nx>append</span><span class=p>(</span><span class=s1>'documentType'</span><span class=p>,</span> <span class=s1>'license'</span><span class=p>);</span>
+
+<span class=nx>appToken</span>
+  <span class=p>.</span><span class=nx>post</span><span class=p>(</span><span class=err>`</span><span class=nx>$</span><span class=p>{</span><span class=nx>customerUrl</span><span class=p>}</span><span class=sr>/documents`, requestBody</span><span class=err>)
+</span>  <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>res</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>res</span><span class=p>.</span><span class=nx>headers</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=s1>'location'</span><span class=p>);</span> <span class=c1>// =&gt; "https://api.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0"</span>
+  <span class=p>});</span>
+
+</code></pre></div></div><p>If the document was successfully uploaded, the response will be a HTTP 201 Created with the URL of the new document resource contained in the Location header.</p><div class="code-snippet js-code-snippet language-raw"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-raw data-lang=raw>HTTP/1.1 201 Created
+Location: https://api-sandbox.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0
+</code></pre></div></div><h3 id=document-review-process>Document review process</h3><p>Once created, the document will be reviewed by Dwolla. When our team has made a decision to approve or reject, which may take up to 1-2 business days, we’ll create either a <code>customer_verification_document_approved</code> or <code>customer_verification_document_failed</code> event.</p><p>If the document was sufficient, the Customer may be verified in this process. If not, we may need additional documentation. Note: Reference the <a href=/resources/business-verified-customer/handling-controller-and-customer-statuses.html#document-types>determining verification documents needed</a> section for more information on determining if additional documents are needed after an approved or failed event is triggered.</p><p>If the document was found to be fraudulent or doesn’t match the identity of the Customer, the Customer will be suspended.</p><h3 id=document-failure>Document failure</h3><p>A document can fail if, for example, the Customer uploaded the wrong type of document or the <code>.jpg</code> or <code>.png</code> file supplied was not readable (i.e. blurry, not well lit, or cuts off a portion of the identifying image). If you receive a <code>customer_verification_document_failed</code> webhook, you’ll need to upload another document. To retrieve the failure reason for the document upload, you’ll retrieve the document by its ID. Contained in the response will be a <code>failureReason</code> which corresponds to one of the following values:</p><ul><li><code>ScanNotReadable</code> - The photo was blurry, parts of the image were cut off, or the photo had glares on it preventing information from being read</li><li><code>ScanNotUploaded</code> - A photo was uploaded, but it was not an ID</li><li><code>ScanIdTypeNotSupported</code> - An ID was uploaded, but it is not a form of ID we accept</li><li><code>ScanNameMismatch</code> - The name on the ID does not match the name on the account</li></ul><h4 id=request-and-response>Request and response</h4><div class="code-snippet js-code-snippet language-raw"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-raw data-lang=raw>GET https://api-sandbox.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0
+Accept: application/vnd.dwolla.v1.hal+json
+Authorization: Bearer tJlyMNW6e3QVbzHjeJ9JvAPsRglFjwnba4NdfCzsYJm7XbckcR
+
+...
+
+{
+  "_links": {
+    "self": {
+      "href": "https://api-sandbox.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0"
+    }
+  },
+  "id": "11fe0bab-39bd-42ee-bb39-275afcc050d0",
+  "status": "reviewed",
+  "type": "license",
+  "created": "2016-01-29T21:22:22.000Z",
+  "failureReason": "ScanNotReadable"
+}
+</code></pre></div></div><div class="code-snippet js-code-snippet language-php"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-php data-lang=php><span class=cp>&lt;?php</span>
+<span class=nv>$aDocument</span> <span class=o>=</span> <span class=s1>'https://api.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0'</span><span class=p>;</span>
+
+<span class=nv>$documentsApi</span> <span class=o>=</span> <span class=nx>DwollaSwagger\DocumentsApi</span><span class=p>(</span><span class=nv>$apiClient</span><span class=p>);</span>
+
+<span class=nv>$retrieved</span> <span class=o>=</span> <span class=nv>$documentsApi</span><span class=o>-&gt;</span><span class=na>getCustomer</span><span class=p>(</span><span class=nv>$aDocument</span><span class=p>);</span>
+<span class=k>print</span><span class=p>(</span><span class=nv>$retrieved</span><span class=o>-&gt;</span><span class=na>failureReason</span><span class=p>);</span> <span class=c1># =&gt; "ScanNotReadable"
+</span><span class=cp>?&gt;</span>
+</code></pre></div></div><div class="code-snippet js-code-snippet language-ruby"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-ruby data-lang=ruby><span class=c1># Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)</span>
+<span class=n>document_url</span> <span class=o>=</span> <span class=s1>'https://api.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0'</span>
+
+<span class=n>document</span> <span class=o>=</span> <span class=n>app_token</span><span class=p>.</span><span class=nf>get</span> <span class=n>document_url</span>
+<span class=n>document</span><span class=p>.</span><span class=nf>failureReason</span> <span class=c1># =&gt; "ScanNotReadable"</span>
+</code></pre></div></div><div class="code-snippet js-code-snippet language-python"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-python data-lang=python><span class=c># Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)</span>
+<span class=n>document_url</span> <span class=o>=</span> <span class=s>'https://api.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0'</span>
+
+<span class=n>documents</span> <span class=o>=</span> <span class=n>app_token</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>document_url</span><span class=p>)</span>
+<span class=n>documents</span><span class=o>.</span><span class=n>body</span><span class=p>[</span><span class=s>'failureReason'</span><span class=p>]</span> <span class=c># =&gt; 'ScanNotReadable'</span>
+</code></pre></div></div><div class="code-snippet js-code-snippet language-javascript"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-javascript data-lang=javascript><span class=kd>var</span> <span class=nx>documentUrl</span> <span class=o>=</span> <span class=s1>'https://api.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0'</span><span class=p>;</span>
+
+<span class=nx>appToken</span>
+  <span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=nx>document_url</span><span class=p>)</span>
+  <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>res</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>res</span><span class=p>.</span><span class=nx>body</span><span class=p>.</span><span class=nx>failureReason</span><span class=p>;</span> <span class=c1>// =&gt; "ScanNotReadable"</span>
+  <span class=p>});</span>
+</code></pre></div></div><h2 id=handling-status-suspended>Handling status: suspended</h2><p>If the Customer is <code>suspended</code>, there’s no further action you can take to correct this using the API. You’ll need to contact support@dwolla.com or your account manager for assistance.</p><h2 id=retrieve-beneficial-owner-s-status>Retrieve beneficial owner(s) status</h2><p>The successful creation of a business verified Customer and Controller doesn’t necessarily mean the Customer is fully verified. After successfully creating your business verified Customer, you will need to check to see if the beneficial ownership requirements apply to you.</p><h3 id=exempt-and-non-exempt>Exempt and Non-exempt</h3><p><strong>Certain business types are exempt from beneficial owner(s) requirements.</strong> These include:</p><ul><li>Sole proprietorships</li><li>Public corporations</li></ul><p><strong>Businesses that are not exempt from beneficial owner(s)</strong> are as follows:</p><ul><li>Corporations</li><li>LLC’s</li><li>Partnerships</li></ul><ol class=alerts><li class="alert icon-alert-info">If a business is not exempt, a business verified Customer cannot transact or initiate transfers until the beneficial owner(s) and controllers have been verified</li></ol><p>To learn how to add beneficial owner(s) to your Customer, read on to our next article.</p><hr><h4 id=next-steps>Next steps</h4><ul><li><a href=/resources/business-verified-customer/adding-beneficial-owners.html>Adding beneficial owner(s)</a></li><li><a href=/resources/business-verified-customer/handling-beneficial-owner-certification.html>Certifying beneficial owner(s)</a></li></ul><hr><footer><div class=page-wrap><nav><h6>Product</h6><a href=https://www.dwolla.com/platform>Platform</a> <a href=https://www.dwolla.com/pricing>Pricing</a> <a href=https://www.dwolla.com/integrations>Integrations</a> <a href=https://www.dwolla.com/security>Security</a></nav><nav><h6>Resources</h6><a href=https://www.dwolla.com/updates>Blog</a> <a href=https://www.dwolla.com/case-studies>Case Studies</a> <a href=https://developers.dwolla.com>Developers</a> <a href=https://www.dwolla.com/contact>Contact Sales</a></nav><nav><h6>Company</h6><a href=https://www.dwolla.com/about>About</a> <a href=https://www.dwolla.com/careers>Careers</a> <a href=https://www.dwolla.com/industry-initiatives>Industry Initiatives</a> <a href=https://www.dwolla.com/press>Press</a></nav><nav><h6>Legal</h6><a href="https://www.dwolla.com/legal/tos/">Terms of Service</a> <a href="https://www.dwolla.com/legal/privacy/">Privacy Policy</a></nav></div></footer><section class=disclaimer><div class=page-wrap><h5>Financial institutions play an important role in the Dwolla network.</h5><p>Dwolla, Inc. is an agent of Veridian Credit Union and Compass Bank and all funds associated with your account in the Dwolla network are held in pooled accounts at Veridian Credit Union and Compass Bank. These funds are not eligible for individual insurance, including FDIC insurance and may not be eligible for share insurance by the National Credit Union Share Insurance Fund. Dwolla, Inc. is the operator of a software platform that communicates user instructions for funds transfers to Veridian Credit Union and Compass Bank.</p></div></section><section class=copyright><div class=page-wrap><div><span>&copy; 2018 Dwolla, Inc.</span> <a href="https://www.dwolla.com/legal/about-our-financial-institution-partner/">Dwolla, Inc. is an agent of its Financial Institution Partner(s)</a></div></div></section></section></div></div></div><script src=//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js></script><script>window.jQuery || document.write('<script src="/_bower_components/jquery/jquery.min.js"><\/script>')</script><script src=/js/script.c827.js></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='//www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','UA-30404064-1');ga('send','pageview');</script><script type=text/javascript>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/dfdjs7vb';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+
+  window.Intercom('boot', {
+    app_id: 'dfdjs7vb'
+  });</script><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRT5LD6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript></body></html>
