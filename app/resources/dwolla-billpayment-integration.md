@@ -2,7 +2,7 @@
 layout: twoColumn
 section: resources
 type: integrations
-title:  "Dwolla + Regalii Integration"
+title:  "Dwolla + Regalii"
 description: "Dwolla Platform Partners utilize a tokenized solution with Regalii to integrate bill payment functionality in their application"
 ---
 # Regalii Integration
