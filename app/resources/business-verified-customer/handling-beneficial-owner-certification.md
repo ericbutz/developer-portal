@@ -20,7 +20,7 @@ In order for your business verified Customer to send and receive funds, the indi
 
 ## Update certification status
 
-To change the certification status of your business verified Customer account, you will want to POST to the beneficial ownership endpoint. By updating your certification status to `certified`, the Rep creating the business verified Customer is indicating that all information is correct. After the Rep certifies that the information provided is accurate and the information the Rep provided has been verified through the identity verified process, your business verified Customer is now ready to transact within the Dwolla network.
+To change the certification status of your business verified Customer account, you will want to POST to the beneficial ownership endpoint. By updating your certification status to `certified`, the Dwolla Admin creating the business verified Customer is indicating that all information is correct. After the Dwolla Admin certifies that the information provided is accurate and the information the Dwolla Admin provided has been verified through the identity verified process, your business verified Customer is now ready to transact within the Dwolla network.
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers/56502f7a-fa59-4a2f-8579-0f8bc9d7b9cc/beneficial-ownership
