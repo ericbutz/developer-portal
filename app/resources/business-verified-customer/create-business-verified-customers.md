@@ -16,7 +16,7 @@ To create a business verified Customer, use the [Create a Customer](https://docs
 
 * **Beneficial owner** - Any natural person who, directly or indirectly, owns 25% or more of the equity interests of the company.
 * **Controller** - Any natural individual who holds significant responsibilities to control, manage, or direct a company or other corporate entity (i.e. CEO, CFO, General Partner, President, etc). A company may have more than one controller, but only one controller’s information must be collected.
-* **Rep** - The representative creating the business verified Customer on behalf of the business and Controller.
+* **Dwolla Admin** - The representative creating the business verified Customer on behalf of the business and Controller.
 * **EIN** - Employer Identification Number - A unique identification number that is assigned to a business entity so that they can easily be identified by the Internal Revenue Service.
 * **TIN** - Taxpayer Identification Number - An identifying number used for tax purposes in the United States. ... A TIN may be: a Social Security number (SSN) an Individual Taxpayer Identification Number (ITIN) an Employer Identification Number (EIN)
 * **VCR** - Verified Customer - A Customer that is created in the Dwolla network and is identity verified
@@ -32,12 +32,12 @@ As a developer, you can expect these events to be triggered when a business veri
 
 ### Request Parameters - Create a business verified Customer and controller
 
-In order to create a business verified Customer, Dwolla requires information on both the business and the controller. Your business verified Customer Rep will act as the authorized representative of the business. When going through the Customer creation flow, your business verifed Customer Rep will only need information on one controller to successfully complete the signup flow.
+In order to create a business verified Customer, Dwolla requires information on both the business and the controller. Your business verified Customer Dwolla Admin will act as the authorized representative of the business. When going through the Customer creation flow, your business verifed Customer Dwolla Admin will only need information on one controller to successfully complete the signup flow.
 
 | Parameter | Required | Type | Description |
 | ---------------|--------------|--------|----------------|
-| firstName | yes | string | The legal first name of the Rep or individual signing up the business verified Customer |
-| lastName | yes | string | The legal last name of the Rep or individual signing up the business verified Customer |
+| firstName | yes | string | The legal first name of the Dwolla Admin or individual signing up the business verified Customer |
+| lastName | yes | string | The legal last name of the Dwolla Admin or individual signing up the business verified Customer |
 | email | yes | string | email |
 | ipAddress | no | string | ipAddress is recommended |
 | businessName | yes | string | Registered business name. |

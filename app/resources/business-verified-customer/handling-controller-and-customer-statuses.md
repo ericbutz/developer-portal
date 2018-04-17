@@ -239,7 +239,7 @@ When a business verified Customer’s Controller is placed in the `document` ver
 |---------------|----------|
 | verify-with-document | Identifies if documents are needed only for a Controller |
 | verify-business-with-document | Identifies if documents are needed only for a business. |
-| verify-authorized-representative-and-business-with-document | Identifies if documents are needed for both the Controller and business. |
+| verify-controller-and-business-with-document | Identifies if documents are needed for both the Controller and business. |
 
 #### Example response
 
