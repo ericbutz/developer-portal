@@ -4,12 +4,13 @@ section: resources
 type: integrations
 title:  "Dwolla + Regalii"
 description: "Dwolla Platform Partners utilize a tokenized solution with Regalii to integrate bill payment functionality in their application"
+published: false
 ---
 # Regalii Integration
 
 Dwolla and Regalii have teamed up to offer a seamless tokenized solution for shared partners, looking to facilitate bill payments within their application. Interaction will occur with both the Regalii and Dwolla APIs in order to successfully create and track the status of a bill payment.
 
-This article is focused specifically on the interaction with the Dwolla API, however, highlights a few details of the Regalii API implementation. 
+This article is focused specifically on the interaction with the Dwolla API, however, highlights a few details of the Regalii API implementation.
 
 **Please note:** There are no instructions in this article regarding your integration with the Regalii APIs and specifically there are no details in this article about any notifications and webhooks you will receive from Regalii regarding the the final bill payment.
 
@@ -19,7 +20,7 @@ Please review Regalii’s documentation for more information on when Regalii wil
 
 ## Using Regalii + Dwolla
 
-For the purposes of this walkthrough, we’ll assume you’ve familiarized yourself with the [Dwolla API](https://docsv2.dwolla.com) and understand the proper workflow for onboarding your users as [Customers](https://docsv2.dwolla.com/#create-a-customer), including how to attach [verified funding sources](https://developers.dwolla.com/resources/funding-source-verification.html) to those Customers. 
+For the purposes of this walkthrough, we’ll assume you’ve familiarized yourself with the [Dwolla API](https://docsv2.dwolla.com) and understand the proper workflow for onboarding your users as [Customers](https://docsv2.dwolla.com/#create-a-customer), including how to attach [verified funding sources](https://developers.dwolla.com/resources/funding-source-verification.html) to those Customers.
 
 In addition, you will want to familiarize yourself with the key concepts of the [Regalii API](https://www.regalii.com/apix/v3/), which includes syncing biller information and initiating the request to pay a bill.
 
