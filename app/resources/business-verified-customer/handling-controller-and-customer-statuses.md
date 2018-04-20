@@ -64,7 +64,7 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
             "city": "Des Moines",
             "stateProvinceRegion": "IA",
             "postalCode": "50266",
-            "country": "United States"
+            "country": "US"
         }
     }
     "phone": "5554321234",
@@ -100,7 +100,7 @@ $retry_customer = $customersApi->create(array(
           'city' => 'Des Moines',
           'stateProvinceRegion' => 'IA',
           'postalCode' => '50265',
-          'country' => 'United States'
+          'country' => 'US'
       }
   }
   'phone': '5554321234',
@@ -137,7 +137,7 @@ request_body = {
         :city => 'Des Moines',
         :stateProvinceRegion => 'IA',
         :postalCode => '50266',
-        :country => 'United States'
+        :country => 'US'
       }
   }
   :phone => '5554321234',
@@ -175,7 +175,7 @@ request_body = {
         'city': 'Des Moines',
         'stateProvinceRegion': 'IA',
         'postalCode': '50266',
-        'country': 'United States'
+        'country': 'US'
       }
   }
   'phone': '5554321234',
@@ -212,7 +212,7 @@ var requestBody = {
         city: 'Des Moines',
         stateProvinceRegion: 'IA',
         postalCode: '50266',
-        country: 'United States'
+        country: 'US'
       }
   }
   phone: '5554321234',

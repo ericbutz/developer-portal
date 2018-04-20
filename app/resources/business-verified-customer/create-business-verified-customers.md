@@ -75,7 +75,7 @@ In order to create a business verified Customer, Dwolla requires information on 
 | city | yes | string | City of Controller’s physical address. |
 | stateProvinceRegion | yes | string | Two-letter US state or territory abbreviation code of controller’s physical address. For two-letter abbreviation reference, check out the [US Postal Service guide](https://pe.usps.com/text/pub28/28apb.htm). |
 | postalCode | no | string | Controller’s’ US five-digit ZIP or ZIP + 4 code. |
-| country | yes | string | Country of Controller’s physical address |
+| country | yes | string |  Country of controller's physical address. Two digit ISO code, e.g. `US`. |
 
 ### Controller passport JSON object
 
@@ -110,14 +110,14 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
         "lastName": "Controller",
         "title": "CEO",
         "dateOfBirth": "02/19/1990",
-        "ssn": "123-45-6789"
+        "ssn": "123-45-6789",
         "address": {
             "address1": "1749 18th st",
             "address2": "apt 12",
             "city": "Des Moines",
             "stateProvinceRegion": "IA",
             "postalCode": "50266",
-            "country": "United States"
+            "country": "US"
         }
     }
     "phone": "5554321234",
@@ -149,14 +149,14 @@ $new_customer = $customersApi->update([
       'lastName'=> 'Controller',
       'title' => 'CEO',
       'dateOfBirth' => '02/19/1990',
-      'ssn': '1234'
+      'ssn': '1234',
       'address' {
           'address1' => '18749 18th st',
           'address2' => 'apt 12',
           'city' => 'Des Moines',
           'stateProvinceRegion' => 'IA',
           'postalCode' => '50265',
-          'country' => 'United States'
+          'country' => 'US'
       }
   }
   'phone': '5554321234',
@@ -185,14 +185,14 @@ request_body = {
       :lastName => 'Controller',
       :title => 'CEO',
       :dateOfBirth => '02/19/1990',
-      :ssn => '1234'
+      :ssn => '1234',
       :address => {
         :address1 => '1749 18th st',
         :address2 => 'apt 12',
         :city => 'Des Moines',
         :stateProvinceRegion => 'IA',
         :postalCode => '50266',
-        :country => 'United States',
+        :country => 'US',
       }
   }
   :phone => '5554321234',
@@ -222,14 +222,14 @@ request_body = {
       'lastName': 'Controller',
       'title': 'CEO',
       'dateOfBirth': '02/19/1990',
-      'ssn': '1234'
+      'ssn': '1234',
       'address': {
         'address1': '1749 18th st',
         'address2': 'apt12',
         'city': 'Des Moines',
         'stateProvinceRegion': 'IA',
         'postalCode': '50266',
-        'country': 'United States'
+        'country': 'US'
       }
   }
   'phone': '5554321234',
@@ -264,7 +264,7 @@ var requestBody = {
         city: 'Des Moines',
         stateProvinceRegion: 'IA',
         postalCode: '50266',
-        country: 'United States'
+        country: 'US',
       }
   }
   phone: '5554321234',
