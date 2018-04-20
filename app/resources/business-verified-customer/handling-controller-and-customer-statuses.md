@@ -36,7 +36,7 @@ All fields that were required in the initial Customer creation attempt will be r
 #### Request and response
 
 ```raw
-POST https://api-sandbox.dwolla.com/customers
+POST https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
 Content-Type: application/vnd.dwolla.v1.hal+json
 Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
@@ -57,7 +57,7 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
         "lastName": "Controller",
         "title": "CEO",
         "dateOfBirth": "02/19/1990",
-        "ssn": "123-45-6789"
+        "ssn": "123-45-6789",
         "address": {
             "address1": "1749 18th st",
             "address2": "apt 12",
@@ -73,16 +73,13 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
     "businessName":"Jane Corp",
     "ein":"00-0000000"
 }
-
-HTTP/1.1 201 Created
-Location: https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
 ```
 
 ```php
 <?php
 $customersApi = new DwollaSwagger\CustomersApi($apiClient);
 
-$new_customer = $customersApi->update([
+$retry_customer = $customersApi->create(array(
   'firstName' => 'Jane',
   'lastName' => 'Merchant',
   'email' => 'janeMerchant@email.com',
@@ -96,7 +93,7 @@ $new_customer = $customersApi->update([
       'lastName'=> 'Controller',
       'title' => 'CEO',
       'dateOfBirth' => '02/19/1990',
-      'ssn': '1234'
+      'ssn': '1234',
       'address' {
           'address1' => '18749 18th st',
           'address2' => 'apt 12',
@@ -111,13 +108,14 @@ $new_customer = $customersApi->update([
   'businessType': 'llc',
   'businessName':'Jane Corp',
   'ein':'00-0000000'
-], $customerUrl);
-print($new_customer); # => https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
+));
+print($retry_customer); # => https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
 ?>
 ```
 
 ```ruby
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
+customer_url = 'https://api.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 request_body = {
   :firstName => 'Jane',
   :lastName => 'Merchant',
@@ -139,7 +137,7 @@ request_body = {
         :city => 'Des Moines',
         :stateProvinceRegion => 'IA',
         :postalCode => '50266',
-        :country => 'United States',
+        :country => 'United States'
       }
   }
   :phone => '5554321234',
@@ -149,12 +147,13 @@ request_body = {
   :ein => '12-3456789'
 }
 
-customer = app_token.post "customers", request_body
-customer.response_headers[:location] # => "https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5"
+customer = app_token.post customer_url, request_body
+customer.id # => "62c3aa1b-3a1b-46d0-ae90-17304d60c3d5"
 ```
 
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
+customer_url = 'https://api.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 request_body = {
   'firstName': 'Jane',
   'lastName': 'Merchant',
@@ -187,10 +186,11 @@ request_body = {
 }
 
 customer = app_token.post('customers', request_body)
-customer.headers['location'] # => 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
+customer.body.id # => '62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 ```
 
 ```javascript
+var customerUrl = 'https://api.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5';
 var requestBody = {
   firstName: 'Jane',
   lastName: 'Merchant',
@@ -223,8 +223,10 @@ var requestBody = {
 };
 
 appToken
-  .post('customers', requestBody)
-  .then(res => res.headers.get('location')); // => 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
+  .post(customerUrl, requestBody)
+  .then(function(res) {
+    res.body.id; // => '62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
+  });
 ```
 
 ## Handling `document` status

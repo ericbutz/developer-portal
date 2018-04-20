@@ -7,11 +7,11 @@ description: "Keep track of changes to the Dwolla API and official SDKs."
 ---
 # Upcoming
 
-### 2018-04-11
+### 2018-05-11
 
-#### Beneficial Ownership and Business Verified Customers
+#### Change in verified business Customer creation flow across Platform
 
-Benficial ownership and business verified Customers creation changing. Read [our blog post](https://www.dwolla.com/partner-resources/customer-due-diligence) to learn more about these changes.
+Dwolla will require all verified business Customers to be created with controllers and add beneficial owners as required. To learn more on this new flow, refer to our [developer resource article](https://developers.dwolla.com/resources/business-verified-customer.html).
 
 ### 2018-05-30
 
@@ -23,17 +23,29 @@ Dwolla will discontinue support for TLS 1.0 and TLS 1.1. This change will occur 
 
 ##### Deprecation of TLS 1.0 and 1.1 across Platform
 
-Dwolla will discontinue support for TLS 1.0 and TLS 1.1. This change will occur across the platform on June 30th, 2018. 
+Dwolla will discontinue support for TLS 1.0 and TLS 1.1. This change will occur across the platform on June 30th, 2018.
 We recommend that you test your Dwolla integrations to ensure a seamless transition.
-
 
 <section class="change-log">
 	<h1>Completed</h1>
-	<h3>2018-04-05</h3>
+	<h3>2018-04-11</h3>
+	<h4><em>CHANGED</em></h4>
+	<ul class="bullet">
+	    <li>Verified business Customers creation flow has changed in sandbox. Check out our <a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> developer resource article </a> to learn how to create this Customer type within the new flow.</li>
+		<li>In order to comply with United States Federal law, Dwolla also requires beneficial owners to be added to a Customer. Read <a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> our blog post </a> to learn more about why we need to comply with US customer due diligence rules.</li>
+		<li>Please note that this change will go live in across platform on May 11th, 2018.</li>
+	</ul>
+	<h3>2018-04-11</h3>
 	<h4><em>ADDED - Developer Resources Article</em></h4>
 	<ul class="bullet">
-	    <li>Added a new Developer Resource Article that goes over the Regalii integration with Dwolla.</li>
-		<li><a href = "https://developers.dwolla.com/resources/dwolla-billpayment-integration.html"> Click here </a> to view the article</li>
+	    <li>Added a new Developer Resource Article that goes over the new business verified Customer creation flow with Dwolla.</li>
+		<li><a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> Click here </a> to view the article</li>
+	</ul>
+	<h3>2018-04-11</h3>
+	<h4><em>UPDATED/ADDED - Dev Docs update</em></h4>
+	<ul class="bullet">
+	    <li>Updated Customer endpoints to reflect the<a href = "https://docsv2.dwolla.com/#customers"> new business verified Customer flow change. </a></li>
+		<li>Added <a href = "https://docsv2.dwolla.com/#beneficial-owners"> the new benefical owners endpoints </a> and <a href = "https://docsv2.dwolla.com/#event-topics---a-hrefbeneficial-ownersbeneficial-ownersa"> webhooks.</a></li>
 	</ul>
 	<h3>2018-04-03</h3>
 	<h4><em>UPDATED - Dev Docs update</em></h4>
