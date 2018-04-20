@@ -47,16 +47,17 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
     "email": "mybusiness@email.com",
     "ipAddress": "143.156.7.8",
     "type": "business",
-    "address1": "99-99 33rd St",
-    "city": "Some City",
-    "state": "NY",
-    "postalCode": "11101",
-    "dateOfBirth": "1980-01-01",
+    "address" {
+        "address1": "99-99 33rd St",
+        "city": "Some City",
+        "state": "NY",
+        "postalCode": "11101"
+    },
     "controller": {
         "firstName": "John",
         "lastName": "Controller",
         "title": "CEO",
-        "dateOfBirth": "02/19/1990",
+        "dateOfBirth": "1980-01-01",
         "ssn": "123-45-6789",
         "address": {
             "address1": "1749 18th st",
@@ -66,8 +67,7 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
             "postalCode": "50266",
             "country": "US"
         }
-    }
-    "phone": "5554321234",
+    },
     "businessClassification": "9ed3f670-7d6f-11e3-b1ce-5404a6144203",
     "businessType": "llc",
     "businessName":"Jane Corp",
@@ -76,41 +76,7 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
 ```
 
 ```php
-<?php
-$customersApi = new DwollaSwagger\CustomersApi($apiClient);
-
-$retry_customer = $customersApi->create(array(
-  'firstName' => 'Jane',
-  'lastName' => 'Merchant',
-  'email' => 'janeMerchant@email.com',
-  'type' => 'business',
-  'address1' => '99-99 33rd St',
-  'city' => 'Some City',
-  'state' => 'NY',
-  'postalCode' => '11101',
-  'controller' {
-      'firstName' => 'John',
-      'lastName'=> 'Controller',
-      'title' => 'CEO',
-      'dateOfBirth' => '02/19/1990',
-      'ssn': '1234',
-      'address' {
-          'address1' => '18749 18th st',
-          'address2' => 'apt 12',
-          'city' => 'Des Moines',
-          'stateProvinceRegion' => 'IA',
-          'postalCode' => '50265',
-          'country' => 'US'
-      }
-  }
-  'phone': '5554321234',
-  'businessClassification': '9ed3f670-7d6f-11e3-b1ce-5404a6144203',
-  'businessType': 'llc',
-  'businessName':'Jane Corp',
-  'ein':'00-0000000'
-));
-print($retry_customer); # => https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
-?>
+Coming soon.
 ```
 
 ```ruby
@@ -121,15 +87,17 @@ request_body = {
   :lastName => 'Merchant',
   :email => 'janeMerchant@email.com',
   :type => 'business',
-  :address1 => '99-99 33rd St',
-  :city => 'Some City',
-  :state => 'NY',
-  :postalCode => '11101',
+  :address => {
+    :address1 => '99-99 33rd St',
+    :city => 'Some City',
+    :state => 'NY',
+    :postalCode => '11101',
+    }
   :controller => {
       :firstName => 'John',
       :lastName => 'Controller',
       :title => 'CEO',
-      :dateOfBirth => '02/19/1990',
+      :dateOfBirth => '1980-01-01',
       :ssn => '1234'
       :address => {
         :address1 => '1749 18th st',
@@ -139,8 +107,7 @@ request_body = {
         :postalCode => '50266',
         :country => 'US'
       }
-  }
-  :phone => '5554321234',
+  },
   :businessClassification => '9ed38155-7d6f-11e3-83c3-5404a6144203',
   :businessType => 'llc',
   :businessName => 'Jane Corp',
@@ -159,15 +126,17 @@ request_body = {
   'lastName': 'Merchant',
   'email': 'janeMerchant@email.com',
   'type': 'business',
-  'address1': '99-99 33rd St',
-  'city': 'Some City',
-  'state': 'NY',
-  'postalCode': '11101',
+  'address': {
+    'address1': '99-99 33rd St',
+    'city': 'Some City',
+    'state': 'NY',
+    'postalCode': '11101'
+  },
   'controller': {
       'firstName': 'John',
       'lastName': 'Controller',
       'title': 'CEO',
-      'dateOfBirth': '02/19/1990',
+      'dateOfBirth': '1980-01-01',
       'ssn': '1234'
       'address': {
         'address1': '1749 18th st',
@@ -177,8 +146,7 @@ request_body = {
         'postalCode': '50266',
         'country': 'US'
       }
-  }
-  'phone': '5554321234',
+  },
   'businessClassification': '9ed38155-7d6f-11e3-83c3-5404a6144203',
   'businessType': 'llc',
   'businessName': 'Jane Corp',
@@ -196,15 +164,17 @@ var requestBody = {
   lastName: 'Merchant',
   email: 'janeMerchant@email.com',
   type: 'business',
-  address1: '99-99 33rd St',
-  city: 'Some City',
-  state: 'NY',
-  postalCode: '11101',
+  address: {
+    address1: '99-99 33rd St',
+    city: 'Some City',
+    state: 'NY',
+    postalCode: '11101'
+  },
   controller: {
       firstName: 'John',
       lastName: 'Controller',
       title: 'CEO',
-      dateOfBirth: '02/19/1990',
+      dateOfBirth: '1980-01-01',
       ssn: '1234'
       address: {
         address1: '1749 18th st', 
@@ -214,8 +184,7 @@ var requestBody = {
         postalCode: '50266',
         country: 'US'
       }
-  }
-  phone: '5554321234',
+  },
   businessClassification: '9ed38155-7d6f-11e3-83c3-5404a6144203',
   businessType: 'llc',
   businessName: 'Jane Corp',
