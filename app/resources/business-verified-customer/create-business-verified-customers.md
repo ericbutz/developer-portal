@@ -16,7 +16,7 @@ To create a business verified Customer, use the [Create a Customer](https://docs
 
 * **Beneficial owner** - Any natural person who, directly or indirectly, owns 25% or more of the equity interests of the company.
 * **Controller** - Any natural individual who holds significant responsibilities to control, manage, or direct a company or other corporate entity (i.e. CEO, CFO, General Partner, President, etc). A company may have more than one controller, but only one controller’s information must be collected.
-* **Dwolla Admin** - The representative creating the business verified Customer on behalf of the business and Controller.
+* **Account Admin** - The representative creating the business verified Customer on behalf of the business and Controller.
 * **EIN** - Employer Identification Number - A unique identification number that is assigned to a business entity so that they can easily be identified by the Internal Revenue Service.
 * **TIN** - Taxpayer Identification Number - An identifying number used for tax purposes in the United States. ... A TIN may be: a Social Security number (SSN) an Individual Taxpayer Identification Number (ITIN) an Employer Identification Number (EIN)
 * **VCR** - Verified Customer - A Customer that is created in the Dwolla network and is identity verified
@@ -32,12 +32,12 @@ As a developer, you can expect these events to be triggered when a business veri
 
 ### Request Parameters - Create a business verified Customer and controller
 
-In order to create a business verified Customer, Dwolla requires information on both the business and the controller. Your business verified Customer Dwolla Admin will act as the authorized representative of the business. When going through the Customer creation flow, your business verifed Customer Dwolla Admin will only need information on one controller to successfully complete the signup flow.
+In order to create a business verified Customer, Dwolla requires information on both the business and the controller. Your business verified Customer Account Admin will act as the agent signing up on behalf of the business. When going through the Customer creation flow, your business verifed Customer Account Admin will only need information on one controller to successfully complete the signup flow.
 
 | Parameter | Required | Type | Description |
 | ---------------|--------------|--------|----------------|
-| firstName | yes | string | The legal first name of the Dwolla Admin or individual signing up the business verified Customer |
-| lastName | yes | string | The legal last name of the Dwolla Admin or individual signing up the business verified Customer |
+| firstName | yes | string | The legal first name of the Account Admin or individual signing up the business verified Customer |
+| lastName | yes | string | The legal last name of the Account Admin or individual signing up the business verified Customer |
 | email | yes | string | email |
 | ipAddress | no | string | ipAddress is recommended |
 | businessName | yes | string | Registered business name. |
@@ -45,13 +45,17 @@ In order to create a business verified Customer, Dwolla requires information on 
 | businessType | yes | string | Business structure. Possible values are `corporation`, `llc`, `partnership`, and `soleProprietorship`. |
 | businessClassification| yes | string | The industry classification Id that corresponds to Customer’s business. [Reference our Dev Docs](https://docsv2.dwolla.com/#list-business-classifications) to learn how to generate this Id. |
 | ein | yes | string | Employer Identification Number. **Note:** If the `businessType` is `soleProprietorship`, then ein can be omitted from the request. |
+| website | no | string | Businesss’ website |
+| controller | conditional | object | A controller JSON object. Controllers are not required if `businessType` is `soleProprietorship`|
+| address | yes | object | A business address JSON object reference. Parameters below. |
+
+### Business address JSON object
+
 | address1 | yes | string | Street number, street name of business’ physical address. |
 | address2 | no | string | Apartment, floor, suite, bldg. # of business’ physical address |
 | city| yes | string | City of business’ physical address. |
 | state| yes | string | Two-letter US state or territory abbreviation code of business’ physical address. For two-letter abbreviation reference, check out the [US Postal Service guide](https://pe.usps.com/text/pub28/28apb.htm). |
 | postalCode | yes| string | Business’ US five-digit ZIP or ZIP + 4 code. |
-| website | no | string | Businesss’ website |
-| controller | conditional | object | A controller JSON object. Controllers are not required if `businessType` is `soleProprietorship`|
 
 ### Controller JSON object
 
@@ -61,9 +65,9 @@ In order to create a business verified Customer, Dwolla requires information on 
 | lastName | yes  |  String |  The legal last name of the controller. |
 | title | yes | String | Job title of the Customer’s Controller.  IE - Chief Financial Officer |
 | dateOfBirth | yes  |  String |  The date of birth of the controller. Formatted in YYYY-MM-DD format. Must be 18 years or older. |
-| SSN | conditional  |  String | Last four-digits of Controller’s social security number. Required for Controllers who reside in the United States  |
-| address | yes | object | An address JSON object. Full address of the controller's physical address. |
-| passport | contidtional | object | An optional passport JSON object. Required for non-US individuals. Includes passport identification number and country. |
+| ssn | conditional  |  String | Last four-digits of Controller’s social security number. Required for Controllers who reside in the United States. |
+| address | yes | object | A controller address JSON object. Full address of the controller's physical address. [See below](/resources/business-verified-customer/create-business-verified-customers.html#controller-address-json-object) |
+| passport | contidtional | object | An optional controller's passport JSON object. Required for non-US individuals. Includes passport identification number and country. [See below](/resources/business-verified-customer/create-business-verified-customers.html#controller-passport-json-object) |
 
 ### Controller address JSON object
 
@@ -75,7 +79,7 @@ In order to create a business verified Customer, Dwolla requires information on 
 | city | yes | string | City of Controller’s physical address. |
 | stateProvinceRegion | yes | string | Two-letter US state or territory abbreviation code of controller’s physical address. For two-letter abbreviation reference, check out the [US Postal Service guide](https://pe.usps.com/text/pub28/28apb.htm). |
 | postalCode | no | string | Controller’s’ US five-digit ZIP or ZIP + 4 code. |
-| country | yes | string | Country of Controller’s physical address |
+| country | yes | string |  Country of controller's physical address. Two digit ISO code, e.g. `US`. |
 
 ### Controller passport JSON object
 
@@ -100,27 +104,27 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
     "email": "mybusiness@email.com",
     "ipAddress": "143.156.7.8",
     "type": "business",
-    "address1": "99-99 33rd St",
-    "city": "Some City",
-    "state": "NY",
-    "postalCode": "11101",
-    "dateOfBirth": "1980-01-01",
+    "address": {
+        "address1": "99-99 33rd St",
+        "city": "Some City",
+        "state": "NY",
+        "postalCode": "11101"
+    },
     "controller": {
         "firstName": "John",
         "lastName": "Controller",
         "title": "CEO",
-        "dateOfBirth": "02/19/1990",
-        "ssn": "123-45-6789"
+        "ssn": "6789",
+        "dateOfBirth": "1980-01-31",
         "address": {
             "address1": "1749 18th st",
             "address2": "apt 12",
             "city": "Des Moines",
             "stateProvinceRegion": "IA",
             "postalCode": "50266",
-            "country": "United States"
+            "country": "US"
         }
-    }
-    "phone": "5554321234",
+    },
     "businessClassification": "9ed3f670-7d6f-11e3-b1ce-5404a6144203",
     "businessType": "llc",
     "businessName":"Jane Corp",
@@ -132,41 +136,7 @@ Location: https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304
 ```
 
 ```php
-<?php
-$customersApi = new DwollaSwagger\CustomersApi($apiClient);
-
-$new_customer = $customersApi->update([
-  'firstName' => 'Jane',
-  'lastName' => 'Merchant',
-  'email' => 'janeMerchant@email.com',
-  'type' => 'business',
-  'address1' => '99-99 33rd St',
-  'city' => 'Some City',
-  'state' => 'NY',
-  'postalCode' => '11101',
-  'controller' {
-      'firstName' => 'John',
-      'lastName'=> 'Controller',
-      'title' => 'CEO',
-      'dateOfBirth' => '02/19/1990',
-      'ssn': '1234'
-      'address' {
-          'address1' => '18749 18th st',
-          'address2' => 'apt 12',
-          'city' => 'Des Moines',
-          'stateProvinceRegion' => 'IA',
-          'postalCode' => '50265',
-          'country' => 'United States'
-      }
-  }
-  'phone': '5554321234',
-  'businessClassification': '9ed3f670-7d6f-11e3-b1ce-5404a6144203',
-  'businessType': 'llc',
-  'businessName':'Jane Corp',
-  'ein':'00-0000000'
-], $customerUrl);
-print($new_customer); # => https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
-?>
+Coming soon
 ```
 
 ```ruby
@@ -176,26 +146,27 @@ request_body = {
   :lastName => 'Merchant',
   :email => 'janeMerchant@email.com',
   :type => 'business',
-  :address1 => '99-99 33rd St',
-  :city => 'Some City',
-  :state => 'NY',
-  :postalCode => '11101',
+  :address => {
+    :address1 => '99-99 33rd St',
+    :city => 'Some City',
+    :state => 'NY',
+    :postalCode => '11101'
+},
   :controller => {
       :firstName => 'John',
       :lastName => 'Controller',
       :title => 'CEO',
-      :dateOfBirth => '02/19/1990',
-      :ssn => '1234'
+      :dateOfBirth => '1980-01-31',
+      :ssn => '1234',
       :address => {
         :address1 => '1749 18th st',
         :address2 => 'apt 12',
         :city => 'Des Moines',
         :stateProvinceRegion => 'IA',
         :postalCode => '50266',
-        :country => 'United States',
+        :country => 'US',
       }
-  }
-  :phone => '5554321234',
+  },
   :businessClassification => '9ed38155-7d6f-11e3-83c3-5404a6144203',
   :businessType => 'llc',
   :businessName => 'Jane Corp',
@@ -213,26 +184,27 @@ request_body = {
   'lastName': 'Merchant',
   'email': 'janeMerchant@email.com',
   'type': 'business',
-  'address1': '99-99 33rd St',
-  'city': 'Some City',
-  'state': 'NY',
-  'postalCode': '11101',
+  'address': {
+    'address1': '99-99 33rd St',
+    'city': 'Some City',
+    'state': 'NY',
+    'postalCode': '11101'
+  },
   'controller': {
       'firstName': 'John',
       'lastName': 'Controller',
       'title': 'CEO',
-      'dateOfBirth': '02/19/1990',
-      'ssn': '1234'
+      'dateOfBirth': '1980-01-31',
+      'ssn': '1234',
       'address': {
         'address1': '1749 18th st',
         'address2': 'apt12',
         'city': 'Des Moines',
         'stateProvinceRegion': 'IA',
         'postalCode': '50266',
-        'country': 'United States'
+        'country': 'US'
       }
-  }
-  'phone': '5554321234',
+  },
   'businessClassification': '9ed38155-7d6f-11e3-83c3-5404a6144203',
   'businessType': 'llc',
   'businessName': 'Jane Corp',
@@ -248,15 +220,17 @@ var requestBody = {
   lastName: 'Merchant',
   email: 'janeMerchant@email.com',
   type: 'business',
-  address1: '99-99 33rd St',
-  city: 'Some City',
-  state: 'NY',
-  postalCode: '11101',
+  address: {
+    address1: '99-99 33rd St',
+    city: 'Some City',
+    state: 'NY',
+    postalCode: '11101'
+  },
   controller: {
       firstName: 'John',
       lastName: 'Controller',
       title: 'CEO',
-      dateOfBirth: '02/19/1990',
+      dateOfBirth: '1980-01-31',
       ssn: '1234'
       address: {
         address1: '1749 18th st', 
@@ -264,10 +238,9 @@ var requestBody = {
         city: 'Des Moines',
         stateProvinceRegion: 'IA',
         postalCode: '50266',
-        country: 'United States'
+        country: 'US',
       }
-  }
-  phone: '5554321234',
+  },
   businessClassification: '9ed38155-7d6f-11e3-83c3-5404a6144203',
   businessType: 'llc',
   businessName: 'Jane Corp',

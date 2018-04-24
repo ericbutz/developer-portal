@@ -36,7 +36,7 @@ All fields that were required in the initial Customer creation attempt will be r
 #### Request and response
 
 ```raw
-POST https://api-sandbox.dwolla.com/customers
+POST https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
 Content-Type: application/vnd.dwolla.v1.hal+json
 Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
@@ -47,91 +47,57 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
     "email": "mybusiness@email.com",
     "ipAddress": "143.156.7.8",
     "type": "business",
-    "address1": "99-99 33rd St",
-    "city": "Some City",
-    "state": "NY",
-    "postalCode": "11101",
-    "dateOfBirth": "1980-01-01",
+    "address" {
+        "address1": "99-99 33rd St",
+        "city": "Some City",
+        "state": "NY",
+        "postalCode": "11101"
+    },
     "controller": {
         "firstName": "John",
         "lastName": "Controller",
         "title": "CEO",
-        "dateOfBirth": "02/19/1990",
-        "ssn": "123-45-6789"
+        "dateOfBirth": "1980-01-01",
+        "ssn": "123-45-6789",
         "address": {
             "address1": "1749 18th st",
             "address2": "apt 12",
             "city": "Des Moines",
             "stateProvinceRegion": "IA",
             "postalCode": "50266",
-            "country": "United States"
+            "country": "US"
         }
-    }
-    "phone": "5554321234",
+    },
     "businessClassification": "9ed3f670-7d6f-11e3-b1ce-5404a6144203",
     "businessType": "llc",
     "businessName":"Jane Corp",
     "ein":"00-0000000"
 }
-
-HTTP/1.1 201 Created
-Location: https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
 ```
 
 ```php
-<?php
-$customersApi = new DwollaSwagger\CustomersApi($apiClient);
-
-$new_customer = $customersApi->update([
-  'firstName' => 'Jane',
-  'lastName' => 'Merchant',
-  'email' => 'janeMerchant@email.com',
-  'type' => 'business',
-  'address1' => '99-99 33rd St',
-  'city' => 'Some City',
-  'state' => 'NY',
-  'postalCode' => '11101',
-  'controller' {
-      'firstName' => 'John',
-      'lastName'=> 'Controller',
-      'title' => 'CEO',
-      'dateOfBirth' => '02/19/1990',
-      'ssn': '1234'
-      'address' {
-          'address1' => '18749 18th st',
-          'address2' => 'apt 12',
-          'city' => 'Des Moines',
-          'stateProvinceRegion' => 'IA',
-          'postalCode' => '50265',
-          'country' => 'United States'
-      }
-  }
-  'phone': '5554321234',
-  'businessClassification': '9ed3f670-7d6f-11e3-b1ce-5404a6144203',
-  'businessType': 'llc',
-  'businessName':'Jane Corp',
-  'ein':'00-0000000'
-], $customerUrl);
-print($new_customer); # => https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
-?>
+Coming soon.
 ```
 
 ```ruby
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
+customer_url = 'https://api.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 request_body = {
   :firstName => 'Jane',
   :lastName => 'Merchant',
   :email => 'janeMerchant@email.com',
   :type => 'business',
-  :address1 => '99-99 33rd St',
-  :city => 'Some City',
-  :state => 'NY',
-  :postalCode => '11101',
+  :address => {
+    :address1 => '99-99 33rd St',
+    :city => 'Some City',
+    :state => 'NY',
+    :postalCode => '11101',
+    }
   :controller => {
       :firstName => 'John',
       :lastName => 'Controller',
       :title => 'CEO',
-      :dateOfBirth => '02/19/1990',
+      :dateOfBirth => '1980-01-01',
       :ssn => '1234'
       :address => {
         :address1 => '1749 18th st',
@@ -139,36 +105,38 @@ request_body = {
         :city => 'Des Moines',
         :stateProvinceRegion => 'IA',
         :postalCode => '50266',
-        :country => 'United States',
+        :country => 'US'
       }
-  }
-  :phone => '5554321234',
+  },
   :businessClassification => '9ed38155-7d6f-11e3-83c3-5404a6144203',
   :businessType => 'llc',
   :businessName => 'Jane Corp',
   :ein => '12-3456789'
 }
 
-customer = app_token.post "customers", request_body
-customer.response_headers[:location] # => "https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5"
+customer = app_token.post customer_url, request_body
+customer.id # => "62c3aa1b-3a1b-46d0-ae90-17304d60c3d5"
 ```
 
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
+customer_url = 'https://api.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 request_body = {
   'firstName': 'Jane',
   'lastName': 'Merchant',
   'email': 'janeMerchant@email.com',
   'type': 'business',
-  'address1': '99-99 33rd St',
-  'city': 'Some City',
-  'state': 'NY',
-  'postalCode': '11101',
+  'address': {
+    'address1': '99-99 33rd St',
+    'city': 'Some City',
+    'state': 'NY',
+    'postalCode': '11101'
+  },
   'controller': {
       'firstName': 'John',
       'lastName': 'Controller',
       'title': 'CEO',
-      'dateOfBirth': '02/19/1990',
+      'dateOfBirth': '1980-01-01',
       'ssn': '1234'
       'address': {
         'address1': '1749 18th st',
@@ -176,10 +144,9 @@ request_body = {
         'city': 'Des Moines',
         'stateProvinceRegion': 'IA',
         'postalCode': '50266',
-        'country': 'United States'
+        'country': 'US'
       }
-  }
-  'phone': '5554321234',
+  },
   'businessClassification': '9ed38155-7d6f-11e3-83c3-5404a6144203',
   'businessType': 'llc',
   'businessName': 'Jane Corp',
@@ -187,24 +154,27 @@ request_body = {
 }
 
 customer = app_token.post('customers', request_body)
-customer.headers['location'] # => 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
+customer.body.id # => '62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 ```
 
 ```javascript
+var customerUrl = 'https://api.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5';
 var requestBody = {
   firstName: 'Jane',
   lastName: 'Merchant',
   email: 'janeMerchant@email.com',
   type: 'business',
-  address1: '99-99 33rd St',
-  city: 'Some City',
-  state: 'NY',
-  postalCode: '11101',
+  address: {
+    address1: '99-99 33rd St',
+    city: 'Some City',
+    state: 'NY',
+    postalCode: '11101'
+  },
   controller: {
       firstName: 'John',
       lastName: 'Controller',
       title: 'CEO',
-      dateOfBirth: '02/19/1990',
+      dateOfBirth: '1980-01-01',
       ssn: '1234'
       address: {
         address1: '1749 18th st', 
@@ -212,10 +182,9 @@ var requestBody = {
         city: 'Des Moines',
         stateProvinceRegion: 'IA',
         postalCode: '50266',
-        country: 'United States'
+        country: 'US'
       }
-  }
-  phone: '5554321234',
+  },
   businessClassification: '9ed38155-7d6f-11e3-83c3-5404a6144203',
   businessType: 'llc',
   businessName: 'Jane Corp',
@@ -223,8 +192,10 @@ var requestBody = {
 };
 
 appToken
-  .post('customers', requestBody)
-  .then(res => res.headers.get('location')); // => 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
+  .post(customerUrl, requestBody)
+  .then(function(res) {
+    res.body.id; // => '62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
+  });
 ```
 
 ## Handling `document` status
