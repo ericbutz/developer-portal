@@ -51,6 +51,8 @@ In order to create a business verified Customer, Dwolla requires information on 
 
 ### Business address JSON object
 
+| Parameter | Required | Type | Description |
+| ---------------|--------------|--------|----------------|
 | address1 | yes | string | Street number, street name of business’ physical address. |
 | address2 | no | string | Apartment, floor, suite, bldg. # of business’ physical address |
 | city| yes | string | City of business’ physical address. |
