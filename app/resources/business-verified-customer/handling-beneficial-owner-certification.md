@@ -14,9 +14,9 @@ In order for your business verified Customer to send and receive funds, the indi
 
 | certification_status | Description       |
 |----------------------|-------------------|
-| Uncertified          | New business verified Customers. Uncertified business verified Customers are unable to transact. |
-| Recertify            | Business verified Customers that are certified and change owner information, OR Business verified Customers that Dwolla needs to obtain more information from |
-| Certified            | Changed to this status on certification.  |
+| uncertified          | New business verified Customers. Uncertified business verified Customers are unable to transact. |
+| recertify            | Business verified Customers that are certified and change owner information, OR Business verified Customers that Dwolla needs to obtain more information from |
+| certified            | Changed to this status on certification.  |
 
 ## Update certification status
 
@@ -31,12 +31,20 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 {
   "status": "certified"
 }
-```
 
-```php
-No example for this language yet.
-```
+...
 
+{
+    "_links": {
+        "self": {
+            "href": "https://api-sandbox.dwolla.com/customers/56502f7a-fa59-4a2f-8579-0f8bc9d7b9cc/beneficial-ownership",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "beneficial-ownership"
+        }
+    },
+    "status": "certified"
+}
+```
 ```ruby
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby
 customer_url = 'https://api-sandbox.dwolla.com/customers/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
@@ -46,7 +54,14 @@ request_body = {
 
 app_token.post "#{customer_url}/beneficial-ownership", request_body
 ```
+```javascript
+var customerUrl = 'https://api-sandbox.dwolla.com/customers/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
+var requestBody = {
+  status: 'certified'
+};
 
+appToken.post(`${customerUrl}/beneficial-ownership`, requestBody);
+```
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python
 customer_url = 'https://api-sandbox.dwolla.com/customers/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
@@ -55,22 +70,18 @@ request_body = {
 }
 
 app_token.post('%s/beneficial-ownership' % customer_url, request_body)
-
 ```
-
-```javascript
-# Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python
-customer_url = 'https://api-sandbox.dwolla.com/customers/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
-request_body = {
-    "status": "certified"
-}
-
-app_token.post('%s/beneficial-ownership' % customer_url, request_body)
+```php
+<?php
+$customersApi = new DwollaSwagger\CustomersApi($apiClient);
+$customerId = 'https://api-sandbox.dwolla.com/customers/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
+$certifyCustomer = $customersApi->changeOwnershipStatus(['status' => 'certified' ], $customerId);
+?>
 ```
 
 ## Handling `recertify` status
 
-If you have are adding or changing beneficial owners tied to a business verified Customer account, the certification status changes to `recertify`. 
+If you are adding or changing beneficial owners tied to a business verified Customer account, the certification status changes to `recertify`.
 
 To update, you will need to remove your beneficial owner and re-add each beneficial owner, including  the necessary identity verification information.
 

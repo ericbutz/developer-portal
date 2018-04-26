@@ -10,7 +10,7 @@ description: "How to handle the Controller and Business identity verification"
 
 You have successfully created a business verified Customer; however, there are cases where Dwolla will need more information to fully verify the identity of the Controller or Business. Read on to learn more.
 
-**If your Controller and Business are identity verified,** you can skip to the [retrieve beneficial owner status](/resources/business-verified-customer/handling-controller-and-customer-statuses.html#retrieve-beneficial-ownership-status)  at the bottom of the page to continue with your business verified Customer creation.
+**If your Controller and Business are identity verified,** you can skip to the [retrieve beneficial owner status](/resources/business-verified-customer/handling-controller-and-customer-statuses.html#retrieve-beneficial-owner-s-status)  at the bottom of the page to continue with your business verified Customer creation.
 
 ## Verification statuses
 
@@ -27,7 +27,7 @@ A `retry` status occurs when a Customer’s identity scores are too low during t
 
 <ol class = "alerts">
     <li class="alert icon-alert-info">
-      You need to gather **new** information if the Customer is placed into the `retry` status; simply passing the same information will result in the same insufficient scores.
+      You need to gather new information if the Customer is placed into the retry status; simply passing the same information will result in the same insufficient scores.
     </li>
 </ol>
 
@@ -47,12 +47,10 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
     "email": "mybusiness@email.com",
     "ipAddress": "143.156.7.8",
     "type": "business",
-    "address" {
-        "address1": "99-99 33rd St",
-        "city": "Some City",
-        "state": "NY",
-        "postalCode": "11101"
-    },
+    "address1": "99-99 33rd St",
+    "city": "Some City",
+    "state": "NY",
+    "postalCode": "11101",
     "controller": {
         "firstName": "John",
         "lastName": "Controller",
@@ -74,9 +72,43 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
     "ein":"00-0000000"
 }
 ```
-
 ```php
-Coming soon.
+<?php
+$customersApi = new DwollaSwagger\CustomersApi($apiClient);
+$customerUrl = 'https://api-sandbox.dwolla.com/customers/b70c3194-35fa-49e8-9243-d55a30e06d1e';
+$retryCustomer = $customersApi->updateCustomer([
+  'firstName' => 'Jane',
+  'lastName' => 'Merchant',
+  'email' => 'mybusiness@email.com',
+  'type' => 'business',
+  'address1' => '99-99 33rd St',
+  'city' => 'Some City',
+  'state' => 'NY',
+  'postalCode' => '11101',
+  'controller' =>
+  [
+      'firstName' => 'John',
+      'lastName'=> 'Controller',
+      'title' => 'CEO',
+      'dateOfBirth' => '1990-10-10',
+      'ssn' => '123-456-7890',
+      'address' =>
+      [
+          'address1' => '18749 18th st',
+          'address2' => 'apt 12',
+          'city' => 'Des Moines',
+          'stateProvinceRegion' => 'IA',
+          'postalCode' => '50265',
+          'country' => 'US'
+      ],
+  ],
+  'phone' => '5554321234',
+  'businessClassification' => '9ed3f670-7d6f-11e3-b1ce-5404a6144203',
+  'businessType' => 'llc',
+  'businessName' => 'Jane Corp',
+  'ein' => '00-0000000'], $customerUrl);
+
+?>
 ```
 
 ```ruby
@@ -87,12 +119,10 @@ request_body = {
   :lastName => 'Merchant',
   :email => 'janeMerchant@email.com',
   :type => 'business',
-  :address => {
-    :address1 => '99-99 33rd St',
-    :city => 'Some City',
-    :state => 'NY',
-    :postalCode => '11101',
-    }
+  :address1 => '99-99 33rd St',
+  :city => 'Some City',
+  :state => 'NY',
+  :postalCode => '11101',
   :controller => {
       :firstName => 'John',
       :lastName => 'Controller',
@@ -126,12 +156,10 @@ request_body = {
   'lastName': 'Merchant',
   'email': 'janeMerchant@email.com',
   'type': 'business',
-  'address': {
-    'address1': '99-99 33rd St',
-    'city': 'Some City',
-    'state': 'NY',
-    'postalCode': '11101'
-  },
+  'address1': '99-99 33rd St',
+  'city': 'Some City',
+  'state': 'NY',
+  'postalCode': '11101',
   'controller': {
       'firstName': 'John',
       'lastName': 'Controller',
@@ -164,12 +192,10 @@ var requestBody = {
   lastName: 'Merchant',
   email: 'janeMerchant@email.com',
   type: 'business',
-  address: {
-    address1: '99-99 33rd St',
-    city: 'Some City',
-    state: 'NY',
-    postalCode: '11101'
-  },
+  address1: '99-99 33rd St',
+  city: 'Some City',
+  state: 'NY',
+  postalCode: '11101',
   controller: {
       firstName: 'John',
       lastName: 'Controller',
@@ -177,7 +203,7 @@ var requestBody = {
       dateOfBirth: '1980-01-01',
       ssn: '1234'
       address: {
-        address1: '1749 18th st', 
+        address1: '1749 18th st',
         address2: 'apt 12',
         city: 'Des Moines',
         stateProvinceRegion: 'IA',
@@ -485,7 +511,7 @@ The successful creation of a business verified Customer and Controller doesn’t
     </li>
 </ol>
 
-To learn how to add beneficial owner(s) to your Customer, read on to our next article.
+To learn how to add beneficial owner(s) to your Customer, read on to our [next article](/resources/business-verified-customer/adding-beneficial-owners.html).
 
 * * *
 
