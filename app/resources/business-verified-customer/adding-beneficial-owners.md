@@ -277,12 +277,6 @@ appToken
 
 Congrats! You have created a beneficial owner for a business verified Customer, however, the successful creation of a beneficial Owner doesn’t necessarily mean they are identity verified. You will want to ensure that the beneficial Owner is `verified`, as the business verified Customer will be unable to send or receive funds until then.
 
-<ol class = "alerts">
-    <li class="alert icon-alert-info">
-        Your business verified Customer will stay in `document` status until all beneficial owner information has been provided and verified.
-    </li>
-</ol>
-
 ### Handling `incomplete` status
 
 An `incomplete` status occurs when a beneficial owner's identity scores are too low during the initial verification attempt. You will submit another identity verification attempt for the beneficial owner via the Dwolla API in order to give our identity vendor more accurate information in an attempt to receive a sufficient score to approve the beneficial owner. You will only have one opportunity to correct any mistakes.
