@@ -8,7 +8,7 @@ description: "A walkthrough of sending wire transfers through the Dwolla API."
 
 # Overview
 
-Wire transfers continue to be a staple functionality in the world of B2B and B2C commerce, so we’ve made the ability to wire funds out of the Dwolla platform available to Dwolla API partners. In some instances, wire transfers may prove beneficial to Dwolla API partners over standard ACH; for example, they **provide the ability to move large transactions out of the Dwolla platform** at a faster speed. In this article we'll cover how to wire out funds to a bank from the Dwolla platform.
+Wire transfers continue to be a staple functionality in the world of B2B and B2C commerce, so we’ve made the ability to wire funds out of the Dwolla Platform available to our partners. In some instances, wire transfers may prove beneficial to partners over standard ACH; for example, they **provide the ability to move large transactions out of the Dwolla Platform** at a faster speed. In this article we'll cover how to wire out funds to a bank from the Dwolla Platform.
 
 ## Use Case
 
@@ -27,7 +27,7 @@ Wire API functionality **is** supported in the following payment flows:
 
 * Funds are available the **same business day**, rather than days later.
 * Wire transfers are more expensive than ACH transfers to send and receive. For more information on pricing, [get in touch with us.](https://www.dwolla.com/contact?b=nav)
-* A wire transfer can only be facilitated out of the Dwolla platform to a bank for a Dwolla API partner account or its [Verified Customers](/resources/account-types.html).
+* A wire transfer can only be facilitated out of the Dwolla platform to a bank for a partner account or its [Verified Customers](/resources/account-types.html).
 * Funds can only be wired to customers with domestic (U.S.) bank accounts.
 
 ## Wire transfer processing times and events
