@@ -8,17 +8,19 @@ description: "How to certify your Beneficial Owners in order for your business V
 ---
 # Certifying beneficial ownership
 
-In order for your business verified Customer to send and receive funds, the individual creating the business verified Customer account must certify the beneficial owner(s). By certifying that all the information is correct, the requirements imposed by the United States Federal customer due diligence rule and Dwolla will be successfully fulfilled. Your business verified Customer will now be able to send and receive funds in the Dwolla network.
+In order for your business verified Customer to be eligible to send and receive funds, the individual creating the business verified Customer account must certify beneficial owner(s). By certifying that all beneficial owner information is correct, the requirements imposed by the United States Federal customer due diligence rule and Dwolla will be successfully fulfilled.
 
-#### Possible Certification Statuses
+Certification of beneficial owners should be included as part of the Customer account registration and immediately following the creation of the business Verified Customer and the addition of all owners (unless exempt).
+
+#### Certification Statuses
 
 | certification_status | Description       |
 |----------------------|-------------------|
-| uncertified          | New business verified Customers. Uncertified business verified Customers are unable to transact. |
-| recertify            | Business verified Customers that are certified and change owner information, OR Business verified Customers that Dwolla needs to obtain more information from |
-| certified            | Changed to this status on certification.  |
+| uncertified          | New business verified Customers that are not exempt are initially placed in an uncertified status. Uncertified business verified Customers are unable to transact. |
+| recertify            | Business verified Customers that are certified and change owner information, OR Business verified Customers that Dwolla needs to obtain more information from relating to beneficial owners are placed in a recertify status. |
+| certified            | Confirms the certification of beneficial owners. |
 
-## Update certification status
+## Certify ownership
 
 To change the certification status of your business verified Customer account, you will want to POST to the beneficial ownership endpoint. By updating your certification status to `certified`, the Account Admin creating the business verified Customer is indicating that all information is correct. After the Account Admin certifies that the information provided is accurate and the information the Account Admin provided has been verified through the identity verified process, your business verified Customer is now ready to transact within the Dwolla network.
 
@@ -85,4 +87,4 @@ If you are adding or changing beneficial owners tied to a business verified Cust
 
 To update, you will need to remove your beneficial owner and re-add each beneficial owner, including  the necessary identity verification information.
 
-When changing beneficial owners, your `certification_status` will change from `certified` to `recertify`. When in `recertify` status, you will have up to thirty days to update and verify your beneficial owners’ information and update your status to `certified`. If you are unable to update your status within this time, the business verified Customer will have its `certification_status` changed to `uncertified`, leaving the Customer unable to transact.
+When changing beneficial owners, your certification status will change from `certified` to `recertify`. When in `recertify` status, you will have up to thirty days to update and verify your beneficial owners’ information and update your status to `certified`. If you are unable to update your status within this time, the business verified Customer will have its `certification_status` changed to `uncertified`, leaving the Customer unable to transact.

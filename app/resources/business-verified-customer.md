@@ -7,7 +7,7 @@ description: "How to create and verify a Business customer before sending a bank
 ---
 # Business Customer Verification
 
-This article will walk through the identity verification process for business verified Customers  within the Dwolla API. For more information on going live with the Dwolla Platform, please [contact sales](https://www.dwolla.com/contact).
+This article will walk through the identity verification process for business verified Customers within the Dwolla API. For more information on going live with the Dwolla Platform, please [contact sales](https://www.dwolla.com/contact).
 
 A business verified Customer represents a business that intends to send or receive funds on your platform. In any transaction, at least one party—either the sender or the receiver—must complete the [identity verification](https://www.dwolla.com/updates/guide-to-cip-customer-identification-program-dwolla-payments-api/) process as outlined in this article.
 

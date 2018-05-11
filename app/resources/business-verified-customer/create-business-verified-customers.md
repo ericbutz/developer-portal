@@ -18,8 +18,8 @@ To create a business verified Customer, use the [Create a Customer](https://docs
 * **Controller** - Any natural individual who holds significant responsibilities to control, manage, or direct a company or other corporate entity (i.e. CEO, CFO, General Partner, President, etc). A company may have more than one controller, but only one controller’s information must be collected.
 * **Account Admin** - The representative creating the business verified Customer on behalf of the business and Controller.
 * **EIN** - Employer Identification Number - A unique identification number that is assigned to a business entity so that they can easily be identified by the Internal Revenue Service.
-* **TIN** - Taxpayer Identification Number - An identifying number used for tax purposes in the United States. ... A TIN may be: a Social Security number (SSN) an Individual Taxpayer Identification Number (ITIN) an Employer Identification Number (EIN)
-* **VCR** - Verified Customer - A Customer that is created in the Dwolla network and is identity verified
+* **TIN** - Taxpayer Identification Number - An identifying number used for tax purposes in the United States. A TIN may be: a Social Security number (SSN) an Individual Taxpayer Identification Number (ITIN) an Employer Identification Number (EIN).
+* **VCR** - Verified Customer - A Customer record that is created in the Dwolla network and is identity verified.
 
 ## Events
 
@@ -32,14 +32,14 @@ As a developer, you can expect these events to be triggered when a business veri
 
 ### Request Parameters - Create a business verified Customer and controller
 
-In order to create a business verified Customer, Dwolla requires information on both the business and the controller. Your business verified Customer Account Admin will act as the agent signing up on behalf of the business. When going through the Customer creation flow, your business verifed Customer Account Admin will only need information on one controller to successfully complete the signup flow.
+In order to create a business verified Customer, Dwolla requires information on an account admin, the business, and the controller. Your business verified Customer account admin will act as the agent signing up on behalf of the business. When going through the Customer creation flow, your business verified Customer account admin will only need information on one controller to successfully complete the signup flow.
 
 | Parameter | Required | Type | Description |
 | ---------------|--------------|--------|----------------|
-| firstName | yes | string | The legal first name of the Account Admin or individual signing up the business verified Customer |
-| lastName | yes | string | The legal last name of the Account Admin or individual signing up the business verified Customer |
-| email | yes | string | email |
-| ipAddress | no | string | ipAddress is recommended |
+| firstName | yes | string | The legal first name of the Account Admin or individual signing up the business verified Customer. |
+| lastName | yes | string | The legal last name of the Account Admin or individual signing up the business verified Customer. |
+| email | yes | string | email address of individual creating and managing the Customer account. |
+| ipAddress | no | string | ipAddress of registering user is recommended. |
 | type | yes | string | Value of: `business` |
 | address1 | yes | string | Street number, street name of business’ physical address. |
 | address2 | no | string | Apartment, floor, suite, bldg. # of business’ physical address |
@@ -47,25 +47,24 @@ In order to create a business verified Customer, Dwolla requires information on 
 | state| yes | string | Two-letter US state or territory abbreviation code of business’ physical address. For two-letter abbreviation reference, check out the [US Postal Service guide](https://pe.usps.com/text/pub28/28apb.htm). |
 | postalCode | yes| string | Business’ US five-digit ZIP or ZIP + 4 code. |
 | businessName | yes | string | Registered business name. |
-| doingBusinessAs | no | string | Alternative business name. |
+| doingBusinessAs | no | string | Preferred business name -- also known as fictitious name, or assumed name. |
 | businessType | yes | string | Business structure. Possible values are `corporation`, `llc`, `partnership`, and `soleProprietorship`. |
 | businessClassification| yes | string | The industry classification Id that corresponds to Customer’s business. [Reference our Dev Docs](https://docsv2.dwolla.com/#list-business-classifications) to learn how to generate this Id. |
-| ein | yes | string | Employer Identification Number. **Note:** If the `businessType` is `soleProprietorship`, then ein can be omitted from the request. |
-| website | no | string | Businesss’ website |
+| ein | yes | string | Employer Identification Number. **Note:** If the `businessType` is `soleProprietorship`, then ein and controller can be omitted from the request. |
+| website | no | string | Business’ website |
 | controller | conditional | object | A controller JSON object. Controllers are not required if `businessType` is `soleProprietorship`|
-| address | yes | object | A business address JSON object reference. Parameters below. |
 
 ### Controller JSON object
 
 | Parameter | Required | Type | Description |
 | ---------------|--------------|--------|----------------|
-| firstName | yes  |  String |  The legal first name of the controller. |
-| lastName | yes  |  String |  The legal last name of the controller. |
-| title | yes | String | Job title of the Customer’s Controller.  IE - Chief Financial Officer |
-| dateOfBirth | yes  |  String |  The date of birth of the controller. Formatted in YYYY-MM-DD format. Must be 18 years or older. |
-| ssn | conditional  |  String | Last four-digits of Controller’s social security number. Required for Controllers who reside in the United States. |
+| firstName | yes  |  string |  The legal first name of the controller. |
+| lastName | yes  |  string |  The legal last name of the controller. |
+| title | yes | string | Job title of the Customer’s Controller.  e.g. Chief Financial Officer |
+| dateOfBirth | yes  |  string |  The date of birth of the controller. Formatted in YYYY-MM-DD format. Must be 18 years or older. |
+| ssn | conditional  |  string | Last four-digits of Controller’s social security number. Required for Controllers who reside in the United States. |
 | address | yes | object | A controller address JSON object. Full address of the controller's physical address. [See below](/resources/business-verified-customer/create-business-verified-customers.html#controller-address-json-object) |
-| passport | contidtional | object | An optional controller's passport JSON object. Required for non-US individuals. Includes passport identification number and country. [See below](/resources/business-verified-customer/create-business-verified-customers.html#controller-passport-json-object) |
+| passport | conditional | object | An optional controller's passport JSON object. Required for non-US individuals. Includes passport identification number and country. [See below](/resources/business-verified-customer/create-business-verified-customers.html#controller-passport-json-object) |
 
 ### Controller address JSON object
 
@@ -84,7 +83,7 @@ In order to create a business verified Customer, Dwolla requires information on 
 | Parameter | Required | Type | Description |
 | ---------------|--------------|--------|----------------|
 | number | conditional | string | Required for a non-U.S. person who has no Social Security number. |
-| country | conditional | string | Country of issued passport. |
+| country | conditional | string | Country of issued passport. Two digit ISO code, e.g. `US`. |
 
 Once you submit this request, Dwolla will perform some initial validation to check for formatting issues such as an invalid date of birth, invalid email format, etc. If successful, the response will be a HTTP 201/Created with the URL of the new Customer resource contained in the Location header.
 
@@ -99,7 +98,7 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
 {
     "firstName": "Account",
     "lastName": "Admin",
-    "email": "mybusiness@email.com",
+    "email": "accountAdmin@email.com",
     "ipAddress": "143.156.7.8",
     "type": "business",
     "address1": "99-99 33rd St",
@@ -138,7 +137,7 @@ $new_customer = 'https://api-sandbox.dwolla.com/customers/b70c3194-35fa-49e8-924
 $new_customer = $customersApi->create([
   'firstName' => 'Account',
   'lastName' => 'Admin',
-  'email' => 'mybusiness@email.com',
+  'email' => 'accountAdmin@email.com',
   'type' => 'business',
   'address1' => '99-99 33rd St',
   'city' => 'Some City',
@@ -174,7 +173,7 @@ $new_customer = $customersApi->create([
 request_body = {
   :firstName => 'Account',
   :lastName => 'Admin',
-  :email => 'mybusiness@email.com',
+  :email => 'accountAdmin@email.com',
   :type => 'business',
   :address1 => '99-99 33rd St',
   :city => 'Some City',
@@ -210,7 +209,7 @@ customer.response_headers[:location] # => "https://api-sandbox.dwolla.com/custom
 request_body = {
   'firstName': 'Account',
   'lastName': 'Admin',
-  'email': 'mybusiness@email.com',
+  'email': 'accountAdmin@email.com',
   'type': 'business',
   'address1': '99-99 33rd St',
   'city': 'Some City',
@@ -244,7 +243,7 @@ customer.headers['location'] # => 'https://api-sandbox.dwolla.com/customers/62c3
 var requestBody = {
   firstName: 'Account',
   lastName: 'Admin',
-  email: 'mybusiness@email.com',
+  email: 'accountAdmin@email.com',
   type: 'business',
   address1: '99-99 33rd St',
   city: 'Some City',
@@ -277,7 +276,7 @@ appToken
 
 ## Check the status of the business Customer
 
-You have created a business verified Customer; however, the successful creation of a business verified Customer and Controller doesn’t necessarily mean the Customer is verified. Businesses may need to provide additional information to help verify their identity. It is important to immediately check the status of the business Customer to determine if additional documentation is needed.
+You have created a business verified Customer; however, the successful creation of a business verified Customer doesn’t necessarily mean the Customer account is verified. Businesses may need to provide additional information to help verify their identity. It is important to immediately check the status of the business Customer to determine if additional documentation is needed.
 
 #### Request and response
 
@@ -344,7 +343,7 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
     "id": "d56c07fa-3832-427d-bb88-a9eb2d375c14",
     "firstName": "Account",
     "lastName": "Admin",
-    "email": "mybusiness@email.com",
+    "email": "accountAdmin@email.com",
     "type": "business",
     "status": "verified",
     "created": "2018-04-26T19:11:41.290Z",
@@ -403,7 +402,7 @@ appToken
   .then(res => res.body.status); // => 'verified'
 ```
 
-You will want to ensure that both your Controller and your Business have been verified, as the Customer will be unable to send or receive funds until then. If your controller or the business is in `retry` or `document`, head to our next article to learn how to handle this status.
+You will want to ensure that both your Controller and your Business have been verified, as the Customer will be unable to send or receive funds until then. If the Customer is in `retry` or `document`, head to our next article to learn how to handle these statuses.
 
 * * *
 
