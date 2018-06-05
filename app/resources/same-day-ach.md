@@ -7,7 +7,7 @@ description: "A walkthrough of Same Day ACH and leveraging 'next available' proc
 ---
 
 # Overview
-Dwolla enables API partners to take advantage of Same Day ACH credit transfers on a [per transfer request](https://docsv2.dwolla.com/#initiate-a-transfer) basis. A `clearing` request parameter is supplied in the request to the Dwolla API which tells Dwolla to expedite clearing for the destination account involved in the transaction. Same Day ACH currently only supports credits, however NACHA (the "managers" of the ACH network) is expected to rollout Same Day debits in late 2017. Same-day ACH is a simple and powerful feature for platforms looking to more to differentiate themselves, streamline cash flows, and improve their end-user experiences.
+Dwolla enables your application to take advantage of Same Day ACH credit transfers on a [per transfer request](https://docsv2.dwolla.com/#initiate-a-transfer) basis. A `clearing` request parameter is supplied in the request to the Dwolla API which tells Dwolla to expedite clearing for the destination account involved in the transaction. Same Day ACH currently only supports credits, however NACHA (the "managers" of the ACH network) is expected to rollout Same Day debits in late 2017. Same-day ACH is a simple and powerful feature for platforms looking to more to differentiate themselves, streamline cash flows, and improve their end-user experiences.
 
 A few key differences between Standard ACH and Same Day ACH are:
 

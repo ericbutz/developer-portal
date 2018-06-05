@@ -52,6 +52,7 @@ In order to create a business verified Customer, Dwolla requires information on 
 | businessClassification| yes | string | The industry classification Id that corresponds to Customer’s business. [Reference our Dev Docs](https://docsv2.dwolla.com/#list-business-classifications) to learn how to generate this Id. |
 | ein | yes | string | Employer Identification Number. **Note:** If the `businessType` is `soleProprietorship`, then ein and controller can be omitted from the request. |
 | website | no | string | Business’ website |
+| phone | no | string | Business's 10 digit phone number. No hyphens or other separators, e.g. 3334447777. |
 | controller | conditional | object | A controller JSON object. Controllers are not required if `businessType` is `soleProprietorship`|
 
 ### Controller JSON object

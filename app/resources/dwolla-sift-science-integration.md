@@ -3,15 +3,15 @@ layout: twoColumn
 section: resources
 type: integrations
 title:  "Dwolla + Sift Science"
-description: "As part of Dwolla’s API, Partners can implement Sift Science’s machine learning model for real-time ACH fraud monitoring."
+description: "As part of Dwolla’s API, customers can implement Sift Science’s machine learning model for real-time ACH fraud monitoring."
 ---
 # Sift Science Integration
 
-As part of Dwolla’s [API](https://www.dwolla.com/platform), Partners can choose to implement Sift Science’s machine learning model for [real-time ACH fraud monitoring](https://www.dwolla.com/ach/automated-ach-fraud-monitoring).
+As part of Dwolla’s [API](https://www.dwolla.com/platform), you can choose to implement Sift Science’s machine learning model for [real-time ACH fraud monitoring](https://www.dwolla.com/ach/automated-ach-fraud-monitoring).
 
-The need to leverage machine learning in protecting against fraud becomes increasingly valuable as payment volume scales. With this in mind, many Dwolla API Partners look for the right solution to help manage risk for their ACH payments.
+The need to leverage machine learning in protecting against fraud becomes increasingly valuable as payment volume scales. With this in mind, many Dwolla customers look for the right solution to help manage risk for their ACH payments.
 
-Often, we see Partners choosing to use [Sift Science](https://siftscience.com/) in order to better monitor and protect against fraud. We understand the value Sift’s real-time risk scoring model can provide our Partners, so we’ve integrated the service right into the Dwolla API.
+Often, we see customers choosing to use [Sift Science](https://siftscience.com/) in order to better monitor and protect against fraud. We understand the value Sift’s real-time risk scoring model can provide our customers, so we’ve integrated the service right into the Dwolla API.
 
 In this article we’ll cover the steps to get your Sift Account set up, as well as the process for integrating Sift into your Dwolla API Dashboard.
 

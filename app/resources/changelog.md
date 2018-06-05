@@ -7,18 +7,6 @@ description: "Keep track of changes to the Dwolla API and official SDKs."
 ---
 # Upcoming
 
-### 2018-05-11
-
-#### Change in verified business Customer creation flow across Platform
-
-Dwolla will require all verified business Customers to be created with controllers and add beneficial owners as required. To learn more on this new flow, refer to our [developer resource article](https://developers.dwolla.com/resources/business-verified-customer.html).
-
-### 2018-05-30
-
-#### Deprecation of TLS 1.0 and 1.1 in Sandbox
-
-Dwolla will discontinue support for TLS 1.0 and TLS 1.1. This change will occur in Dwolla’s sandbox environment on May 30th, 2018.
-
 ### 2018-06-30
 
 ##### Deprecation of TLS 1.0 and 1.1 across Platform
@@ -28,6 +16,40 @@ We recommend that you test your Dwolla integrations to ensure a seamless transit
 
 <section class="change-log">
 	<h1>Completed</h1>
+	<h3>2018-06-04</h3>
+	<h4><em>UPDATED</em></h4>
+	<ul class="bullet">
+	    <li>Dwolla has discontinued support for <code>.tif</code> file upload.</li>
+		<li>View dev docs commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/pull/113/commits/a2fb0e48abda154e5949efab87c9f732f648cce9"> Github </a></li>
+	</ul>
+	<h3>2018-05-30</h3>
+	<h4><em>UPDATED/ADDED</em></h4>
+	<ul class="bullet">
+	    <li>New webhook <code>funding_source_negative</code> and <code>customer_funding_source_negative</code></li>
+		<li>Jump to our <a href = "https://docsv2.dwolla.com/#events">dev docs</a> or view the full dev docs commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/pull/112"> Github</a></li>
+	</ul>
+	<h3>2018-05-30</h3>
+	<h4><em>UPDATED - SDK - C#</em></h4>
+	<ul class="bullet">
+	    <li>New version of C# SDK.</li>
+		<li>Breaking changes:</li>
+		<li>DwollaClient no longer throws on API errors, they should be properly deserialized into RestResponse.Error instead.</li>
+		<li>DwollaException, RestException, and RestResponse.Exception are removed.</li>
+		<li>Use <code>EmptyResponse</code> instead of <code>object</code> in DwollaClient inteface.</li>
+		<li>Check it out on our <a href = "https://github.com/Dwolla/dwolla-v2-csharp"> Github </a></li>
+	</ul>
+	<h3>2018-05-30</h3>
+	<h4><em>CHANGED/DEPRECATED</em></h4>
+	<ul class="bullet">
+	    <li>Dwolla has discontinued support for TLS 1.0 and TLS 1.1 in the sandbox environment on May 30th, 2018.</li>
+		<li>Deprecation will occur across platform on June 30th, 2018.</li>
+	</ul>
+	<h3>2018-05-11</h3>
+	<h4><em>CHANGED</em></h4>
+	<ul class="bullet">
+	    <li>Change in verified business Customer creation flow across Platform. Check out our <a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> developer resource article </a> to learn how to create this Customer type within the new flow.</li>
+		<li>In order to comply with United States Federal law, Dwolla also requires beneficial owners to be added to a Customer. Read <a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> our blog post </a> to learn more about why we need to comply with US customer due diligence rules.</li>
+	</ul>
 	<h3>2018-04-11</h3>
 	<h4><em>CHANGED</em></h4>
 	<ul class="bullet">
@@ -38,23 +60,23 @@ We recommend that you test your Dwolla integrations to ensure a seamless transit
 	<h3>2018-04-11</h3>
 	<h4><em>ADDED - Developer Resources Article</em></h4>
 	<ul class="bullet">
-	    <li>Added a new Developer Resource Article that goes over the new business verified Customer creation flow with Dwolla.</li>
-		<li><a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> Click here </a> to view the article</li>
+        <li>Added a new Developer Resource Article that goes over the new business verified Customer creation flow with Dwolla.</li>
+        <li><a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> Click here </a> to view the article</li>
 	</ul>
-	<h3>2018-04-11</h3>
-	<h4><em>UPDATED/ADDED - Dev Docs update</em></h4>
-	<ul class="bullet">
-	    <li>Updated Customer endpoints to reflect the<a href = "https://docsv2.dwolla.com/#customers"> new business verified Customer flow change. </a></li>
-		<li>Added <a href = "https://docsv2.dwolla.com/#beneficial-owners"> the new benefical owners endpoints </a> and <a href = "https://docsv2.dwolla.com/#event-topics---a-hrefbeneficial-ownersbeneficial-ownersa"> webhooks.</a></li>
+    <h3>2018-04-11</h3>
+    <h4><em>UPDATED/ADDED - Dev Docs update</em></h4>
+    <ul class="bullet">
+        <li>Updated Customer endpoints to reflect the<a href = "https://docsv2.dwolla.com/#customers"> new business verified Customer flow change. </a></li>
+        <li>Added <a href = "https://docsv2.dwolla.com/#beneficial-owners"> the new benefical owners endpoints </a> and <a href = "https://docsv2.dwolla.com/#event-topics---a-hrefbeneficial-ownersbeneficial-ownersa"> webhooks.</a></li>
 	</ul>
-	<h3>2018-04-03</h3>
-	<h4><em>UPDATED - Dev Docs update</em></h4>
-	<ul class="bullet">
-	    <li>Added method and URL to Documents section</li>
-		<li>View commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/commit/b8ccd4fe9fa0988b54843a9ed6b3d3c8799f9290"> Github </a> </li>
+    <h3>2018-04-03</h3>
+    <h4><em>UPDATED - Dev Docs update</em></h4>
+    <ul class="bullet">
+        <li>Added method and URL to Documents section</li>
+        <li>View commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/commit/b8ccd4fe9fa0988b54843a9ed6b3d3c8799f9290"> Github </a> </li>
 	</ul>
-	<h3>2018-03-30</h3>
-	<h4><em>UPDATED - Developer Resources Article</em></h4>
+    <h3>2018-03-30</h3>
+    <h4><em>UPDATED - Developer Resources Article</em></h4>
 	<ul class="bullet">
 	    <li>Changed screenshot to reflect the proper On-Demand Auth Language.</li>
 		<li>View commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/commit/https://github.com/Dwolla/open-source-developer-portal/commit/ecdb32c0770621b4ca9555efd4b6d0403cba2d1f"> Github </a> </li>
@@ -95,7 +117,7 @@ We recommend that you test your Dwolla integrations to ensure a seamless transit
 	<h3>2016-05-02</h3>
 	<h4><em>ADDED</em></h4>
 	<ul class="bullet">
-	    <li>Release support for a new (optional) <code>backButton</code> and <code>subscriber</code> options for IAV within <a href="https://developers.dwolla.com/resources/dwolla-js/instant-account-verification.html">dwolla.js</a>. <b>Note:</b> Dwolla.js is a premium feature only available for Dwolla <a href="https://www.dwolla.com/platform">API</a> partners.</li>
+	    <li>Release support for a new (optional) <code>backButton</code> and <code>subscriber</code> options for IAV within <a href="https://developers.dwolla.com/resources/dwolla-js/instant-account-verification.html">dwolla.js</a>. <b>Note:</b> Dwolla.js is a premium feature only available for Dwolla <a href="https://www.dwolla.com/platform">API</a> customers.</li>
 	</ul>
 	<h3>2017-04-27</h3>
 	<h4><em>DEPRECATED</em></h4>
@@ -105,7 +127,7 @@ We recommend that you test your Dwolla integrations to ensure a seamless transit
 	<h3>2016-12-01</h3>
 	<h4><em>ADDED</em></h4>
 	<ul class="bullet">
-	    <li>Release support for a new <code>clearing</code> request parameter when <a href="https://docsv2.dwolla.com/#initiate-a-transfer">initiating a transfer</a>. Clearing is a JSON object that supports specifying same-day and standard ACH clearing per API request. <b>Note:</b> The clearing request parameter is a premium feature available for Dwolla <a href="https://www.dwolla.com/platform">API</a> partners.</li>
+	    <li>Release support for a new <code>clearing</code> request parameter when <a href="https://docsv2.dwolla.com/#initiate-a-transfer">initiating a transfer</a>. Clearing is a JSON object that supports specifying same-day and standard ACH clearing per API request. <b>Note:</b> The clearing request parameter is a premium feature available for Dwolla <a href="https://www.dwolla.com/platform">API</a> customers.</li>
 	</ul>
 	<h3>2016-12-01</h3>
 	<h4><em>DEPRECATED</em></h4>

@@ -110,7 +110,7 @@ appToken
 
 Below is a table of the most common return codes we see involved in transactions. For a full list of return codes, you can check out the [official NACHA Return Reason Code Guide](https://www.nacha.org/products/return-reason-code-guide).
 
-**Note:** As a best practice, we recommend handling any systematic actions (Customer or bank funding source state change events) that are triggered as a result of a transfer failure. Rather than relying on the specific actions as referenced below. We do not recommend building a workflow around each individual return code in the table below. This table is a meant to be a reference for you to be aware of the actions Dwolla takes on common transfer failures.
+**Note:** As a best practice, we recommend handling any systematic actions (Customer or bank funding source state change events) that are triggered as a result of a transfer failure. Rather than relying on the specific actions as referenced below. **We do not recommend building a workflow around each individual return code in the table below. This table solely meant to be a reference for you to be aware of the actions Dwolla takes on common transfer failures.**
 
 | Return Code | Description | Customer Deactivated | Bank Unverified | Bank Removed |
 |-------------|-------------|----------------------|-----------------|--------------|

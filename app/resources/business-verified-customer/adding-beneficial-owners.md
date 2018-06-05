@@ -12,7 +12,10 @@ description: "Determine whether or not you need to add a Beneficial Owner to a C
 
 To help the government fight financial crime, the existing United States Federal customer due diligence rules were amended to clarify and strengthen [customer due diligence requirements.](https://www.federalregister.gov/documents/2016/05/11/2016-10567/customer-due-diligence-requirements-for-financial-institutions#footnote-44-p29407)The customer due diligence rule imposes a new requirement for verifying the identity of beneficial owner(s) of Dwolla’s partners and users that are not natural persons. These legal entities can be abused to disguise involvement in terrorist financing, money laundering, tax evasion, corruption, fraud, and other financial crimes. Requiring the disclosure of key individuals who ultimately own or control a legal entity (i.e., the beneficial owners) helps law enforcement investigate and prosecute these crimes.
 
-### What business types are required to provide beneficial owner information?
+## Exemptions and non-exemptions
+
+### Business types required to provide beneficial owner information and certify beneficial ownership
+
 A beneficial owner is someone that owns, directly or indirectly, 25% or more of the equity interests of the business. Businesses that are not exempt from beneficial owner requirements and need to submit beneficial owner information include:
 
 * Corporations
@@ -21,14 +24,21 @@ A beneficial owner is someone that owns, directly or indirectly, 25% or more of 
 
 To learn how to add beneficial owners to your Customer, read on in the [next section](/resources/business-verified-customer/adding-beneficial-owners.html#create-a-beneficial-owner-for-a-business-verified-customer).
 
-### What business types are exempt from providing beneficial owner information?
-Businesses types that are classified in one of the categories below are exempt from beneficial owner requirements. However, with the exception of the `businessType` of `soleProprietorship`, the individual creating the business Verified Customer account will be still be required to [explicitly certify](https://docsv2.dwolla.com/#certify-beneficial-ownership) no owners to attest to the exemption.
+### Business types exempt from providing beneficial owner information, but must certify beneficial ownership
 
-* Sole proprietorships *(Do not need to [certify ownership](/resources/business-verified-customer/handling-beneficial-owner-certification.html))*
+Businesses types that are classified in one of the categories below are exempt from beneficial owner requirements. However, the individual creating the business verified Customer account will be still be required to [explicitly certify](https://docsv2.dwolla.com/#certify-beneficial-ownership) no owners to attest to the exemption.
+
+* Non-profits **will sign up as a corporation or LLC, whichever is the actual legal entity**
 * Public corporations
-* Non-profits
-* Unincorporated association
-* Trusts
+
+### Business types are exempt from providing beneficial owner information and exempt from certifying beneficial ownership
+
+These businesstypes will not need to add beneficial owners or certify beneficial ownership
+
+* Sole proprietorships
+* Unincorporated association - **will sign up as a sole proprietorship**
+* Trusts - **will sign up as a sole proprietorship**
+* Any business verified Customer created prior to May 11th, 2018 - These Customers are "grandfathered" in the beneficial ownership rules and do not need to be certified.
 
 **If your business is exempt or if there is no individual with at least 25% ownership,** your Customer can [go straight to certifying that there is no beneficial owner.](/resources/business-verified-customer/handling-beneficial-owner-certification.html)
 
@@ -555,3 +565,8 @@ To learn how to certify beneficial owners to your Customer, read on to our next 
 #### Next steps
 
 * [Certifying beneficial owners](/resources/business-verified-customer/handling-beneficial-owner-certification.html)
+
+#### Review previous steps
+
+* [Creating business verified Customer](/resources/business-verified-customer/create-business-verified-customers.html)
+* [Handling business verified Customer statuses](/resources/business-verified-customer/handling-controller-and-customer-statuses.html)

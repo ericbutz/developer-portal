@@ -21,3 +21,10 @@ Between the ACH transfer statuses of “pending” and “processed” there are
 
 - **Cancelled:** If a transfer’s status changes from “pending” to “cancelled”, this means that the transfer was cancelled. See "Bank to Dwolla network" and "Dwolla network to bank" in the [processing times](/resources/bank-transfer-workflow/processing-times.html) section for available cancellation windows.
 - **Failed:** If a transfer failed to clear successfully (usually as a result of an ACH reject or return), the transfer’s status will be “failed”. Transfers can fail for a number of reasons, e.g. insufficient funds, invalid account number, no account/unable to locate account, etc. Note: in rare cases, a “processed” transfer may later on get returned as “failed”.
+
+* * *
+
+#### Learn more about bank transfers
+
+* [Processing times](/resources/bank-transfer-workflow/processing-times.html)
+* [Transfer failures](/resources/bank-transfer-workflow/transfer-failures.html)

@@ -11,7 +11,7 @@ description: "Integrate instant bank verification for developers using the Dwoll
 
 ## Using Dwolla.js for Instant Account Verification (IAV)
 
-For Dwolla API partners, `dwolla.js` has the added function of facilitating Instant Account Verification (IAV) on their customer's bank or credit union account. By calling a separate function `dwolla.iav.start()`, the Dwolla API partner application can render the IAV flow within a specified container. `dwolla.iav.start()` allows for customization through configurable options such as:
+For Dwolla API customers, `dwolla.js` has the added function of facilitating Instant Account Verification (IAV) on their customer's bank or credit union account. By calling a separate function `dwolla.iav.start()`, your application can render the IAV flow within a specified container. `dwolla.iav.start()` allows for customization through configurable options such as:
 
 * `stylesheets` - a list of CSS stylesheets for styling the IAV flow
 * `microDeposits` - presents a selection screen for the user to choose the micro-deposit method of bank verification throughout the IAV flow

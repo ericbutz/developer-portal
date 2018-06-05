@@ -14,8 +14,8 @@ description: "Getting started with Dwolla's bank transfer API."
 <h1>The API Basics</h1>
 <ul class="article-list">
     <li>
-        <h3><a href="/resources/account-types.html">Account types</a></h3>
-        <p>The different types of Dwolla accounts and their transfer limits and eligibility.</p>
+        <h3><a href="/resources/account-types.html">Customer types</a></h3>
+        <p>The different types of Customer types and their transfer limits and eligibility.</p>
     </li>
     <li>
         <h3><a href="/resources/bank-transfer-workflow.html">Bank transfer workflow</a></h3>

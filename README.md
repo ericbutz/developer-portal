@@ -2,7 +2,7 @@
 
 +Dwolla is the ideal platform to move money. When using the Dwolla API your software platform can move money between any 2 bank accounts, verify bank accounts, and store funds on behalf of your users.
 
-Our software platform is compatible with all banks in the United States. The developer documents are designed to support our development partners who are building on top of Dwolla's platform. Our API is a simple unified access point to connect with US banks and credit unions.
+Our software platform is compatible with all banks in the United States. The developer documents are designed to support our development customers who are building on top of Dwolla's platform. Our API is a simple unified access point to connect with US banks and credit unions.
 
 The Dwolla API developer portal lives here: https://developers.dwolla.com
 
