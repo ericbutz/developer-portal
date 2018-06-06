@@ -26,21 +26,21 @@ To learn how to add beneficial owners to your Customer, read on in the [next sec
 
 ### Business types exempt from providing beneficial owner information, but must certify beneficial ownership
 
-Businesses types that are classified in one of the categories below are exempt from beneficial owner requirements. However, the individual creating the business verified Customer account will be still be required to [explicitly certify](https://docsv2.dwolla.com/#certify-beneficial-ownership) no owners to attest to the exemption.
+Businesses types that are classified in one of the categories below are exempt from beneficial owner requirements. However, the individual creating the business verified Customer account will be still be required to [explicitly certify](https://docsv2.dwolla.com/#certify-beneficial-ownership) no owners to attest to the exemption. Depending on what the legal entity is, the following business types will designate the `businessType` as either `corporation` or `llc` in the create a Customer API request:
 
-* Non-profits **will sign up as a corporation or LLC, whichever is the actual legal entity**
+* Non-profits
 * Public corporations
 
 ### Business types are exempt from providing beneficial owner information and exempt from certifying beneficial ownership
 
-These businesstypes will not need to add beneficial owners or certify beneficial ownership
+The following business types will not need to add beneficial owners or explicitly certify beneficial ownership:
 
 * Sole proprietorships
 * Unincorporated association - **will sign up as a sole proprietorship**
 * Trusts - **will sign up as a sole proprietorship**
-* Any business verified Customer created prior to May 11th, 2018 - These Customers are "grandfathered" in the beneficial ownership rules and do not need to be certified.
+* Business verified Customer accounts created prior to May 11th, 2018 - These Customers are "grandfathered" into the updated customer due diligence rules.
 
-**If your business is exempt or if there is no individual with at least 25% ownership,** your Customer can [go straight to certifying that there is no beneficial owner.](/resources/business-verified-customer/handling-beneficial-owner-certification.html)
+**If your business is exempt or if there is no individual with at least 25% ownership,** your Customer can [go straight to certifying that there is no beneficial owner](/resources/business-verified-customer/handling-beneficial-owner-certification.html).
 
 ## Create a beneficial owner for a Business Verified Customer
 
