@@ -88,3 +88,11 @@ If you are adding or changing beneficial owners tied to a business verified Cust
 To update, you will need to remove your beneficial owner and re-add each beneficial owner, including  the necessary identity verification information.
 
 When changing beneficial owners, your certification status will change from `certified` to `recertify`. When in `recertify` status, you will have up to thirty days to update and verify your beneficial owners’ information and update your status to `certified`. If you are unable to update your status within this time, the business verified Customer will have its `certification_status` changed to `uncertified`, leaving the Customer unable to transact.
+
+* * *
+
+#### Review previous steps
+
+* [Creating business verified Customer](/resources/business-verified-customer/create-business-verified-customers.html)
+* [Handling business verified Customer statuses](/resources/business-verified-customer/handling-controller-and-customer-statuses.html)
+* [Adding beneficial owner(s)](/resources/business-verified-customer/adding-beneficial-owners.html)

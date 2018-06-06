@@ -72,6 +72,7 @@ Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
     "ein":"00-0000000"
 }
 ```
+
 ```php
 <?php
 $customersApi = new DwollaSwagger\CustomersApi($apiClient);
@@ -356,9 +357,11 @@ curl -X POST
 \ -F "file=@foo.png"
 \ 'https://api-sandbox.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1/documents
 ```
+
 ```php
 No example for this language yet.
 ```
+
 ```ruby
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby
 customer_url = 'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1'
@@ -367,6 +370,7 @@ file = Faraday::UploadIO.new('mclovin.jpg', 'image/jpeg')
 document = app_token.post "#{customer_url}/documents", file: file, documentType: 'license'
 document.response_headers[:location] # => "https://api.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0"
 ```
+
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
 customer_url = 'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1'
@@ -374,6 +378,7 @@ customer_url = 'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46
 document = app_token.post('%s/documents' % customer_url, file = open('mclovin.jpg', 'rb'), documentType = 'license')
 document.headers['location'] # => 'https://api.dwolla.com/documents/11fe0bab-39bd-42ee-bb39-275afcc050d0'
 ```
+
 ```javascript
 // Using dwolla-v2 - https://github.com/Dwolla/dwolla-v2-node
 var customerUrl = 'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1';
@@ -494,3 +499,7 @@ To learn how to add beneficial owner(s) to your Customer, read on to our [next a
 
 * [Adding beneficial owner(s)](/resources/business-verified-customer/adding-beneficial-owners.html)
 * [Certifying beneficial owner(s)](/resources/business-verified-customer/handling-beneficial-owner-certification.html)
+
+#### Review previous steps
+
+* [Creating business verified Customer](/resources/business-verified-customer/create-business-verified-customers.html)

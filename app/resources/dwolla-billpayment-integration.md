@@ -3,12 +3,12 @@ layout: twoColumn
 section: resources
 type: integrations
 title:  "Dwolla + Regalii"
-description: "Dwolla Platform Partners utilize a tokenized solution with Regalii to integrate bill payment functionality in their application"
+description: "Dwolla Platform customers utilize a tokenized solution with Regalii to integrate bill payment functionality in their application"
 published: false
 ---
 # Regalii Integration
 
-Dwolla and Regalii have teamed up to offer a seamless tokenized solution for shared partners, looking to facilitate bill payments within their application. Interaction will occur with both the Regalii and Dwolla APIs in order to successfully create and track the status of a bill payment.
+Dwolla and Regalii have teamed up to offer a seamless tokenized solution for shared customers, looking to facilitate bill payments within their application. Interaction will occur with both the Regalii and Dwolla APIs in order to successfully create and track the status of a bill payment.
 
 This article is focused specifically on the interaction with the Dwolla API, however, highlights a few details of the Regalii API implementation.
 

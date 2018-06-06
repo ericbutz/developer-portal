@@ -2,28 +2,64 @@
 layout: twoColumn
 section: resources
 type: article
-title:  "Account types"
+title:  "Customer types"
 description: "Getting started with Dwolla's bank transfer API."
 ---
+# Customer types
 
-# Account types
+A Dwolla API customer is created programmatically by your CIP verified Dwolla Master Account via the [Create a Customer](https://docsv2.dwolla.com/#create-a-customer) endpoint. All of the Customer's required information will be handled through the API and the Customer will interact directly with your application to manage their account. As a developer, you will want to create a Customer that best suits the business case of your application. Below is a very high level detailing of the Customer types available with Dwolla.
 
-When you are building your application, you’ll want to be aware of the different account types that exist on the Dwolla platform as well as their capabilities.
+| **Customer Type** | CIP Verification | Dwolla `balance` | Transaction Limit | Transact with |
+|---------------------------|----------------------|------------------------|------------------------|--------------------|
+| **Personal verified Customer** | Required | Yes | $5,000 per **transfer** | All Customer types |
+| **Business verified Customer** | Required | Yes | $10,000 per **transfer** | All Customer type |
+| **Unverified Customer** | Optional | No | $5,000 per **week** | Verified Customers, Dwolla Master Account |
+| **Receive-only Customer** | Optional | No | N/A | Verified Customers, Dwolla Master Account |
 
-A Customer account is created programmatically by you, the partner, via the `Customers` endpoint. You can reference our API docs to learn more on how to [create a Customer](https://docsv2.dwolla.com/#create-a-customer). All required account information will be handled through the API and the Customer will interact directly with the you to manage their account.
+As you decide what Customer types to create for your application, a good thing to keep in mind is [Customer Identification Program (CIP) Verification](https://www.dwolla.com/updates/guide-to-cip-customer-identification-program-dwolla-payments-api/). Remember that regardless of your application type, a transfer between two parties requires that at least one party must be CIP verified. It is your decision about which party completes this process based on your business model. Your own Dwolla Master Account can count as a verified party. You may also consider having both parties complete CIP verification, as we also require CIP verification in order for a customer to hold funds in the Dwolla network in the form of a balance.
 
-Regardless of your application type, it’s important to note that in a transfer of money between two parties at least one account must be Customer Identity Program (CIP) verified. It’s your decision about which party completes this process, based on your business model, and you may want to have both parties complete CIP verification. In addition, we also require CIP verification as a part of a customer holding funds in the Dwolla network.
+## Verified Customer
 
-## Customer accounts
+Verified Customers are defined by their ability to both send and receive money. They can also interact with any customer type and hold a `balance` funding source within the Dwolla network. Think of the Dwolla `balance` as a wallet which a Customer can hold, send or receive funds to within the Dwolla network.
 
-##### Verified Customer
+There are two types of verified Customer types your Customer can sign up as: `Personal` or `Business`.
 
-This third-party-created account requires additional information to verify the identity of Customer account holder. Since this account type requires additional identity vetting by Dwolla, users need to provide standard Know Your Customer (KYC) information: name, date of birth, address, and last four digits of SSN. In addition to the above, a business account will need to provide business name, business type, and EIN. A Verified Customer account is required when the Partner’s end user needs to hold a Dwolla balance or transact with an Unverified Customer account type. Types of Verified Customers include: Personal or Business.
+### Personal verified Customer
 
-##### Unverified Customer
+Personal verified Customers have the advantage of fitting all funds flows, as they can both send and receive funds. This Customer type can also hold a balance. The individual will need to go through CIP verification prior to being able to send funds to or from their bank. CIP verification involves passing Customer data to verify them, including their name, date of birth, and last four digits of their social security number. For more information about verifying this Customer type in our [Customer verification article](https://developers.dwolla.com/resources/customer-verification/personal-verified-customers.html).
 
-An Unverified Customer is a third-party-created account that requires a minimal amount of account data: first name, last name, email address, and IP address. **Note:** Unverified Customer accounts have a default sending transaction limit of $5000 per week. A week is defined as Monday to Sunday.
+With a per-transaction limit of $5,000, this Customer type is able to interact with Dwolla and your application seamlessly.
 
-##### Receive-only Customer
+### Business verified Customer
 
-Receive-only Customers are restricted to a “payouts only” business model within the API. A receive-only customer maintains limited functionality in the API and is only eligible to receive transfers to an attached bank account from the partner Dwolla account that created it.
+Business verified Customers are unique in their sign up flow, as they need multiple parties to be verified. These will include:
+
+* The business (required)
+* The controller (conditionally required)
+* The beneficial owner (conditionally required)
+
+Business verified Customers will need an Account Admin to signup the company during the onboarding process. This Account Admin is not identity verified. To become fully verified, a controller and/or a beneficial owner may need to be identity verified.  A controller is any natural individual who holds significant responsibilities to control, manage, or direct a company or other corporate entity (i.e. CEO, CFO, General Partner, President, etc). A company may have more than one controller, but only one controller’s information must be collected. A beneficial owner is any natural person who, directly or indirectly, owns 25% or more of the equity interests of the company.
+
+The Controller will need to provide information to be fully identity verified. This includes their last four SSN and date of birth for identity verification purposes. For certain business types, a business’ EIN will also need to be provided as part of the CIP process. For more information about adding a controller, check out our [business verified Customer creation article](https://developers.dwolla.com/resources/business-verified-customer/create-business-verified-customers.html).
+
+Certain business types may also need to add and certify beneficial ownership. You can find more information about adding beneficial owners in our [developer resource article](https://developers.dwolla.com/resources/business-verified-customer/adding-beneficial-owners.html). To learn more about certifying beneficial ownership, [check out our certification article](https://developers.dwolla.com/resources/business-verified-customer/handling-beneficial-owner-certification.html).
+
+For a full series of articles that goes in depth on business verified Customers, take a look at our [Customer verification article](https://developers.dwolla.com/resources/business-verified-customer.html). This series of articles also goes into detail on the identity verification process for controllers and beneficial owners.
+
+## Unverified Customer
+
+An unverified Customer type requires a minimal amount of information : `firstName`, `lastName` and `email`. While Customer creation and onboarding is simple compared to a verified Customer, there are some things to consider.
+
+Unverified Customers have a default sending transaction limit of $5,000 per week. A week is defined as Monday to Sunday UTC time. If you have an unverified Customer looking to send more than $5,000 in a week, you may want to explore [upgrading them to a verifed Customer type](https://docsv2.dwolla.com/#update-a-customer).
+
+As this Customer is not CIP verified, they will only be able to transact with verified Customers or your Dwolla Master Account.
+
+## Receive-only Customer
+
+Receive-only Customers are restricted to payouts only funds flow. This Customer type maintains limited functionality in the API and is only eligible to receive transfers to an attached bank account. This Customer type can only interact with verified Customers and a Dwolla Master Account.
+
+<ol class="alerts">
+   <li class="alert icon-alert-info">
+       Receive-only Customers cannot send funds back. If you need this Customer to send funds back for any reason, you may need to resolve this outside of the Dwolla network.
+   </li>
+</ol>

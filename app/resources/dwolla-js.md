@@ -8,7 +8,7 @@ description: "Quickly integrate instant bank verification for developers using t
 
 # Dwolla.js
 
-Dwolla.js is a client-side JavaScript library with the primary function of securely transmitting sensitive data (bank account and routing number) from your application's front-end to Dwolla without the data passing through your server. When you attach a bank account to a Customer, use dwolla.js and let Dwolla reduce your risk of handling sensitive data. Additionally, Dwolla.js includes an added function available to Dwolla API partners providing the ability to render the instant bank account verification flow within a specified container on the partner's application. However you're using dwolla.js, both server-side and client-side interaction is required.
+Dwolla.js is a client-side JavaScript library with the primary function of securely transmitting sensitive data (bank account and routing number) from your application's front-end to Dwolla without the data passing through your server. When you attach a bank account to a Customer, use dwolla.js and let Dwolla reduce your risk of handling sensitive data. Additionally, Dwolla.js includes an added function available as a Dwolla Customer providing the ability to render the instant bank account verification flow within a specified container of your application. However you're using dwolla.js, both server-side and client-side interaction is required.
 
 ### Getting Started: Usage and configuration
 
