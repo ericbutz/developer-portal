@@ -12,11 +12,9 @@ description: "How to create a business customer before sending a bank transfer w
 
 To create a business verified Customer, use the [Create a Customer](https://docsv2.dwolla.com/#create-a-customer) endpoint. A business verified Customer is determined by setting the value of the `type` of request parameter to `business` and including any additional fields required for identifying the business, as well as the Controller of the business.
 
-#### Key Terms
-
-* **Beneficial owner** - Any natural person who, directly or indirectly, owns 25% or more of the equity interests of the company.
-* **Controller** - Any natural individual who holds significant responsibilities to control, manage, or direct a company or other corporate entity (i.e. CEO, CFO, General Partner, President, etc). A company may have more than one controller, but only one controller’s information must be collected.
-* **Account Admin** - The representative creating the business verified Customer on behalf of the business and Controller.
+* **Account Admin** - The representative creating the business verified Customer on behalf of the business and Controller. Identity verification is **not** required.
+* **Beneficial owner** - Any natural person who, directly or indirectly, owns 25% or more of the equity interests of the company. Identity verification is required.
+* **Controller** - Any natural individual who holds significant responsibilities to control, manage, or direct a company or other corporate entity (i.e. CEO, CFO, General Partner, President, etc). A company may have more than one controller, but only one controller’s information must be collected. Identity verification is required.
 * **EIN** - Employer Identification Number - A unique identification number that is assigned to a business entity so that they can easily be identified by the Internal Revenue Service.
 * **TIN** - Taxpayer Identification Number - An identifying number used for tax purposes in the United States. A TIN may be: a Social Security number (SSN) an Individual Taxpayer Identification Number (ITIN) an Employer Identification Number (EIN).
 * **VCR** - Verified Customer - A Customer record that is created in the Dwolla network and is identity verified.
@@ -30,15 +28,167 @@ As a developer, you can expect these events to be triggered when a business veri
 
 ## Create a Business Verified Customer
 
+### Request Parameters - Create a **Sole Proprietorship** business verified Customer
+
+In order to create a business verified Customer with `businessType` of `soleProprietorship`, Dwolla only requires information to verify the identity of the the business and the business owner.
+
+| Parameter | Required | Type | Description |
+| ---------------|--------------|--------|----------------|
+| firstName | yes | string | The legal first name of the business owner. |
+| lastName | yes | string | The legal last name of the business owner. |
+| email | yes | string | email address of the business owner. |
+| ipAddress | no | string | ipAddress of registering user is recommended. |
+| type | yes | string | Value of: `business` |
+| dateOfBirth | yes  |  string |  The date of birth of the business owner. Formatted in YYYY-MM-DD format. Must be 18 years or older. |
+| ssn | yes | string | Last four-digits of the business owner's social security number.  |
+| address1 | yes | string | Street number, street name of business’ physical address. |
+| address2 | no | string | Apartment, floor, suite, bldg. # of business’ physical address |
+| city| yes | string | City of business’ physical address. |
+| state| yes | string | Two-letter US state or territory abbreviation code of business’ physical address. For two-letter abbreviation reference, check out the [US Postal Service guide](https://pe.usps.com/text/pub28/28apb.htm). |
+| postalCode | yes| string | Business’ US five-digit ZIP or ZIP + 4 code. |
+| businessName | yes | string | Registered business name. |
+| doingBusinessAs | no | string | Preferred business name -- also known as fictitious name, or assumed name. |
+| businessType | yes | string | Business structure. Value of `soleProprietorship`. |
+| businessClassification| yes | string | The industry classification Id that corresponds to Customer’s business. [Reference our Dev Docs](https://docsv2.dwolla.com/#list-business-classifications) to learn how to generate this Id. |
+| ein | no | string | Employer Identification Number. Optional for `soleProprietorship` business Customers |
+| website | no | string | Business’ website |
+| phone | no | string | Business's 10 digit phone number. No hyphens or other separators, e.g. 3334447777. |
+
+### Sole Propreietorship - Request and response
+
+```raw
+POST https://api-sandbox.dwolla.com/customers
+Content-Type: application/vnd.dwolla.v1.hal+json
+Accept: application/vnd.dwolla.v1.hal+json
+Authorization: Bearer 0Sn0W6kzNic+oWhDbQcVSKLRUpGjIdl/YyrHqrDDoRnQwE7Q
+
+{
+    "firstName": "Business",
+    "lastName": "Owner",
+    "email": "solePropBusiness@email.com",
+    "ipAddress": "143.156.7.8",
+    "type": "business",
+    "dateOfBirth": "1980-01-31",
+    "ssn": "6789",
+    "address1": "99-99 33rd St",
+    "city": "Some City",
+    "state": "NY",
+    "postalCode": "11101",
+    "businessClassification": "9ed3f670-7d6f-11e3-b1ce-5404a6144203",
+    "businessType": "soleProprietorship",
+    "businessName":"Jane Corp",
+    "ein":"00-0000000"
+}
+
+HTTP/1.1 201 Created
+Location: https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
+```
+
+```php
+<?php
+$customersApi = new DwollaSwagger\CustomersApi($apiClient);
+$new_customer = 'https://api-sandbox.dwolla.com/customers/b70c3194-35fa-49e8-9243-d55a30e06d1e';
+$new_customer = $customersApi->create([
+    'firstName' => 'Business',
+    'lastName' => 'Owner',
+    'email' => 'solePropBusiness@email.com',
+    'ipAddress' => '143.156.7.8',
+    'type' => 'business',
+    'dateOfBirth' => '1980-01-31',
+    'ssn' => '6789',
+    'address1' => '99-99 33rd St',
+    'city' => 'Some City',
+    'state' => 'NY',
+    'postalCode' => '11101',
+    'businessClassification' => '9ed3f670-7d6f-11e3-b1ce-5404a6144203',
+    'businessType' => 'soleProprietorship',
+    'businessName' => 'Jane Corp',
+    'ein' => '00-0000000']);
+
+?>
+```
+
+```ruby
+# Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
+request_body = {
+    :firstName => 'Business',
+    :lastName => 'Owner',
+    :email => 'solePropBusiness@email.com',
+    :ipAddress => '143.156.7.8',
+    :type => 'business',
+    :dateOfBirth => '1980-01-31',
+    :ssn => '6789',
+    :address1 => '99-99 33rd St',
+    :city => 'Some City',
+    :state => 'NY',
+    :postalCode => '11101',
+    :businessClassification => '9ed3f670-7d6f-11e3-b1ce-5404a6144203',
+    :businessType => 'soleProprietorship',
+    :businessName => 'Jane Corp',
+    :ein => '00-0000000'
+}
+
+customer = app_token.post "customers", request_body
+customer.response_headers[:location] # => "https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5"
+```
+
+```python
+# Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
+request_body = {
+  'firstName': 'Business',
+  'lastName': 'Owner',
+  'email': 'solePropBusiness@email.com',
+  'ipAddress': '143.156.7.8',
+  'type': 'business',
+  'dateOfBirth': '1980-01-31',
+  'ssn': '6789',
+  'address1': '99-99 33rd St',
+  'city': 'Some City',
+  'state': 'NY',
+  'postalCode': '11101',
+  'businessClassification': '9ed3f670-7d6f-11e3-b1ce-5404a6144203',
+  'businessType': 'soleProprietorship',
+  'businessName': 'Jane Corp',
+  'ein': '00-0000000'
+}
+
+customer = app_token.post('customers', request_body)
+customer.headers['location'] # => 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
+```
+
+```javascript
+var requestBody = {
+    firstName: 'Business',
+    lastName: 'Owner',
+    email: 'solePropBusiness@email.com',
+    ipAddress: '143.156.7.8',
+    type: 'business',
+    dateOfBirth: '1980-01-31',
+    ssn: '6789',
+    address1: '99-99 33rd St',
+    city: 'Some City',
+    state: 'NY',
+    postalCode: '11101',
+    businessClassification: '9ed3f670-7d6f-11e3-b1ce-5404a6144203',
+    businessType: 'soleProprietorship',
+    businessName: 'Jane Corp',
+    ein: '00-0000000',
+};
+
+appToken
+  .post('customers', requestBody)
+  .then(res => res.headers.get('location')); // => 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
+```
+
 ### Request Parameters - Create a business verified Customer and controller
 
-In order to create a business verified Customer, Dwolla requires information on an account admin, the business, and the controller. Your business verified Customer account admin will act as the agent signing up on behalf of the business. When going through the Customer creation flow, your business verified Customer account admin will only need information on one controller to successfully complete the signup flow.
+For all other `businessType`'s other than `soleProprietorship`, your Customer will need to provide more information for verification. In order to create a business verified Customer with a controller, Dwolla requires information on an account admin, the business, and the controller. Your business verified Customer account admin will act as the agent signing up on behalf of the business. When going through the Customer creation flow, your business verified Customer account admin will only need information on one controller to successfully complete the signup flow.
 
 | Parameter | Required | Type | Description |
 | ---------------|--------------|--------|----------------|
 | firstName | yes | string | The legal first name of the Account Admin or individual signing up the business verified Customer. |
 | lastName | yes | string | The legal last name of the Account Admin or individual signing up the business verified Customer. |
-| email | yes | string | email address of individual creating and managing the Customer account. |
+| email | yes | string | Email address of the Account Admin creating and managing the Customer account. |
 | ipAddress | no | string | ipAddress of registering user is recommended. |
 | type | yes | string | Value of: `business` |
 | address1 | yes | string | Street number, street name of business’ physical address. |
@@ -48,7 +198,7 @@ In order to create a business verified Customer, Dwolla requires information on 
 | postalCode | yes| string | Business’ US five-digit ZIP or ZIP + 4 code. |
 | businessName | yes | string | Registered business name. |
 | doingBusinessAs | no | string | Preferred business name -- also known as fictitious name, or assumed name. |
-| businessType | yes | string | Business structure. Possible values are `corporation`, `llc`, `partnership`, and `soleProprietorship`. |
+| businessType | yes | string | Business structure. Possible values are `corporation`, `llc`, `partnership`. |
 | businessClassification| yes | string | The industry classification Id that corresponds to Customer’s business. [Reference our Dev Docs](https://docsv2.dwolla.com/#list-business-classifications) to learn how to generate this Id. |
 | ein | yes | string | Employer Identification Number. **Note:** If the `businessType` is `soleProprietorship`, then ein and controller can be omitted from the request. |
 | website | no | string | Business’ website |
@@ -88,7 +238,7 @@ In order to create a business verified Customer, Dwolla requires information on 
 
 Once you submit this request, Dwolla will perform some initial validation to check for formatting issues such as an invalid date of birth, invalid email format, etc. If successful, the response will be a HTTP 201/Created with the URL of the new Customer resource contained in the Location header.
 
-#### Request and response
+#### Business with Controller - Request and response
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers
@@ -149,7 +299,7 @@ $new_customer = $customersApi->create([
       'firstName' => 'John',
       'lastName'=> 'Controller',
       'title' => 'CEO',
-      'dateOfBirth' => '1990-10-10',
+      'dateOfBirth' => '1990-01-31',
       'ssn' => '1234',
       'address' =>
       [
@@ -169,6 +319,7 @@ $new_customer = $customersApi->create([
 
 ?>
 ```
+
 ```ruby
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
 request_body = {

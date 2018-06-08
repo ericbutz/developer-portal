@@ -15,7 +15,7 @@ Dwolla will discontinue support for TLS 1.0 and TLS 1.1. This change will occur 
 We recommend that you test your Dwolla integrations to ensure a seamless transition.
 
 <section class="change-log">
-	<h1>Completed</h1>
+    <h1>Completed</h1>
 	<h3>2018-06-04</h3>
 	<h4><em>UPDATED</em></h4>
 	<ul class="bullet">
@@ -37,12 +37,6 @@ We recommend that you test your Dwolla integrations to ensure a seamless transit
 		<li>DwollaException, RestException, and RestResponse.Exception are removed.</li>
 		<li>Use <code>EmptyResponse</code> instead of <code>object</code> in DwollaClient inteface.</li>
 		<li>Check it out on our <a href = "https://github.com/Dwolla/dwolla-v2-csharp"> Github </a></li>
-	</ul>
-	<h3>2018-05-30</h3>
-	<h4><em>CHANGED/DEPRECATED</em></h4>
-	<ul class="bullet">
-	    <li>Dwolla has discontinued support for TLS 1.0 and TLS 1.1 in the sandbox environment on May 30th, 2018.</li>
-		<li>Deprecation will occur across platform on June 30th, 2018.</li>
 	</ul>
 	<h3>2018-05-11</h3>
 	<h4><em>CHANGED</em></h4>
