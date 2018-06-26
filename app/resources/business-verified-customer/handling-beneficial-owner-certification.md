@@ -17,7 +17,7 @@ Certification of beneficial owners should be included as part of the Customer ac
 | certification_status | Description       |
 |----------------------|-------------------|
 | uncertified          | New business verified Customers that are not exempt are initially placed in an uncertified status. Uncertified business verified Customers are unable to transact. |
-| recertify            | Business verified Customers that are certified and change owner information, OR Business verified Customecors that Dwolla needs to obtain more information from relating to beneficial owners are placed in a recertify status. |
+| recertify            | Business verified Customers that are certified and change owner information, OR Business verified Customers that Dwolla needs to obtain more information from relating to beneficial owners are placed in a recertify status. |
 | certified            | Confirms the certification of beneficial owners. |
 
 ## Certify ownership
