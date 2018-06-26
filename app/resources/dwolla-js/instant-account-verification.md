@@ -148,6 +148,15 @@ Dwolla provides a list of CSS classes available for styling certain elements of 
 .dwolla-iav-radio-selected
 ```
 
+## Testing IAV in the Sandbox
+
+For more information on how to test various IAV scenarios in the Sandbox, check out our [developer resource article](https://developers.dwolla.com/resources/testing.html#simulate-iav-success-and-error-scenarios-in-sandbox). This article goes through different ways to simulate success and error scenarios including:
+
+* Customer provides invalid login credentials
+* Unsupported banks
+* Prompts for your Customer to visit the bank website to complete verification
+* ...and more!
+
 * * *
 
 #### View:
@@ -156,3 +165,4 @@ Dwolla provides a list of CSS classes available for styling certain elements of 
 * [Dwolla.js - Overview](/resources/dwolla-js.html)
 * [Add a bank account](/resources/dwolla-js/add-a-bank-account.html)
 * [On-demand bank transfers](/resources/dwolla-js/on-demand-bank-transfers.html)
+* [Sandbox testing](https://developers.dwolla.com/resources/testing.html#simulate-iav-success-and-error-scenarios-in-sandbox)

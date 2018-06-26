@@ -17,7 +17,7 @@ Certification of beneficial owners should be included as part of the Customer ac
 | certification_status | Description       |
 |----------------------|-------------------|
 | uncertified          | New business verified Customers that are not exempt are initially placed in an uncertified status. Uncertified business verified Customers are unable to transact. |
-| recertify            | Business verified Customers that are certified and change owner information, OR Business verified Customers that Dwolla needs to obtain more information from relating to beneficial owners are placed in a recertify status. |
+| recertify            | Business verified Customers that are certified and change owner information, OR Business verified Customecors that Dwolla needs to obtain more information from relating to beneficial owners are placed in a recertify status. |
 | certified            | Confirms the certification of beneficial owners. |
 
 ## Certify ownership
@@ -81,13 +81,35 @@ $certifyCustomer = $customersApi->changeOwnershipStatus(['status' => 'certified'
 ?>
 ```
 
+## Handling `uncertified` status
+
+Any change made to a beneficial owner will result in a change in the certification status. Let's walk through an example to better illustrate this.
+Step 1 - Create your Business Verified Customer
+Step 2 - `certify` beneficial ownership for the created Customer
+Step 3 - Add a beneficial owner
+
+Certification only indicates that the information is deemed as correct to the best of the ability of the Customer. By adding a new beneficial owner, they need to `certify` a beneficial owner again to confirm that the new change is true to the best of the Customer's understanding.
+
+### Other `uncertified` status changes
+
+Instances that you will see your `certified` business verified Customer change to `uncertified` are as follows
+
+* Adding a beneficial owner
+* Removing a beneficial owner
+* Updating a beneficial owner in `incomplete` status
+* Uploading a document to a beneficial owner
+
+For this reason, we recommend only allowing your Customer to `certify` beneficial ownership at the very end of onboarding. If the business, controller, and all beneficial owners have been systematically added and verified, there is no 
+
 ## Handling `recertify` status
 
-If you are adding or changing beneficial owners tied to a business verified Customer account, the certification status changes to `recertify`.
-
-To update, you will need to remove your beneficial owner and re-add each beneficial owner, including  the necessary identity verification information.
+If you are adding, removing, or changing information of beneficial owners tied to a business verified Customer account, the certification status will change to `recertify`.
 
 When changing beneficial owners, your certification status will change from `certified` to `recertify`. When in `recertify` status, you will have up to thirty days to update and verify your beneficial owners’ information and update your status to `certified`. If you are unable to update your status within this time, the business verified Customer will have its `certification_status` changed to `uncertified`, leaving the Customer unable to transact.
+
+As an example, your
+
+To update, you will need to remove your beneficial owner and re-add each beneficial owner, including  the necessary identity verification information.
 
 * * *
 

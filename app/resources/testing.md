@@ -9,6 +9,7 @@ description: "In the Sandbox environment, simulate various test cases with the u
 # Testing in the Sandbox
 
 ## Overview
+
 The Sandbox environment allows you to test the Dwolla API without any real-world impact, meaning that no real, personal identifying information or financial data is used and bank transfer processing does not run as it would in Production. Since dummy data is utilized in the Sandbox environment, Dwolla provides a way to simulate various test cases by providing either sentinel values that can be used when making API requests or buttons that trigger certain actions (e.g. simulate bank transfer processing).
 
 <ol class="alerts">
@@ -19,6 +20,7 @@ The Sandbox environment allows you to test the Dwolla API without any real-world
 * * *
 
 # Testing Customers
+
 ### Manage Customers
 The [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) allows you to manage Customers, as well as transfers associated with the Customers that belong to your Sandbox account. Once your application has [created its Customers](https://docsv2.dwolla.com/#create-a-customer), you can access the [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) to validate that the request was recorded properly in our test environment.
 
@@ -26,14 +28,16 @@ The [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) allows you to mana
 
 ##### **Simulate identity verification statuses**
 
-There are various reasons a Verified Customer may have a status other than “verified” after the initial Customer creation. You will want your app to be prepared to handle these alternative statuses.
+There are various reasons a Verified Customer may have a status other than `verified` after the initial Customer creation. You will want your app to be prepared to handle these alternative statuses.
 
-In production, Dwolla will place the Verified Customer in either the `retry`, `document`, `verified`, or `suspended` state of verification after an initial identity verification check. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the firstName parameter in order to [create a new Verified Customer](https://docsv2.dwolla.com/#request-parameters---verified-customer) with that status.
+In production, Dwolla will place the Verified Customer in either the `retry`, `document`, `verified`, or `suspended` state of verification after an initial identity verification check.
 
-For personal verified Customers, reference the resource article on [customer verification](https://developers.dwolla.com/resources/personal-verified-customer/handling-verification-statuses-personal.html) for more information on handling identity verification for `Verified Customers`.
-For business verified Customers, reference the resource article on [customer verification](https://developers.dwolla.com/resources/business-verified-customer/create-business-verified-customers.html) article that goes over information on properly verifying your Controllers and Beneficial Owners.
+**For personal verified Customers**, reference the resource article on [customer verification](https://developers.dwolla.com/resources/personal-verified-customer/handling-verification-statuses-personal.html) for more information on handling identity verification for Verified Customers. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the **firstName** parameter in order to [create a new Verified Customer](https://docsv2.dwolla.com/#request-parameters---verified-customer) with that status.
+
+**For business verified Customers**, reference the resource article on [customer verification](https://developers.dwolla.com/resources/business-verified-customer/create-business-verified-customers.html) article that goes over information on properly verifying your Controllers and Beneficial Owners. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the **controller firstName** parameter in order to [create a new Verified Customer](https://docsv2.dwolla.com/#request-parameters---verified-customer) with that status.
 
 ##### **Simulate document upload approved and failed events**
+
 If a Verified Customer isn't systematically identity-verified, the Customer may be placed in a `document` status and will require an identifying document to be uploaded and reviewed. Reference the [customer verification](https://developers.dwolla.com/resources/customer-verification.html) resource article for acceptable forms of identifying documents for `Verified Customers`.
 
 Since the document review process requires interaction from Dwolla, sample test documents can be uploaded in the Sandbox environment to simulate the `customer_verification_document_approved` and `customer_verification_document_failed` events. Right click on an image below and select “Save image as...”. **Note:** When saving an image, make sure to keep the size, format, and name of the image the same.
@@ -49,9 +53,11 @@ Since the document review process requires interaction from Dwolla, sample test 
 # Testing Funding Sources
 
 ### Test bank account numbers
+
 Dwolla requires a valid U.S. routing number and a random account number between 3-17 digits to add a bank account. For testing purposes, you can use the routing number `222222226` or refer to the list of routing numbers from the [Federal Reserve Bank Services](https://www.frbservices.org/operations/epayments/epayments.html) website.
 
-### Simulate IAV success and error scenarios in Sandbox
+## Simulate IAV success and error scenarios in Sandbox
+
 Dwolla's Sandbox environment uses a [fake service](https://www.google.com/url?q=https://www.dwolla.com/updates/fake-it-as-you-make-it-why-fake-services-are-awesome-for-developers/) which allows you to simulate the end-user experience for adding and verifying a bank account within the IAV flow. The default "success" scenario is a happy path flow that includes: a single set of MFA questions, presentation of two valid accounts and one account without a routing number. Any text can be entered in the input fields to allow you to proceed through the IAV flow.
 
 To help you test error scenarios, a flag and an option can be used in the first field (usually username or ID) for the bank you are trying authenticate. The remaining input fields in the flow can be any string of text, as we allow you to proceed through the flow regardless of the information entered. Use the following flag and option values to test various error scenarios:
@@ -66,26 +72,32 @@ To help you test error scenarios, a flag and an option can be used in the first 
 | -e  | UnavailableSite | Sorry, there seem to be some technical difficulties while attempting to process your information. Please try again later. |
 
 ##### Example IAV error scenario
+
 ![Screenshot of IAV user facing error message](/images/IAVErrorMessage.png "IAV user facing error")
 
 ### Test micro-deposit verification
+
 If your application leverages the micro-deposit method of bank verification, Dwolla will transfer two deposits of less than $0.10 to your customer's linked bank or credit union account after calling the API to initiate micro-deposits. Since the Sandbox environment doesn't replicate any bank transfer processes, any two amounts **below** $`0.10` will allow you to verify the funding source immediately.
 
 ### Test micro-deposit failed verification attempts
+
 When verifying a funding source using the micro-deposit method of bank verification, users are allowed **three attempts** to correctly input the two posted micro-deposit amounts. If the user fails to verify the two posted amounts on the third attempt, an event will be triggered and the funding source will not be verified using those micro-deposit amounts. To simulate the `microdeposits_maxattempts` or `customer_microdeposits_maxattempts` events in the Sandbox, use the amounts `0.09` and `0.09` when calling the API to verify micro-deposits. Reference the [micro-deposit verification resource article](https://developers.dwolla.com/resources/funding-source-verification/micro-deposit-verification.html) for more information on handling failed verification attempts.
 
 * * *
 
 # Testing Transfers
+
 The Sandbox environment does not replicate any bank transfer processes, so a pending transfer will not clear or fail automatically after a few business days as it would in production. The transfer will simply remain in the pending state indefinitely.
 
 ### Simulate bank transfer processing
+
 There are two options available for processing or failing bank transfers in the Sandbox environment.
 
 * **Option 1:** your application will call the "sandbox-simulations" endpoint (referenced below) which will process or fail the last 500 bank transfers that occurred on the authorized application or Sandbox account.
 * **Option 2:** you'll use the "Process bank transfers button" in the Sandbox Dashboard, which will process or fail the last 500 bank transfers that occurred on your Sandbox account or any API `Customers` you manage.
 
 ##### Sandbox simulations request and response
+
 ```noselect
 POST https://api-sandbox.dwolla.com/sandbox-simulations
 Accept: application/vnd.dwolla.v1.hal+json
@@ -115,6 +127,7 @@ A “Process bank transfers” button is available in the Sandbox [Dwolla Dashbo
 ![Screenshot of process bank transfers button](/images/process-bank-transfers.png "Process bank transfers button")
 
 ### Test bank transfer failures
+
 Transfers to or from a bank account can fail for a number of reasons (e.g. insufficient funds, invalid account number, etc. ). When a bank transfer fails, the associated financial institution that rejected the transaction assigns an ACH return code and a transfer failure event is then triggered in Dwolla. Dwolla allows you to trigger various bank transfer failures by specifying an “R” code in the funding source `name` parameter when creating or [updating a funding source](https://docsv2.dwolla.com/#update-a-funding-source) for a Dwolla Account or API Customer. When a [transfer is initiated](https://docsv2.dwolla.com/#initiate-a-transfer) using a funding source that has an “R” code assigned to its name, a transfer failure event will trigger and the status will update to failed when you simulate bank transfer processing (as mentioned above).
 
 Dwolla allows you to pass in a few different sentinel values that are used to test different bank transfer failure scenarios. The list of available sentinel values cover the most common uses cases where ACH return codes can be triggered in production. Reference the list of codes in the following table:
@@ -126,7 +139,10 @@ Dwolla allows you to pass in a few different sentinel values that are used to te
 | R01-late | This value is used to simulate funds failing from the source bank account post-settlement. Note: You must click “Process bank transfers” twice in order to test this scenario. |
 | R03-late | This value is primarily used to simulate funds failing to the destination bank post-settlement. The funding source will be automatically removed from Dwolla when this return code is triggered. Note: You must click “Process bank transfers” twice in order to test this scenario. |
 
+For more information on bank transfer failures, and a list of common return codes and actions, refer to our [developer resource article](https://developers.dwolla.com/resources/bank-transfer-workflow/transfer-failures.html).
+
 ##### Example of using a sentinel value for testing bank transfer failures
+
 This example assumes that a funding source has already been attached to an account. Once the funding source `name` has been updated to reflect the ACH failure scenario you want to test, then you can [initiate a transfer](https://docsv2.dwolla.com/#initiate-a-transfer) to or from that funding source via the API.
 
 ```raw
