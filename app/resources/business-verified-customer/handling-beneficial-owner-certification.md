@@ -22,7 +22,7 @@ Certification of beneficial owners should be included as part of the Customer ac
 
 ## Certify ownership
 
-To change the certification status of your business verified Customer account, you will want to POST to the beneficial ownership endpoint. By updating your certification status to `certified`, the Account Admin creating the business verified Customer is indicating that all information is correct. After the Account Admin certifies that the information provided is accurate and the information the Account Admin provided has been verified through the identity verified process, your business verified Customer is now ready to transact within the Dwolla network.
+To change the certification status of your business verified Customer account, you will want to POST to the beneficial ownership endpoint. By updating the certification status to `certified`, the Account Admin creating the business verified Customer is indicating that all information is correct. After the Account Admin certifies that the information provided is accurate and the information the Account Admin submitted has been verified through the identity verified process, your business verified Customer is now ready to transact within the Dwolla network.
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers/56502f7a-fa59-4a2f-8579-0f8bc9d7b9cc/beneficial-ownership
@@ -81,35 +81,18 @@ $certifyCustomer = $customersApi->changeOwnershipStatus(['status' => 'certified'
 ?>
 ```
 
-## Handling `uncertified` status
+## Handling `recertify` status
 
-Any change made to a beneficial owner will result in a change in the certification status. Let's walk through an example to better illustrate this.
-Step 1 - Create your Business Verified Customer
-Step 2 - `certify` beneficial ownership for the created Customer
-Step 3 - Add a beneficial owner
+If you are adding, removing, or updating information of beneficial owners tied to a business verified Customer account, the certification status will change to `recertify`.
 
-Certification only indicates that the information is deemed as correct to the best of the ability of the Customer. By adding a new beneficial owner, they need to `certify` a beneficial owner again to confirm that the new change is true to the best of the Customer's understanding.
-
-### Other `uncertified` status changes
-
-Instances that you will see your `certified` business verified Customer change to `uncertified` are as follows
+Instances that you will see your `certified` business verified Customer change to `recertify` are as follows:
 
 * Adding a beneficial owner
 * Removing a beneficial owner
 * Updating a beneficial owner in `incomplete` status
 * Uploading a document to a beneficial owner
 
-For this reason, we recommend only allowing your Customer to `certify` beneficial ownership at the very end of onboarding. If the business, controller, and all beneficial owners have been systematically added and verified, there is no 
-
-## Handling `recertify` status
-
-If you are adding, removing, or changing information of beneficial owners tied to a business verified Customer account, the certification status will change to `recertify`.
-
-When changing beneficial owners, your certification status will change from `certified` to `recertify`. When in `recertify` status, you will have up to thirty days to update and verify your beneficial owners’ information and update your status to `certified`. If you are unable to update your status within this time, the business verified Customer will have its `certification_status` changed to `uncertified`, leaving the Customer unable to transact.
-
-As an example, your
-
-To update, you will need to remove your beneficial owner and re-add each beneficial owner, including  the necessary identity verification information.
+When a Customer has a `recertify` beneficial ownership status, they will have up to thirty days to update and verify their beneficial owners’ information and update their status to `certified`. If the certification status isn't updated within this timeframe, the business verified Customer will have its `certification_status` changed to `uncertified`, leaving the Customer unable to transact.
 
 * * *
 
