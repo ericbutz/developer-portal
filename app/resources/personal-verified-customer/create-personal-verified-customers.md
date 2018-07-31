@@ -232,11 +232,10 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 
 Congrats! Our Customer was successfully verified!
 
-However, if the Customer was unable to be verified on the initial flow, they will given a verification status of either `retry`, `document`, or `suspended`. Continue reading for instructions on [handling various Customer verification statuses](https://developers.dwolla.com/resources/customer-verification/handling-verification-statuses.html) and guidelines for providing additional information to verify these Customers.
+However, if the Customer was unable to be verified on the initial flow, they will given a verification status of either `retry`, `document`, or `suspended`. Continue reading for instructions on [handling various Customer verification statuses](/resources/personal-verified-customer/handling-verification-statuses-personal.html) and guidelines for providing additional information to verify these Customers.
 
 ***
 
 #### View
 
-* [Business verified Customer](/resources/customer-verification/business-verified-customers.html) creation and verification
-* [Handling verification statuses](/resources/customer-verification/handling-verification-statuses.html)  for personal verified Customers.
+* [Handling verification statuses](resources/personal-verified-customer/handling-verification-statuses-personal.html)  for personal verified Customers.

@@ -55,7 +55,7 @@ In order to initialize server-to-server submission, the merchant website must PO
 The merchant's website will now need to redirect the user to the checkout endpoint providing the unique checkoutID within 5 minutes. After 5 minutes, the checkout ID will expire and a new request will need to be generated. Depending on the checkout flow used, the user will either complete the transaction on the Dwolla gateway and be redirected to a confirmation page on the merchant's site, or will be redirected to the merchant's site in order to complete the order and fulfill payment.
 
 ### Example using Dwolla's v1 libraries
-The Dwolla API v1 [libraries](https://docs.dwolla.com/#helper-libraries) available on GitHub have implemented the server-to-server checkout flow. The code samples below are designed to help get you started immediately. In order to customize data sent and used by the library, use the [server-to-server](/guides/server-to-server/) specification and follow the pay now flow.
+The Dwolla API v1 [libraries](https://docs.dwolla.com/#helper-libraries) available on GitHub have implemented the server-to-server checkout flow. The code samples below are designed to help get you started immediately. In order to customize data sent and used by the library, use the server-to-server specification and follow the pay now flow.
 
 ```raw
 POST https://www.dwolla.com/oauth/rest/offsitegateway/checkouts
