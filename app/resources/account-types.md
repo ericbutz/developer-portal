@@ -26,7 +26,7 @@ There are two types of verified Customer types your Customer can sign up as: `Pe
 
 ### Personal verified Customer
 
-Personal verified Customers have the advantage of fitting all funds flows, as they can both send and receive funds. This Customer type can also hold a balance. The individual will need to go through CIP verification prior to being able to send funds to or from their bank. CIP verification involves passing Customer data to verify them, including their name, date of birth, and last four digits of their social security number. For more information about verifying this Customer type in our [Customer verification article](https://developers.dwolla.com/resources/customer-verification/personal-verified-customers.html).
+Personal verified Customers have the advantage of fitting all funds flows, as they can both send and receive funds. This Customer type can also hold a balance. The individual will need to go through CIP verification prior to being able to send funds to or from their bank. CIP verification involves passing Customer data to verify them, including their name, date of birth, and last four digits of their social security number. For more information about verifying this Customer type in our [Customer verification article](/resources/personal-verified-customer/create-personal-verified-customers.html).
 
 With a per-transaction limit of $5,000, this Customer type is able to interact with Dwolla and your application seamlessly.
 
