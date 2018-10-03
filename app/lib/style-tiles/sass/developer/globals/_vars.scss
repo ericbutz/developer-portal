@@ -16,14 +16,20 @@ $base-font-size: 14px;
 // ------ COLORS -------
 //primary
 $color-orange: #ff7404;
+$color-orange-accent: #d9725c;
 $color-blue: #2395d6;
 $color-blue-softer: #2395d6;
+$color-purple: #483d66;
+$color-purple-dark: #2d2d48;
+$color-purple-active: #3a3a51;
+$color-purple-darkest: #242438;
 $color-white: #fff;
-$color-grey-light: #f6fafc;
+$color-grey-light: #f8fafc;
 $color-grey: #eef3f6;
 $color-grey-med: #ccd6dd;
-$color-grey-dark: #6f828e;
-$color-black: #3e4956;
+$color-grey-dark: #6a7282;
+$color-grey-mild: #2b334e;
+$color-black: #2a2d38;
 
 //greys
 $color-grey-2: #e2e9ed;
@@ -43,10 +49,14 @@ $color-alert-red: #e8b1ad;
 
 //gradients
 $gradient-tilt: 90deg;
-$gradient-tilt-banner: 156deg;
+$gradient-tilt-background: 45deg;
 $color-gradient-orange: #ff8929;
+$color-gradient-orange-background: #f3904a;
+$color-gradient-orange-header: #e98453;
 $color-gradient-red: #ce5951;
 $color-gradient-purple: #7863a9;
+$color-gradient-purple-background: #aa437f;
+$color-gradient-purple-header: #b45277;
 
 //products
 $color-access-api: #543896;
@@ -55,4 +65,14 @@ $color-transfer-tools: #50c1b3;
 $color-transfer-tools-softer: #50c1b3;
 
 //shadows
+$color-shadow-light: rgba($color-black, .1);
+$color-shadow-medium: rgba($color-black, .12);
+$color-shadow-dark: rgba($color-black, .2);
+$color-shadow-darker: rgba($color-black, .3);
+$color-shadow-darkest: rgba($color-black, .6);
 $color-grid-box-hover-shadow: rgba(44, 44, 44, .25);
+
+// ------ Button ------- //
+$color-button-shadow: $color-shadow-light;
+$color-button-shadow-hover: $color-shadow-medium;
+$color-button-shadow-hover-b: $color-shadow-dark;

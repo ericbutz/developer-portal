@@ -20,14 +20,14 @@
         }
 
         &:hover {
-            border-color: $color-blue;
+            border-color: $color-orange-accent;
             text-decoration: none;
             box-shadow: 0 0 5px $color-grid-box-hover-shadow;
         }
 
         h3 {
             @include font-size-h5;
-            color: $color-blue;
+            color: $color-orange-accent;
         }
 
         p {
