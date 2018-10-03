@@ -1,5 +1,5 @@
 .banner {
-    @include linear-gradient($gradient-tilt-banner, $color-access-api-softer, $color-blue-softer);
+    @include linear-gradient($gradient-tilt-background, $color-gradient-orange-background, $color-gradient-purple-background);
     padding: 68px 0 72px 0;
     position: relative;
     text-align: center;
@@ -7,9 +7,12 @@
     h1 {
         max-width: 865px;
         margin: 0 auto 35px;
+        font-weight: 300;
+        line-height: 60px;
+        font-size: 46px;
+        font-family: 'Poppins', sans-serif;;
+        margin-bottom: 40px;
         color: $color-white;
-        font-size: rem(40px);
-        line-height: rem(46px);
 
         &.icon {
             padding-top: 100px;
@@ -24,7 +27,6 @@
         z-index: 0;
         top: 0;
         left: 0;
-        background: url("https://cdn.dwolla.com/images/cms/bannerBackgrounds/wave.svg") center center no-repeat;
         background-size: cover;
     }
 }
