@@ -7,9 +7,9 @@ weight: 0
 description: "Quickly integrate instant bank verification for developers to add a bank account using the Dwolla ACH API."
 ---
 
-# Dwolla.js
+# Add a bank funding source
 
-## Add a bank account
+## Dwolla.js to create a funding source
 
 Using dwolla.js, securely transmit sensitive data (bank account and routing number) to Dwolla without the data passing through your server. This resource guide will walk you through the process of generating a funding sources token, collecting the user's bank account information, and calling a JavaScript function to send this data to Dwolla. When you collect and submit the user's bank account information, dwolla.js has built-in validation that will trigger an error if any of the required fields are invalid.
 
@@ -164,5 +164,5 @@ The callback function (err, res) allows you to determine if there is an error wi
 #### View:
 
 *   [Dwolla.js - Overview](/resources/dwolla-js.html)
-*   [Instant account verification](/resources/dwolla-js/instant-account-verification.html)
+*   [Add + verify a bank account (IAV)](/resources/dwolla-js/instant-account-verification.html)
 *   [On-demand bank transfers](/resources/dwolla-js/on-demand-bank-transfers.html)
