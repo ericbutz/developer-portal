@@ -26,9 +26,7 @@ This can be compared to typical Standard ACH transfer times of T+3 to T+4—depe
 
 The timetables for transfers in and out of the Dwolla network are:
 
-## Bank to Dwolla balance payment in
-
-#### Next-Day ACH debit
+## Bank to Dwolla network
 
 Transfers into a Dwolla balance from a bank, including transfers that pass through the balance to another Customer’s bank account, can be cancelled by a [Dwolla Master Account](https://docsv2.dwolla.com/#accounts) or [API Customer account](/resources/account-types.html) at any point until 4pm CT on that same business day if initiated prior to 4PM CT. If a transfer was initiated after 4pm CT, it can be cancelled anytime before 4pm CT on the following business day.
 
@@ -36,9 +34,7 @@ To learn more about how to initiate a Next-Day ACH debit transfer, reference our
 
 ![Transfer timing](/images/ACH_Next-Day.png "Dwolla ACH transfer timing, pay in")
 
-## Dwolla Balance to bank payment out
-
-#### Same-Day ACH credit
+## Dwolla network to bank
 
 Transfers out of the Dwolla network can be cancelled at any point until 4pm CT on that same business day if the transfer was initiated prior to 4PM CT. If a transfer was initiated after 4pm CT, it can be cancelled anytime before 4pm CT on the following business day.
 
