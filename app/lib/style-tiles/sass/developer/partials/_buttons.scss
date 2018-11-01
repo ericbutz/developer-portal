@@ -97,7 +97,7 @@ button::-moz-focus-inner {
     }
 
     &.secondary {
-        @include button($color-white, none, $color-orange);
+        @include button($color-white, none, $color-purple);
     }
 
     &.clear {
@@ -109,7 +109,7 @@ button::-moz-focus-inner {
 
         &:hover {
             color: $color-white;
-            background-color: $color-orange;
+            background-color: $color-orange; 
         }
     }
 
