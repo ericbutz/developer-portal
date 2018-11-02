@@ -53,9 +53,6 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
     "currency": "usd"
   },
   "created": "2015-08-05T20:35:26.520Z",
-  "metadata": {
-    "foo": "bar"
-  }
 }
 ```
 

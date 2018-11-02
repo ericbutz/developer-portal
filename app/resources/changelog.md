@@ -42,13 +42,13 @@ We recommend that you test your Dwolla integrations to ensure a seamless transit
 	<h4><em>CHANGED</em></h4>
 	<ul class="bullet">
 	    <li>Change in verified business Customer creation flow across Platform. Check out our <a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> developer resource article </a> to learn how to create this Customer type within the new flow.</li>
-		<li>In order to comply with United States Federal law, Dwolla also requires beneficial owners to be added to a Customer. Read <a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> our blog post </a> to learn more about why we need to comply with US customer due diligence rules.</li>
+		<li>In order to comply with United States Federal law, Dwolla also requires beneficial owners to be added to a Customer. Read <a href = "https://www.dwolla.com/updates/understanding-impacts-benefits-customer-due-diligence-rule/"> our blog post </a> to learn more about why we need to comply with US customer due diligence rules.</li>
 	</ul>
 	<h3>2018-04-11</h3>
 	<h4><em>CHANGED</em></h4>
 	<ul class="bullet">
 	    <li>Verified business Customers creation flow has changed in sandbox. Check out our <a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> developer resource article </a> to learn how to create this Customer type within the new flow.</li>
-		<li>In order to comply with United States Federal law, Dwolla also requires beneficial owners to be added to a Customer. Read <a href = "https://developers.dwolla.com/resources/business-verified-customer.html"> our blog post </a> to learn more about why we need to comply with US customer due diligence rules.</li>
+		<li>In order to comply with United States Federal law, Dwolla also requires beneficial owners to be added to a Customer. Read <a href = "https://www.dwolla.com/updates/understanding-impacts-benefits-customer-due-diligence-rule/"> our blog post </a> to learn more about why we need to comply with US customer due diligence rules.</li>
 		<li>Please note that this change will go live in across platform on May 11th, 2018.</li>
 	</ul>
 	<h3>2018-04-11</h3>
@@ -60,7 +60,7 @@ We recommend that you test your Dwolla integrations to ensure a seamless transit
     <h3>2018-04-11</h3>
     <h4><em>UPDATED/ADDED - Dev Docs update</em></h4>
     <ul class="bullet">
-        <li>Updated Customer endpoints to reflect the<a href = "https://docsv2.dwolla.com/#customers"> new business verified Customer flow change. </a></li>
+        <li>Updated Customer endpoints to reflect the <a href = "https://docsv2.dwolla.com/#customers"> new business verified Customer flow change. </a></li>
         <li>Added <a href = "https://docsv2.dwolla.com/#beneficial-owners"> the new benefical owners endpoints </a> and <a href = "https://docsv2.dwolla.com/#event-topics---a-hrefbeneficial-ownersbeneficial-ownersa"> webhooks.</a></li>
 	</ul>
     <h3>2018-04-03</h3>

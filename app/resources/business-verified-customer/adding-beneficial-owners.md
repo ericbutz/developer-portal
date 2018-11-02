@@ -152,7 +152,7 @@ request_body = {
 }
 
 beneficial_owner = app_token.post "#{customer_url}/beneficial-owners", request_body
-beneficial_owner.headers[:location] # => "https://api-sandbox.dwolla.com/beneficial-owners/AB443D36-3757-44C1-A1B4-29727FB3111C"
+beneficial_owner.response_headers[:location] # => "https://api-sandbox.dwolla.com/beneficial-owners/AB443D36-3757-44C1-A1B4-29727FB3111C"
 ```
 
 ```python
@@ -466,7 +466,7 @@ beneficial_owner_url = 'https://api-sandbox.dwolla.com/beneficial-owners/1DE32EC
 
 file = Faraday::UploadIO.new('mclovin.jpg', 'image/jpeg')
 document = app_token.post "#{beneficial_owner_url}/documents", file: file, documentType: 'license'
-document.headers[:location] # => "https://api.dwolla.com/documents/fb919e0b-ffbe-4268-b1e2-947b44328a16"
+document.response_headers[:location] # => "https://api.dwolla.com/documents/fb919e0b-ffbe-4268-b1e2-947b44328a16"
 ```
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python
@@ -538,7 +538,7 @@ app_token.delete beneficial_owner_url
 ```javascript
 var beneficialOwnerUrl = 'https://api-sandbox.dwolla.com/beneficial-owners/692486f8-29f6-4516-a6a5-c69fd2ce854c';
 
-applicationToken.delete(beneficialOwnerUrl);
+appToken.delete(beneficialOwnerUrl);
 ```
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python

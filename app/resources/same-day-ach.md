@@ -111,10 +111,7 @@ $transfer = $transfersApi->create([
     'currency' => 'USD',
     'value' => '10000.00'
   ],
-  'metadata' => [
-    'paymentId' => '12345678',
-    'note' => 'payment for completed work Dec. 1',
-  ],
+
   'clearing' => [
     'destination' => 'next-available'
   ]
@@ -135,10 +132,6 @@ request_body = {
   'amount': {
     'currency': 'USD',
     'value': '10000.00'
-  },
-  'metadata': {
-    'paymentId': '12345678',
-    'note': 'payment for completed work Dec. 1'
   },
   'clearing': {
     'destination': 'next-available'
@@ -162,10 +155,6 @@ var requestBody = {
   amount: {
     currency: 'USD',
     value: '10000.00'
-  },
-  metadata: {
-    paymentId: '12345678',
-    note: 'payment for completed work Dec. 1'
   },
   clearing: {
     destination: 'next-available'

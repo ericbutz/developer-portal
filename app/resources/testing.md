@@ -54,7 +54,7 @@ Since the document review process requires interaction from Dwolla, sample test 
 
 ### Test bank account numbers
 
-Dwolla requires a valid U.S. routing number and a random account number between 3-17 digits to add a bank account. For testing purposes, you can use the routing number `222222226` or refer to the list of routing numbers from the [Federal Reserve Bank Services](https://www.frbservices.org/operations/epayments/epayments.html) website.
+Dwolla requires a valid U.S. routing number and a random account number between 3-17 digits to add a bank account. For testing purposes, you can use the routing number `222222226` or refer to the list of routing numbers from the [Federal Reserve Bank Services](https://www.frbservices.org/EPaymentsDirectory/agreement.html) website.
 
 ## Simulate IAV success and error scenarios in Sandbox
 

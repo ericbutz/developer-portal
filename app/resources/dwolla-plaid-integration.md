@@ -11,7 +11,7 @@ Dwolla and Plaid are collaborating to offer [Dwolla customers](https://www.dwoll
 
 Using [Plaid Link](https://plaid.com/docs/#creating-items-with-plaid-link), your Customers will authenticate information with their financial institution through Plaid, and select the bank or credit union account they wish to use for initiating bank transfers. Behind the scenes, you’ll receive a unique token from Plaid that will be used to [create a funding source for a Customer](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer) via the Dwolla API. The Dwolla and Plaid partnership offers an elegantly designed and secure way for our joint Customers to verify account ownership with access tokens, removing sensitive financial information from the transaction stream.
 
-In this article we’ll cover the steps involved with obtaining a plaidToken, which will be sent to the Dwolla API in exchange for a funding source URL, used to identify a bank for a Dwolla API Customer. To test the integration in the Sandbox, you’ll use your Plaid [Sandbox Credentials](https://dashboard.plaid.com/signup) along with your Dwolla [Sandbox Credentials](https://developers.dwolla.com/guides/sandbox-setup/).
+In this article we’ll cover the steps involved with obtaining a plaidToken, which will be sent to the Dwolla API in exchange for a funding source URL, used to identify a bank for a Dwolla API Customer. To test the integration in the Sandbox, you’ll use your [Plaid Sandbox Credentials](https://dashboard.plaid.com/signup) along with your Dwolla [Sandbox Credentials](https://developers.dwolla.com/guides/sandbox-setup/).
 
 ### Quick overview
 

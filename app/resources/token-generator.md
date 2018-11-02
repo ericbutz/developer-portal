@@ -10,9 +10,9 @@ description: "Generate an OAuth access token for Dwolla's bank transfer API."
 
 The Dwolla API requires an OAuth access token for authorization. When getting started with the Dwolla API in the sandbox environment, sometimes you just need an access token for your own account without needing to interact with the API to obtain one.
 
-### Generate an access token for your own Dwolla account
+### Generate an access token for your Sandbox account
 
-For Sandbox, visit [https://dashboard-sandbox.dwolla.com/applications](https://dashboard-sandbox.dwolla.com/applications).
+For Sandbox, visit [https://dashboard-sandbox.dwolla.com/applications-legacy](https://dashboard-sandbox.dwolla.com/applications-legacy).
 
 <img src="/images/token-generator.png" alt="Sandbox Token Generator" style="width: 500px;"/>
 

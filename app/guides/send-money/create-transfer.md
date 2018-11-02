@@ -31,10 +31,6 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
     "amount": {
         "currency": "USD",
         "value": "225.00"
-    },
-    "metadata": {
-        "customerId": "8675309",
-        "notes": "For work completed on Sept. 1, 2015"
     }
 }
 
@@ -57,10 +53,6 @@ transfer_request = {
   :amount => {
     :currency => "USD",
     :value => "225.00"
-  },
-  :metadata => {
-    :customerId => "8675309",
-    :notes => "For work completed on Sept. 1, 2015"
   }
 }
 
@@ -82,10 +74,6 @@ var transferRequest = {
   amount: {
     currency: 'USD',
     value: '225.00'
-  },
-  metadata: {
-    customerId: '8675309',
-    notes: 'For work completed on Sept. 1, 2015'
   }
 };
 
@@ -109,10 +97,6 @@ transfer_request = {
   'amount': {
     'currency': 'USD',
     'value': '225.00'
-  },
-  'metadata': {
-    'customerId': '8675309',
-    'notes': 'For work completed on Sept. 1, 2015'
   }
 }
 
@@ -139,12 +123,7 @@ $transfer_request = array (
   array (
     'currency' => 'USD',
     'value' => '225.00',
-  ),
-  'metadata' =>
-  array (
-    'customerId' => '8675309',
-    'notes' => 'For work completed on Sept. 1, 2015',
-  ),
+  )
 );
 
 $transferApi = new DwollaSwagger\TransfersApi($apiClient);
