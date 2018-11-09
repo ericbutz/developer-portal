@@ -153,7 +153,7 @@ request_body = {
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-funding_source = account_token.post "#{customer_url}/funding-sources", request_body
+funding_source = app_token.post "#{customer_url}/funding-sources", request_body
 funding_source.response_headers[:location] # => "https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31"
 
 ```
@@ -167,7 +167,7 @@ var requestBody = {
   'name': 'Jane Merchant - Checking 6789'
 };
 
-accountToken
+appToken
   .post(`${customerUrl}/funding-sources`, requestBody)
   .then(function(res) {
     res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
@@ -184,7 +184,7 @@ request_body = {
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-customer = account_token.post('%s/funding-sources' % customer_url, request_body)
+customer = app_token.post('%s/funding-sources' % customer_url, request_body)
 customer.headers['location'] # => 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
 
 ```

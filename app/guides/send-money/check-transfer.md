@@ -53,11 +53,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
     "value": "42.00",
     "currency": "usd"
   },
-  "created": "2015-09-01T19:08:55.500Z",
-  "metadata": {
-    "customerId": "8675309",
-    "notes": "For work completed on Sept. 1, 2015"
-  }
+  "created": "2015-09-01T19:08:55.500Z"
 }
 ```
 

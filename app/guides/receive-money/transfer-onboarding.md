@@ -182,10 +182,6 @@ request_body = {
   :amount => {
     :currency => "USD",
     :value => "225.00"
-  },
-  :metadata => {
-    :foo => "bar",
-    :baz => "boo"
   }
 }
 
@@ -206,10 +202,6 @@ var requestBody = {
   amount: {
     currency: 'USD',
     value: '225.00'
-  },
-  metadata: {
-    foo: 'bar',
-    baz: 'boo'
   }
 };
 
@@ -232,10 +224,6 @@ request_body = {
   'amount': {
     'currency': 'USD',
     'value': '225.00'
-  },
-  'metadata': {
-    'foo': 'bar',
-    'baz': 'boo'
   }
 }
 

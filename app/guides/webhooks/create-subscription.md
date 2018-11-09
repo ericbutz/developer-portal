@@ -2,16 +2,16 @@
 layout: twoColumn
 section: guides
 type: guide
-guide: 
+guide:
     name: webhooks
     step: '2'
 title: Webhooks | Create Subscription
-description: Create subscription webhooks for payments within your application by utilizing our open bank transfer API with no transaction fees. 
+description: Create subscription webhooks for payments within your application by utilizing our open bank transfer API with no transaction fees.
 ---
 
 # Step 2: Create a webhook subscription
 
-Each application can have multiple subscriptions associated to it. While one subscription is sufficient, you can create as many as you want for redundancy. 
+Each application can have multiple subscriptions associated to it. While one subscription is sufficient, you can create as many as you want for redundancy.
 
 To make the following request, we need to use the `access_token` we just previously obtained. Security considerations:
 
@@ -43,7 +43,7 @@ var requestBody = {
   secret: 'your webhook secret'
 };
 
-applicationToken
+appToken
   .post('webhook-subscriptions', requestBody)
   .then(res => res.headers.get('location')); // => 'https://api-sandbox.dwolla.com/webhook-subscriptions/5af4c10a-f6de-4ac8-840d-42cb65454216'
 ```
@@ -102,7 +102,7 @@ webhook_subscription.created # => 2015-10-28T16:20:47+00:00
 ```javascript
 var webhookSubscriptionUrl = 'https://api-sandbox.dwolla.com/webhook-subscriptions/5af4c10a-f6de-4ac8-840d-42cb65454216';
 
-applicationToken
+appToken
   .get(webhookSubscriptionUrl)
   .then(res => res.body.created); // => '2016-04-20T15:49:50.340Z'
 ```
