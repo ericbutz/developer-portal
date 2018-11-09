@@ -9,7 +9,7 @@ description: "Leverage Plaid’s bank verification with Dwolla’s ACH API for s
 
 ## Plaid Auth for bank funding source authentication in seconds
 
-Dwolla and Plaid are collaborating to offer [Dwolla customers](https://www.dwolla.com/platform) a solution that enables Customers to quickly and securely verify bank account ownership.
+Dwolla and Plaid are collaborating to offer [Dwolla customers](https://www.dwolla.com/platform) a solution that enables their users to quickly and securely verify bank account ownership.
 
 Using [Plaid Link](https://plaid.com/docs/#creating-items-with-plaid-link), your users verify their accounts in seconds by simply inputting their banking credentials in Plaid’s front-end module. Plaid’s mobile-friendly module handles input validation, error handling, and multi-factor authentication, providing a seamless experience that converts more users for your business.
 
@@ -23,7 +23,7 @@ In this article we’ll cover the steps involved with obtaining a `plaidToken`, 
 * Create a funding source for an Dwolla API Customer using a `plaidToken`
 * Obtain and store a unique funding source URL that belongs to the Dwolla API Customer
 
-![Screenshot of Dwolla and Plaid Integration](/images/dwolla-plaid-flow-4.png "Dwolla and Plaid Integration")
+<img src="/images/dwolla-plaid-flow-4.png" width="75%" height="75%">
 
 ## Using Plaid + Dwolla
 
