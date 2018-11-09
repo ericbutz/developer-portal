@@ -47,6 +47,7 @@ POST https://api-sandbox.dwolla.com/transfers
 Accept: application/vnd.dwolla.v1.hal+json
 Content-Type: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
+
 {  
    "_links":{  
       "source":{  
@@ -73,9 +74,6 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
          }
       }
    ]
-   "clearing": {
-       "destination": "next-available"
-   }
 }
 ```
 ```php
@@ -88,32 +86,29 @@ $transfer = $transfersApi->create([
       'href' => 'https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4',
     ],
     'destination' => [
-      'href' => 'https://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8'
+      'href' => 'https://api-sandbox.dwolla.com/funding-sources/a2152a8a-b1a6-4b5e-9354-79e2bb8753ee'
     ]
   ],
   'amount' => [
     'currency' => 'USD',
-    'value' => '1.00'
+    'value' => '98.00'
   ],
-  'fees' => [  
-     {  
-        '_links' => {  
-           'charge-to' => {  
-              'href' => 'http://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8'
-           }
-        },
-        'amount' => {  
+  'fees' => [
+     [
+        '_links' => [
+           'charge-to' => [
+              'href' => 'http://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408'
+           ]
+        ],
+        'amount' => [
            'value' => '2.00',
            'currency' => 'USD'
-        }
-     }
+        ]
+     ]
   ]
-  'clearing' => [
-    'destination' => 'next-available'
-  ]
+ ]);
 
-]);
-$transfer; # => "https://api-sandbox.dwolla.com/transfers/74c9129b-d14a-e511-80da-0aa34a9b2388"
+print_r($transfer); # => "https://api-sandbox.dwolla.com/transfers/74c9129b-d14a-e511-80da-0aa34a9b2388"
 ?>
 ```
 ```ruby
@@ -124,18 +119,18 @@ request_body = {
       :href => "https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4"
     },
     :destination => {
-      :href => "https://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8"
+      :href => "https://api-sandbox.dwolla.com/funding-sources/a2152a8a-b1a6-4b5e-9354-79e2bb8753ee"
     }
   },
   :amount => {
     :currency => "USD",
-    :value => "1.00"
+    :value => "98.00"
   },
   :fees => [  
      {  
         :_links => {  
            :charge-to => {  
-              :href => "http://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8"
+              :href => "http://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408"
            }
         },
         :amount => {  
@@ -144,9 +139,6 @@ request_body = {
         }
      }
   ]
-  :clearing => {
-    :destination => "next-available"
-  }
 }
 
 transfer = app_token.post "transfers", request_body
@@ -160,18 +152,18 @@ request_body = {
       'href': 'https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4'
     },
     'destination': {
-      'href': 'https://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8'
+      'href': 'https://api-sandbox.dwolla.com/funding-sources/a2152a8a-b1a6-4b5e-9354-79e2bb8753ee'
     }
   },
   'amount': {
     'currency': 'USD',
-    'value': '1.00'
+    'value': '98.00'
   },
   'fees':[  
       {  
          '_links': {  
             'charge-to': {  
-               'href': 'http://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8'
+               'href': 'http://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408'
             }
          },
          'amount':{  
@@ -180,9 +172,6 @@ request_body = {
          }
       }
    ]
-  'clearing': {
-    'destination': 'next-available'
-  }
 }
 
 transfer = app_token.post('transfers', request_body)
@@ -195,18 +184,18 @@ var requestBody = {
       href: 'https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4'
     },
     destination: {
-      href: 'https://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8'
+      href: 'https://api-sandbox.dwolla.com/funding-sources/a2152a8a-b1a6-4b5e-9354-79e2bb8753ee'
     }
   },
   amount: {
     currency: 'USD',
-    value: '1.00'
+    value: '98.00'
   },
   fees: [  
      {  
         _links: {  
            charge-to: {  
-              href: 'http://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8'
+              href: 'http://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408'
            }
         },
         amount: {  
@@ -215,9 +204,6 @@ var requestBody = {
         }
      }
   ]
-  clearing: {
-    destination: 'next-available'
-  }
 };
 
 appToken
