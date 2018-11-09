@@ -7,15 +7,22 @@ description: "Keep track of changes to the Dwolla API and official SDKs."
 ---
 # Upcoming
 
-### 2018-06-30
-
-##### Deprecation of TLS 1.0 and 1.1 across Platform
-
-Dwolla will discontinue support for TLS 1.0 and TLS 1.1. This change will occur across the platform on June 30th, 2018.
-We recommend that you test your Dwolla integrations to ensure a seamless transition.
+### No changes upcoming
 
 <section class="change-log">
     <h1>Completed</h1>
+	<h3>2018-06-30</h3>
+	<h4><em>ADDED</em></h4>
+	<ul class="bullet">
+	    <li>Addenda support--The addenda record is used to provide additional information to the payment recipient about the payment. This value will be passed in a transfer request and can be exposed on your user’s bank statement. Addenda records provide a unique opportunity to supply your users with more information about their transactions.  </li>
+		<li>Learn more on our <a href = "https://www.dwolla.com/updates/customizing-payments-businesses/"> blog post. </a></li>
+	</ul>
+	<h3>2018-06-30</h3>
+	<h4><em>DEPRECATED</em></h4>
+	<ul class="bullet">
+	    <li>Dwolla will discontinue support for TLS 1.0 and TLS 1.1.
+		<li>Learn more on our <a href = "https://www.dwolla.com/updates/improving-transport-layer-security/"> blog post. </a></li>
+	</ul>
 	<h3>2018-06-04</h3>
 	<h4><em>UPDATED</em></h4>
 	<ul class="bullet">

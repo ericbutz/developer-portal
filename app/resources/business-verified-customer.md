@@ -18,7 +18,7 @@ First, you should have an active [webhook subscription](https://docsv2.dwolla.co
 Below we have outlined the verification process for creating a business verified Customer.
 
 1. [**Creating business verified Customer**](/resources/business-verified-customer/create-business-verified-customers.html)
- * Create a business verified Customemr
+ * Create a business verified Customer
  * Check the status of the business
  * Check the status of your Controller
 2. [**Handling business verified Customer statuses**](/resources/business-verified-customer/handling-controller-and-customer-statuses.html)

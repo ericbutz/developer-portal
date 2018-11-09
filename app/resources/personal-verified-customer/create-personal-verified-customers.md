@@ -238,4 +238,4 @@ However, if the Customer was unable to be verified on the initial flow, they wil
 
 #### View
 
-* [Handling verification statuses](resources/personal-verified-customer/handling-verification-statuses-personal.html)  for personal verified Customers.
+* [Handling verification statuses](/resources/personal-verified-customer/handling-verification-statuses-personal.html)  for personal verified Customers.

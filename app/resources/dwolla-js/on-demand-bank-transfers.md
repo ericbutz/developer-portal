@@ -24,4 +24,4 @@ Once you have collected all of the authorizations required for a bank transfer, 
 
 *   [Dwolla.js - Overview](/resources/dwolla-js.html)
 *   [Add a bank account](/resources/dwolla-js/add-a-bank-account.html)
-*   [Instant account verification](/resources/dwolla-js/instant-account-verification.html)
+*   [Add + verify a bank account (IAV)](/resources/dwolla-js/instant-account-verification.html)
