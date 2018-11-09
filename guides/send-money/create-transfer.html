@@ -29,10 +29,6 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
     "amount": {
         "currency": "USD",
         "value": "225.00"
-    },
-    "metadata": {
-        "customerId": "8675309",
-        "notes": "For work completed on Sept. 1, 2015"
     }
 }
 
@@ -52,10 +48,6 @@ Location: https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34
   <span class=ss>:amount</span> <span class=o>=&gt;</span> <span class=p>{</span>
     <span class=ss>:currency</span> <span class=o>=&gt;</span> <span class=s2>"USD"</span><span class=p>,</span>
     <span class=ss>:value</span> <span class=o>=&gt;</span> <span class=s2>"225.00"</span>
-  <span class=p>},</span>
-  <span class=ss>:metadata</span> <span class=o>=&gt;</span> <span class=p>{</span>
-    <span class=ss>:customerId</span> <span class=o>=&gt;</span> <span class=s2>"8675309"</span><span class=p>,</span>
-    <span class=ss>:notes</span> <span class=o>=&gt;</span> <span class=s2>"For work completed on Sept. 1, 2015"</span>
   <span class=p>}</span>
 <span class=p>}</span>
 
@@ -74,10 +66,6 @@ Location: https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34
   <span class=na>amount</span><span class=p>:</span> <span class=p>{</span>
     <span class=na>currency</span><span class=p>:</span> <span class=s1>'USD'</span><span class=p>,</span>
     <span class=na>value</span><span class=p>:</span> <span class=s1>'225.00'</span>
-  <span class=p>},</span>
-  <span class=na>metadata</span><span class=p>:</span> <span class=p>{</span>
-    <span class=na>customerId</span><span class=p>:</span> <span class=s1>'8675309'</span><span class=p>,</span>
-    <span class=na>notes</span><span class=p>:</span> <span class=s1>'For work completed on Sept. 1, 2015'</span>
   <span class=p>}</span>
 <span class=p>};</span>
 
@@ -98,10 +86,6 @@ Location: https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34
   <span class=s>'amount'</span><span class=p>:</span> <span class=p>{</span>
     <span class=s>'currency'</span><span class=p>:</span> <span class=s>'USD'</span><span class=p>,</span>
     <span class=s>'value'</span><span class=p>:</span> <span class=s>'225.00'</span>
-  <span class=p>},</span>
-  <span class=s>'metadata'</span><span class=p>:</span> <span class=p>{</span>
-    <span class=s>'customerId'</span><span class=p>:</span> <span class=s>'8675309'</span><span class=p>,</span>
-    <span class=s>'notes'</span><span class=p>:</span> <span class=s>'For work completed on Sept. 1, 2015'</span>
   <span class=p>}</span>
 <span class=p>}</span>
 
@@ -125,12 +109,7 @@ Location: https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34
   <span class=k>array</span> <span class=p>(</span>
     <span class=s1>'currency'</span> <span class=o>=&gt;</span> <span class=s1>'USD'</span><span class=p>,</span>
     <span class=s1>'value'</span> <span class=o>=&gt;</span> <span class=s1>'225.00'</span><span class=p>,</span>
-  <span class=p>),</span>
-  <span class=s1>'metadata'</span> <span class=o>=&gt;</span>
-  <span class=k>array</span> <span class=p>(</span>
-    <span class=s1>'customerId'</span> <span class=o>=&gt;</span> <span class=s1>'8675309'</span><span class=p>,</span>
-    <span class=s1>'notes'</span> <span class=o>=&gt;</span> <span class=s1>'For work completed on Sept. 1, 2015'</span><span class=p>,</span>
-  <span class=p>),</span>
+  <span class=p>)</span>
 <span class=p>);</span>
 
 <span class=nv>$transferApi</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>DwollaSwagger\TransfersApi</span><span class=p>(</span><span class=nv>$apiClient</span><span class=p>);</span>

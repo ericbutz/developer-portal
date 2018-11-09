@@ -108,7 +108,7 @@ Location: https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7
 <span class=p>}</span>
 
 <span class=c1># Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)</span>
-<span class=n>funding_source</span> <span class=o>=</span> <span class=n>account_token</span><span class=p>.</span><span class=nf>post</span> <span class=s2>"</span><span class=si>#{</span><span class=n>customer_url</span><span class=si>}</span><span class=s2>/funding-sources"</span><span class=p>,</span> <span class=n>request_body</span>
+<span class=n>funding_source</span> <span class=o>=</span> <span class=n>app_token</span><span class=p>.</span><span class=nf>post</span> <span class=s2>"</span><span class=si>#{</span><span class=n>customer_url</span><span class=si>}</span><span class=s2>/funding-sources"</span><span class=p>,</span> <span class=n>request_body</span>
 <span class=n>funding_source</span><span class=p>.</span><span class=nf>response_headers</span><span class=p>[</span><span class=ss>:location</span><span class=p>]</span> <span class=c1># =&gt; "https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31"</span>
 
 </code></pre></div></div><div class="code-snippet js-code-snippet language-javascript"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-javascript data-lang=javascript><span class=kd>var</span> <span class=nx>customerUrl</span> <span class=o>=</span> <span class=s1>'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747'</span><span class=p>;</span>
@@ -119,7 +119,7 @@ Location: https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7
   <span class=s1>'name'</span><span class=p>:</span> <span class=s1>'Jane Merchant - Checking 6789'</span>
 <span class=p>};</span>
 
-<span class=nx>accountToken</span>
+<span class=nx>appToken</span>
   <span class=p>.</span><span class=nx>post</span><span class=p>(</span><span class=err>`</span><span class=nx>$</span><span class=p>{</span><span class=nx>customerUrl</span><span class=p>}</span><span class=sr>/funding-sources`, requestBody</span><span class=err>)
 </span>  <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>res</span><span class=p>)</span> <span class=p>{</span>
     <span class=nx>res</span><span class=p>.</span><span class=nx>headers</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=s1>'location'</span><span class=p>);</span> <span class=c1>// =&gt; 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'</span>
@@ -133,7 +133,7 @@ Location: https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7
 <span class=p>}</span>
 
 <span class=c># Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)</span>
-<span class=n>customer</span> <span class=o>=</span> <span class=n>account_token</span><span class=o>.</span><span class=n>post</span><span class=p>(</span><span class=s>'</span><span class=si>%</span><span class=s>s/funding-sources'</span> <span class=o>%</span> <span class=n>customer_url</span><span class=p>,</span> <span class=n>request_body</span><span class=p>)</span>
+<span class=n>customer</span> <span class=o>=</span> <span class=n>app_token</span><span class=o>.</span><span class=n>post</span><span class=p>(</span><span class=s>'</span><span class=si>%</span><span class=s>s/funding-sources'</span> <span class=o>%</span> <span class=n>customer_url</span><span class=p>,</span> <span class=n>request_body</span><span class=p>)</span>
 <span class=n>customer</span><span class=o>.</span><span class=n>headers</span><span class=p>[</span><span class=s>'location'</span><span class=p>]</span> <span class=c># =&gt; 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'</span>
 
 </code></pre></div></div><div class="code-snippet js-code-snippet language-php"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-php data-lang=php><span class=cp>&lt;?php</span>
