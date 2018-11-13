@@ -198,7 +198,8 @@ $new_fs = $fundingApi->createCustomerFundingSource([
   "accountNumber" => "123456789",
   "bankAccountType" => "checking",
   "name" => "Jane Merchant - Checking 6789"
-], "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747");
+  ], "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747"
+);
 
 print($new_fs); # => https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31
 ?>
