@@ -78,12 +78,13 @@ customer.headers['location'] # => 'https://api-sandbox.dwolla.com/funding-source
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
 
 $customer = 'https://api.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C/funding-sources'
-$new_fs = $fsApi->createCustomerFundingSource($customer, array (
+$new_fs = $fsApi->createCustomerFundingSource(array (
   'routingNumber' => '222222226',
   'accountNumber' => '123456789',
   'bankAccountType' => 'checking',
   'name' => 'Jane Merchant',
-));
+  ), $customer
+);
 
 print($new_fs); # => https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31
 ?>
