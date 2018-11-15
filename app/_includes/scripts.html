@@ -1,4 +1,20 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.3/iframeResizer.min.js"></script>
+
+<script type="text/javascript">
+  // Create browser compatible event handler.
+  var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+  var eventer = window[eventMethod];
+  var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+  // Listen for a message from the iframe.
+  eventer(messageEvent, function(e) {
+    if (isNaN(e.data)) return;
+
+    // replace #sizetracker with what ever what ever iframe id you need
+    document.getElementById('sizetracker').style.height = e.data + 'px';
+
+  }, false);
+</script>
 
 <script>window.jQuery || document.write('<script src="/_bower_components/jquery/jquery.min.js"><\/script>')</script>
 <!-- build:js(app) /js/script.js -->
