@@ -5,8 +5,8 @@ type: guide
 guide:
     name: sandbox-setup
     step: overview
-title:  Get started with integrating bank transfers into your application
-description: Test programmatic bank transfers with Dwolla's bank transfer API in our developer sandbox.
+title:  Getting started in the sandbox
+description: Getting started in the sandboxThe Sandbox environment is a complete replica of the Dwolla production environment, supporting all of the same API endpoints.
 ---
 
 # Getting started in Sandbox

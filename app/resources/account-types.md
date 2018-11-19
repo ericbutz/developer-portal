@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: article
-title:  "Customer types"
-description: "Getting started with Dwolla's bank transfer API."
+title:  Customer types
+description: Use this page to understand the different features, customer types and ACH transfer processes. 
 ---
 # Customer types
 

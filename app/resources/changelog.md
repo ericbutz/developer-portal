@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: tool
-title:  Change log
-description: "Keep track of changes to the Dwolla API and official SDKs."
+title:  Dwolla API Change Log
+description: Use this page to keep track of changes to the Dwolla API or additions to the Dwolla Platform.
 ---
 # Upcoming
 

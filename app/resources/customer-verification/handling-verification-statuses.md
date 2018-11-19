@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Customer verification
 type: article
-title:  "Handling verification statuses"
+title:  Handling verification statuses
 weight: 2
-description: "How to handle customer verification statuses before sending a bank transfer with Dwolla's ACH API."
+description: How to handle customer verification statuses before sending a bank transfer with Dwolla's ACH API.
 redirect_to:  
   - /resources/customer-verification.html
 ---

@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Dwolla.js
 type: article
-title:  "Add a bank account"
+title:  Dwolla.js to Create a Funding Source
 weight: 0
-description: "Quickly integrate instant bank verification for developers to add a bank account using the Dwolla ACH API."
+description: Using dwolla.js, securely transmit sensitive data (bank account and routing number) to Dwolla without the data passing through your server. 
 ---
 
 # Add a bank funding source
@@ -35,7 +35,7 @@ dwolla.fundingSources.create('1zN400zyPUobbdmeNfhTGH2Jh5JkFREJa9YBI8SLXp0ERXNTMT
 ```
 
 ### Step 1: Generate a funding sources token
-Before calling a function within dwolla.js to add a new funding source, you need to generate a funding sources token. Your server initiates a POST request to Dwolla, specifying for which Dwolla account or Dwolla API Customer you want to add a bank account. Dwolla will respond with a funding sources `token` that expires in an hour. This token will be sent to the client and used to authenticate the HTTP request asking Dwolla to add a new funding source. 
+Before calling a function within dwolla.js to add a new funding source, you need to generate a funding sources token. Your server initiates a POST request to Dwolla, specifying for which Dwolla account or Dwolla API Customer you want to add a bank account. Dwolla will respond with a funding sources `token` that expires in an hour. This token will be sent to the client and used to authenticate the HTTP request asking Dwolla to add a new funding source.
 
 ```raw
 curl -X POST

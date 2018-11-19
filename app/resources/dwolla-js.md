@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: features
-title:  "Dwolla.js"
-description: "Quickly integrate instant bank verification for developers using the Dwolla ACH API."
+title:  Dwolla JavaScript
+description: Dwolla.js is a client-side JavaScript library with the primary function of securely transmitting sensitive data (bank account and routing number) from your application’s front-end to Dwolla.
 ---
 
 # Dwolla.js

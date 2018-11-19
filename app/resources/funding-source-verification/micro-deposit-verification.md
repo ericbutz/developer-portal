@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Funding source verification
 type: article
-title:  "Micro-deposit verification"
+title:  Micro-deposit verification
 weight: 0
-description: "Programmatically verify a bank to initiate a bank transfer using micro-deposit verification."
+description: After initiating micro-deposits, two random amounts will post to your customer’s bank account in 1-2 business days.
 ---
 
 # Funding source verification

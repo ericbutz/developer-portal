@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Personal Verified Customer
 type: article
-title:  "Handling verification statuses"
+title:  Customer Verification Statuses
 weight: 2
-description: "How to handle customer verification statuses before sending a bank transfer with Dwolla's ACH API."
+description: Ater successfully creating a personal identity-verified Customer, they are immediately given a status that can be Verified or something different. 
 ---
 # Handling verification statuses
 

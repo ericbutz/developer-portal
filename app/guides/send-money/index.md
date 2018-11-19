@@ -5,8 +5,8 @@ type: guide
 guide:
     name: send-money
     step: overview
-title:  ACH transfers for your application
-description: Send bank transfers programmatically with Dwolla's developer API.
+title:  ACH Transfers Overview
+description: This guide covers the three key points of sending money to your users through your application and the Dwolla API.
 ---
 
 # Overview: Send money to your users

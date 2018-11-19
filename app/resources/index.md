@@ -1,7 +1,7 @@
 ---
 layout: twoColumn
-title:  "Resources"
-description: "Getting started with Dwolla's bank transfer API."
+title:  Basics to the Dwolla API
+description: Use this page to understand the different features, customer types and ACH transfer processes.
 ---
 
 <h1>Tools</h1>

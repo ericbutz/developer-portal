@@ -2,11 +2,11 @@
 layout: twoColumn
 section: guides
 type: guide
-guide: 
+guide:
     name: webhooks
     step: '4'
-title: Webhooks | Process Webhooks
-description: Process webhooks for payments within your application by utilizing our open API with no per transaction fees. 
+title: Processing webhooks
+description: From the event we can retrieve the transfer and then take a look at the links object and retrieve the customers that need to be notified.
 ---
 
 # Processing webhooks: an example scenario
@@ -60,7 +60,7 @@ end
 
 Let's recap. From the event we can retrieve the `transfer` and then take a look at the `_links` object and retrieve the `customers` that need to be notified. From here, you can make a call to `customers/{id}` to retrieve their e-mail addresses (or to your own database) so that you can send your notification message.
 
-That's it! You’ve learned the basics of webhooks. 
+That's it! You’ve learned the basics of webhooks.
 
 <nav class="pager-nav">
     <a href="./validating-webhooks.html">Back: Validating webhooks</a>

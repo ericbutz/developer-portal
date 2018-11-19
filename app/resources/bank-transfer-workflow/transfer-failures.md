@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Bank transfer workflow
 type: article
-title:  "Transfer failures"
+title:  ACH Transfer Failures
 weight: 1
-description: "How to handle transfer failures in a bank transfer API to programmatically send money online."
+description: There are several reasons ACH bank transfers can fail. When failure does occur, the transfer is assigned one of 80 ACH Return Codes. 
 ---
 
 # Bank transfer workflow

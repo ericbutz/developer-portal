@@ -1,7 +1,7 @@
 ---
 layout: twoColumn
-title:  "Guides"
-description: "Programmatically send bank transfers with our developer API."
+title:  A Guide to the Dwolla Sandbox
+description: "Before integrating with the Dwolla API first understand the basic funds flows and which apply to your use case."
 ---
 
 <nav class="grid-nav">

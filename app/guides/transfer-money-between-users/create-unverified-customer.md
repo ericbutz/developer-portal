@@ -5,15 +5,15 @@ type: guide
 guide:
     name: transfer-money-between-users
     step: '4'
-title:  "Step 4: Creating an unverified customer"
-description: Create an unverified customer within Dwolla's ACH payment API.
+title:  Creating an Unverified Customer
+description: An unverified Customer and a verified funding source is capable of sending money.
 ---
 
 # Step 4: Creating an Unverified Customer
 
 Now that we’ve created a customer for Jane Merchant and associated a funding source, we’ll do the same for Joe Buyer, but this time we’ll create an `Unverified Customer`, and a verified funding source which is capable of sending money.
 
-Provide the user’s full name, email address, and IP address to create the Customer. More detail is available in [API docs](https://docsv2.dwolla.com/#customers). 
+Provide the user’s full name, email address, and IP address to create the Customer. More detail is available in [API docs](https://docsv2.dwolla.com/#customers).
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers
@@ -21,7 +21,7 @@ Content-Type: application/vnd.dwolla.v1.hal+json
 Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 {
-"firstName": "Joe", 
+"firstName": "Joe",
 "lastName": "Buyer",
 "email": "jbuyer@mail.net"
 }

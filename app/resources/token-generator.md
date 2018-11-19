@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: tool
-title:  "Token Generator"
-description: "Generate an OAuth access token for Dwolla's bank transfer API."
+title:  Dwolla API OAuth Token
+description: The Dwolla API requires an OAuth token for authorization.
 ---
 
 # Token generator

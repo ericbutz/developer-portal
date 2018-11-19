@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Funding source verification
 type: article
-title:  "Instant account verification"
+title:  Instant account verification
 weight: 1
-description: "Programmatically verify a bank to initiate a bank transfer using instant account verification."
+description: Instant Account Verification gives you the ability to add and verify a Customer's bank account in a matter of seconds. 
 ---
 
 # Funding source verification

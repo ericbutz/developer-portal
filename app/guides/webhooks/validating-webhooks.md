@@ -5,15 +5,15 @@ type: guide
 guide:
     name: webhooks
     step: '3'
-title: Webhooks | Validating Webhooks
-description: Validating webhooks for payments within your application by utilizing our open API with no per transaction fees.
+title: Validating Webhooks
+description: After a customer places an order on your site, a few days after they initiated their payment, your application receives this type of webhook.
 ---
 
 # Step 3: Validating webhooks
 
 Assume that your integration is an online marketplace, and that a customer just placed an order on your site. A few days after the customer initiated their payment, your application receives this webhook.
 
-The `topic` field of an event holds [a description](http://docsv2.dwolla.com/#events) of the event, which is similar the subject of an e-mail message.  The `webhook` itself contains `_links` to the resource impacted by the event that can be used to retrieve more information about the webhook you have received. 
+The `topic` field of an event holds [a description](http://docsv2.dwolla.com/#events) of the event, which is similar the subject of an e-mail message.  The `webhook` itself contains `_links` to the resource impacted by the event that can be used to retrieve more information about the webhook you have received.
 
 **NOTE**: The `event` must be retrieved with a `client_credentials` granted access_token.
 

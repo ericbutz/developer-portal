@@ -2,14 +2,14 @@
 layout: twoColumn
 section: OAuth refresh strategies
 type: article
-title: "Refresh on-demand"
+title: Refresh on-demand
 weight: 1
-description: "Manage OAuth access tokens for Dwolla's bank transfer API: refreshing on demand."
+description: Manage OAuth access tokens for Dwolla's bank transfer API: refreshing on demand.
 ---
 
 # OAuth refresh strategies - Transfer
 
-## Refresh on demand or handle failure 
+## Refresh on demand or handle failure
 
 ### On demand
 Before making any API call to Dwolla, query your database to get the stored refresh token, refresh authorization, update the new token pair in your database, and lastly make the call to Dwolla. This method prevents excessive calls to Dwolla and only requires you to refresh authorization when needed.

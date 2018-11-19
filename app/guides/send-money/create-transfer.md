@@ -5,8 +5,8 @@ type: guide
 guide:
     name: send-money
     step: '3'
-title:  "Step 3: Create a transfer"
-description: Use Dwolla's ACH payment APi to facilitate and create transfers within your application or platform.
+title:  Creating an ACH transfer
+description: Create a transfer by specifying your funding source as the source and the Customer as the destination.
 ---
 # Step 3: Create a transfer
 

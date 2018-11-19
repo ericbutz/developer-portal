@@ -5,8 +5,8 @@ type: guide
 guide:
     name: receive-money
     step: overview
-title:  Receive bank transfers within your application
-description: Programmatically collect money from customer bank accounts with bank transfers.
+title:  Collecting From Your Users Using Dwolla's API
+description: This guide covers the key points of collecting money from your customers by utilizing the Dwolla API.
 ---
 
 # Overview: Receive money from your users

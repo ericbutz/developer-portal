@@ -5,8 +5,8 @@ type: guide
 guide:
     name: auth
     step: overview
-title: Dwolla OAuth 2.0
-description: Obtain an OAuth access token, used to access data in the Dwolla API on behalf of an account or application.
+title: Dwolla's OAuth 2.0
+description: Dwolla uses the OAuth 2 protocol, an authorization framework that enables a third-party application to obtain access to protected resources in the Dwolla API.
 ---
 
 # Dwolla OAuth 2.0

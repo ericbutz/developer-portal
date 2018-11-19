@@ -5,8 +5,8 @@ type: guide
 guide:
     name: webhooks
     step: '1'
-title: Webhooks | Obtain Authorization
-description: Obtain authorization webhooks for payments within your application by utilizing our open bank transfer API with no transaction fees.
+title: Obtain Webook Authorization
+description: To subscribe to webhooks, you must first obtain client authorization via OAuth by requesting credentials on behalf of your own application.
 ---
 
 # Step 1: Obtain authorization
