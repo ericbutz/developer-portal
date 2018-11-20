@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Dwolla.js
 type: article
-title:  "On-demand bank transfers"
+title:  Dwolla.js for On-demand ACH transfers
 weight: 2
-description: "Quickly integrate instant bank verification for developers using the Dwolla ACH API, allowing for easy use of on-demand bank transfers."
+description: On-demand bank transfers are perfect for companies with usage-based business models, such as utilities or advertising platforms.
 ---
 
 # Dwolla.js

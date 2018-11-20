@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Customer verification
 type: article
-title:  "Personal verified Customers"
+title:  Personal verified Customers
 weight: 0
-description: "How to verify a personal customer before sending a bank transfer with Dwolla's ACH API."
+description: How to verify a personal customer before sending a bank transfer with Dwolla's ACH API.
 redirect_to:  
   - /resources/personal-verified-customer.html
 ---

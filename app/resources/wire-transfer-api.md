@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: features
-title:  "Wire transfer API"
-description: "A walkthrough of sending wire transfers through the Dwolla API."
+title:  Wire transfer API
+description: A walkthrough of sending wire transfers through the Dwolla API.
 published: false
 ---
 

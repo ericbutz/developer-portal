@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: article
-title:  "Testing in the Sandbox"
-description: "In the Sandbox environment, simulate various test cases with the use of sentinel values or actionable buttons in Dwolla’s Sandbox interface."
+title:  Test in the Sandbox
+description: The Sandbox environment allows you to test the Dwolla API without any real-world impact, meaning that no real, personal identifying information or financial data is used.
 ---
 
 # Testing in the Sandbox

@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: article
-title:  "Personal Verified Customer"
-description: "How to verify a customer before sending a bank transfer with Dwolla's ACH API."
+title:  Customer Verification
+description: A Customer represents an individual or business needing to send or receive funds on your platform. In any transaction at least one part must complete the identity verification process.
 ---
 # Customer Verification
 

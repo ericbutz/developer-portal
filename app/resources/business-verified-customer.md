@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: article
-title:  "Business Verified Customer"
-description: "How to create and verify a Business customer before sending a bank transfer with Dwolla's ACH API."
+title:  ACH Business Customer Verification
+description: A business verified Customer represents a business that intends to send or receive funds on your platform.
 ---
 # Business Customer Verification
 

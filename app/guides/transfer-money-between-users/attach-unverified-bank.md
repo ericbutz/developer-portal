@@ -5,8 +5,8 @@ type: guide
 guide:
     name: transfer-money-between-users
     step: '3'
-title:  "Step 3: Attach an unverified funding source"
-description: Link an unverified bank account to a customer within Dwolla's bank transfer API.
+title:  Attach an unverified funding source in Dwolla's API
+description: Unverified funding sources can only receive funds, not send. You will include actual bank name, routing, and account numbers after prompting your customer within your application.
 ---
 
 # Step 3: Attach an unverified funding source

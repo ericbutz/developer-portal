@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Business Verified Customer
 type: article
-title:  "Creating Business verified Customers"
+title:  Business Verified Customers
 weight: 1
-description: "How to create a business customer before sending a bank transfer with Dwolla's ACH API."
+description: A business verified Customer is determined by setting the value of the type of request parameter to business and including any additional fields required for identifying the business.
 ---
 # Creating Business verified Customers
 

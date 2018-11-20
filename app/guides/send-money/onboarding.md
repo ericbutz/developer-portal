@@ -5,8 +5,8 @@ guide:
     name: send-money
     step: '1'
 type: guide
-title:  "Step 1: Customer onboarding"
-description: Use Dwolla's ACH payment API to send money to other users.
+title:  Onboarding a customer with Dwolla's API
+description: End users create their accounts entirely within your application and you prompt for their bank or credit union account information. Dwolla will securely store this sensitive information.
 ---
 # Step 1: Create recipients using the Dwolla API
 

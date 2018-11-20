@@ -5,8 +5,8 @@ type: guide
 guide:
     name: transfer-money-between-users
     step: '1'
-title:  "Step 1: Obtain an access token"
-description: How to obtain an access token within Dwolla's bank transfer API.
+title:  Obtain an application access token in Dwolla's API
+description: An application access token can be used to make calls to the Dwolla API on behalf of your application.
 ---
 
 # Step 1: Obtain an application access token

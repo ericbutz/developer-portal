@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: article
-title:  "Bank transfer workflow"
-description: "Bank transfer API to programmatically send money online"
+title:  ACH Bank Transfer Window
+description: Most bank transfers initiated within the Dwolla network are processed via the Automated Clearing House (ACH).
 ---
 
 # Bank transfer workflow

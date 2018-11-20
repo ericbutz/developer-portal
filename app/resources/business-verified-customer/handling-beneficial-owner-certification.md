@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Business Verified Customer
 type: article
-title:  "Certifying beneficial ownership"
+title:  Certifying beneficial ownership
 weight: 4
-description: "How to certify your Beneficial Owners in order for your business Verified Customer to send funds in the Dwolla's ACH API."
+description: For your business verified Customer to be eligible to send and receive funds, the individual creating the business verified Customer account must certify beneficial owner(s).
 ---
 # Certifying beneficial ownership
 

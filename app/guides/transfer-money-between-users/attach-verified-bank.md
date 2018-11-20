@@ -5,13 +5,13 @@ type: guide
 guide:
     name: transfer-money-between-users
     step: '5'
-title:  "Step 5: Attach a verified funding source"
-description: Link a verified bank account to a customer record within Dwolla's bank transfer API. 
+title:  Attach a verified funding source in Dwolla's API
+description: This method will give a user the ability to add and verify their bank account in a matter of seconds by authenticating with his online banking credentials.
 ---
 
 # Step 5: Attach a verified funding source
 
-Next you will attach a verified funding source for Joe Buyer, which will be done using Instant Account Verification (IAV). This method will give Joe Buyer the ability to add and verify his bank account in a matter of seconds by authenticating with his online banking credentials. Once Joe Buyer reaches the page in your application to add a bank account you'll ask Dwolla’s server to [generate an IAV token](http://docsv2.dwolla.com/#generate-an-iav-token). 
+Next you will attach a verified funding source for Joe Buyer, which will be done using Instant Account Verification (IAV). This method will give Joe Buyer the ability to add and verify his bank account in a matter of seconds by authenticating with his online banking credentials. Once Joe Buyer reaches the page in your application to add a bank account you'll ask Dwolla’s server to [generate an IAV token](http://docsv2.dwolla.com/#generate-an-iav-token).
 
 ##### Generate a single-use IAV token for our Customer, Joe Buyer:
 
@@ -63,7 +63,7 @@ $fsToken->token; # => "lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL"
 ?>
 ```
 
-Then, you’ll pass this single-use IAV token to the client-side of your application where it will be used in the JavaScript function `dwolla.iav.start`. This token will be used to authenticate the request asking Dwolla to render the IAV flow. Before calling this function you'll want to include `dwolla.js` in the HEAD of your page. 
+Then, you’ll pass this single-use IAV token to the client-side of your application where it will be used in the JavaScript function `dwolla.iav.start`. This token will be used to authenticate the request asking Dwolla to render the IAV flow. Before calling this function you'll want to include `dwolla.js` in the HEAD of your page.
 
 ```html
 <head>

@@ -5,8 +5,8 @@ type: guide
 guide:
     name: receive-money
     step: '1'
-title:  "Step 1: Customer onboarding"
-description: Leverage Dwolla's ach payment API to receive money via bank transfer.
+title:  Onboarding a customer with Dwolla's API
+description: Your application will exchange its client_id, client_secret, and grant_type=client_credentials for an application access token.
 ---
 # Step 1: Create a Customer and transfer
 

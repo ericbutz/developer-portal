@@ -5,8 +5,8 @@ type: guide
 guide:
     name: webhooks
     step: '2'
-title: Webhooks | Create Subscription
-description: Create subscription webhooks for payments within your application by utilizing our open bank transfer API with no transaction fees.
+title: Create Webhook Subscription
+description: Each application can have multiple subscriptions associated to it. While one webhook subscription is sufficient, you can create as many as you want for redundancy.
 ---
 
 # Step 2: Create a webhook subscription

@@ -2,9 +2,9 @@
 layout: twoColumn
 section: OAuth refresh strategies
 type: article
-title:  "Preemptively refresh authorization"
+title:  Preemptively refresh authorization
 weight: 0
-description: "Manage OAuth access tokens for Dwolla's bank transfer API: how to preemptively refresh."
+description: Manage OAuth access tokens for Dwolla's bank transfer API: how to preemptively refresh.
 ---
 
 # OAuth refresh strategies - Transfer

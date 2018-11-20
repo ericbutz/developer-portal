@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: features
-title:  "Same Day ACH"
-description: "A walkthrough of Same Day ACH and leveraging 'next available' processing times for faster transfers."
+title:  Same Day ACH
+description: Dwolla enables your application to take advantage of Same Day ACH credit transfers on a per transfer request basis.
 ---
 
 # Overview

@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: integrations
-title:  "Dwolla + Plaid"
-description: "Leverage Plaid’s bank verification with Dwolla’s ACH API for secure account ownership validation."
+title:  Dwolla and Plaid Integration
+description: Quickly verify bank account ownership with Plaid through an integration with Dwolla.
 ---
 # Plaid Integration
 

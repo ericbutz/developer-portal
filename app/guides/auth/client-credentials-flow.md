@@ -5,8 +5,8 @@ type: guide
 guide:
     name: auth
     step: '2'
-title: Dwolla OAuth 2.0 | Client Credentials Flow
-description: Obtain an OAuth access token, used to access data in the Dwolla API on behalf of an account or application. Learn more about the client credentials flow.
+title: Obtaining an Application Access token
+description: An application access token can then be used to make calls to the Dwolla API on behalf of the application.
 ---
 
 # Overview - Obtaining an application access token

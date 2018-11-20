@@ -1,7 +1,7 @@
 ---
 layout: twoColumn
 title:  OAuth refresh strategies
-description: "Manage OAuth account access tokens for Dwolla's bank transfer API."
+description: Manage OAuth account access tokens for Dwolla's bank transfer API.
 ---
 
 # OAuth refresh strategies - Transfer

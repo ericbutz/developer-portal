@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Personal Verified Customer
 type: article
-title:  "Personal verified Customers"
+title:  Creating a Verified Customer
 weight: 1
-description: "How to verify a personal customer before sending a bank transfer with Dwolla's ACH API."
+description: To create a personal verified Customer, use the create a Customer endpoint. A personal verified Customer is determined by setting the value of the type request parameter to personal.
 ---
 
 # Personal verified Customer

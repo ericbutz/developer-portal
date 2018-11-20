@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Bank transfer workflow
 type: article
-title:  "Processing times"
+title:  ACH Processing Times
 weight: 0
-description: "Processing times for Dwolla's bank transfer API to programmatically send money online."
+description: ACH Transfers, where the destination is a Dwolla balance, are completed as soon as the funds enter the Dwolla network.
 ---
 
 # Bank transfer workflow
