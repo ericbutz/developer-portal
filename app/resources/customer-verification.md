@@ -2,8 +2,8 @@
 layout: twoColumn
 section: resources
 type: archive
-title:  Customer Verification within the Dwolla API
-description: A Customer is an individual or business that intends to send or receive funds on your platform and in any transaction, one party must complete identity verification. 
+title:  Customer verification
+description: A Customer is an individual or business that intends to send or receive funds on your platform and in any transaction, one party must complete identity verification.
 ---
 
 # Customer Verification

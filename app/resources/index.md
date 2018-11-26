@@ -1,6 +1,6 @@
 ---
 layout: twoColumn
-title:  Basics to the Dwolla API
+title:  Resources
 description: Use this page to understand the different features, customer types and ACH transfer processes.
 ---
 
@@ -22,12 +22,16 @@ description: Use this page to understand the different features, customer types 
         <p>A walkthrough of the ACH transfer process, including transfer statuses and processing times.</p>
     </li>
     <li>
-        <h3><a href="/resources/customer-verification.html">Customer verification</a></h3>
-        <p>Account verification statuses and how to respond when additional information is required.</p>
+        <h3><a href="/resources/business-verified-customer.html">Business customer verification</a></h3>
+        <p>Business identity verified customer account creation and how to respond when additional information is required.</p>
     </li>
      <li>
         <h3><a href="/resources/funding-source-verification.html">Funding source verification</a></h3>
         <p>Methods to verify funding sources, including Instant Account Verification and micro-deposits.</p>
+    </li>
+    <li>
+        <h3><a href="/resources/personal-verified-customer.html">Personal customer verification</a></h3>
+        <p>Personal identity verified customer account creation and how to respond when additional information is required.</p>
     </li>
     <li>
         <h3><a href="/resources/testing.html">Testing in the Sandbox</a></h3>

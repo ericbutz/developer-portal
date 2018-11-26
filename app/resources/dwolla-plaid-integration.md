@@ -2,7 +2,7 @@
 layout: twoColumn
 section: resources
 type: integrations
-title:  Dwolla and Plaid Integration
+title:  Dwolla + Plaid
 description: Quickly verify bank account ownership with Plaid through an integration with Dwolla.
 ---
 # Plaid Integration

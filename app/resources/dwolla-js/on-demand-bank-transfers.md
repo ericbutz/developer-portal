@@ -2,7 +2,7 @@
 layout: twoColumn
 section: Dwolla.js
 type: article
-title:  Dwolla.js for On-demand ACH transfers
+title:  On-demand bank transfers
 weight: 2
 description: On-demand bank transfers are perfect for companies with usage-based business models, such as utilities or advertising platforms.
 ---

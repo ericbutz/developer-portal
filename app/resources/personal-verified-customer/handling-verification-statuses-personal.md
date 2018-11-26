@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Personal Verified Customer
 type: article
-title:  Customer Verification Statuses
+title:  Handling personal verified customer statuses
 weight: 2
-description: Ater successfully creating a personal identity-verified Customer, they are immediately given a status that can be Verified or something different. 
+description: After successfully creating a personal identity-verified Customer, they are immediately given a status that can be Verified or something different.
 ---
 # Handling verification statuses
 

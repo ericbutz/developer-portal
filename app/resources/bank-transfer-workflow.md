@@ -2,7 +2,7 @@
 layout: twoColumn
 section: resources
 type: article
-title:  ACH Bank Transfer Window
+title:  Bank transfer workflow
 description: Most bank transfers initiated within the Dwolla network are processed via the Automated Clearing House (ACH).
 ---
 

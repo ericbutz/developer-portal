@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Dwolla.js
 type: article
-title:  Dwolla.js to Create a Funding Source
+title:  Create a Funding Source
 weight: 0
-description: Using dwolla.js, securely transmit sensitive data (bank account and routing number) to Dwolla without the data passing through your server. 
+description: Using dwolla.js, securely transmit sensitive data (bank account and routing number) to Dwolla without the data passing through your server.
 ---
 
 # Add a bank funding source

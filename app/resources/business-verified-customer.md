@@ -2,7 +2,7 @@
 layout: twoColumn
 section: resources
 type: article
-title:  ACH Business Customer Verification
+title:  Business verified customer
 description: A business verified Customer represents a business that intends to send or receive funds on your platform.
 ---
 # Business Customer Verification
