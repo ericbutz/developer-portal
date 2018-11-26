@@ -2,7 +2,7 @@
 layout: twoColumn
 section: Bank transfer workflow
 type: article
-title:  ACH Processing Times
+title:  Processing times
 weight: 0
 description: ACH Transfers, where the destination is a Dwolla balance, are completed as soon as the funds enter the Dwolla network.
 ---

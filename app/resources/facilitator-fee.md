@@ -2,7 +2,7 @@
 layout: twoColumn
 section: resources
 type: features
-title:  Facilitator fee for ACH transfers
+title:  Facilitator fee
 description: The facilitator fee is a feature allowing for a flat rate amount to be removed from a payment as a fee, and sent to the creator of the Dwolla application.
 ---
 

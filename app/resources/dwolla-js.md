@@ -2,7 +2,7 @@
 layout: twoColumn
 section: resources
 type: features
-title:  Dwolla JavaScript
+title:  Dwolla.js
 description: Dwolla.js is a client-side JavaScript library with the primary function of securely transmitting sensitive data (bank account and routing number) from your application’s front-end to Dwolla.
 ---
 

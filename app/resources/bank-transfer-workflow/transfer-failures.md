@@ -2,9 +2,9 @@
 layout: twoColumn
 section: Bank transfer workflow
 type: article
-title:  ACH Transfer Failures
+title:  Transfer failures
 weight: 1
-description: There are several reasons ACH bank transfers can fail. When failure does occur, the transfer is assigned one of 80 ACH Return Codes. 
+description: There are several reasons ACH bank transfers can fail. When failure does occur, the transfer is assigned one of 80 ACH Return Codes.
 ---
 
 # Bank transfer workflow

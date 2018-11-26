@@ -2,7 +2,7 @@
 layout: twoColumn
 section: resources
 type: article
-title:  Customer Verification
+title:  Personal verified customer
 description: A Customer represents an individual or business needing to send or receive funds on your platform. In any transaction at least one part must complete the identity verification process.
 ---
 # Customer Verification
