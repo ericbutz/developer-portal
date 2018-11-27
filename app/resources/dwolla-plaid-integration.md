@@ -23,7 +23,7 @@ In this article we’ll cover the steps involved with obtaining a `plaidToken`, 
 * Create a funding source for an Dwolla API Customer using a `plaidToken`
 * Obtain and store a unique funding source URL that belongs to the Dwolla API Customer
 
-<img src="/images/dwolla-plaid-flow-4.png" width="75%" height="75%">
+<img src="/images/dwolla-plaid-flow-v2@2x.png" width="75%" height="75%">
 
 ## Using Plaid + Dwolla
 
