@@ -1,9 +1,9 @@
 ---
 layout: twoColumn
-section: Business Verified Customer
+section: Business verified customer
 type: article
 title:  Adding beneficial owners
-weight: 3
+weight: 2
 description: The customer due diligence rule imposes a new requirement for verifying the identity of beneficial owner(s) of Dwolla’s partners and users that are not natural persons.
 ---
 # Adding beneficial owner(s)

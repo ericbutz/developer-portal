@@ -1,9 +1,9 @@
 ---
 layout: twoColumn
-section: Personal Verified Customer
+section: Personal verified customer
 type: article
 title:  Creating a personal verified customer
-weight: 1
+weight: 0
 description: To create a personal verified Customer, use the create a Customer endpoint. A personal verified Customer is determined by setting the value of the type request parameter to personal.
 ---
 

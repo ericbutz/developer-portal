@@ -2,7 +2,7 @@
 layout: twoColumn
 section: Dwolla.js
 type: article
-title:  Instant Account Verification
+title:  Add + Verify a Bank Account (IAV)
 weight: 1
 description: For Dwolla API customers, dwolla.js has the added function of facilitating Instant Account Verification (IAV) on their customer’s bank or credit union account.
 ---
