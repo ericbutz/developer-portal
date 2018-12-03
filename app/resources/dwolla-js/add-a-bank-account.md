@@ -2,7 +2,7 @@
 layout: twoColumn
 section: Dwolla.js
 type: article
-title:  Create a Funding Source
+title:  Add a Bank Account
 weight: 0
 description: Using dwolla.js, securely transmit sensitive data (bank account and routing number) to Dwolla without the data passing through your server.
 ---

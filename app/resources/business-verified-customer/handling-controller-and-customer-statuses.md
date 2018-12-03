@@ -1,9 +1,9 @@
 ---
 layout: twoColumn
-section: Business Verified Customer
+section: Business verified customer
 type: article
 title:  Handling business verified customer statuses
-weight: 2
+weight: 1
 description: There are cases where Dwolla will need more information to fully verify the identity of the Controller and/or Business.
 ---
 # Handling business verified Customer statuses

@@ -1,9 +1,9 @@
 ---
 layout: twoColumn
-section: Business Verified Customer
+section: Business verified customer
 type: article
 title:  Certifying beneficial ownership
-weight: 4
+weight: 3
 description: For your business verified Customer to be eligible to send and receive funds, the individual creating the business verified Customer account must certify beneficial owner(s).
 ---
 # Certifying beneficial ownership

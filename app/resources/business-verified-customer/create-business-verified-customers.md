@@ -1,9 +1,9 @@
 ---
 layout: twoColumn
-section: Business Verified Customer
+section: Business verified customer
 type: article
 title:  Creating business verified customers
-weight: 1
+weight: 0
 description: A business verified Customer is determined by setting the value of the type of request parameter to business and including any additional fields required for identifying the business.
 ---
 # Creating Business verified Customers
