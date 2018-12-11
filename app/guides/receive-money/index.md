@@ -27,5 +27,5 @@ The first step is to create senders for your transfer, along with adding a fundi
 
 <nav class="pager-nav">
     <a href="" style="display:none;"></a>
-    <a href="/guides/receive-money/onboarding.html">Next step: Customer onboarding</a>
+    <a href="/guides/receive-money/onboarding.html">Next: Customer onboarding</a>
 </nav>

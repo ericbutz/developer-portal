@@ -164,5 +164,5 @@ When the customer is created, you’ll receive the customer URL in the location 
 
 <nav class="pager-nav">
     <a href="./obtain-access-token.html">Back: Obtain an access token</a>
-    <a href="attach-unverified-bank.html">Next step: Attach an unverified funding source</a>
+    <a href="attach-unverified-bank.html">Next: Attach an unverified funding source</a>
 </nav>

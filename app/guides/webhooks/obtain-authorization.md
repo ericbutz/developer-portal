@@ -54,5 +54,5 @@ app_token = $dwolla.auths.client
 
 <nav class="pager-nav">
     <a href="./">Back: Overview</a>
-    <a href="create-subscription.html">Next step: Create a webhook subscription</a>
+    <a href="create-subscription.html">Next: Create a webhook subscription</a>
 </nav>

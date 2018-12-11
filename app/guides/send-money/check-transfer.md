@@ -13,6 +13,8 @@ description: You can check the status of the newly created transfer by retrievin
 
 You can check the status of the newly created transfer by retrieving the transfer by its URL.
 
+You can learn more about retrieving transfers in our [API Reference docs.](https://docsv2.dwolla.com/#retrieve-a-transfer)
+
 #### Request and response (view schema in 'raw')
 
 ```raw
@@ -98,5 +100,5 @@ That’s it! You’ve successfully transferred money to a recipient. Please cont
 
 <nav class="pager-nav">
     <a href="create-transfer.html">Back: Create a transfer</a>
-    <a href="/guides/webhooks">Next guide: Webhooks</a>
+    <a href="/guides/webhooks">Next: Webhooks</a>
 </nav>

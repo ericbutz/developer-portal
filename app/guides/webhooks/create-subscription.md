@@ -124,5 +124,5 @@ $retrieved->created; # => 2015-10-28T16:20:47+00:00
 
 <nav class="pager-nav">
     <a href="obtain-authorization.html">Back: Obtain authorization</a>
-    <a href="validating-webhooks.html">Next step: Validating webhooks</a>
+    <a href="validating-webhooks.html">Next: Validating webhooks</a>
 </nav>

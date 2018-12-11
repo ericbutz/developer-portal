@@ -111,5 +111,5 @@ end
 
 <nav class="pager-nav">
     <a href="create-subscription.html">Back: Create a webhook subscription</a>
-    <a href="process-webhooks.html">Next step: Processing webhooks</a>
+    <a href="process-webhooks.html">Next: Processing webhooks</a>
 </nav>

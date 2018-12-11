@@ -13,9 +13,9 @@ description: This guide covers the three key points of sending money to your use
 
 In this guide, we’ll cover the key points of transferring money:
 
-- On-board a receiving customer for the funds transfer
-- Associate a funding source (bank or credit union account) with the customer
-- Transfer funds to a customer's linked bank account
+- Create and onboard a Customer to receive funds
+- Associate a funding source (bank or credit union account) with the Customer
+- Transfer funds to a Customer's linked bank account
 
 ## Before you begin
 
@@ -27,5 +27,5 @@ The first step is to onboard a recipient for your transfer by creating a Custome
 
 <nav class="pager-nav">
     <a href="" style="display:none;"></a>
-    <a href="onboarding.html">Next step: Customer onboarding</a>
+    <a href="onboarding.html">Next: Customer onboarding</a>
 </nav>

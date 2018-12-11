@@ -94,5 +94,5 @@ The created funding source URL is returned in the location header.
 
 <nav class="pager-nav">
     <a href="./create-verified-customer.html">Back: Create a verified customer</a>
-    <a href="create-unverified-customer.html">Next step: Create an unverified customer</a>
+    <a href="create-unverified-customer.html">Next: Create an unverified customer</a>
 </nav>

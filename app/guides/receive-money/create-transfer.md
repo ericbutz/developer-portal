@@ -3,18 +3,20 @@ layout: twoColumn
 section: guides
 type: guide
 guide:
-    name: send-money
+    name: receive-money
     step: '3'
 title:  Creating an ACH transfer
 description: Create a transfer by specifying your funding source as the source and the Customer as the destination.
 ---
 # Step 3: Create a transfer
 
-Create a transfer by specifying your Dwolla Master Account bank funding source as the `source` and the Customer bank funding source as the `destination`.
+Create a transfer by specifying the Customer's bank funding source as the  `source` and your Dwolla Master Account bank funding source as the `destination`.
 
 You can learn more about initiating transfers in our [API Reference docs.](https://docsv2.dwolla.com/#initiate-a-transfer)
 
-#### Request and response (view schema in 'raw')
+## Create a transfer
+
+Once the customer has verified their funding source, we can transfer funds from their bank account to your Dwolla account. You’ll need to supply your access token and customer’s ID, as well as the customer’s funding source ID.
 
 ```raw
 POST https://api-sandbox.dwolla.com/transfers
@@ -24,10 +26,10 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 {
     "_links": {
         "source": {
-            "href": "https://api-sandbox.dwolla.com/funding-sources/5cfcdc41-10f6-4a45-b11d-7ac89893d985"
+            "href": "https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197"
         },
         "destination": {
-            "href": "https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e"
+            "href": "https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192"
         }
     },
     "amount": {
@@ -36,74 +38,84 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
     }
 }
 
-...
-
 HTTP/1.1 201 Created
 Location: https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
 ```
 
 ```ruby
-transfer_request = {
+request_body = {
   :_links => {
     :source => {
-      :href => "https://api-sandbox.dwolla.com/funding-sources/5cfcdc41-10f6-4a45-b11d-7ac89893d985"
+      :href => "https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197"
     },
     :destination => {
-      :href => "https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e"
+      :href => "https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192"
     }
   },
   :amount => {
     :currency => "USD",
     :value => "225.00"
+  },
+  :metadata => {
+    :foo => "bar",
+    :baz => "boo"
   }
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-transfer = app_token.post "transfers", transfer_request
+transfer = app_token.post "transfers", request_body
 transfer.response_headers[:location] # => "https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
 ```
 
 ```javascript
-var transferRequest = {
+var requestBody = {
   _links: {
     source: {
-      href: 'https://api-sandbox.dwolla.com/funding-sources/5cfcdc41-10f6-4a45-b11d-7ac89893d985'
+      href: 'https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197'
     },
     destination: {
-      href: 'https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e'
+      href: 'https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192'
     }
   },
   amount: {
     currency: 'USD',
     value: '225.00'
+  },
+  metadata: {
+    foo: 'bar',
+    baz: 'boo'
   }
 };
 
 appToken
-  .post('transfers', transferRequest)
+  .post('transfers', requestBody)
   .then(function(res) {
     res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
   });
 ```
 
 ```python
-transfer_request = {
+request_body = {
   '_links': {
     'source': {
-      'href': 'https://api-sandbox.dwolla.com/funding-sources/5cfcdc41-10f6-4a45-b11d-7ac89893d985'
+      'href': 'https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197'
     },
     'destination': {
-      'href': 'https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e'
+      'href': 'https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192'
     }
   },
   'amount': {
     'currency': 'USD',
     'value': '225.00'
+  },
+  'metadata': {
+    'foo': 'bar',
+    'baz': 'boo'
   }
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-transfer = app_token.post('transfers', transfer_request)
+transfer = app_token.post('transfers', request_body)
 transfer.headers['location'] # => 'https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 ```
 
@@ -114,11 +126,11 @@ $transfer_request = array (
   array (
     'source' =>
     array (
-      'href' => 'https://api-sandbox.dwolla.com/funding-sources/5cfcdc41-10f6-4a45-b11d-7ac89893d985',
+      'href' => 'https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197',
     ),
     'destination' =>
     array (
-      'href' => 'https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e',
+      'href' => 'https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192',
     ),
   ),
   'amount' =>
@@ -129,13 +141,13 @@ $transfer_request = array (
 );
 
 $transferApi = new DwollaSwagger\TransfersApi($apiClient);
-$transfer = $transferApi->create($transfer_request);
+$myAccount = $transferApi->create($transfer_request);
 
-print($transfer); # => https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
+print($xfer); # => https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
 ?>
 ```
 
 <nav class="pager-nav">
-    <a href="fetch-funding-sources.html">Back: Fetch funding sources</a>
-    <a href="check-transfer.html">Next: Check the transfer status</a>
+    <a href="fetch-funding-sources.html">Back: Fetch Funding Sources</a>
+    <a href="check-transfer.html">Next: Check Transfer Status</a>
 </nav>
