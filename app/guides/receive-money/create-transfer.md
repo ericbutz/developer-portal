@@ -6,7 +6,7 @@ guide:
     name: receive-money
     step: '3'
 title:  Creating an ACH transfer
-description: Create a transfer by specifying your funding source as the source and the Customer as the destination.
+description: Create a transfer by specifying your Customer's funding source ID as the source and your funding source ID as the destination.
 ---
 # Step 3: Create a transfer
 
@@ -16,7 +16,7 @@ You can learn more about initiating transfers in our [API Reference docs.](https
 
 ## Create a transfer
 
-Once the customer has verified their funding source, we can transfer funds from their bank account to your Dwolla account. You’ll need to supply your access token and customer’s ID, as well as the customer’s funding source ID.
+Once the customer has verified their funding source, we can transfer funds from their bank account to your Dwolla account. You’ll need to supply your access token and customer’s funding source Id, as well as your funding source Id where you wish to receive funds.
 
 ```raw
 POST https://api-sandbox.dwolla.com/transfers

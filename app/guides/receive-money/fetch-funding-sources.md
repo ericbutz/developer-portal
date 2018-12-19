@@ -6,7 +6,7 @@ guide:
     name: receive-money
     step: '2'
 title:  Fetch funding sources
-description: After creating a Customer and associated its funding source, you can initiate your first transfer.
+description: After creating a Customer and associated its funding source, will need to fetch the funding sources.
 ---
 # Step 2: Fetch funding sources
 

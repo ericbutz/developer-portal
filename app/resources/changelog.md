@@ -13,7 +13,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 
 * Deprecation of v1 API and Transfer API. Check out our [blog post](https://www.dwolla.com/updates/sunsetting-a-legacy/) for more information. 
 
-### 2019-02-28
+### 2019-02-11
 
 #### Changing
 

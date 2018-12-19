@@ -6,7 +6,7 @@ guide:
     name: send-money
     step: '3'
 title:  Creating an ACH transfer
-description: Create a transfer by specifying your funding source as the source and the Customer as the destination.
+description: Create a transfer by specifying your funding source ID as the source and your Customer's funding source id as the destination.
 ---
 # Step 3: Create a transfer
 
