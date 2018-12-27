@@ -114,18 +114,18 @@ catch (Exception e) {
 When the Customer is created, you’ll receive the Customer URL in the location header.
 
 <ol class = "alerts">
-    <li class="alert icon-alert-info">
+    <li class="alert icon-alert-alert">
       Provide the IP address of the end-user accessing your application as the `ipAddress` parameter. This enhances fraud detection and tracking.
     </li>
 </ol>
-
-Looking to learn more about each Customer type and how it relates to your funds flow? Take a look at our [Account types article](https://developers.dwolla.com/resources/account-types.html) for more information.
 
 ### Step 1C. Attach a funding source to the Customer
 
 The next step is to attach a bank or credit union account to the Customer by providing the bank account’s routing number, account number, account type, and an arbitrary name.
 
 Funds transferred to this Customer will be automatically swept into the funding source. The example below shows sample bank information, but you will include actual routing, account, and bank name after prompting your customer for this information within your application. Possible values for `type` can be either “checking” or “savings”. More detail is available in [API docs](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer).
+
+The created funding source URL is returned in the location header.
 
 ```raw
 POST https://api.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747/funding-sources
@@ -205,9 +205,7 @@ print($new_fs); # => https://api-sandbox.dwolla.com/funding-sources/375c6781-2a1
 ?>
 ```
 
-The created funding source URL is returned in the location header.
-
 <nav class="pager-nav">
     <a href="./">Back: Overview</a>
-    <a href="fetch-funding-sources.html">Next step: Fetch funding sources</a>
+    <a href="fetch-funding-sources.html">Next: Fetch funding sources</a>
 </nav>

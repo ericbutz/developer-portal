@@ -4,11 +4,11 @@ section: guides
 type: guide
 guide:
     name: receive-money
-    step: '2'
+    step: '4'
 title:  Checking the transfer status in Dwolla's API
 description: You can check the status of the newly created transfer by retrieving the transfer by its URL.
 ---
-# Step 2: Check the transfer status
+# Step 4: Check the transfer status
 
 You can check the status of the newly created transfer by retrieving the transfer by its URL.
 
@@ -96,6 +96,6 @@ print($transfer->status) # => pending
 That’s it! You’ve successfully received money from a user. Please continue to the Webhooks guide for information on implementing notifications for your customers about the transfer.
 
 <nav class="pager-nav">
-    <a href="/guides/receive-money/onboarding.html">Back: Create a Customer and transfer</a>
+    <a href="/guides/receive-money/create-transfer.html">Back: Create a transfer</a>
     <a href="/guides/webhooks">Next guide: Webhooks</a>
 </nav>

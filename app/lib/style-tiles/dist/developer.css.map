@@ -30,6 +30,7 @@
 		"../sass/developer/partials/_header.scss",
 		"../sass/developer/partials/_icon-links.scss",
 		"../sass/developer/partials/_language-picker.scss",
+		"../sass/developer/partials/_learn-more.scss",
 		"../sass/developer/partials/_lng-reference.scss",
 		"../sass/developer/partials/_pager-nav.scss",
 		"../sass/developer/partials/_reach-out.scss",

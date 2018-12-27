@@ -22,7 +22,7 @@ A webhook is a means of notifying a third-party application of the occurrence of
 Each webhook sent by the Dwolla API contains an `Event` with `_links` to: the associated resource, account associated with the event, and the customer associated with the event (if applicable). It is important to note that a single API request can trigger multiple webhooks to be fired, e.g. initiating a transfer from an Account to Customer can create the events `transfer_created` and `customer_transfer_created`.
 
 <ol class = "alerts">
-    <li class="alert icon-alert-info">
+    <li class="alert icon-alert-alert">
       Webhooks are sent asynchronously and are not guaranteed to be delivered in order. We recommend that applications protect against duplicated events by making event processing idempotent.
     </li>
 </ol>
@@ -53,5 +53,5 @@ Each webhook sent by the Dwolla API contains an `Event` with `_links` to: the as
 
 <nav class="pager-nav">
     <a href="" style="display:none;"></a>
-    <a href="obtain-authorization.html">Next step: Obtain authorization</a>
+    <a href="obtain-authorization.html">Next: Obtain authorization</a>
 </nav>

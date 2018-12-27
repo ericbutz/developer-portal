@@ -15,5 +15,5 @@ Your application will exchange its `client_id`, `client_secret`, and `grant_type
 
 <nav class="pager-nav">
     <a href="./">Back: Overview</a>
-    <a href="create-verified-customer.html">Next step: Create a verified customer</a>
+    <a href="create-verified-customer.html">Next: Create a verified customer</a>
 </nav>

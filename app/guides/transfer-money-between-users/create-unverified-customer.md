@@ -99,7 +99,7 @@ catch (Exception e) {
 ```
 
 <ol class = "alerts">
-    <li class="alert icon-alert-info">
+    <li class="alert icon-alert-alert">
       Provide the IP address of the end-user accessing your application as the `ipAddress` parameter. This enhances fraud detection and tracking.
     </li>
 </ol>
@@ -108,5 +108,5 @@ When the customer is created, you’ll receive the customer URL in the location 
 
 <nav class="pager-nav">
     <a href="./attach-unverified-bank.html">Back: Attach an unverified funding source</a>
-    <a href="attach-verified-bank.html">Next step: Attach a verified funding source</a>
+    <a href="attach-verified-bank.html">Next: Attach a verified funding source</a>
 </nav>

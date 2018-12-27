@@ -16,7 +16,7 @@ Your application will exchange its `client_id`, `client_secret`, and `grant_type
 
 ## Step 1B: Create a Customer
 
-Create a Customer for the user that is going to pay you. At a minimum, provide the user’s full name and email address to create the customer.
+Create a Customer for each user you’d like to transfer funds from. At a minimum, provide the user’s full name, and email address to create the Customer. More detail is available in [API docs](https://docsv2.dwolla.com/#create-a-customer). For the purpose of this guide we'll be creating the `Unverified Customer` type.
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers
@@ -115,7 +115,7 @@ catch (Exception e) {
 When the Customer is created, you’ll receive the Customer URL in the location header.
 
 <ol class = "alerts">
-    <li class="alert icon-alert-info">
+    <li class="alert icon-alert-alert">
       Provide the IP address of the end-user accessing your application as the `ipAddress` parameter. This enhances fraud detection and tracking.
     </li>
 </ol>
@@ -226,140 +226,7 @@ The customer will complete the IAV flow by authenticating with their online bank
 
 Great! The funding source should now be verified.
 
-## Step 1D: Create a transfer
-
-Once the customer has verified their funding source, we can transfer funds from their bank account to your Dwolla account. You’ll need to supply your access token from step A, the customer’s ID from step B, and the customer’s funding source ID from step C:
-
-```raw
-POST https://api-sandbox.dwolla.com/transfers
-Accept: application/vnd.dwolla.v1.hal+json
-Content-Type: application/vnd.dwolla.v1.hal+json
-Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
-{
-    "_links": {
-        "source": {
-            "href": "https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197"
-        },
-        "destination": {
-            "href": "https://api-sandbox.dwolla.com/accounts/ab443d36-3757-44c1-a1b4-29727fb3111c"
-        }
-    },
-    "amount": {
-        "currency": "USD",
-        "value": "225.00"
-    }
-}
-
-HTTP/1.1 201 Created
-Location: https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
-```
-
-```ruby
-request_body = {
-  :_links => {
-    :source => {
-      :href => "https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197"
-    },
-    :destination => {
-      :href => "https://api-sandbox.dwolla.com/accounts/ab443d36-3757-44c1-a1b4-29727fb3111c"
-    }
-  },
-  :amount => {
-    :currency => "USD",
-    :value => "225.00"
-  },
-  :metadata => {
-    :foo => "bar",
-    :baz => "boo"
-  }
-}
-
-# Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-transfer = app_token.post "transfers", request_body
-transfer.response_headers[:location] # => "https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
-```
-
-```javascript
-var requestBody = {
-  _links: {
-    source: {
-      href: 'https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197'
-    },
-    destination: {
-      href: 'https://api-sandbox.dwolla.com/accounts/ab443d36-3757-44c1-a1b4-29727fb3111c'
-    }
-  },
-  amount: {
-    currency: 'USD',
-    value: '225.00'
-  },
-  metadata: {
-    foo: 'bar',
-    baz: 'boo'
-  }
-};
-
-appToken
-  .post('transfers', requestBody)
-  .then(function(res) {
-    res.headers.get('location'); // => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
-  });
-```
-
-```python
-request_body = {
-  '_links': {
-    'source': {
-      'href': 'https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197'
-    },
-    'destination': {
-      'href': 'https://api-sandbox.dwolla.com/accounts/ab443d36-3757-44c1-a1b4-29727fb3111c'
-    }
-  },
-  'amount': {
-    'currency': 'USD',
-    'value': '225.00'
-  },
-  'metadata': {
-    'foo': 'bar',
-    'baz': 'boo'
-  }
-}
-
-# Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-transfer = app_token.post('transfers', request_body)
-transfer.headers['location'] # => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
-```
-
-```php
-<?php
-$transfer_request = array (
-  '_links' =>
-  array (
-    'source' =>
-    array (
-      'href' => 'https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197',
-    ),
-    'destination' =>
-    array (
-      'href' => 'https://api-sandbox.dwolla.com/accounts/ab443d36-3757-44c1-a1b4-29727fb3111c',
-    ),
-  ),
-  'amount' =>
-  array (
-    'currency' => 'USD',
-    'value' => '225.00',
-  )
-);
-
-$transferApi = new DwollaSwagger\TransfersApi($apiClient);
-$myAccount = $transferApi->create($transfer_request);
-
-print($xfer); # => https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
-?>
-```
-
 <nav class="pager-nav">
-    <a href="./">Back: Overview</a>
-    <a href="check-transfer.html">Next step: Check transfer status</a>
+    <a href="">Back: Overview</a>
+    <a href="fetch-funding-sources.html">Next: Fetch Funding Sources</a>
 </nav>

@@ -41,5 +41,5 @@ Looking to learn more about each Customer type and how it relates to your funds 
 
 <nav class="pager-nav">
 <a href="" style="display:none;"></a>
-<a href="obtain-access-token.html">Next step: Obtain an access token</a>
+<a href="obtain-access-token.html">Next: Obtain an access token</a>
 </nav>

@@ -3,15 +3,20 @@ layout: twoColumn
 section: guides
 type: guide
 guide:
-    name: transfer-money-between-users
-    step: '6'
-title:  Create a transfer in the Dwolla API
-description: Create a transfer by specifying the users funding source as the source and the businesses funding source as the destination.
+    name: receive-money
+    step: '3'
+title:  Creating an ACH transfer
+description: Create a transfer by specifying your Customer's funding source ID as the source and your funding source ID as the destination.
 ---
+# Step 3: Create a transfer
 
-# Step 6: Create a transfer
+Create a transfer by specifying the Customer's bank funding source as the  `source` and your Dwolla Master Account bank funding source as the `destination`.
 
-[Create a transfer](https://docsv2.dwolla.com/#transfers) by specifying Joe Buyer’s funding source as the source and Jane Merchant’s funding source as the destination.
+You can learn more about initiating transfers in our [API Reference docs.](https://docsv2.dwolla.com/#initiate-a-transfer)
+
+## Create a transfer
+
+Once the customer has verified their funding source, we can transfer funds from their bank account to your Dwolla account. You’ll need to supply your access token and customer’s funding source Id, as well as your funding source Id where you wish to receive funds.
 
 ```raw
 POST https://api-sandbox.dwolla.com/transfers
@@ -24,7 +29,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
             "href": "https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197"
         },
         "destination": {
-            "href": "https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31"
+            "href": "https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192"
         }
     },
     "amount": {
@@ -36,6 +41,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 HTTP/1.1 201 Created
 Location: https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
 ```
+
 ```ruby
 request_body = {
   :_links => {
@@ -43,20 +49,24 @@ request_body = {
       :href => "https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197"
     },
     :destination => {
-      :href => "https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31"
+      :href => "https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192"
     }
   },
   :amount => {
     :currency => "USD",
     :value => "225.00"
+  },
+  :metadata => {
+    :foo => "bar",
+    :baz => "boo"
   }
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-# For Dwolla API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
 transfer = app_token.post "transfers", request_body
-transfer.response_headers[:location] # => "https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
+transfer.response_headers[:location] # => "https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
 ```
+
 ```javascript
 var requestBody = {
   _links: {
@@ -64,20 +74,26 @@ var requestBody = {
       href: 'https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197'
     },
     destination: {
-      href: 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
+      href: 'https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192'
     }
   },
   amount: {
     currency: 'USD',
     value: '225.00'
+  },
+  metadata: {
+    foo: 'bar',
+    baz: 'boo'
   }
 };
 
-// For Dwolla API applications, an appToken can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
 appToken
   .post('transfers', requestBody)
-  .then(res => res.headers.get('location')); // => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
+  .then(function(res) {
+    res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
+  });
 ```
+
 ```python
 request_body = {
   '_links': {
@@ -85,20 +101,24 @@ request_body = {
       'href': 'https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197'
     },
     'destination': {
-      'href': 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
+      'href': 'https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192'
     }
   },
   'amount': {
     'currency': 'USD',
     'value': '225.00'
+  },
+  'metadata': {
+    'foo': 'bar',
+    'baz': 'boo'
   }
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-# For Dwolla API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
 transfer = app_token.post('transfers', request_body)
-transfer.headers['location'] # => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
+transfer.headers['location'] # => 'https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 ```
+
 ```php
 <?php
 $transfer_request = array (
@@ -110,7 +130,7 @@ $transfer_request = array (
     ),
     'destination' =>
     array (
-      'href' => 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31',
+      'href' => 'https://api-sandbox.dwolla.com/funding-sources/456ef23f-d51c-4781-8fb6-dd0cb8a40192',
     ),
   ),
   'amount' =>
@@ -127,9 +147,7 @@ print($xfer); # => https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-8
 ?>
 ```
 
-
-
 <nav class="pager-nav">
-    <a href="attach-verified-bank.html">Back: Attach a verified funding source</a>
-    <a href="check-transfer.html">Next: Check the status of your transfer</a>
+    <a href="fetch-funding-sources.html">Back: Fetch Funding Sources</a>
+    <a href="check-transfer.html">Next: Check Transfer Status</a>
 </nav>

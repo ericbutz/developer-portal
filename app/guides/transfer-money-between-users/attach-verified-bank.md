@@ -115,5 +115,5 @@ Great! Joe Buyer’s funding source is now verified and ready to send money.
 
 <nav class="pager-nav">
     <a href="./create-unverified-customer.html">Back: Create an unverified customer</a>
-    <a href="create-transfer.html">Next step: Create a transfer</a>
+    <a href="create-transfer.html">Next: Create a transfer</a>
 </nav>

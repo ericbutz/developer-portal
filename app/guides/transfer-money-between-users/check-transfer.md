@@ -85,5 +85,5 @@ That’s it!  You’ve successfully transferred money from Joe Buyer to Jane Mer
 
 <nav class="pager-nav">
     <a href="create-transfer.html">Back: Overview</a>
-    <a href="/guides/webhooks">Next guide: Webhooks</a>
+    <a href="/guides/webhooks">Next: Webhooks</a>
 </nav>

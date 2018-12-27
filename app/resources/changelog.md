@@ -7,7 +7,21 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 ---
 # Upcoming
 
-### No changes upcoming
+### 2019-01-07
+
+#### Deprecating
+
+* Deprecation of v1 API and Transfer API. Check out our [blog post](https://www.dwolla.com/updates/sunsetting-a-legacy/) for more information. 
+
+### 2019-02-11
+
+#### Changing
+
+* Dwolla allows an application to request an access token using its Client Id and Client Secret by leveraging the Client Credentials OAuth grant type. Access tokens are used to make requests to the Dwolla API on behalf of an application and its users (customers).
+* Previously, applications made a call to https://www.dwolla.com/oauth/v2/token and specified the application/x-www-form-urlencoded Content-Type header, passing their client credentials (App Key and App Secret) through the body of the HTTP message sent to Dwolla. 
+* With this update, the token URL as well as the manner in which an application’s client credentials are sent to Dwolla, will change to be inline with OAuth spec. 
+* The new Dwolla token exchange endpoint is https://accounts.dwolla.com/token
+* Reference our [API Reference Docs](https://docsv2.dwolla.com/#application-authorization) to learn more
 
 <section class="change-log">
     <h1>Completed</h1>
