@@ -161,14 +161,14 @@ customer_url = 'https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4
 request_body = {
   'firstName': 'Jane',
   'lastName': 'Doe',
-  'dateOfBirth': '1960-11-30'
-  'ssn': '123-56-7890'
+  'dateOfBirth': '1960-11-30',
+  'ssn': '123-56-7890',
   'address': {
     'address1': '99-99 33rd St',
     'address2': 'Apt 12',
     'city': 'New York',
     'stateProvinceRegion': 'NY',
-    'country': 'US'
+    'country': 'US',
     'postalCode': '10005'
   }
 }
@@ -266,7 +266,7 @@ beneficial_owner.verificationStatus # => "verified"
 beneficial_owner_url = 'https://api-sandbox.dwolla.com/beneficial-owners/07d59716-ef22-4fe6-98e8-f3190233dfB8'
 
 beneficial_owner = app_token.get(beneficial_owner_url)
-beneficial_owner.body['verificationStatus']
+beneficial_owner.body['status']
 ```
 ```javascript
 var beneficialOwnerUrl = 'https://api-sandbox.dwolla.com/beneficial-owners/07d59716-ef22-4fe6-98e8-f3190233dfb8';
@@ -383,13 +383,13 @@ beneficial_owner_url = 'https://api-sandbox.dwolla.com/beneficial-owners/07d5971
 request_body = {
   'firstName': 'beneficial',
   'lastName': 'owner',
-  'dateOfBirth': '1963-11-11'
-  'ssn': '123-54-6789'
+  'dateOfBirth': '1963-11-11',
+  'ssn': '123-54-6789',
   'address': {
     'address1': '123 Corrected St',
     'city': 'Des Moines',
     'stateProvinceRegion': 'IA',
-    'country': 'US'
+    'country': 'US',
     'postalCode': '50309'
   }
 }
