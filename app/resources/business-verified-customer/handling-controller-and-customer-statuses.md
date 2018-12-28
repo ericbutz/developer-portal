@@ -6,27 +6,31 @@ title:  Handling business verified customer statuses
 weight: 1
 description: There are cases where Dwolla will need more information to fully verify the identity of the Controller and/or Business.
 ---
-# Handling business verified Customer statuses
+# Step 2: Handling Business Verified Customer Statuses
+
+## The basics
 
 You have successfully created a business verified Customer; however, there are cases where Dwolla will need more information to fully verify the identity of the Controller and/or Business. Read on to learn more.
 
-**If your Controller and Business are identity verified,** you can skip to the [retrieve beneficial owner status](/resources/business-verified-customer/handling-controller-and-customer-statuses.html#retrieve-beneficial-owner-s-status)  at the bottom of the page to continue with your business verified Customer creation.
+**If your Business and Controller are already identity verified,** you can skip to the [next step--adding beneficial owners](/resources/business-verified-customer/adding-beneficial-owners.html) to continue with your business verified Customer onboarding.
 
-## Verification statuses
+## Verification statuses and corresponding events
 
-| Customer status | Event | Description |
-|-----------------|-------|-------------|
-| verified | customer_verified | The identifying information submitted was sufficient in verifying the Customer account. |
-| retry | customer\_reverification\_needed | The initial identity verification attempt failed because the information provided did not satisfy Dwolla’s verification check. You can make one additional attempt by changing some or all the attributes of the existing Customer with a POST request. All fields are required on the retry attempt. If the additional attempt fails, the resulting status will be either `document` or `suspended`. |
-| document | customer\_verification\_document\_needed | Dwolla requires additional documentation to identify the Customer in the document status. Once a document is uploaded it will be reviewed for verification. |
-| suspended | customer_suspended | The Customer is suspended and may neither send nor receive funds. Contact Account Management for more information. |
+As a developer, you will want to handle the various Customer statuses that can be returned.
+
+| Customer status | Event Topic Name | Transaction restricted? |  Description |
+|-----------------|-------|-------------------------|-------------|
+| verified | customer_verified | No |  The identifying information submitted was sufficient in verifying the Customer account. |
+| retry | customer\_reverification\_needed | Yes - Cannot send funds | The initial identity verification attempt failed because the information provided did not satisfy Dwolla’s verification check. You can make one additional attempt by changing some or all the attributes of the existing Customer with a POST request. All fields are required on the retry attempt. If the additional attempt fails, the resulting status will be either `document` or `suspended`. |
+| document | customer\_verification\_document\_needed | Yes - Cannot send funds | Dwolla requires additional documentation to identify the Customer in the document status. Once a document is uploaded it will be reviewed for verification. |
+| suspended | customer_suspended | Yes - Cannot send or receive funds | The Customer is suspended and may neither send nor receive funds. Contact Account Management for more information. |
 
 ## Handling `retry` status
 
 A `retry` status occurs when a Customer’s identity scores are too low during the initial verification attempt. Dwolla will require the **full 9-digits** of the Controller’s SSN on the retry attempt in order to give our identity vendor more information in an attempt to receive a sufficient score to approve the Customer account. The Customer will have one more opportunity to correct any mistakes.
 
 <ol class = "alerts">
-    <li class="alert icon-alert-info">
+    <li class="alert icon-alert-alert">
       You need to gather new information if the Customer is placed into the retry status; simply passing the same information will result in the same insufficient scores.
     </li>
 </ol>
@@ -231,7 +235,7 @@ If the Customer has a status of `document`, the Customer will need to upload add
 
 ### Determining verification documents needed
 
-When a business verified Customer is placed in the `document` verification status, Dwolla will return a link in the API response after retrieving a Customer, which will be used by an application to determine if documentation is needed. For business verified Customers, different links can be returned depending on whether or not documents are needed for a Controller, the business, or both the controller and business. Refer to the table below for the list of possible links and their description.
+When a business verified Customer is placed in the `document` verification status, Dwolla will return a link in the API response after [retrieving a Customer](https://docsv2.dwolla.com/#retrieve-a-customer), which will be used by an application to determine if documentation is needed. For business verified Customers, different links can be returned depending on whether or not documents are needed for a Controller, the business, or both the controller and business. Refer to the table below for the list of possible links and their description.
 
 | Link name | Description |
 |---------------|----------|
@@ -244,66 +248,36 @@ When a business verified Customer is placed in the `document` verification statu
 ```noselect
 {
     "_links": {
-        "verify-beneficial-owners": {
-            "href": "https://api-sandbox.dwolla.com/customers/8698bbc8-2d9e-4140-ab1d-1af0487c7660/beneficial-owners",
-            "type": "application/vnd.dwolla.v1.hal+json",
-            "resource-type": "beneficial-owner"
-        },
-        "beneficial-owners": {
-            "href": "https://api-sandbox.dwolla.com/customers/8698bbc8-2d9e-4140-ab1d-1af0487c7660/beneficial-owners",
-            "type": "application/vnd.dwolla.v1.hal+json",
-            "resource-type": "beneficial-owner"
-        },
-        "deactivate": {
-            "href": "https://api-sandbox.dwolla.com/customers/8698bbc8-2d9e-4140-ab1d-1af0487c7660",
+        "self": {
+            "href": "https://api-sandbox.dwolla.com/customers/41432759-6d65-42e5-a6be-400ddd103b78",
             "type": "application/vnd.dwolla.v1.hal+json",
             "resource-type": "customer"
         },
         "document-form": {
-            "href": "https://api-sandbox.dwolla.com/customers/8698bbc8-2d9e-4140-ab1d-1af0487c7660/documents",
+            "href": "https://api-sandbox.dwolla.com/customers/41432759-6d65-42e5-a6be-400ddd103b78/documents",
             "type": "application/vnd.dwolla.v1.hal+json; profile=\"https://github.com/dwolla/hal-forms\"",
             "resource-type": "document"
         },
-        "self": {
-            "href": "https://api-sandbox.dwolla.com/customers/8698bbc8-2d9e-4140-ab1d-1af0487c7660",
-            "type": "application/vnd.dwolla.v1.hal+json",
-            "resource-type": "customer"
-        },
         "verify-business-with-document": {
-            "href": "https://api-sandbox.dwolla.com/customers/8698bbc8-2d9e-4140-ab1d-1af0487c7660/documents",
+            "href": "https://api-sandbox.dwolla.com/customers/41432759-6d65-42e5-a6be-400ddd103b78/documents",
             "type": "application/vnd.dwolla.v1.hal+json",
             "resource-type": "document"
-        },
-        "certify-beneficial-ownership": {
-            "href": "https://api-sandbox.dwolla.com/customers/8698bbc8-2d9e-4140-ab1d-1af0487c7660/beneficial-ownership",
-            "type": "application/vnd.dwolla.v1.hal+json",
-            "resource-type": "beneficial-ownership"
-        },
-        "funding-sources": {
-            "href": "https://api-sandbox.dwolla.com/customers/8698bbc8-2d9e-4140-ab1d-1af0487c7660/funding-sources",
-            "type": "application/vnd.dwolla.v1.hal+json",
-            "resource-type": "funding-source"
-        },
-        "transfers": {
-            "href": "https://api-sandbox.dwolla.com/customers/8698bbc8-2d9e-4140-ab1d-1af0487c7660/transfers",
-            "type": "application/vnd.dwolla.v1.hal+json",
-            "resource-type": "transfer"
         }
     },
-    "id": "8698bbc8-2d9e-4140-ab1d-1af0487c7660",
-    "firstName": "document",
-    "lastName": "AccountAdmin",
+    "id": "41432759-6d65-42e5-a6be-400ddd103b78",
+    "firstName": "Account",
+    "lastName": "Admin",
     "email": "accountAdmin@email.com",
     "type": "business",
     "status": "document",
     "created": "2018-05-10T19:59:22.643Z",
-    "address1": "99-99 33rd St",
-    "city": "Some City",
-    "state": "NY",
-    "postalCode": "11101",
+    "address1": "66 Walnut St",
+    "city": "Des Moines",
+    "state": "IA",
+    "postalCode": "50309",
     "businessName": "Jane Corp",
     "controller": {
-        "firstName": "John",
+        "firstName": "document",
         "lastName": "Controller",
         "title": "CEO",
         "address": {
