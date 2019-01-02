@@ -175,7 +175,7 @@ funding_source.name # => "R03"
 ```python
 funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/692486f8-29f6-4516-a6a5-c69fd2ce854c'
 request_body = {
-  "name": "R03"
+  'name': 'R03'
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)

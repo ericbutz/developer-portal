@@ -23,22 +23,22 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 ...
 
 {
-  "_links": {
-    "self": {
-      "href": "https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909"
+  '_links': {
+    'self': {
+      'href': 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
     },
-    "customer": {
-      "href": "https://api.dwolla.com/customers/36e9dcb2-889b-4873-8e52-0c9404ea002a"
+    'customer': {
+      'href': 'https://api.dwolla.com/customers/36e9dcb2-889b-4873-8e52-0c9404ea002a'
     },
-    "initiate-micro-deposits": {
-      "href": "https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909/micro-deposits"
+    'initiate-micro-deposits': {
+      'href': 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909/micro-deposits'
     }
   },
-  "id": "e52006c3-7560-4ff1-99d5-b0f3a6f4f909",
-  "status": "unverified",
-  "type": "bank",
-  "name": "Test checking account",
-  "created": "2015-10-23T20:37:57.137Z"
+  'id': 'e52006c3-7560-4ff1-99d5-b0f3a6f4f909',
+  'status': 'unverified',
+  'type': 'bank',
+  'name': 'Test checking account',
+  'created': '2015-10-23T20:37:57.137Z'
 }
 ```
 ```ruby
@@ -46,7 +46,7 @@ funding_source_url = 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
 retrieved = app_token.get funding_source_url
-retrieved.name # => "Test checking account"
+retrieved.name # => 'Test checking account'
 
 ```
 ```php
@@ -56,7 +56,7 @@ $fund_source = 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b
 $fsApi = DwollaSwagger\FundingsourcesApi($apiClient);
 
 $retrieved = $fsApi->id($fund_source);
-print($retrieved->name); # => "Test checking account"
+print($retrieved->name); # => 'Test checking account'
 ?>
 ```
 ```python
@@ -73,7 +73,7 @@ var fundingSourceUrl = 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff
 appToken
   .get(fundingSourceUrl)
   .then(function(res) {
-    res.body.name; // => "Test checking account"
+    res.body.name; // => 'Test checking account'
   });
 ```
 
@@ -94,7 +94,7 @@ Location: https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f
 retrieved = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-app_token.post "#{funding_source_url}/micro-deposits"
+app_token.post '#{funding_source_url}/micro-deposits'
 ```
 ```javascript
 var retrieved = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
@@ -127,13 +127,13 @@ Content-Type: application/vnd.dwolla.v1.hal+json
 Accept: application/vnd.dwolla.v1.hal+json
 
 {
-    "amount1": {
-        "value": "0.03",
-        "currency": "USD"
+    'amount1': {
+        'value': '0.03',
+        'currency': 'USD'
     },
-    "amount2": {
-        "value": "0.09",
-        "currency": "USD"
+    'amount2': {
+        'value': '0.09',
+        'currency': 'USD'
     }
 }
 
@@ -143,17 +143,17 @@ HTTP 200 OK
 funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
 request_body = {
   :amount1 => {
-    :value => "0.03",
-    :currency => "USD"
+    :value => '0.03',
+    :currency => 'USD'
   },
   :amount2 => {
-    :value => "0.09",
-    :currency => "USD"
+    :value => '0.09',
+    :currency => 'USD'
   }
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-app_token.post "#{funding_source_url}/micro-deposits", request_body
+app_token.post '#{funding_source_url}/micro-deposits', request_body
 
 ```
 ```javascript
@@ -174,13 +174,13 @@ appToken.post(`${fundingSourceUrl}/micro-deposits`, requestBody);
 ```python
 funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
 request_body = {
-    "amount1": {
-        "value": "0.03",
-        "currency": "USD"
+    'amount1': {
+        'value': '0.03',
+        'currency': 'USD'
     },
-    "amount2": {
-        "value": "0.09",
-        "currency": "USD"
+    'amount2': {
+        'value': '0.09',
+        'currency': 'USD'
     }
 }
 

@@ -108,18 +108,18 @@ appToken
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
 customer_url = 'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1'
 request_body = {
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "jdoe@nomail.com",
-  "ipAddress": "10.10.10.10",
-  "type": "personal",
-  "address1": "221 Corrected Address St..",
-  "address2": "Apt 201",
-  "city": "San Francisco",
-  "state": "CA",
-  "postalCode": "94104",
-  "dateOfBirth": "1970-07-11",
-  "ssn": "123-45-6789"
+  'firstName': 'John',
+  'lastName': 'Doe',
+  'email': 'jdoe@nomail.com',
+  'ipAddress': '10.10.10.10',
+  'type': 'personal',
+  'address1': '221 Corrected Address St..',
+  'address2': 'Apt 201',
+  'city': 'San Francisco',
+  'state': 'CA',
+  'postalCode': '94104',
+  'dateOfBirth': '1970-07-11',
+  'ssn': '123-45-6789'
 }
 
 customer = app_token.post('customers', request_body)
