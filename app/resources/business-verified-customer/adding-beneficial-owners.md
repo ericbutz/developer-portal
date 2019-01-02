@@ -6,39 +6,24 @@ title:  Adding beneficial owners
 weight: 2
 description: The customer due diligence rule imposes a new requirement for verifying the identity of beneficial owner(s) of Dwolla’s partners and users that are not natural persons.
 ---
-# Adding beneficial owner(s)
+# Step 3: Adding Beneficial Owner(s)
 
 ## The Basics
 
-To help the government fight financial crime, the existing United States Federal customer due diligence rules were amended to clarify and strengthen [customer due diligence requirements.](https://www.federalregister.gov/documents/2016/05/11/2016-10567/customer-due-diligence-requirements-for-financial-institutions#footnote-44-p29407)The customer due diligence rule imposes a new requirement for verifying the identity of beneficial owner(s) of Dwolla’s partners and users that are not natural persons. These legal entities can be abused to disguise involvement in terrorist financing, money laundering, tax evasion, corruption, fraud, and other financial crimes. Requiring the disclosure of key individuals who ultimately own or control a legal entity (i.e., the beneficial owners) helps law enforcement investigate and prosecute these crimes.
+To help the government fight financial crime, the existing United States Federal customer due diligence rules were amended to clarify and strengthen [customer due diligence requirements.](https://www.federalregister.gov/documents/2016/05/11/2016-10567/customer-due-diligence-requirements-for-financial-institutions#footnote-44-p29407) The customer due diligence rule imposes a requirement for verifying the identity of beneficial owner(s) of Dwolla’s partners and users that are not natural persons. These legal entities can be abused to disguise involvement in terrorist financing, money laundering, tax evasion, corruption, fraud, and other financial crimes. Requiring the disclosure of key individuals who ultimately own or control a legal entity (i.e., the beneficial owners) helps law enforcement investigate and prosecute these crimes.
 
-## Exemptions and non-exemptions
+### How do I know what business structure is required to add Beneficial Owners?
 
-### Business types required to provide beneficial owner information and certify beneficial ownership
-
-A beneficial owner is someone that owns, directly or indirectly, 25% or more of the equity interests of the business. Businesses that are not exempt from beneficial owner requirements and need to submit beneficial owner information include:
-
-* Corporations
-* LLC’s
-* Partnerships
-
-To learn how to add beneficial owners to your Customer, read on in the [next section](/resources/business-verified-customer/adding-beneficial-owners.html#create-a-beneficial-owner-for-a-business-verified-customer).
-
-### Business types exempt from providing beneficial owner information, but must certify beneficial ownership
-
-Businesses types that are classified in one of the categories below are exempt from beneficial owner requirements. However, the individual creating the business verified Customer account will be still be required to [explicitly certify](https://docsv2.dwolla.com/#certify-beneficial-ownership) no owners to attest to the exemption. Depending on what the legal entity is, the following business types will designate the `businessType` as either `corporation` or `llc` in the create a Customer API request:
-
-* Non-profits
-* Public corporations
-
-### Business types are exempt from providing beneficial owner information and exempt from certifying beneficial ownership
-
-The following business types will not need to add beneficial owners or explicitly certify beneficial ownership:
-
-* Sole proprietorships
-* Unincorporated association - **will sign up as a sole proprietorship**
-* Trusts - **will sign up as a sole proprietorship**
-* Business verified Customer accounts created prior to May 11th, 2018 - These Customers are "grandfathered" into the updated customer due diligence rules.
+| If my Customer's business structure is... | ...are they required to add beneficial owners? |
+|-------------------------------------------|-------------------------------------------------------|
+| Sole proprietorships                      | No (exempt)                                           |
+| Unincorporated association                | No (exempt)                                           |
+| Trust                                     | No (exempt)                                           |
+| Corporation                               | Yes (if owns 25% or more)                             |
+| Public corporations                       | No (exempt)                                           |
+| Non-profits                               | No (exempt)                                           |
+| LLCs                                      | Yes (if owns 25% or more)                             |
+| Partnerships, LP's, LLP's                 | Yes (if owns 25% or more)                             |
 
 **If your business is exempt or if there is no individual with at least 25% ownership,** your Customer can [go straight to certifying that there is no beneficial owner](/resources/business-verified-customer/handling-beneficial-owner-certification.html).
 
@@ -206,11 +191,11 @@ After a beneficial owner has been created, the beneficial owner’s identity nee
 
 #### Individual Beneficial Owner statuses and events
 
-| Individual Beneficial Owner Status | Description | Event topic name |
-| ----------------------------------------------|----------------|--------|
-| Verified     | Beneficial owner has been identity verified. | customer_beneficial_owner_verified |
-| Document | Beneficial owner must upload a document in order to be verified. | customer_beneficial_owner_document_needed |
-| Incomplete | The initial verification attempt failed because the information provided did not satisfy our verification check. You can make one additional attempt by changing some or all the attributes of the existing Customer with an [update request](https://docsv2.dwolla.com/#update-a-beneficial-owner). | customer_beneficial_owner_reverification_needed |
+| Individual Beneficial Owner Status | Event Topic Name | Transaction Restricted? | Description |
+| -----------------------------------|------------------|-------------------------|-------------|
+| Verified     | customer\_beneficial\_owner\_verified | No | Beneficial owner has been identity verified. |
+| Document | customer\_beneficial\_owner\_document\_needed | Yes - Cannot send funds| Beneficial owner must upload a document in order to be verified. |
+| Incomplete |  customer\_beneficial\_owner\_reverification\_needed | Yes - Cannot send funds | The initial verification attempt failed because the information provided did not satisfy our verification check. You can make one additional attempt by changing some or all the attributes of the existing Customer with an [update request](https://docsv2.dwolla.com/#update-a-beneficial-owner). |
 
 Let’s check to see if the Owner was successfully verified or not. We are going to use the location of the Beneficial Owner resource that was just created.
 
@@ -249,11 +234,13 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
     "verificationStatus": "verified"
 }
 ```
+
 ```php
 $beneficialOwnersApi = new DwollaSwagger\BeneficialownersApi($apiClient);
 $owner = 'https://api-sandbox.dwolla.com/beneficial-owners/00cb67f2-768c-4ee3-ac81-73bc4faf9c2b';
 $ownerStatus = $beneficialOwnersApi->getById($owner);
 ```
+
 ```ruby
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby
 beneficial_owner_url = 'https://api-sandbox.dwolla.com/beneficial-owners/07d59716-ef22-4fe6-98e8-f3190233dfb8'

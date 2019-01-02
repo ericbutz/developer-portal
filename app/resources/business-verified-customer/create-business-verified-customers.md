@@ -6,41 +6,60 @@ title:  Creating business verified customers
 weight: 0
 description: A business verified Customer is determined by setting the value of the type of request parameter to business and including any additional fields required for identifying the business.
 ---
-# Creating Business verified Customers
+# Step 1: Creating Business Verified Customers
 
 ## The basics
 
-To create a business verified Customer, use the [Create a Customer](https://docsv2.dwolla.com/#create-a-customer) endpoint. A business verified Customer is determined by setting the value of the `type` of request parameter to `business` and including any additional fields required for identifying the business, as well as the Controller of the business.
+Creating a business verified Customer will require you to provide information about the business entity as well as a Controller, if required.
 
-* **Account Admin** - The representative creating the business verified Customer on behalf of the business and Controller. Identity verification is **not** required.
-* **Beneficial owner** - Any natural person who, directly or indirectly, owns 25% or more of the equity interests of the company. Identity verification is required.
-* **Controller** - Any natural individual who holds significant responsibilities to control, manage, or direct a company or other corporate entity (i.e. CEO, CFO, General Partner, President, etc). A company may have more than one controller, but only one controller’s information must be collected. Identity verification is required.
-* **EIN** - Employer Identification Number - A unique identification number that is assigned to a business entity so that they can easily be identified by the Internal Revenue Service.
-* **TIN** - Taxpayer Identification Number - An identifying number used for tax purposes in the United States. A TIN may be: a Social Security number (SSN) an Individual Taxpayer Identification Number (ITIN) an Employer Identification Number (EIN).
-* **VCR** - Verified Customer - A Customer record that is created in the Dwolla network and is identity verified.
+### How do I know what `businessType` to sign up as?
 
-## Events
+| My Customer's business structure... | ...will sign up in Dwolla as `businessType = ` | Is a Controller required? |
+|-------------------------------------|------------------------------------------------|---------------------------|
+| Sole proprietorships                | `soleProprietorship`                           | No                        |
+| Unincorporated association          | `soleProprietorship`                           | No                        |
+| Trust                               | `soleProprietorship`                           | No                        |
+| Corporation                         | `corporation`                                  | Yes                       |
+| Public corporations                 | `corporation`                                  | Yes                       |
+| Non-profits                         | `corporation` or `llc`                         | Yes                       |
+| LLCs                                | `llc`                                          | Yes                       |
+| Partnerships, LP's,  LLP's          | `partnership`                                  | Yes                       |
+
+There are two types of business verified Customers that you can create, based on if they are required to add information on the Controller or not.
+
+* **Quick-link** - [Create a business verified Customer with no Controller](/resources/business-verified-customer/create-business-verified-customers.html#request-parameters-create-a-business-verified-customer-with-no-controller)
+* **Quick link** - [Create a business verified Customer and Controller](/resources/business-verified-customer/create-business-verified-customers.html#request-parameters-create-a-business-verified-customer-and-controller)
+
+## Create a Business Verified Customer
+
+### Request Parameters - Create a business verified Customer with no Controller
+
+Follow these steps to create a business verified Customer where `"businessType": "soleProprietorship"`
+
+#### Events
 
 As a developer, you can expect these events to be triggered when a business verified Customer is successfully created and systematically verified:
 
 1. `customer_created`
 2. `customer_verified`
 
-## Create a Business Verified Customer
+#### What parties are identity verified by Dwolla?
 
-### Request Parameters - Create a **Sole Proprietorship** business verified Customer
+| Business Type           | Business Entity   | Controller | Business Owner    |
+|-------------------------|-------------------|------------|-------------------|
+| **Sole Proprietorship** | Identity verified | N/A        | Identity verified |
 
-In order to create a business verified Customer with `businessType` of `soleProprietorship`, Dwolla only requires information to verify the identity of the the business and the business owner.
+In order to create a business verified Customer with `businessType` of `soleProprietorship`, Dwolla only requires information to verify the identity of the the business and the Account Admin.
 
 | Parameter | Required | Type | Description |
 | ---------------|--------------|--------|----------------|
-| firstName | yes | string | The legal first name of the business owner. |
-| lastName | yes | string | The legal last name of the business owner. |
-| email | yes | string | email address of the business owner. |
+| firstName | yes | string | The legal first name of the Business Owner. |
+| lastName | yes | string | The legal last name of the Business Owner. |
+| email | yes | string | email address of the Business Owner. |
 | ipAddress | no | string | ipAddress of registering user is recommended. |
 | type | yes | string | Value of: `business` |
-| dateOfBirth | yes  |  string |  The date of birth of the business owner. Formatted in YYYY-MM-DD format. Must be 18 years or older. |
-| ssn | yes | string | Last four-digits of the business owner's social security number.  |
+| dateOfBirth | yes  |  string |  The date of birth of the Business Owner. Formatted in YYYY-MM-DD format. Must be 18 years or older. |
+| ssn | yes | string | Last four-digits of the Business Owner social security number.  |
 | address1 | yes | string | Street number, street name of business’ physical address. |
 | address2 | no | string | Apartment, floor, suite, bldg. # of business’ physical address |
 | city| yes | string | City of business’ physical address. |
@@ -180,7 +199,24 @@ appToken
   .then(res => res.headers.get('location')); // => 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 ```
 
+## Create a Business Verified Customer
+
 ### Request Parameters - Create a business verified Customer and controller
+
+#### Events
+
+As a developer, you can expect these events to be triggered when a business verified Customer is successfully created and systematically verified:
+
+1. `customer_created`
+2. `customer_verified`
+
+#### What parties are identity verified by Dwolla?
+
+| Business Type       | Business Entity   | Controller        | Account Admin         |
+|---------------------|-------------------|-------------------|-----------------------|
+| **Corporation**     | Identity verified | Identity verified | Not identity verified |
+| **Partnership**     | Identity verified | Identity verified | Not identity verified |
+| **LLC**             | Identity verified | Identity verified | Not identity verified |
 
 For all other `businessType`'s other than `soleProprietorship`, your Customer will need to provide more information for verification. In order to create a business verified Customer with a controller, Dwolla requires information on an account admin, the business, and the controller. Your business verified Customer account admin will act as the agent signing up on behalf of the business. When going through the Customer creation flow, your business verified Customer account admin will only need information on one controller to successfully complete the signup flow.
 
@@ -428,7 +464,7 @@ appToken
 
 ## Check the status of the business Customer
 
-You have created a business verified Customer; however, the successful creation of a business verified Customer doesn’t necessarily mean the Customer account is verified. Businesses may need to provide additional information to help verify their identity. It is important to immediately check the status of the business Customer to determine if additional documentation is needed.
+You have created a business verified Customer; however, the successful creation of a business verified Customer doesn’t necessarily mean the Customer account is verified. Businesses may need to provide additional information to help verify their identity. It is important to check the status of the business Customer to determine if additional documentation is needed.
 
 #### Request and response
 
