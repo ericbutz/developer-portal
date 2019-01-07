@@ -7,12 +7,6 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 ---
 # Upcoming
 
-### 2019-01-07
-
-#### Deprecating
-
-* Deprecation of v1 API and Transfer API. Check out our [blog post](https://www.dwolla.com/updates/sunsetting-a-legacy/) for more information. 
-
 ### 2019-02-11
 
 #### Changing
@@ -25,6 +19,11 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 
 <section class="change-log">
     <h1>Completed</h1>
+	<h3>2019-01-07</h3>
+	<h4><em>DEPRECATED</em></h4>
+	<ul class="bullet">
+		<li>Dwolla has discontinuted support for the v1 API and Transfer API</li>
+		<li>Learn more on our <a href = "https://www.dwolla.com/updates/sunsetting-a-legacy/"> blog post </a> for more information.</li>
 	<h3>2018-06-30</h3>
 	<h4><em>ADDED</em></h4>
 	<ul class="bullet">
@@ -34,7 +33,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 	<h3>2018-06-30</h3>
 	<h4><em>DEPRECATED</em></h4>
 	<ul class="bullet">
-	    <li>Dwolla will discontinue support for TLS 1.0 and TLS 1.1.
+	    <li>Dwolla has discontinued support for TLS 1.0 and TLS 1.1.
 		<li>Learn more on our <a href = "https://www.dwolla.com/updates/improving-transport-layer-security/"> blog post. </a></li>
 	</ul>
 	<h3>2018-06-04</h3>
