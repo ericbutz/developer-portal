@@ -5,7 +5,7 @@ type: guide
 guide:
     name: webhooks
     step: '1'
-title: Obtain Webook Authorization
+title: Obtain Webhook Authorization
 description: To subscribe to webhooks, you must first obtain client authorization via OAuth by requesting credentials on behalf of your own application.
 ---
 
