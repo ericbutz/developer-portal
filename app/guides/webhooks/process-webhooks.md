@@ -17,25 +17,34 @@ Let's assume that you have a webhook subscription and Dwolla has just delivered 
 
 ```jsonnoselect
 {
-  "id": "cac95329-9fa5-42f1-a4fc-c08af7b868fb",
-  "resourceId": "cdb5f11f-62df-e611-80ee-0aa34a9b2388",
-  "topic": "customer_transfer_created",
-  "timestamp": "2017-01-20T22:45:12.790Z",
   "_links": {
-    "self": {
-      "href": "https://api-sandbox.dwolla.com/events/cac95329-9fa5-42f1-a4fc-c08af7b868fb"
-    },
-    "account": {
-      "href": "https://api-sandbox.dwolla.com/accounts/ad5f2162-404a-4c4c-994e-6ab6c3a13254"
-    },
-    "resource": {
-      "href": "https://api-sandbox.dwolla.com/transfers/cdb5f11f-62df-e611-80ee-0aa34a9b2388"
-    },
-    "customer": {
-      "href": "https://api-sandbox.dwolla.com/customers/e358a488-6699-4d79-bbfb-c5bf58100ea4"
-    }
+      "event": {
+          "href": "https://api-sandbox.dwolla.com/events/1097f604-1741-49e0-8f79-6884fee980d1",
+          "resource-type": "event",
+          "type": "application/vnd.dwolla.v1.hal+json"
+      },
+      "retry": {
+          "href": "https://api-sandbox.dwolla.com/webhooks/2923bcd6-401d-4178-9bbc-ea6dfd7ebbfd/retries",
+          "resource-type": "retry",
+          "type": "application/vnd.dwolla.v1.hal+json"
+      },
+      "self": {
+          "href": "https://api-sandbox.dwolla.com/webhooks/2923bcd6-401d-4178-9bbc-ea6dfd7ebbfd",
+          "resource-type": "webhook",
+          "type": "application/vnd.dwolla.v1.hal+json"
+      },
+      "subscription": {
+          "href": "https://api-sandbox.dwolla.com/webhook-subscriptions/affd581a-2206-44ad-8492-ff5350e4991e",
+          "resource-type": "webhook-subscription",
+          "type": "application/vnd.dwolla.v1.hal+json"
+      }
   },
-  "created": "2017-01-20T22:45:12.790Z"
+  "accountId": "0ee84069-47c5-455c-b425-633523291dc3",
+  "eventId": "1097f604-1741-49e0-8f79-6884fee980d1",
+  "id": "2923bcd6-401d-4178-9bbc-ea6dfd7ebbfd",
+  "subscriptionId": "affd581a-2206-44ad-8492-ff5350e4991e",
+  "topic": "customer_created",
+  "attempts": []
 }
 ```
 
