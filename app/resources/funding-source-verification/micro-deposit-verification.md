@@ -51,11 +51,11 @@ retrieved.name # => 'Test checking account'
 ```
 ```php
 <?php
-$fund_source = 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
+$fundingSourceUrl = 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
 
 $fsApi = DwollaSwagger\FundingsourcesApi($apiClient);
 
-$retrieved = $fsApi->id($fund_source);
+$retrieved = $fsApi->id($fundingSourceUrl);
 print($retrieved->name); # => 'Test checking account'
 ?>
 ```
@@ -91,27 +91,30 @@ HTTP/1.1 201 Created
 Location: https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909/micro-deposits
 ```
 ```ruby
-retrieved = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
+funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
 app_token.post '#{funding_source_url}/micro-deposits'
 ```
 ```javascript
-var retrieved = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
+var fundingSourceUrl = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
 
-appToken.post(`#{retrieved}/micro-deposits`);
+appToken.post(`#{fundingSourceUrl}/micro-deposits`);
 ```
 ```python
-retrieved = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
+funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-app_token.post('%s/micro-deposits' % retrieved)
+app_token.post('%s/micro-deposits' % funding_source_url)
 
 ```
 ```php
 <?php
+$fundingSourceUrl = 'https://api.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909';
+
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
-$micro_deposits = $fsApi->micro_deposits($retrieved);
+
+$microDeposits = $fsApi->microDeposits($fundingSourceUrl);
 ?>
 ```
 
@@ -193,7 +196,7 @@ $fundingSourceUrl = 'https://api-sandbox.dwolla.com/funding-sources/e52006c3-756
 
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
 
-$fsApi->micro_deposits($fundingSourceUrl, [
+$fsApi->microDeposits($fundingSourceUrl, [
   'amount1' => [
     'value' => '0.03',
     'currency' => 'USD'

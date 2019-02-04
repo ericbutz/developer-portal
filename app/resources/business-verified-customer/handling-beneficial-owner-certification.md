@@ -4,13 +4,13 @@ section: Business verified customer
 type: article
 title:  Certifying beneficial ownership
 weight: 3
-description: For your business verified Customer to be eligible to send and receive funds, the individual creating the business verified Customer account must certify beneficial owner(s).
+description: For your business verified Customer to be eligible to send funds, the individual creating the business verified Customer account must certify beneficial owner(s).
 ---
 # Step 4: Certifying Beneficial Ownership
 
 ## The basics
 
-In order for your business verified Customer to be eligible to send and receive funds, the individual creating the business verified Customer account must certify beneficial owner(s). By certifying that all beneficial owner information is correct, the requirements imposed by the United States Federal customer due diligence rule and Dwolla will be successfully fulfilled.
+In order for your business verified Customer to be eligible to send funds, the individual creating the business verified Customer account must certify beneficial owner(s). By certifying that all beneficial owner information is correct, the requirements imposed by the United States Federal customer due diligence rule and Dwolla will be successfully fulfilled.
 
 Certification of beneficial owners should be included as part of the Customer account registration and immediately following the creation of the business Verified Customer and the addition of all owners (unless exempt).
 

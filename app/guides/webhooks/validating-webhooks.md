@@ -15,31 +15,29 @@ Assume that your integration is an online marketplace, and that a customer just 
 
 The `topic` field of an event holds [a description](http://docsv2.dwolla.com/#events) of the event, which is similar the subject of an e-mail message.  The `webhook` itself contains `_links` to the resource impacted by the event that can be used to retrieve more information about the webhook you have received.
 
-**NOTE**: The `event` must be retrieved with a `client_credentials` granted access_token.
-
 ##### JSON
 
 ```jsonnoselect
 {
-  "id": "cac95329-9fa5-42f1-a4fc-c08af7b868fb",
-  "resourceId": "cdb5f11f-62df-e611-80ee-0aa34a9b2388",
-  "topic": "customer_transfer_created",
-  "timestamp": "2017-01-20T22:45:12.790Z",
+  "id": "fe869b23-097b-4c95-9891-cb59c753a895",
+  "resourceId": "ac84655e-8d28-e911-8115-c4a646b43d5b",
+  "topic": "customer_transfer_completed",
+  "timestamp": "2019-02-04T14:58:45.144Z",
   "_links": {
     "self": {
-      "href": "https://api-sandbox.dwolla.com/events/cac95329-9fa5-42f1-a4fc-c08af7b868fb"
+      "href": "https://api-sandbox.dwolla.com/events/fe869b23-097b-4c95-9891-cb59c753a895"
     },
     "account": {
       "href": "https://api-sandbox.dwolla.com/accounts/ad5f2162-404a-4c4c-994e-6ab6c3a13254"
     },
     "resource": {
-      "href": "https://api-sandbox.dwolla.com/transfers/cdb5f11f-62df-e611-80ee-0aa34a9b2388"
+      "href": "https://api-sandbox.dwolla.com/transfers/ac84655e-8d28-e911-8115-c4a646b43d5b"
     },
     "customer": {
-      "href": "https://api-sandbox.dwolla.com/customers/e358a488-6699-4d79-bbfb-c5bf58100ea4"
+      "href": "https://api-sandbox.dwolla.com/customers/6c57f372-e9a0-47d4-91f3-ab2b3aae56f0"
     }
   },
-  "created": "2017-01-20T22:45:12.790Z"
+  "created": "2019-02-04T14:58:45.144Z"
 }
 ```
 
@@ -95,7 +93,7 @@ function verifyGatewaySignature($proposedSignature, $webhookSecret, $payloadBody
 
 ## Step 3B. Check for duplicate events
 
-It is important to consider that multiple webhooks are fired for the same action on certain events. For example, multiple webhooks are fired for `Transfer` events, that is, two `transfer_created` events with different resource IDs (and, by extension, resource URLs) will be fired, one for each customer. To avoid doing any business logic twice, you would have to check if you have already received a webhook relating to the `Transfer` resource responsible for the event.
+It is important to consider that multiple webhooks are fired for the same action on certain events. For example, multiple webhooks are fired for `Transfer` events, that is, two `customer_transfer_created` events with different resource IDs (and, by extension, resource URLs) will be fired, one for each customer. To avoid doing any business logic twice, you would have to check if you have already received a webhook relating to the `Transfer` resource responsible for the event.
 
 To do this, keep a queue of events in a database and check to see if an `Event` has the same `self` resource location in `_links` as another event. If not, process the logic for that event. To illustrate, this is how a developer would implement this using Ruby and the ActiveRecord ORM.
 

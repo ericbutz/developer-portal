@@ -127,7 +127,8 @@ customer.body.id # => '132681fa-1b4d-4181-8ff2-619ca46235b1'
 <?php
 $customersApi = DwollaSwagger\CustomersApi($apiClient);
 
-$retryCustomer = $customersApi->create(array (
+$customerUrl = 'https://api.dwolla.com/customers/132681fa-1b4d-4181-8ff2-619ca46235b1';
+$retryCustomer = $customersApi->updateCustomer(array (
   'firstName' => 'John',
   'lastName' => 'Doe',
   'email' => 'johndoe@nomail.net',
@@ -140,9 +141,9 @@ $retryCustomer = $customersApi->create(array (
   'postalCode' => '11385',
   'dateOfBirth' => '1990-07-11',
   'ssn' => '202-99-1516',
-));
+), $customerUrl);
 
-print($retryCustomer); # => 132681fa-1b4d-4181-8ff2-619ca46235b1
+print($retryCustomer->id); # => 132681fa-1b4d-4181-8ff2-619ca46235b1
 ?>
 ```
 
