@@ -11,18 +11,17 @@ description: To subscribe to webhooks, you must first obtain client authorizatio
 
 # Step 1: Obtain authorization
 
-To subscribe to webhooks, you must first obtain client authorization via OAuth. You will be requesting these credentials on the behalf of your own application, so there will be no OAuth permissions dialog; you are only required to provide your `client_id` and `client_secret`.
+To subscribe to webhooks, you must first obtain client authorization via OAuth. You will be requesting these credentials on the behalf of your own application, so there will not be an OAuth permissions dialog; you are only required to provide your application `Key` and `Secret`.
 
-To generate an application access token, you'll need to initiate a POST request to `https://sandbox.dwolla.com/oauth/v2/token` in our Sandbox environment or `https://www.dwolla.com/oauth/v2/token` in our production environment. The request must include a `Content-Type` header with the value of `application/x-www-form-urlencoded`.
-
-**NOTE**: Currently, the Dwolla/Swagger SDKs do not contain the capability to do this, so you must use an external REST client.
+To generate an application access token, you'll need to initiate a POST request to `https://accounts-sandbox.dwolla.com/token` in our Sandbox environment or `https://accounts.dwolla.com/token` in our production environment. Your client credentials are passed via Basic Auth in the request to Dwolla's Authorization Server including the `Content-Type: application/x-www-form-urlencoded` header with `grant_type=client_credentials` in the body of the request.
 
 #### Example request
 ```raw
-POST https://sandbox.dwolla.com/oauth/v2/token
+POST https://accounts-sandbox.dwolla.com/token
+Authorization: Basic YkVEMGJMaEFhb0pDamplbmFPVjNwMDZSeE9Eb2pyOUNFUzN1dldXcXUyeE9RYk9GeUE6WEZ0bmJIbXR3dXEwNVI1Yk91WmVOWHlqcW9RelNSc21zUU5qelFOZUFZUlRIbmhHRGw=
 Content-Type: application/x-www-form-urlencoded
 
-client_id=CGQXLrlfuOqdUYdTcLz3rBiCZQDRvdWIUPkwasGMuGhkem9Bo&client_secret=g7QLwvO37aN2HoKx1amekWi8a2g7AIuPbD5CcJSLqXIcDOxfTr&grant_type=client_credentials
+grant_type=client_credentials
 ```
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python

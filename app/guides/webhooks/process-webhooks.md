@@ -17,34 +17,25 @@ Let's assume that you have a webhook subscription and Dwolla has just delivered 
 
 ```jsonnoselect
 {
+  "id": "fe869b23-097b-4c95-9891-cb59c753a895",
+  "resourceId": "ac84655e-8d28-e911-8115-c4a646b43d5b",
+  "topic": "customer_transfer_completed",
+  "timestamp": "2019-02-04T14:58:45.144Z",
   "_links": {
-      "event": {
-          "href": "https://api-sandbox.dwolla.com/events/1097f604-1741-49e0-8f79-6884fee980d1",
-          "resource-type": "event",
-          "type": "application/vnd.dwolla.v1.hal+json"
-      },
-      "retry": {
-          "href": "https://api-sandbox.dwolla.com/webhooks/2923bcd6-401d-4178-9bbc-ea6dfd7ebbfd/retries",
-          "resource-type": "retry",
-          "type": "application/vnd.dwolla.v1.hal+json"
-      },
-      "self": {
-          "href": "https://api-sandbox.dwolla.com/webhooks/2923bcd6-401d-4178-9bbc-ea6dfd7ebbfd",
-          "resource-type": "webhook",
-          "type": "application/vnd.dwolla.v1.hal+json"
-      },
-      "subscription": {
-          "href": "https://api-sandbox.dwolla.com/webhook-subscriptions/affd581a-2206-44ad-8492-ff5350e4991e",
-          "resource-type": "webhook-subscription",
-          "type": "application/vnd.dwolla.v1.hal+json"
-      }
+    "self": {
+      "href": "https://api-sandbox.dwolla.com/events/fe869b23-097b-4c95-9891-cb59c753a895"
+    },
+    "account": {
+      "href": "https://api-sandbox.dwolla.com/accounts/ad5f2162-404a-4c4c-994e-6ab6c3a13254"
+    },
+    "resource": {
+      "href": "https://api-sandbox.dwolla.com/transfers/ac84655e-8d28-e911-8115-c4a646b43d5b"
+    },
+    "customer": {
+      "href": "https://api-sandbox.dwolla.com/customers/6c57f372-e9a0-47d4-91f3-ab2b3aae56f0"
+    }
   },
-  "accountId": "0ee84069-47c5-455c-b425-633523291dc3",
-  "eventId": "1097f604-1741-49e0-8f79-6884fee980d1",
-  "id": "2923bcd6-401d-4178-9bbc-ea6dfd7ebbfd",
-  "subscriptionId": "affd581a-2206-44ad-8492-ff5350e4991e",
-  "topic": "customer_created",
-  "attempts": []
+  "created": "2019-02-04T14:58:45.144Z"
 }
 ```
 
@@ -53,10 +44,10 @@ For illustrative purposes, let's assume you are using Ruby on Rails with a contr
 ##### Ruby
 
 ```rubynoselect
-require 'dwolla_swagger'
+require 'dwolla_v2'
 
-if params[:topic] == 'transfer_completed'
-  transfer = DwollaSwagger::TransfersApi.by_id(params[:links][:resource][:href])
+if params[:topic] == 'customer_transfer_completed'
+  transfer = app_token.get (params[:links][:resource][:href])
 
   transfer._embedded.each do |k, v|
     # Retrieve customer info from your database

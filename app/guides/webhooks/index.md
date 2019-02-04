@@ -14,12 +14,13 @@ description: A webhook is a means of notifying a third-party application of the 
 A webhook is a means of notifying a third-party application of the occurrence of an event with some relevant information. In the Dwolla API, webhooks are currently triggered by the following resources:
 
 - Customers
+- Beneficial Owners
 - Documents
 - Funding Sources
 - Transfers
 - Mass Payments
 
-Each webhook sent by the Dwolla API contains an `Event` with `_links` to: the associated resource, account associated with the event, and the customer associated with the event (if applicable). It is important to note that a single API request can trigger multiple webhooks to be fired, e.g. initiating a transfer from an Account to Customer can create the events `transfer_created` and `customer_transfer_created`.
+Each webhook sent by the Dwolla API contains an `Event` with `_links` to: the associated resource, account associated with the event, and the customer associated with the event (if applicable). It is important to note that a single API request can trigger multiple webhooks to be fired. For example, initiating a transfer between two different `Customers` can create `customer_transfer_created` webhooks for both customers involved in the transaction.
 
 <ol class = "alerts">
     <li class="alert icon-alert-alert">
@@ -30,34 +31,25 @@ Each webhook sent by the Dwolla API contains an `Event` with `_links` to: the as
 ### Example webhook payload
 ```jsonnoselect
 {
-  "_links": {
-      "event": {
-          "href": "https://api-sandbox.dwolla.com/events/1097f604-1741-49e0-8f79-6884fee980d1",
-          "resource-type": "event",
-          "type": "application/vnd.dwolla.v1.hal+json"
-      },
-      "retry": {
-          "href": "https://api-sandbox.dwolla.com/webhooks/2923bcd6-401d-4178-9bbc-ea6dfd7ebbfd/retries",
-          "resource-type": "retry",
-          "type": "application/vnd.dwolla.v1.hal+json"
-      },
-      "self": {
-          "href": "https://api-sandbox.dwolla.com/webhooks/2923bcd6-401d-4178-9bbc-ea6dfd7ebbfd",
-          "resource-type": "webhook",
-          "type": "application/vnd.dwolla.v1.hal+json"
-      },
-      "subscription": {
-          "href": "https://api-sandbox.dwolla.com/webhook-subscriptions/affd581a-2206-44ad-8492-ff5350e4991e",
-          "resource-type": "webhook-subscription",
-          "type": "application/vnd.dwolla.v1.hal+json"
-      }
-  },
-  "accountId": "0ee84069-47c5-455c-b425-633523291dc3",
-  "eventId": "1097f604-1741-49e0-8f79-6884fee980d1",
-  "id": "2923bcd6-401d-4178-9bbc-ea6dfd7ebbfd",
-  "subscriptionId": "affd581a-2206-44ad-8492-ff5350e4991e",
+  "id": "bb6531a2-5b13-4815-a83d-ed7a1fc70bd8",
+  "resourceId": "6c57f372-e9a0-47d4-91f3-ab2b3aae56f0",
   "topic": "customer_created",
-  "attempts": []
+  "timestamp": "2019-02-04T14:55:23.287Z",
+  "_links": {
+    "self": {
+      "href": "https://api-sandbox.dwolla.com/events/bb6531a2-5b13-4815-a83d-ed7a1fc70bd8"
+    },
+    "account": {
+      "href": "https://api-sandbox.dwolla.com/accounts/ad5f2162-404a-4c4c-994e-6ab6c3a13254"
+    },
+    "resource": {
+      "href": "https://api-sandbox.dwolla.com/customers/6c57f372-e9a0-47d4-91f3-ab2b3aae56f0"
+    },
+    "customer": {
+      "href": "https://api-sandbox.dwolla.com/customers/6c57f372-e9a0-47d4-91f3-ab2b3aae56f0"
+    }
+  },
+  "created": "2019-02-04T14:55:23.287Z"
 }
 ```
 

@@ -13,7 +13,9 @@ description: Each application can have multiple subscriptions associated to it. 
 
 Each application can have multiple subscriptions associated to it. While one subscription is sufficient, you can create as many as you want for redundancy.
 
-To make the following request, we need to use the `access_token` we just previously obtained. Security considerations:
+To make the following request, we need to use the `access_token` we just previously obtained.
+
+#### Security considerations
 
 Your webhook endpoint should only be accessible over TLS (HTTPS) and your server should have a valid certificate. Your subscription should include a random, secret key, only known by your application. This secret key should be securely stored and used later when validating the authenticity of the webhook request from Dwolla.
 
@@ -77,19 +79,23 @@ Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 
 ...
-
 {
-  "_links": {
-    "self": {
-      "href": "https://api-sandbox.dwolla.com/webhook-subscriptions/077dfffb-4852-412f-96b6-0fe668066589"
+    "_links": {
+        "self": {
+            "href": "https://api-sandbox.dwolla.com/webhook-subscriptions/ecbc139b-4ae5-41a9-95bc-e7378a41b582",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "webhook-subscription"
+        },
+        "webhooks": {
+            "href": "https://api-sandbox.dwolla.com/webhook-subscriptions/ecbc139b-4ae5-41a9-95bc-e7378a41b582/webhooks",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "webhook"
+        }
     },
-    "webhooks": {
-      "href": "https://api-sandbox.dwolla.com/webhook-subscriptions/077dfffb-4852-412f-96b6-0fe668066589/webhooks"
-    }
-  },
-  "id": "077dfffb-4852-412f-96b6-0fe668066589",
-  "url": "http://myapplication.com/webhooks",
-  "created": "2015-10-28T16:20:47+00:00"
+    "id": "ecbc139b-4ae5-41a9-95bc-e7378a41b582",
+    "url": "https://myapplication.com/webhooks",
+    "paused": true,
+    "created": "2018-12-18T14:32:40.129Z"
 }
 ```
 ```ruby
