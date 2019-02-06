@@ -68,7 +68,7 @@ In order to create a business verified Customer with `businessType` of `soleProp
 | businessName | yes | string | Registered business name. |
 | doingBusinessAs | no | string | Preferred business name -- also known as fictitious name, or assumed name. |
 | businessType | yes | string | Business structure. Value of `soleProprietorship`. |
-| businessClassification| yes | string | The industry classification Id that corresponds to Customer’s business. [Reference our Dev Docs](https://docsv2.dwolla.com/#list-business-classifications) to learn how to generate this Id. |
+| businessClassification| yes | string | The industry classification Id that corresponds to Customer’s business. [Reference our Dev Docs](https://docs.dwolla.com/#list-business-classifications) to learn how to generate this Id. |
 | ein | no | string | Employer Identification Number. Optional for `soleProprietorship` business Customers |
 | website | no | string | Business’ website |
 | phone | no | string | Business's 10 digit phone number. No hyphens or other separators, e.g. 3334447777. |
@@ -235,7 +235,7 @@ For all other `businessType`'s other than `soleProprietorship`, your Customer wi
 | businessName | yes | string | Registered business name. |
 | doingBusinessAs | no | string | Preferred business name -- also known as fictitious name, or assumed name. |
 | businessType | yes | string | Business structure. Possible values are `corporation`, `llc`, `partnership`. |
-| businessClassification| yes | string | The industry classification Id that corresponds to Customer’s business. [Reference our Dev Docs](https://docsv2.dwolla.com/#list-business-classifications) to learn how to generate this Id. |
+| businessClassification| yes | string | The industry classification Id that corresponds to Customer’s business. [Reference our Dev Docs](https://docs.dwolla.com/#list-business-classifications) to learn how to generate this Id. |
 | ein | yes | string | Employer Identification Number. **Note:** If the `businessType` is `soleProprietorship`, then ein and controller can be omitted from the request. |
 | website | no | string | Business’ website |
 | phone | no | string | Business's 10 digit phone number. No hyphens or other separators, e.g. 3334447777. |

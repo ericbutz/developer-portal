@@ -20,7 +20,7 @@ Please review Regalii’s documentation for more information on when Regalii wil
 
 ## Using Regalii + Dwolla
 
-For the purposes of this walkthrough, we’ll assume you’ve familiarized yourself with the [Dwolla API](https://docsv2.dwolla.com) and understand the proper workflow for onboarding your users as [Customers](https://docsv2.dwolla.com/#create-a-customer), including how to attach [verified funding sources](https://developers.dwolla.com/resources/funding-source-verification.html) to those Customers.
+For the purposes of this walkthrough, we’ll assume you’ve familiarized yourself with the [Dwolla API](https://docs.dwolla.com) and understand the proper workflow for onboarding your users as [Customers](https://docs.dwolla.com/#create-a-customer), including how to attach [verified funding sources](https://developers.dwolla.com/resources/funding-source-verification.html) to those Customers.
 
 In addition, you will want to familiarize yourself with the key concepts of the [Regalii API](https://www.regalii.com/apix/v3/), which includes syncing biller information and initiating the request to pay a bill.
 
@@ -47,7 +47,7 @@ You will [use the Dwolla dashboard](https://dashboard-sandbox.dwolla.com/account
 
 ##### Integration detail: Read-only Customer
 
-If the token exchange from Dwolla to Regalii is successful, Dwolla will then systematically create a read-only [Customer](https://docsv2.dwolla.com/#customers) account for Regalii’s bank that will be used as the Regalii Destination Account for all bill payments. When retrieving a transfer relating to a bill payment from the Dwolla API, the read-only Customer will be visible as the destination Customer account in the transfer.
+If the token exchange from Dwolla to Regalii is successful, Dwolla will then systematically create a read-only [Customer](https://docs.dwolla.com/#customers) account for Regalii’s bank that will be used as the Regalii Destination Account for all bill payments. When retrieving a transfer relating to a bill payment from the Dwolla API, the read-only Customer will be visible as the destination Customer account in the transfer.
 
 ### Step 2 - Retrieve list of billers and select biller to pay
 
@@ -130,9 +130,9 @@ Here is the complete list of Dwolla's transaction statuses and how they map to e
 | Confirmed                  | Processed              | `customer_bill_payment_completed` <br> `customer_transfer_completed` |
 | Rejected                   | Failed                 | `customer_bill_payment_failed` <br> `customer_transfer_failed` |
 
-As referenced above, Regalii will return a transaction id along with a status of “initialized”, which is the status prior to when any [transfer](https://docsv2.dwolla.com/#transfers) is created within the Dwolla API.
+As referenced above, Regalii will return a transaction id along with a status of “initialized”, which is the status prior to when any [transfer](https://docs.dwolla.com/#transfers) is created within the Dwolla API.
 
-Once the transfer is successfully created within the Dwolla system, the Regalii transaction status will update to “linked”. Dwolla will then create events for `customer_bill_payment_created` and `customer_transfer_created` and deliver these events via webhooks to your [subscribed webhook endpoint](https://docsv2.dwolla.com/#create-a-webhook-subscription) which let your application know a transfer is created with a “pending” status in the Dwolla system.
+Once the transfer is successfully created within the Dwolla system, the Regalii transaction status will update to “linked”. Dwolla will then create events for `customer_bill_payment_created` and `customer_transfer_created` and deliver these events via webhooks to your [subscribed webhook endpoint](https://docs.dwolla.com/#create-a-webhook-subscription) which let your application know a transfer is created with a “pending” status in the Dwolla system.
 
 There will be additional Regalii transaction statuses after the transfer leaves the Dwolla network. The transaction statuses provided by Regalii will ultimately indicate that the transfer was successfully sent to the biller.
 

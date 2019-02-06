@@ -12,7 +12,7 @@ After successfully creating a personal identity-verified `Customer`, they will i
 
 A Customer’s verification status is determined by an identity verification score based on the data submitted; this score is returned from Dwolla’s identity vendor. Therefore, it is important that the user enters accurate and complete identifying data, and that you exercise [best practices](https://www.owasp.org/index.php/Input_Validation_Cheat_Sheet) in input field validation to ensure the best possible success rate. As an example, the `retry` status can occur when an individual mis-keys or uses incorrect identifying information upon Customer creation (i.e. submitting a date of birth that differs from the user’s actual date of birth).
 
-It is recommended to have an active [webhook subscription](https://docsv2.dwolla.com/#webhook-subscriptions) to listen for Customer verification related events. Reference the table below for Customer verification statuses and the related events.
+It is recommended to have an active [webhook subscription](https://docs.dwolla.com/#webhook-subscriptions) to listen for Customer verification related events. Reference the table below for Customer verification statuses and the related events.
 
 ### Verification statuses
 
@@ -25,7 +25,7 @@ It is recommended to have an active [webhook subscription](https://docsv2.dwolla
 
 ### Testing verification statuses in Sandbox
 
-Dwolla’s Sandbox environment allows you to submit `verified`, `retry`, `document`, or `suspended` as the value of the firstName parameter to create a new verified Customer with their respective status. To simulate transitioning a verified Customer with a `retry` status to `verified`, you’ll need to call the [Update a Customer](https://docsv2.dwolla.com/#update-a-customer) endpoint and submit full identifying information with an updated firstName value and full SSN. To simulate transitioning a verified Customer with a `document` status to `verified` in the Sandbox, you’ll need to upload a test document as outlined in the [Testing in the Sandbox](https://developers.dwolla.com/resources/testing.html#simulate-document-upload-approved-and-failed-events) resource article.
+Dwolla’s Sandbox environment allows you to submit `verified`, `retry`, `document`, or `suspended` as the value of the firstName parameter to create a new verified Customer with their respective status. To simulate transitioning a verified Customer with a `retry` status to `verified`, you’ll need to call the [Update a Customer](https://docs.dwolla.com/#update-a-customer) endpoint and submit full identifying information with an updated firstName value and full SSN. To simulate transitioning a verified Customer with a `document` status to `verified` in the Sandbox, you’ll need to upload a test document as outlined in the [Testing in the Sandbox](https://developers.dwolla.com/resources/testing.html#simulate-document-upload-approved-and-failed-events) resource article.
 
 ## Handling status: `retry`
 
@@ -150,13 +150,13 @@ Check the Customer’s status again. The Customer will either be in the `verifie
 
 ## Handling status: `document`
 
-If the Customer has a status of `document`, the Customer will need to upload additional pieces of information in order to verify the account. Use the [create a document](https://docsv2.dwolla.com/#create-a-document) endpoint when uploading a colored scan of the identifying document. The document(s) will then be reviewed by Dwolla; this review may take up to 1-2 business days to approve or reject.
+If the Customer has a status of `document`, the Customer will need to upload additional pieces of information in order to verify the account. Use the [create a document](https://docs.dwolla.com/#create-a-document) endpoint when uploading a colored scan of the identifying document. The document(s) will then be reviewed by Dwolla; this review may take up to 1-2 business days to approve or reject.
 
 ### Document types
 
 A scanned photo of the Customer's identifying document can be specified as documentType: `passport`, `license` (state issued driver's license), or `idCard` (other U.S. government-issued photo id card).
 
-When a Customer is placed in the `document` verification status, Dwolla will return a link in the API response after [retrieving a Customer](https://docsv2.dwolla.com/#retrieve-a-customer) which will be used by an application to determine if documentation is needed.
+When a Customer is placed in the `document` verification status, Dwolla will return a link in the API response after [retrieving a Customer](https://docs.dwolla.com/#retrieve-a-customer) which will be used by an application to determine if documentation is needed.
 
 | Link name | Description |
 |---------------|----------|

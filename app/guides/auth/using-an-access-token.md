@@ -34,7 +34,7 @@ Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer myAccountAccessToken
 ```
 
-Assuming the access token is valid, the Dwolla API will return a success or error response. If the access token is expired or invalid, the API will return an HTTP 401 with either a "InvalidAccessToken" or "ExpiredAccessToken" error. Learn more about making requests in our [API docs](https://docsv2.dwolla.com/#making-requests).
+Assuming the access token is valid, the Dwolla API will return a success or error response. If the access token is expired or invalid, the API will return an HTTP 401 with either a "InvalidAccessToken" or "ExpiredAccessToken" error. Learn more about making requests in our [API docs](https://docs.dwolla.com/#making-requests).
 
 
 <nav class="pager-nav">

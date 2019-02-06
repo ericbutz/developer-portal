@@ -22,7 +22,7 @@ The Sandbox environment allows you to test the Dwolla API without any real-world
 # Testing Customers
 
 ### Manage Customers
-The [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) allows you to manage Customers, as well as transfers associated with the Customers that belong to your Sandbox account. Once your application has [created its Customers](https://docsv2.dwolla.com/#create-a-customer), you can access the [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) to validate that the request was recorded properly in our test environment.
+The [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) allows you to manage Customers, as well as transfers associated with the Customers that belong to your Sandbox account. Once your application has [created its Customers](https://docs.dwolla.com/#create-a-customer), you can access the [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) to validate that the request was recorded properly in our test environment.
 
 #### `Verified Customers`
 
@@ -32,9 +32,9 @@ There are various reasons a Verified Customer may have a status other than `veri
 
 In production, Dwolla will place the Verified Customer in either the `retry`, `document`, `verified`, or `suspended` state of verification after an initial identity verification check.
 
-**For personal verified Customers**, reference the resource article on [customer verification](https://developers.dwolla.com/resources/personal-verified-customer/handling-verification-statuses-personal.html) for more information on handling identity verification for Verified Customers. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the **firstName** parameter in order to [create a new Verified Customer](https://docsv2.dwolla.com/#request-parameters---verified-customer) with that status.
+**For personal verified Customers**, reference the resource article on [customer verification](https://developers.dwolla.com/resources/personal-verified-customer/handling-verification-statuses-personal.html) for more information on handling identity verification for Verified Customers. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the **firstName** parameter in order to [create a new Verified Customer](https://docs.dwolla.com/#request-parameters---verified-customer) with that status.
 
-**For business verified Customers**, reference the resource article on [customer verification](https://developers.dwolla.com/resources/business-verified-customer/create-business-verified-customers.html) article that goes over information on properly verifying your Controllers and Beneficial Owners. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the **controller firstName** parameter in order to [create a new Verified Customer](https://docsv2.dwolla.com/#request-parameters---verified-customer) with that status.
+**For business verified Customers**, reference the resource article on [customer verification](https://developers.dwolla.com/resources/business-verified-customer/create-business-verified-customers.html) article that goes over information on properly verifying your Controllers and Beneficial Owners. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the **controller firstName** parameter in order to [create a new Verified Customer](https://docs.dwolla.com/#request-parameters---verified-customer) with that status.
 
 ##### **Simulate document upload approved and failed events**
 
@@ -118,7 +118,7 @@ Authorization: Bearer {Your access token}
 }
 ```
 
-**Note:** If a bank-to-bank transaction is initiated between two users, you'll want to simulate bank transfer processing twice in order to process both sides of the transaction (debit and credit). Processing for bank transfers will also include initiated micro-deposits. If your application is [subscribed to webhooks](https://docsv2.dwolla.com/#webhook-subscriptions), notifications will be sent, including all transfer or micro-deposit related events, letting your application know that transfers have processed or failed.
+**Note:** If a bank-to-bank transaction is initiated between two users, you'll want to simulate bank transfer processing twice in order to process both sides of the transaction (debit and credit). Processing for bank transfers will also include initiated micro-deposits. If your application is [subscribed to webhooks](https://docs.dwolla.com/#webhook-subscriptions), notifications will be sent, including all transfer or micro-deposit related events, letting your application know that transfers have processed or failed.
 
 ##### **Process bank transfers button**
 
@@ -128,7 +128,7 @@ A “Process bank transfers” button is available in the Sandbox [Dwolla Dashbo
 
 ### Test bank transfer failures
 
-Transfers to or from a bank account can fail for a number of reasons (e.g. insufficient funds, invalid account number, etc. ). When a bank transfer fails, the associated financial institution that rejected the transaction assigns an ACH return code and a transfer failure event is then triggered in Dwolla. Dwolla allows you to trigger various bank transfer failures by specifying an “R” code in the funding source `name` parameter when creating or [updating a funding source](https://docsv2.dwolla.com/#update-a-funding-source) for a Dwolla Account or API Customer. When a [transfer is initiated](https://docsv2.dwolla.com/#initiate-a-transfer) using a funding source that has an “R” code assigned to its name, a transfer failure event will trigger and the status will update to failed when you simulate bank transfer processing (as mentioned above).
+Transfers to or from a bank account can fail for a number of reasons (e.g. insufficient funds, invalid account number, etc. ). When a bank transfer fails, the associated financial institution that rejected the transaction assigns an ACH return code and a transfer failure event is then triggered in Dwolla. Dwolla allows you to trigger various bank transfer failures by specifying an “R” code in the funding source `name` parameter when creating or [updating a funding source](https://docs.dwolla.com/#update-a-funding-source) for a Dwolla Account or API Customer. When a [transfer is initiated](https://docs.dwolla.com/#initiate-a-transfer) using a funding source that has an “R” code assigned to its name, a transfer failure event will trigger and the status will update to failed when you simulate bank transfer processing (as mentioned above).
 
 Dwolla allows you to pass in a few different sentinel values that are used to test different bank transfer failure scenarios. The list of available sentinel values cover the most common uses cases where ACH return codes can be triggered in production. Reference the list of codes in the following table:
 
@@ -143,7 +143,7 @@ For more information on bank transfer failures, and a list of common return code
 
 ##### Example of using a sentinel value for testing bank transfer failures
 
-This example assumes that a funding source has already been attached to an account. Once the funding source `name` has been updated to reflect the ACH failure scenario you want to test, then you can [initiate a transfer](https://docsv2.dwolla.com/#initiate-a-transfer) to or from that funding source via the API.
+This example assumes that a funding source has already been attached to an account. Once the funding source `name` has been updated to reflect the ACH failure scenario you want to test, then you can [initiate a transfer](https://docs.dwolla.com/#initiate-a-transfer) to or from that funding source via the API.
 
 ```raw
 POST https://api-sandbox.dwolla.com/funding-sources/692486f8-29f6-4516-a6a5-c69fd2ce854c
@@ -179,7 +179,7 @@ request_body = {
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-funding_source = app_token.post('funding-sources', request_body)
+funding_source = app_token.post(funding_source_url, request_body)
 funding_source.body['name'] # => 'R03'
 ```
 ```javascript

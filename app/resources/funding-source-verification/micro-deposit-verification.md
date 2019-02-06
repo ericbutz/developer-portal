@@ -10,7 +10,7 @@ description: After initiating micro-deposits, two random amounts will post to yo
 # Funding source verification
 
 ## Micro-deposit verification
-If you choose the micro-deposit method of bank verification, Dwolla will transfer two deposits of less than $0.10 to your customer's linked bank or credit union account. After [initiating micro-deposits](https://docsv2.dwolla.com/#initiate-micro-deposits), two random amounts will post to your customer’s bank account in 1-2 business days. Once your customer sees these deposits in their account, they need to verify the two amounts in your application. If subscribed to [webhooks](/guides/webhooks), your application will be notified throughout this process via micro-deposit related [events](https://docsv2.dwolla.com/#events).
+If you choose the micro-deposit method of bank verification, Dwolla will transfer two deposits of less than $0.10 to your customer's linked bank or credit union account. After [initiating micro-deposits](https://docs.dwolla.com/#initiate-micro-deposits), two random amounts will post to your customer’s bank account in 1-2 business days. Once your customer sees these deposits in their account, they need to verify the two amounts in your application. If subscribed to [webhooks](/guides/webhooks), your application will be notified throughout this process via micro-deposit related [events](https://docs.dwolla.com/#events).
 
 ### Retrieve the funding source
 After your customer has added a bank account you'll want to retrieve the funding source to check if a `initiate-micro-deposits` link relation exists. A link to `initiate-micro-deposits` will return when an unverified `bank` funding source is eligible to receive micro-deposits.
@@ -78,7 +78,7 @@ appToken
 ```
 
 ### Initiate micro-deposits
-Once you POST to the [initiate-micro-deposits](https://docsv2.dwolla.com/#initiate-micro-deposits) link, Dwolla will send two small amounts to your customer's bank or credit union account. If the request is successful, Dwolla returns a `HTTP 201` and a link to the created micro-deposits resource `funding-sources/{id}/micro-deposits` in the location header. The micro-deposits resource can be later used to retrieve the status of micro-deposits or verify micro-deposit amounts. If your application is subscribed to webhooks, a webhook will be sent with the `microdeposits_added` event, notifying your application that micro-deposits are en route to your customer’s bank account.
+Once you POST to the [initiate-micro-deposits](https://docs.dwolla.com/#initiate-micro-deposits) link, Dwolla will send two small amounts to your customer's bank or credit union account. If the request is successful, Dwolla returns a `HTTP 201` and a link to the created micro-deposits resource `funding-sources/{id}/micro-deposits` in the location header. The micro-deposits resource can be later used to retrieve the status of micro-deposits or verify micro-deposit amounts. If your application is subscribed to webhooks, a webhook will be sent with the `microdeposits_added` event, notifying your application that micro-deposits are en route to your customer’s bank account.
 
 ```raw
 POST https://api-sandbox.dwolla.com/funding-sources/e52006c3-7560-4ff1-99d5-b0f3a6f4f909/micro-deposits
@@ -207,9 +207,9 @@ $fsApi->micro_deposits($fundingSourceUrl, [
 ```
 
 ### Handle failed verification attempts
-Your customer will have only three attempts to correctly input the two posted micro-deposit amounts. If your customer reaches the max attempts allowed, a `microdeposits_maxattempts` [event](https://docsv2.dwolla.com/#events) will be triggered and they will no longer be allowed to verify the funding source using those same two posted micro-deposit amounts. In order to retry bank account verification via micro-deposits, the following steps will need to be taken by your customer and application:
+Your customer will have only three attempts to correctly input the two posted micro-deposit amounts. If your customer reaches the max attempts allowed, a `microdeposits_maxattempts` [event](https://docs.dwolla.com/#events) will be triggered and they will no longer be allowed to verify the funding source using those same two posted micro-deposit amounts. In order to retry bank account verification via micro-deposits, the following steps will need to be taken by your customer and application:
 
-1. [Removal of the funding source](https://docsv2.dwolla.com/#remove-a-funding-source) with failed micro-deposit verification attempts.
+1. [Removal of the funding source](https://docs.dwolla.com/#remove-a-funding-source) with failed micro-deposit verification attempts.
 2. Wait 48 hours after the initial funding source was added to re-add the funding source.
 3. Initiate new micro-deposits to the funding source.
 4. Verify the funding source using the new posted micro-deposit amounts.

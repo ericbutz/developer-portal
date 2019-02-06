@@ -11,7 +11,7 @@ description: Create a transfer by specifying the users funding source as the sou
 
 # Step 6: Create a transfer
 
-[Create a transfer](https://docsv2.dwolla.com/#transfers) by specifying Joe Buyer’s funding source as the source and Jane Merchant’s funding source as the destination.
+[Create a transfer](https://docs.dwolla.com/#transfers) by specifying Joe Buyer’s funding source as the source and Jane Merchant’s funding source as the destination.
 
 ```raw
 POST https://api-sandbox.dwolla.com/transfers
@@ -53,7 +53,7 @@ request_body = {
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-# For Dwolla API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
+# For Dwolla API applications, an app_token can be used for this endpoint. (https://docs.dwolla.com/#application-authorization)
 transfer = app_token.post "transfers", request_body
 transfer.response_headers[:location] # => "https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
 ```
@@ -73,7 +73,7 @@ var requestBody = {
   }
 };
 
-// For Dwolla API applications, an appToken can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
+// For Dwolla API applications, an appToken can be used for this endpoint. (https://docs.dwolla.com/#application-authorization)
 appToken
   .post('transfers', requestBody)
   .then(res => res.headers.get('location')); // => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
@@ -95,7 +95,7 @@ request_body = {
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-# For Dwolla API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
+# For Dwolla API applications, an app_token can be used for this endpoint. (https://docs.dwolla.com/#application-authorization)
 transfer = app_token.post('transfers', request_body)
 transfer.headers['location'] # => 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 ```

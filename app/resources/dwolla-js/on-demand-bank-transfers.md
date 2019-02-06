@@ -16,7 +16,7 @@ This is application setting for your Dwolla Master Account. When enabled, the en
 
 ![Screenshot of On-demand](/images/OnDemandIAV.png "On-demand bank transfers")
 
-Once you have collected all of the authorizations required for a bank transfer, including the additional authorization from the Customer for on-demand transfers, you will be able to <a href="https://docsv2.dwolla.com/#initiate-a-transfer">initiate transfers</a> for variable amounts and dates.
+Once you have collected all of the authorizations required for a bank transfer, including the additional authorization from the Customer for on-demand transfers, you will be able to <a href="https://docs.dwolla.com/#initiate-a-transfer">initiate transfers</a> for variable amounts and dates.
 
 * * *
 

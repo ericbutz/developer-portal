@@ -32,13 +32,13 @@ The events below are sent to Sift on your behalf by Dwolla’s API, and there is
 
 | Dwolla Event | Sift Event |
 |--------------|------------|
-| [Customer Created](https://docsv2.dwolla.com/#create-a-customer) | [$create_account](https://siftscience.com/developers/docs/curl/events-api/reserved-events/create-account) |
-| [Customer Updated](https://docsv2.dwolla.com/#update-a-customer) | [$update_account](https://siftscience.com/developers/docs/curl/events-api/reserved-events/update-account) |
-| [Customer Suspended](https://docsv2.dwolla.com/#update-a-customer) | [Label User](https://siftscience.com/developers/docs/curl/labels-api/label-user) with $abuse_type = 'account\_abuse' |
-| [Customer Funding Source Added](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer) | [$update_account](https://siftscience.com/developers/docs/curl/events-api/reserved-events/update-account) |
-| [Customer Funding Source Removed](https://docsv2.dwolla.com/#remove-a-funding-source) | [$update_account](https://siftscience.com/developers/docs/curl/events-api/reserved-events/update-account) |
-| [Transfers](https://docsv2.dwolla.com/#transfers) | [$transaction](https://siftscience.com/developers/docs/curl/events-api/reserved-events/transaction) with $transaction_type = '$transfer' |
-| [Transfers In](https://docsv2.dwolla.com/#initiate-a-transfer) | [$transaction](https://siftscience.com/developers/docs/curl/events-api/reserved-events/transaction) with $transaction_type = '$deposit' |
-| [Transfers Out](https://docsv2.dwolla.com/#initiate-a-transfer) | [$transaction](https://siftscience.com/developers/docs/curl/events-api/reserved-events/transaction) with $transaction_type = '$withdrawal' |
+| [Customer Created](https://docs.dwolla.com/#create-a-customer) | [$create_account](https://siftscience.com/developers/docs/curl/events-api/reserved-events/create-account) |
+| [Customer Updated](https://docs.dwolla.com/#update-a-customer) | [$update_account](https://siftscience.com/developers/docs/curl/events-api/reserved-events/update-account) |
+| [Customer Suspended](https://docs.dwolla.com/#update-a-customer) | [Label User](https://siftscience.com/developers/docs/curl/labels-api/label-user) with $abuse_type = 'account\_abuse' |
+| [Customer Funding Source Added](https://docs.dwolla.com/#create-a-funding-source-for-a-customer) | [$update_account](https://siftscience.com/developers/docs/curl/events-api/reserved-events/update-account) |
+| [Customer Funding Source Removed](https://docs.dwolla.com/#remove-a-funding-source) | [$update_account](https://siftscience.com/developers/docs/curl/events-api/reserved-events/update-account) |
+| [Transfers](https://docs.dwolla.com/#transfers) | [$transaction](https://siftscience.com/developers/docs/curl/events-api/reserved-events/transaction) with $transaction_type = '$transfer' |
+| [Transfers In](https://docs.dwolla.com/#initiate-a-transfer) | [$transaction](https://siftscience.com/developers/docs/curl/events-api/reserved-events/transaction) with $transaction_type = '$deposit' |
+| [Transfers Out](https://docs.dwolla.com/#initiate-a-transfer) | [$transaction](https://siftscience.com/developers/docs/curl/events-api/reserved-events/transaction) with $transaction_type = '$withdrawal' |
 
 If you would like to go live with your Dwolla API integration, please [reach out to our sales team](https://www.dwolla.com/contact/). If you already have an Dwolla API Integration and would like to get started with Sift Science, [log in and connect your Sift account](https://dashboard.dwolla.com/account/integrations) now.

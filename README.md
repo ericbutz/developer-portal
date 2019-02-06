@@ -24,7 +24,7 @@ As seen here: https://developers.dwolla.com/resources/
 
 ### A framework for showing samples in multiple languages
 
-As seen here: https://docsv2.dwolla.com/
+As seen here: https://docs.dwolla.com/
 
 ### A SDK directory
 

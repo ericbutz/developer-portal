@@ -45,7 +45,7 @@ After email verification, your Sandbox account will be created and you'll be red
 
 ## Next Steps
 
-Once you have a valid Sandbox account, you can start making calls to the API. To simplify development, learn about configuring and using our [SDKs](/pages/sdks.html). You can also jump straight into the [API docs](https://docsv2.dwolla.com/) or continue to our guides for step by step instructions for your appropriate funds flow.
+Once you have a valid Sandbox account, you can start making calls to the API. To simplify development, learn about configuring and using our [SDKs](/pages/sdks.html). You can also jump straight into the [API docs](https://docs.dwolla.com/) or continue to our guides for step by step instructions for your appropriate funds flow.
 
 <nav class="grid-nav">
     <a href="/guides/send-money" class="icon-guides-send-small grid-nav__item">

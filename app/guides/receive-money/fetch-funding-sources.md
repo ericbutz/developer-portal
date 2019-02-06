@@ -19,7 +19,7 @@ Dwolla uses URLs to represent relations between resources. Therefore, you’ll n
 
 ## Fetch your Customer's list of available funding sources
 
-Use the [list an Customer's funding sources](https://docsv2.dwolla.com/#list-funding-sources-for-a-customer) endpoint to fetch a list of your own funding sources. You'll need the Customer URL which can be [retrieved from the API.](https://docsv2.dwolla.com/#list-and-search-customers)
+Use the [list an Customer's funding sources](https://docs.dwolla.com/#list-funding-sources-for-a-customer) endpoint to fetch a list of your own funding sources. You'll need the Customer URL which can be [retrieved from the API.](https://docs.dwolla.com/#list-and-search-customers)
 
 #### Request and response (view schema in 'raw')
 
@@ -115,7 +115,7 @@ print($fundingSources->_embedded) # => PHP associative array of _embedded conten
 
 ## Fetch your Dwolla Master Account's list of available funding sources
 
-Use the [list an account's funding sources](https://docsv2.dwolla.com/#list-funding-sources-for-an-account) endpoint to fetch a list of your own funding sources. You'll need your account URL which can be retrieved by calling [the Root](https://docsv2.dwolla.com/#root) of the API.
+Use the [list an account's funding sources](https://docs.dwolla.com/#list-funding-sources-for-an-account) endpoint to fetch a list of your own funding sources. You'll need your account URL which can be retrieved by calling [the Root](https://docs.dwolla.com/#root) of the API.
 
 #### Request and response (view schema in 'raw')
 

@@ -15,7 +15,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 * Previously, applications made a call to https://www.dwolla.com/oauth/v2/token and specified the application/x-www-form-urlencoded Content-Type header, passing their client credentials (App Key and App Secret) through the body of the HTTP message sent to Dwolla. 
 * With this update, the token URL as well as the manner in which an application’s client credentials are sent to Dwolla, will change to be inline with OAuth spec. 
 * The new Dwolla token exchange endpoint is https://accounts.dwolla.com/token
-* Reference our [API Reference Docs](https://docsv2.dwolla.com/#application-authorization) to learn more
+* Reference our [API Reference Docs](https://docs.dwolla.com/#application-authorization) to learn more
 
 <section class="change-log">
     <h1>Completed</h1>
@@ -46,7 +46,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 	<h4><em>UPDATED/ADDED</em></h4>
 	<ul class="bullet">
 	    <li>New webhook <code>funding_source_negative</code> and <code>customer_funding_source_negative</code></li>
-		<li>Jump to our <a href = "https://docsv2.dwolla.com/#events">dev docs</a> or view the full dev docs commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/pull/112"> Github</a></li>
+		<li>Jump to our <a href = "https://docs.dwolla.com/#events">dev docs</a> or view the full dev docs commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs/pull/112"> Github</a></li>
 	</ul>
 	<h3>2018-05-30</h3>
 	<h4><em>UPDATED - SDK - C#</em></h4>
@@ -80,8 +80,8 @@ description: Use this page to keep track of changes to the Dwolla API or additio
     <h3>2018-04-11</h3>
     <h4><em>UPDATED/ADDED - Dev Docs update</em></h4>
     <ul class="bullet">
-        <li>Updated Customer endpoints to reflect the <a href = "https://docsv2.dwolla.com/#customers"> new business verified Customer flow change. </a></li>
-        <li>Added <a href = "https://docsv2.dwolla.com/#beneficial-owners"> the new benefical owners endpoints </a> and <a href = "https://docsv2.dwolla.com/#event-topics---a-hrefbeneficial-ownersbeneficial-ownersa"> webhooks.</a></li>
+        <li>Updated Customer endpoints to reflect the <a href = "https://docs.dwolla.com/#customers"> new business verified Customer flow change. </a></li>
+        <li>Added <a href = "https://docs.dwolla.com/#beneficial-owners"> the new benefical owners endpoints </a> and <a href = "https://docs.dwolla.com/#event-topics---a-hrefbeneficial-ownersbeneficial-ownersa"> webhooks.</a></li>
 	</ul>
     <h3>2018-04-03</h3>
     <h4><em>UPDATED - Dev Docs update</em></h4>
@@ -111,7 +111,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 	<h3>2017-11-16</h3>
 	<h4><em>CHANGED</em></h4>
 	<ul class="bullet">
-	    <li>Bank <a href ="https://docsv2.dwolla.com/#retrieve-a-funding-source-balance">balance check </a> functionality changing to be asynchronous and immediately return an HTTP 202. The response body for the 202 will contain a status relating to the processing of this request. Subsequent requests to this endpoint will return a 202 up until processing completes and then either return an HTTP 200 with the current balance or an HTTP 400 if there was an error (i.e. <code>UnsupportedBank</code>).</li>
+	    <li>Bank <a href ="https://docs.dwolla.com/#retrieve-a-funding-source-balance">balance check </a> functionality changing to be asynchronous and immediately return an HTTP 202. The response body for the 202 will contain a status relating to the processing of this request. Subsequent requests to this endpoint will return a 202 up until processing completes and then either return an HTTP 200 with the current balance or an HTTP 400 if there was an error (i.e. <code>UnsupportedBank</code>).</li>
 	</ul>
 	<h3>2017-11-16</h3>
 	<h4><em>ADDED</em></h4>
@@ -141,22 +141,22 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 	<h3>2016-12-01</h3>
 	<h4><em>ADDED</em></h4>
 	<ul class="bullet">
-	    <li>Release support for a new <code>clearing</code> request parameter when <a href="https://docsv2.dwolla.com/#initiate-a-transfer">initiating a transfer</a>. Clearing is a JSON object that supports specifying same-day and standard ACH clearing per API request. <b>Note:</b> The clearing request parameter is a premium feature available for Dwolla <a href="https://www.dwolla.com/platform">API</a> customers.</li>
+	    <li>Release support for a new <code>clearing</code> request parameter when <a href="https://docs.dwolla.com/#initiate-a-transfer">initiating a transfer</a>. Clearing is a JSON object that supports specifying same-day and standard ACH clearing per API request. <b>Note:</b> The clearing request parameter is a premium feature available for Dwolla <a href="https://www.dwolla.com/platform">API</a> customers.</li>
 	</ul>
 	<h3>2016-12-01</h3>
 	<h4><em>DEPRECATED</em></h4>
 	<ul class="bullet">
-	    <li>Remove the <code>scope</code> attribute from the <a href="https://docsv2.dwolla.com/#application-authorization"> application access token</a> response. </li>
+	    <li>Remove the <code>scope</code> attribute from the <a href="https://docs.dwolla.com/#application-authorization"> application access token</a> response. </li>
 	</ul>
 	<h3>2016-12-01</h3>
 	<h4><em>CHANGED</em></h4>
 	<ul class="bullet">
-	    <li>Automatic pause of webhook subscriptions after 400 consecutive failed delivery attempts. Reference the <a href="https://docsv2.dwolla.com/#webhook-subscriptions">API docs</a> for more information. </li>
+	    <li>Automatic pause of webhook subscriptions after 400 consecutive failed delivery attempts. Reference the <a href="https://docs.dwolla.com/#webhook-subscriptions">API docs</a> for more information. </li>
 	</ul>
 	<h3>2016-10-19</h3>
 	<h4><em>CHANGED</em></h4>
 	<ul class="bullet">
-	    <li>Change the <code>phone</code> request parameter from required to optional when <a href="https://docsv2.dwolla.com/#create-a-customer">creating a Customer</a>.</li>
+	    <li>Change the <code>phone</code> request parameter from required to optional when <a href="https://docs.dwolla.com/#create-a-customer">creating a Customer</a>.</li>
 	</ul>
 	<h3>2016-10-19</h3>
 	<h4><em>ADDED</em></h4>
@@ -177,10 +177,10 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 	<h3>2016-06-01</h3>
     <h4><em>CHANGED/DEPRECATED</em></h4>
     <ul class="bullet">
-        <li>Change in functionality for removing a funding source in API v2. The method for <a href="https://docsv2.dwolla.com/#remove-a-funding-source">removing a funding source</a>
+        <li>Change in functionality for removing a funding source in API v2. The method for <a href="https://docs.dwolla.com/#remove-a-funding-source">removing a funding source</a>
         changes from a <code>DELETE</code> to a <code>POST</code> with the need to supply <code>{ "removed": true }</code> in the body of the request.</li>
-        <li>A <code>removed</code> attribute is added to the <a href="https://docsv2.dwolla.com/#funding-source-resource">funding source object.</a></li>
-        <li>A <code>removed</code> querystring request parameter is supplied when listing an <a href="https://docsv2.dwolla.com/#list-funding-sources-for-an-account">Account</a> or <a href="https://docsv2.dwolla.com/#list-funding-sources-for-a-customer">Customer's</a> funding sources. By default, all funding sources are returned from the listing unless the <code>removed</code> request parameter is set to <code>false</code></li>.
+        <li>A <code>removed</code> attribute is added to the <a href="https://docs.dwolla.com/#funding-source-resource">funding source object.</a></li>
+        <li>A <code>removed</code> querystring request parameter is supplied when listing an <a href="https://docs.dwolla.com/#list-funding-sources-for-an-account">Account</a> or <a href="https://docs.dwolla.com/#list-funding-sources-for-a-customer">Customer's</a> funding sources. By default, all funding sources are returned from the listing unless the <code>removed</code> request parameter is set to <code>false</code></li>.
 	</ul>
 	<h3>2016-02-29</h3>
 	<h4><em>DEPRECATED</em></h4>

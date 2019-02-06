@@ -7,7 +7,7 @@ description: Use this page to understand the different features, customer types 
 ---
 # Customer types
 
-A Dwolla API customer is created programmatically by your CIP verified Dwolla Master Account via the [Create a Customer](https://docsv2.dwolla.com/#create-a-customer) endpoint. All of the Customer's required information will be handled through the API and the Customer will interact directly with your application to manage their account. As a developer, you will want to create a Customer that best suits the business case of your application. Below is a very high level detailing of the Customer types available with Dwolla.
+A Dwolla API customer is created programmatically by your CIP verified Dwolla Master Account via the [Create a Customer](https://docs.dwolla.com/#create-a-customer) endpoint. All of the Customer's required information will be handled through the API and the Customer will interact directly with your application to manage their account. As a developer, you will want to create a Customer that best suits the business case of your application. Below is a very high level detailing of the Customer types available with Dwolla.
 
 | **Customer Type** | CIP Verification | Dwolla `balance` | Transaction Limit | Transact with |
 |---------------------------|----------------------|------------------------|------------------------|--------------------|
@@ -50,7 +50,7 @@ For a full series of articles that goes in depth on business verified Customers,
 
 An unverified Customer type requires a minimal amount of information : `firstName`, `lastName` and `email`. While Customer creation and onboarding is simple compared to a verified Customer, there are some things to consider.
 
-Unverified Customers have a default sending transaction limit of $5,000 per week. A week is defined as Monday to Sunday UTC time. If you have an unverified Customer looking to send more than $5,000 in a week, you may want to explore [upgrading them to a verifed Customer type](https://docsv2.dwolla.com/#update-a-customer).
+Unverified Customers have a default sending transaction limit of $5,000 per week. A week is defined as Monday to Sunday UTC time. If you have an unverified Customer looking to send more than $5,000 in a week, you may want to explore [upgrading them to a verifed Customer type](https://docs.dwolla.com/#update-a-customer).
 
 As this Customer is not CIP verified, they will only be able to transact with verified Customers or your Dwolla Master Account.
 
