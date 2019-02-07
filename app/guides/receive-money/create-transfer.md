@@ -12,7 +12,7 @@ description: Create a transfer by specifying your Customer's funding source ID a
 
 Create a transfer by specifying the Customer's bank funding source as the  `source` and your Dwolla Master Account bank funding source as the `destination`.
 
-You can learn more about initiating transfers in our [API Reference docs.](https://docsv2.dwolla.com/#initiate-a-transfer)
+You can learn more about initiating transfers in our [API Reference docs.](https://docs.dwolla.com/#initiate-a-transfer)
 
 ## Create a transfer
 

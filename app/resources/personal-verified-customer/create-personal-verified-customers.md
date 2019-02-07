@@ -11,7 +11,7 @@ description: To create a personal verified Customer, use the create a Customer e
 
 ## Create a personal verified Customer
 
-To create a personal verified Customer, use the [create a Customer](https://docsv2.dwolla.com/#create-a-customer) endpoint. A personal verified Customer is determined by setting the value of the `type` request parameter to `personal` and including additional fields required for identifying the individual.
+To create a personal verified Customer, use the [create a Customer](https://docs.dwolla.com/#create-a-customer) endpoint. A personal verified Customer is determined by setting the value of the `type` request parameter to `personal` and including additional fields required for identifying the individual.
 
 ## Events
 

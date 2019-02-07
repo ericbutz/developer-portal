@@ -47,7 +47,7 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 transfer_url = 'https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-# For Dwolla  API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
+# For Dwolla  API applications, an app_token can be used for this endpoint. (https://docs.dwolla.com/#application-authorization)
 transfer = app_token.get transfer_url
 transfer.status # => "pending"
 ```
@@ -67,7 +67,7 @@ $transfer->status; # => "pending"
 transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-# For Dwolla API applications, an app_token can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
+# For Dwolla API applications, an app_token can be used for this endpoint. (https://docs.dwolla.com/#application-authorization)
 transfer = app_token.get(transfer_url)
 transfer.body['status'] # => 'pending'
 ```
@@ -75,7 +75,7 @@ transfer.body['status'] # => 'pending'
 ```javascript
 var transferUrl = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388';
 
-// For Dwolla API applications, an appToken can be used for this endpoint. (https://docsv2.dwolla.com/#application-authorization)
+// For Dwolla API applications, an appToken can be used for this endpoint. (https://docs.dwolla.com/#application-authorization)
 appToken
   .get(transferUrl)
   .then(res => res.body.status); // => 'pending'

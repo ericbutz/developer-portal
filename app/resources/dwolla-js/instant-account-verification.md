@@ -23,7 +23,7 @@ For Dwolla API customers, `dwolla.js` has the added function of facilitating Ins
 
 Parameter | Type | Value
 ----------|-------------|--------------
-iav-token | string | A single use IAV token [generated on your server](https://docsv2.dwolla.com/#generate-an-iav-token).
+iav-token | string | A single use IAV token [generated on your server](https://docs.dwolla.com/#generate-an-iav-token).
 options | object | An object containing configurable options. Contains keys: `container`, `stylesheets`, `microDeposits`, `fallbackToMicroDeposits`, `backButton`, and `subscriber`. *See example below*. <br> `container` represents a string value container element where IAV will render. <br> `stylesheets` represents an array list of stylesheets to load IAV styles. <br> `microDeposits` represents a boolean *true* or *false* value which determines if the micro-deposit method of bank verification is presented as an option throughout the IAV flow. <br> `fallbackToMicroDeposits` represents a boolean *true* or *false* value which determines if a fallback selection screen appears for choosing an alternative bank verification method. <br> `backButton` represents a boolean *true* or *false* value which determines if a back button is displayed throughout the IAV flow. <br> `subscriber` is a function that can be used to subscribe to state changes throughout the IAV flow. This function will be called with an object containing a `currentPage` and an optional `error` attribute.
 callback | function | A callback function that handles the response from Dwolla.
 
@@ -51,7 +51,7 @@ dwolla.iav.start('8zN400zyPUobbdmeNfhTGH2Jh5JkFREJa9YBI8SLXp0ERXNTMT', {
 
 IAV related errors are returned either as user-facing messages within the IAV flow, or triggered through the dwolla.js callback. User-facing messages are displayed in red text at the top of the bank login screen informing the user there was an issue with connecting the associated bank account. Error callbacks will trigger letting your app know of errors that can't be fixed by the user within the flow.
 
-Error callbacks will contain a similar JSON error response body as [common errors](https://docsv2.dwolla.com/#errors) in the API, which includes a top-level error `code` and a `message`. Reference the following list of error callbacks:
+Error callbacks will contain a similar JSON error response body as [common errors](https://docs.dwolla.com/#errors) in the API, which includes a top-level error `code` and a `message`. Reference the following list of error callbacks:
 
 | Code | Message | Description |
 |--------------|-------------|--------------------|
@@ -99,7 +99,7 @@ By default, a back button will **not** be displayed throughout the IAV flow. If 
 
 #### `subscriber`
 
-An optional `subscriber` function can be used if your application is wanting to receive additional information on where the user is within the IAV flow, as well as if a user-facing message was presented to the user. `subscriber` is a function that will be called with an object containing a `currentPage` and an optional `error` attribute. `currentPage` will be a string value that identifies what page the user is on in the IAV flow. If an error occurs, the `error` attribute will be returned along with `currentPage`. `error` will be a JSON object, which includes a top-level error `code` and a `message` (similar to [common errors](https://docsv2.dwolla.com/#errors) in the API). Reference the following table for possible values:
+An optional `subscriber` function can be used if your application is wanting to receive additional information on where the user is within the IAV flow, as well as if a user-facing message was presented to the user. `subscriber` is a function that will be called with an object containing a `currentPage` and an optional `error` attribute. `currentPage` will be a string value that identifies what page the user is on in the IAV flow. If an error occurs, the `error` attribute will be returned along with `currentPage`. `error` will be a JSON object, which includes a top-level error `code` and a `message` (similar to [common errors](https://docs.dwolla.com/#errors) in the API). Reference the following table for possible values:
 
 |     Attribute     | Value |
 |:-------------|-------------|

@@ -13,7 +13,7 @@ redirect_to:
 
 ## Create a business verified Customer
 
-To create a business verified Customer, use the [Create a Customer](https://docsv2.dwolla.com/#create-a-customer) endpoint. A business verified Customer is determined by setting the value of the `type` request parameter to `business` and including additional field required for identifying the business, as well as the authorized representative of the business.
+To create a business verified Customer, use the [Create a Customer](https://docs.dwolla.com/#create-a-customer) endpoint. A business verified Customer is determined by setting the value of the `type` request parameter to `business` and including additional field required for identifying the business, as well as the authorized representative of the business.
 
 ## Events
 

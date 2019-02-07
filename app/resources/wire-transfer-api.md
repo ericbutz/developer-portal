@@ -33,14 +33,14 @@ Wire API functionality **is** supported in the following payment flows:
 
 ## Wire transfer processing times and events
 
-Your application can initiate a wire transfer from a `balance` funding source prior to **3:00PM Central Time** in order for the funds to be available in the destination bank account that same day. If your application has an active [webhook subscription](/guides/webhooks/create-subscription.html), [events](https://docsv2.dwolla.com/#events) will be triggered for when the transfer is initiated (`customer_bank_transfer_created`) and when it has completed (`customer_bank_transfer_completed`).
+Your application can initiate a wire transfer from a `balance` funding source prior to **3:00PM Central Time** in order for the funds to be available in the destination bank account that same day. If your application has an active [webhook subscription](/guides/webhooks/create-subscription.html), [events](https://docs.dwolla.com/#events) will be triggered for when the transfer is initiated (`customer_bank_transfer_created`) and when it has completed (`customer_bank_transfer_completed`).
 
 ### Creating a Verified Customer and adding a wire funding source
-Before you can initiate a wire transfer, you must first have a [Verified Customer created](https://docsv2.dwolla.com/#create-a-customer). Reference our [Customer verification resource article](/resources/customer-verification.html) which describes additional information required to create a CIP verified Customer account. Dwolla will use the name on the created Customer account as the beneficiary, therefore it must match the bank owner’s name. The name on the Customer account will also be displayed on your bank statement when the transfer completes.
+Before you can initiate a wire transfer, you must first have a [Verified Customer created](https://docs.dwolla.com/#create-a-customer). Reference our [Customer verification resource article](/resources/customer-verification.html) which describes additional information required to create a CIP verified Customer account. Dwolla will use the name on the created Customer account as the beneficiary, therefore it must match the bank owner’s name. The name on the Customer account will also be displayed on your bank statement when the transfer completes.
 
 ## Adding a wire funding source to a Customer
 
-When attaching a wire bank account to the Customer, you'll need to set the `channels` attribute to `wire` in the request (as shown below). Once your customer has connected a bank account, you'll then want to store the funding source id (e.g. `https://api-sandbox.dwolla.com/funding-sources/ecf993e2-fa22-4cea-8022-c7861200288f`) which will be used when specifying the bank account as the destination funding source in the request to [initiate a transfer](https://docsv2.dwolla.com/#initiate-a-transfer).
+When attaching a wire bank account to the Customer, you'll need to set the `channels` attribute to `wire` in the request (as shown below). Once your customer has connected a bank account, you'll then want to store the funding source id (e.g. `https://api-sandbox.dwolla.com/funding-sources/ecf993e2-fa22-4cea-8022-c7861200288f`) which will be used when specifying the bank account as the destination funding source in the request to [initiate a transfer](https://docs.dwolla.com/#initiate-a-transfer).
 
 ##### Request and response (view schema in 'raw')
 
@@ -107,7 +107,7 @@ appToken
 ### Initiating a wire transfer
 When initiating the wire transfer out of the Dwolla platform we'll need to specify the *source* as our `balance` and the *destination* as the `wire` funding source we created in the previous step.
 
-In order to obtain the Customer's `balance` funding source, you'll need to fetch the [list of funding sources](https://docsv2.dwolla.com/#list-funding-sources-for-a-customer) for the Customer. The balance funding source should be made available when the Customer has a status of `verified`.
+In order to obtain the Customer's `balance` funding source, you'll need to fetch the [list of funding sources](https://docs.dwolla.com/#list-funding-sources-for-a-customer) for the Customer. The balance funding source should be made available when the Customer has a status of `verified`.
 
 The following example assumes the Customer initiating the wire transfer has funds available in their `balance` from a previous transaction.
 

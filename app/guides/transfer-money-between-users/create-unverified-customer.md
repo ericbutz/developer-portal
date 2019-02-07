@@ -13,7 +13,7 @@ description: An unverified Customer and a verified funding source is capable of 
 
 Now that we’ve created a customer for Jane Merchant and associated a funding source, we’ll do the same for Joe Buyer, but this time we’ll create an `Unverified Customer`, and a verified funding source which is capable of sending money.
 
-Provide the user’s full name, email address, and IP address to create the Customer. More detail is available in [API docs](https://docsv2.dwolla.com/#customers).
+Provide the user’s full name, email address, and IP address to create the Customer. More detail is available in [API docs](https://docs.dwolla.com/#customers).
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers

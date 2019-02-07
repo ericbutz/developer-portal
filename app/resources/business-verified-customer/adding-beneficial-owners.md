@@ -29,7 +29,7 @@ To help the government fight financial crime, the existing United States Federal
 
 ## Create a beneficial owner for a Business Verified Customer
 
-To create a beneficial owner, use the [create a beneficial owner](https://docsv2.dwolla.com/#create-a-beneficial-owner) endpoint.
+To create a beneficial owner, use the [create a beneficial owner](https://docs.dwolla.com/#create-a-beneficial-owner) endpoint.
 
 ## Events
 
@@ -195,7 +195,7 @@ After a beneficial owner has been created, the beneficial owner’s identity nee
 | -----------------------------------|------------------|-------------------------|-------------|
 | Verified     | customer\_beneficial\_owner\_verified | No | Beneficial owner has been identity verified. |
 | Document | customer\_beneficial\_owner\_document\_needed | Yes - Cannot send funds| Beneficial owner must upload a document in order to be verified. |
-| Incomplete |  customer\_beneficial\_owner\_reverification\_needed | Yes - Cannot send funds | The initial verification attempt failed because the information provided did not satisfy our verification check. You can make one additional attempt by changing some or all the attributes of the existing Customer with an [update request](https://docsv2.dwolla.com/#update-a-beneficial-owner). |
+| Incomplete |  customer\_beneficial\_owner\_reverification\_needed | Yes - Cannot send funds | The initial verification attempt failed because the information provided did not satisfy our verification check. You can make one additional attempt by changing some or all the attributes of the existing Customer with an [update request](https://docs.dwolla.com/#update-a-beneficial-owner). |
 
 Let’s check to see if the Owner was successfully verified or not. We are going to use the location of the Beneficial Owner resource that was just created.
 
@@ -269,7 +269,7 @@ Congrats! You have created a beneficial owner for a business verified Customer, 
 
 ### Handling `incomplete` status
 
-An `incomplete` status occurs when a beneficial owner's identity scores are too low during the initial verification attempt. Dwolla will trigger a `customer_beneficial_owner_reverification_needed` event which notifies your application to prompt the Customer to [submit another identity verification attempt](https://docsv2.dwolla.com/#update-a-beneficial-owner) for the beneficial owner. The second attempt will give our identity vendor more accurate information in an attempt to receive a sufficient score to approve the beneficial owner. The Customer will only have one opportunity to correct any mistakes.
+An `incomplete` status occurs when a beneficial owner's identity scores are too low during the initial verification attempt. Dwolla will trigger a `customer_beneficial_owner_reverification_needed` event which notifies your application to prompt the Customer to [submit another identity verification attempt](https://docs.dwolla.com/#update-a-beneficial-owner) for the beneficial owner. The second attempt will give our identity vendor more accurate information in an attempt to receive a sufficient score to approve the beneficial owner. The Customer will only have one opportunity to correct any mistakes.
 
 **Please note:** you need to gather new information if the beneficial owner is placed into the `incomplete` status; simply passing the same information will result in the same insufficient scores. All fields that were required in the initial beneficial owner creation attempt will be required in the `incomplete` attempt.
 
@@ -409,7 +409,7 @@ Check the beneficial owner's status again. The beneficial owner will either be i
 
 ### Handling `document` status
 
-If a beneficial owner is not `verified`, the only other state the beneficial owner can be in is `document`. If the beneficial owner has a status of `document`, they will need to upload additional pieces of information in order to verify their identity. Use the [create a document](https://docsv2.dwolla.com/#beneficial-owners) endpoint when uploading a colored scan of the identifying document. The document(s) will then be reviewed by Dwolla; this review may take up to 1-2 business days to approve or reject.
+If a beneficial owner is not `verified`, the only other state the beneficial owner can be in is `document`. If the beneficial owner has a status of `document`, they will need to upload additional pieces of information in order to verify their identity. Use the [create a document](https://docs.dwolla.com/#beneficial-owners) endpoint when uploading a colored scan of the identifying document. The document(s) will then be reviewed by Dwolla; this review may take up to 1-2 business days to approve or reject.
 
 ### Determining verification `documents` needed
 

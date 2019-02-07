@@ -28,7 +28,7 @@ It is recommended to have an active webhook subscription to listen for Customer 
 
 ### Testing verification statuses in Sandbox:
 
-Dwolla’s Sandbox environment allows you to submit `verified`, `retry`, `document`, or `suspended` as the value of the firstName parameter to create a new verified Customer with their respective status. To simulate transitioning a verified Customer with a `retry` status to `verified`, you’ll need to call the [Update a Customer](https://docsv2.dwolla.com/#update-a-customer) endpoint and submit full identifying information with an updated firstName value and full SSN. To simulate transitioning a verified Customer with a `document` status to `verified` in the Sandbox, you’ll need to upload a test document as outlined in the [Testing in the Sandbox](https://developers.dwolla.com/resources/testing.html#simulate-document-upload-approved-and-failed-events) resource article.
+Dwolla’s Sandbox environment allows you to submit `verified`, `retry`, `document`, or `suspended` as the value of the firstName parameter to create a new verified Customer with their respective status. To simulate transitioning a verified Customer with a `retry` status to `verified`, you’ll need to call the [Update a Customer](https://docs.dwolla.com/#update-a-customer) endpoint and submit full identifying information with an updated firstName value and full SSN. To simulate transitioning a verified Customer with a `document` status to `verified` in the Sandbox, you’ll need to upload a test document as outlined in the [Testing in the Sandbox](https://developers.dwolla.com/resources/testing.html#simulate-document-upload-approved-and-failed-events) resource article.
 
 ## Handling status: `retry`
 
@@ -154,7 +154,7 @@ Check the Customer’s status again. The Customer will either be in the `verifie
 
 ## Handling status: `document`
 
-If the Customer has a status of `document`, the Customer will need to upload additional pieces of information in order to verify the account. The types of documents that are required will vary depending on if the user is created as a `personal` vs. `business` `verified Customer`. Use the [create a document](https://docsv2.dwolla.com/#create-a-document) endpoint when uploading a colored scan of the identifying document. The document(s) will then be reviewed by Dwolla; this review may take up to 1-2 business days to approve or reject.
+If the Customer has a status of `document`, the Customer will need to upload additional pieces of information in order to verify the account. The types of documents that are required will vary depending on if the user is created as a `personal` vs. `business` `verified Customer`. Use the [create a document](https://docs.dwolla.com/#create-a-document) endpoint when uploading a colored scan of the identifying document. The document(s) will then be reviewed by Dwolla; this review may take up to 1-2 business days to approve or reject.
 
 ### Document types
 
@@ -179,7 +179,7 @@ Other business documents that are applicable includes any US government entity (
 
 ### Determining verification documents needed
 
-When a Customer is placed in the `document` verification status, Dwolla will return a link in the API response after [retrieving a Customer](https://docsv2.dwolla.com/#retrieve-a-customer) which will be used by an application to determine if documentation is needed. For business `verified Customers`, different links can be returned depending on whether or not documents are needed for an authorized representative, the business, or both the authorized representative and business. Refer to the table below for the list of possible links and their description.
+When a Customer is placed in the `document` verification status, Dwolla will return a link in the API response after [retrieving a Customer](https://docs.dwolla.com/#retrieve-a-customer) which will be used by an application to determine if documentation is needed. For business `verified Customers`, different links can be returned depending on whether or not documents are needed for an authorized representative, the business, or both the authorized representative and business. Refer to the table below for the list of possible links and their description.
 
 | Link name | Description |
 |---------------|----------|

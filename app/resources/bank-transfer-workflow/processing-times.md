@@ -22,7 +22,7 @@ Let's illustrate movement of funds for a bank to bank transfer in the diagram be
 
 ## Bank to Dwolla (ACH Payment In)
 
-Transfers into the Dwolla network from a bank, including transfers that pass through the network (balance) to another Customer’s bank account, can be cancelled at any point until 4pm CT on that same business day if initiated prior to 4PM CT. If a transfer was initiated after 4pm CT, it can usually be cancelled anytime before 4pm CT on the following business day. To determine if a transfer is eligible for cancellation, Dwolla will return a cancel link on the [transfer resource](https://docsv2.dwolla.com/#cancel-a-transfer)
+Transfers into the Dwolla network from a bank, including transfers that pass through the network (balance) to another Customer’s bank account, can be cancelled at any point until 4pm CT on that same business day if initiated prior to 4PM CT. If a transfer was initiated after 4pm CT, it can usually be cancelled anytime before 4pm CT on the following business day. To determine if a transfer is eligible for cancellation, Dwolla will return a cancel link on the [transfer resource](https://docs.dwolla.com/#cancel-a-transfer)
 
 ![Transfer timing](/images/ACH_Next-Day.png "Dwolla ACH transfer timing, pay in")
 
@@ -33,7 +33,7 @@ Standard transfers from a bank to the Dwolla network will take 3-4 business days
 ##### ACH Payment In - Next-Day clearing
 
 Dwolla offers expedited clearing into the Dwolla network from a bank account. Using `next-day` transfers, funds will be made available in the Dwolla Network 1-2 business days after the transfer is created.
-Next-Day transfers are an account setting that can be enabled on account-level basis for you and users that send funds on your application. **After receiving proper approval from Dwolla, we will enable transfers into the Dwolla network as `next-day`.** In the case where you would want to slow down the availability of incoming funds to standard ACH, you will need to specify this in the API transfer request. To learn more on how to set transfers to the default standard processing, refer to the `clearing` object in our [API Reference Docs](https://docsv2.dwolla.com/#clearing-json-object).
+Next-Day transfers are an account setting that can be enabled on account-level basis for you and users that send funds on your application. **After receiving proper approval from Dwolla, we will enable transfers into the Dwolla network as `next-day`.** In the case where you would want to slow down the availability of incoming funds to standard ACH, you will need to specify this in the API transfer request. To learn more on how to set transfers to the default standard processing, refer to the `clearing` object in our [API Reference Docs](https://docs.dwolla.com/#clearing-json-object).
 
 <ol class = "alerts">
   <li class = "alert icon-alert-alert">
@@ -43,7 +43,7 @@ Next-Day transfers are an account setting that can be enabled on account-level b
 
 ## Dwolla network to bank (ACH Payment Out)
 
-Transfers out of the Dwolla network can be cancelled at any point until 4pm CT on that same business day if the transfer was initiated prior to 4PM CT. If a transfer was initiated after 4pm CT, it can usually be cancelled anytime before 4pm CT on the following business day. To determine if a transfer is eligible for cancellation, Dwolla will return a cancel link on the [transfer resource](https://docsv2.dwolla.com/#cancel-a-transfer)
+Transfers out of the Dwolla network can be cancelled at any point until 4pm CT on that same business day if the transfer was initiated prior to 4PM CT. If a transfer was initiated after 4pm CT, it can usually be cancelled anytime before 4pm CT on the following business day. To determine if a transfer is eligible for cancellation, Dwolla will return a cancel link on the [transfer resource](https://docs.dwolla.com/#cancel-a-transfer)
 
 ![Transfer timing](/images/ACH_Same-Day.png "Dwolla ACH transfer timing, pay out")
 

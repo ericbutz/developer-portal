@@ -14,11 +14,11 @@ In this experience, end users create their accounts entirely within your applica
 
 ## Step 1A. Obtain an application access token
 
-Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an [application access token](https://docsv2.dwolla.com/#application-authorization). An application access token can then be used to make calls to the API on behalf of your application.
+Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an [application access token](https://docs.dwolla.com/#application-authorization). An application access token can then be used to make calls to the API on behalf of your application.
 
 ## Step 1B. Create a Customer
 
-Create a Customer for each user you’d like to transfer funds to. At a minimum, provide the user’s full name, and email address to create the Customer. More detail is available in [API docs](https://docsv2.dwolla.com/#create-a-customer). For the purpose of this guide we'll be creating the `Unverified Customer` type, however if your use case doesn't require the need for your user to send funds then the `Receive-only Customer` type is recommended.
+Create a Customer for each user you’d like to transfer funds to. At a minimum, provide the user’s full name, and email address to create the Customer. More detail is available in [API docs](https://docs.dwolla.com/#create-a-customer). For the purpose of this guide we'll be creating the `Unverified Customer` type, however if your use case doesn't require the need for your user to send funds then the `Receive-only Customer` type is recommended.
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers
@@ -123,7 +123,7 @@ When the Customer is created, you’ll receive the Customer URL in the location 
 
 The next step is to attach a bank or credit union account to the Customer by providing the bank account’s routing number, account number, account type, and an arbitrary name.
 
-Funds transferred to this Customer will be automatically swept into the funding source. The example below shows sample bank information, but you will include actual routing, account, and bank name after prompting your customer for this information within your application. Possible values for `type` can be either “checking” or “savings”. More detail is available in [API docs](https://docsv2.dwolla.com/#create-a-funding-source-for-a-customer).
+Funds transferred to this Customer will be automatically swept into the funding source. The example below shows sample bank information, but you will include actual routing, account, and bank name after prompting your customer for this information within your application. Possible values for `type` can be either “checking” or “savings”. More detail is available in [API docs](https://docs.dwolla.com/#create-a-funding-source-for-a-customer).
 
 The created funding source URL is returned in the location header.
 

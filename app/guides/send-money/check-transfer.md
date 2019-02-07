@@ -13,7 +13,7 @@ description: You can check the status of the newly created transfer by retrievin
 
 You can check the status of the newly created transfer by retrieving the transfer by its URL.
 
-You can learn more about retrieving transfers in our [API Reference docs.](https://docsv2.dwolla.com/#retrieve-a-transfer)
+You can learn more about retrieving transfers in our [API Reference docs.](https://docs.dwolla.com/#retrieve-a-transfer)
 
 #### Request and response (view schema in 'raw')
 
