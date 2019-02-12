@@ -3,7 +3,7 @@ layout: twoColumn
 section: resources
 type: article
 title:  Customer types
-description: Use this page to understand the different features, customer types and ACH transfer processes. 
+description: Use this page to understand the different features, customer types and ACH transfer processes.
 ---
 # Customer types
 
@@ -14,7 +14,7 @@ A Dwolla API customer is created programmatically by your CIP verified Dwolla Ma
 | **Personal verified Customer** | Required | Yes | $5,000 per **transfer** | All Customer types |
 | **Business verified Customer** | Required | Yes | $10,000 per **transfer** | All Customer type |
 | **Unverified Customer** | Optional | No | $5,000 per **week** | Verified Customers, Dwolla Master Account |
-| **Receive-only Customer** | Optional | No | N/A | Verified Customers, Dwolla Master Account |
+| **Receive-only User** | Optional | No | N/A | Verified Customers, Dwolla Master Account |
 
 As you decide what Customer types to create for your application, a good thing to keep in mind is [Customer Identification Program (CIP) Verification](https://www.dwolla.com/updates/guide-to-cip-customer-identification-program-dwolla-payments-api/). Remember that regardless of your application type, a transfer between two parties requires that at least one party must be CIP verified. It is your decision about which party completes this process based on your business model. Your own Dwolla Master Account can count as a verified party. You may also consider having both parties complete CIP verification, as we also require CIP verification in order for a customer to hold funds in the Dwolla network in the form of a balance.
 
@@ -54,12 +54,12 @@ Unverified Customers have a default sending transaction limit of $5,000 per week
 
 As this Customer is not CIP verified, they will only be able to transact with verified Customers or your Dwolla Master Account.
 
-## Receive-only Customer
+## Receive-only User
 
-Receive-only Customers are restricted to payouts only funds flow. This Customer type maintains limited functionality in the API and is only eligible to receive transfers to an attached bank account. This Customer type can only interact with verified Customers and a Dwolla Master Account.
+Receive-only Users are restricted to payouts only funds flow. This user type maintains limited functionality in the API and is only eligible to receive transfers to an attached bank account. This user type can only interact with verified Customers and a Dwolla Master Account.
 
 <ol class="alerts">
    <li class="alert icon-alert-info">
-       Receive-only Customers cannot send funds back. If you need this Customer to send funds back for any reason, you may need to resolve this outside of the Dwolla network.
+       Receive-only Users cannot send funds back. If you need this user to send funds back for any reason, you may need to resolve this outside of the Dwolla network.
    </li>
 </ol>

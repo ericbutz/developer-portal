@@ -11,7 +11,7 @@ description: This method will give a user the ability to add and verify their ba
 
 # Step 5: Attach a verified funding source
 
-Next you will attach a verified funding source for Joe Buyer, which will be done using Instant Account Verification (IAV). This method will give Joe Buyer the ability to add and verify his bank account in a matter of seconds by authenticating with his online banking credentials. Once Joe Buyer reaches the page in your application to add a bank account you'll ask Dwolla’s server to [generate an IAV token](http://docsv2.dwolla.com/#generate-an-iav-token).
+Next you will attach a verified funding source for Joe Buyer, which will be done using Instant Account Verification (IAV). This method will give Joe Buyer the ability to add and verify his bank account in a matter of seconds by authenticating with his online banking credentials. Once Joe Buyer reaches the page in your application to add a bank account you'll ask Dwolla’s server to [generate an IAV token](http://docs.dwolla.com/#generate-an-iav-token).
 
 ##### Generate a single-use IAV token for our Customer, Joe Buyer:
 

@@ -18,7 +18,7 @@ Your application will exchange its `client_id`, `client_secret`, and `grant_type
 
 ## Step 1B. Create a Customer
 
-Create a Customer for each user you’d like to transfer funds to. At a minimum, provide the user’s full name, and email address to create the Customer. More detail is available in [API docs](https://docs.dwolla.com/#create-a-customer). For the purpose of this guide we'll be creating the `Unverified Customer` type, however if your use case doesn't require the need for your user to send funds then the `Receive-only Customer` type is recommended.
+Create a Customer for each user you’d like to transfer funds to. At a minimum, provide the user’s full name, and email address to create the Customer. More detail is available in [API docs](https://docs.dwolla.com/#create-a-customer). For the purpose of this guide we'll be creating the `Unverified Customer` type, however if your use case doesn't require the need for your user to send funds then the `Receive-only User` type is recommended.
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers
