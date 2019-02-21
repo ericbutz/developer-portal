@@ -39,7 +39,7 @@ To set up your Sandbox account, all we ask for is a valid email address. Once yo
 
 **Please note:** Failure to verify your email will result in a 401 HTTP status for all API calls with an error code of `InvalidAccountStatus`.
 
-After email verification, your Sandbox account will be created and you'll be redirected to our Sandbox Dashboard at `https://dashboard-sandbox.dwolla.com/`. Here you can view your API key and secret and [generate an OAuth access token](/resources/token-generator.html). Dwolla will also associate a funding source, add $5000 to the account balance, and create an application.
+After email verification, your Sandbox account will be created and you'll be redirected to our Sandbox Dashboard at `https://dashboard-sandbox.dwolla.com/`. Here you can view your API key and secret and generate an OAuth access token. Dwolla will also associate a funding source, add $5000 to the account balance, and create an application.
 
 <a href="https://accounts-sandbox.dwolla.com" target="_blank" class="btn secondary large">Create your Sandbox account</a>
 

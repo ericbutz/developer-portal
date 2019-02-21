@@ -119,7 +119,7 @@ request_body = {
   'ssn': '123-45-6789'
 }
 
-customer = app_token.post('customers', request_body)
+customer = app_token.post(customer_url, request_body)
 customer.body.id # => '132681fa-1b4d-4181-8ff2-619ca46235b1'
 ```
 
