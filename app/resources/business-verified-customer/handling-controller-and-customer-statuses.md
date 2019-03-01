@@ -186,7 +186,7 @@ request_body = {
   'ein': '12-3456789'
 }
 
-customer = app_token.post('customers', request_body)
+customer = app_token.post(customer_url, request_body)
 customer.body.id # => '62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 ```
 

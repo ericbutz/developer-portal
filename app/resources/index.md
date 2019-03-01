@@ -7,7 +7,6 @@ description: Use this page to understand the different features, customer types 
 <h1>Tools</h1>
 <ul class="icon-links">
     <li><a href="https://dashboard-sandbox.dwolla.com" target="_blank" class="icon-tools-sandbox">Sandbox Dashboard</a></li>
-    <li><a href="/resources/token-generator.html" class="icon-tools-token-generator js-track-link">Token generator</a></li>
     <li><a href="/resources/changelog.html" class="icon-tools-change-log">Change log</a></li>
     <li><a href="http://status.dwolla.com" target="_blank" class="icon-tools-status">Status</a></li>
 </ul>
