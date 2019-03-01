@@ -8,9 +8,15 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 
 <section class="change-log">
   <h1>Upcoming</h1>
-  <h3>2019-02-21</h3>
+  <h3>2019-03-01</h3>
   <h4><em>No upcoming changes</em></h4>
   <h1>Completed</h1>
+  <h3>2019-03-01</h3>
+  <h4><em>ADDED</em></h4>
+  <ul class="bullet">
+       <li>Added a new attribute called <code>traceId</code> to the <code>achDetails</code> object within the Transfer resource, which helps with further identifying a transfer to/from a user’s bank account.</li>
+       <li>Jump to our <a href = "https://docs.dwolla.com/#transfers"> API Docs</a> or view the full dev docs commit changes on our <a href = "https://github.com/Dwolla/v2-ach-api-docs"> Github</a>.</li>
+  </ul>
   <h3>2019-02-21</h3>
 	<h4><em>UPDATED</em></h4>
 	<ul class="bullet">
@@ -18,7 +24,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
     <li>Previously, applications made a call to https://www.dwolla.com/oauth/v2/token and specified the application/x-www-form-urlencoded Content-Type header, passing their client credentials (App Key and App Secret) through the body of the HTTP message sent to Dwolla.</li>
     <li>With this update, the token URL as well as the manner in which an application’s client credentials are sent to Dwolla, will change to be inline with OAuth spec.</li>
     <li>The new Dwolla token exchange endpoint is https://accounts.dwolla.com/token</li>
-    <li>Reference our <a href ="https://docs.dwolla.com/#application-authorization"> API Reference Docs </a>" to learn more.</li>
+    <li>Reference our <a href ="https://docs.dwolla.com/#application-authorization"> API Reference Docs </a> to learn more.</li>
   </ul>
 	<h3>2019-01-07</h3>
 	<h4><em>DEPRECATED</em></h4>
