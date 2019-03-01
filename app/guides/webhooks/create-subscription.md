@@ -11,7 +11,7 @@ description: Each application can have multiple subscriptions associated to it. 
 
 # Step 2: Create a webhook subscription
 
-Each application can have multiple subscriptions associated to it. While one subscription is sufficient, you can create as many as you want for redundancy.
+Each application can have multiple subscriptions associated to it. While one subscription is sufficient, you can create up to **ten** active webhook subscriptions in Sandbox, and up to **five** in Production at a time.
 
 To make the following request, we need to use the `access_token` we just previously obtained.
 
