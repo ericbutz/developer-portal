@@ -19,7 +19,7 @@ The client credentials flow is the simplest OAuth 2 grant, with a server-to-serv
 `Authorization: Basic Base64(client_id:client_secret)`
 
 ##### HTTP request
-`POST https://accounts.dwolla.com/token`
+`POST https://api.dwolla.com/token`
 
 Including the `Content-Type: application/x-www-form-urlencoded` header, the request is sent to the token endpoint with `grant_type=client_credentials` in the body of the request:
 
@@ -33,7 +33,7 @@ Including the `Content-Type: application/x-www-form-urlencoded` header, the requ
 #### Example request
 
 ```raw
-POST https://accounts-sandbox.dwolla.com/token
+POST https://api-sandbox.dwolla.com/token
 Authorization: Basic YkVEMGJMaEFhb0pDamplbmFPVjNwMDZSeE9Eb2pyOUNFUzN1dldXcXUyeE9RYk9GeUE6WEZ0bmJIbXR3dXEwNVI1Yk91WmVOWHlqcW9RelNSc21zUU5qelFOZUFZUlRIbmhHRGw=
 Content-Type: application/x-www-form-urlencoded
 

@@ -23,7 +23,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 		<li>Dwolla allows an application to request an access token using its Client Id and Client Secret by leveraging the Client Credentials OAuth grant type. Access tokens are used to make requests to the Dwolla API on behalf of an application and its users (customers).</li>
     <li>Previously, applications made a call to https://www.dwolla.com/oauth/v2/token and specified the application/x-www-form-urlencoded Content-Type header, passing their client credentials (App Key and App Secret) through the body of the HTTP message sent to Dwolla.</li>
     <li>With this update, the token URL as well as the manner in which an application’s client credentials are sent to Dwolla, will change to be inline with OAuth spec.</li>
-    <li>The new Dwolla token exchange endpoint is https://accounts.dwolla.com/token</li>
+    <li>The new Dwolla token exchange endpoint is https://api.dwolla.com/token</li>
     <li>Reference our <a href ="https://docs.dwolla.com/#application-authorization"> API Reference Docs </a> to learn more.</li>
   </ul>
 	<h3>2019-01-07</h3>
