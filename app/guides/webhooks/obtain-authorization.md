@@ -17,7 +17,7 @@ To generate an application access token, you'll need to initiate a POST request 
 
 #### Example request
 ```raw
-POST https://accounts-sandbox.dwolla.com/token
+POST https://api-sandbox.dwolla.com/token
 Authorization: Basic YkVEMGJMaEFhb0pDamplbmFPVjNwMDZSeE9Eb2pyOUNFUzN1dldXcXUyeE9RYk9GeUE6WEZ0bmJIbXR3dXEwNVI1Yk91WmVOWHlqcW9RelNSc21zUU5qelFOZUFZUlRIbmhHRGw=
 Content-Type: application/x-www-form-urlencoded
 
