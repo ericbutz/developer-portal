@@ -12,7 +12,9 @@ description: On-demand bank transfers are perfect for companies with usage-based
 ## Using Dwolla.js for On-demand bank transfers
 On-demand bank transfers allow Dwolla customers to receive variable totals from a payer’s bank account via an ACH transaction—perfect for companies with usage-based business models, such as utilities or advertising platforms. No other third-party gateways or merchant accounts required, just your Dwolla integration and payer authorization.
 
-This is application setting for your Dwolla Master Account. When enabled, the end user is presented with text on the bank selection screen within the IAV flow giving authorization to Dwolla for future variable payments.
+This is an application setting for your Dwolla Master Account. When enabled, the end user is presented with text on the bank selection screen within the IAV flow giving authorization to Dwolla for future variable payments. **Note:** On-demand payments come as part of our Dwolla API and requires additional approval before getting started. Please contact support@dwolla.com or your account manager for more information on enabling.
+
+
 
 ![Screenshot of On-demand](/images/OnDemandIAV.png "On-demand bank transfers")
 
