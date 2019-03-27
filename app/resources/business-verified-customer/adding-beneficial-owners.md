@@ -415,15 +415,15 @@ If a beneficial owner is not `verified`, the only other state the beneficial own
 
 #### US persons
 
-A scanned photo of the Beneficial Owner’s identifying document can be specified as documentType: `license` (state issued driver's license), or `idCard` (other U.S. government-issued photo id card).
+A color scanned photo of the Beneficial Owner’s identifying document can be specified as documentType: `license` (state issued driver's license), or `idCard` (other U.S. government-issued photo id card).
 
 #### Non-US persons
 
-A scanned photo of the Beneficial Owner’s identifying document can be specified as documentType: `passport`
+A color scanned photo of the Beneficial Owner’s identifying document can be specified as documentType: `passport`
 
 ### Uploading a document
 
-To upload a photo of the document, you’ll initiate a multipart form-data POST request from your backend server to the beneficial owners documents endpoint. The file must be either a .jpg, .jpeg, .png, .tif, or .pdf. Files must be no larger than 10MB in size.
+To upload a color photo of the document, you’ll initiate a multipart form-data POST request from your backend server to the beneficial owners documents endpoint. The file must be either a .jpg, .jpeg, .png, .tif, or .pdf. Files must be no larger than 10MB in size.
 
 You’ll also get a `beneficial_owner_verification_document_uploaded` event to let you know the document was successfully uploaded.
 

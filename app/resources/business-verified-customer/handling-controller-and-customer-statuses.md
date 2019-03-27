@@ -296,7 +296,7 @@ When a business verified Customer is placed in the `document` verification statu
 
 ##### Controllers
 
-A scanned photo of the Controller’s identifying document can be specified as documentType: `passport`, `license` (state issued driver's license), or `idCard` (other U.S. government-issued photo id card).
+A color scanned photo of the Controller’s identifying document can be specified as documentType: `passport`, `license` (state issued driver's license), or `idCard` (other U.S. government-issued photo id card).
 
 ##### Businesses
 
@@ -315,7 +315,7 @@ Other business documents that are applicable includes any US government entity (
 
 ### Uploading a document
 
-To upload a photo of the document, you’ll initiate a multipart form-data POST request from your backend server to `https://api.dwolla.com/customers/{id}/documents`. The file must be either a .jpg, .jpeg, .png, .tif, or .pdf. Files must be no larger than 10MB in size.
+To upload a color photo of the document, you’ll initiate a multipart form-data POST request from your backend server to `https://api.dwolla.com/customers/{id}/documents`. The file must be either a .jpg, .jpeg, .png, .tif, or .pdf. Files must be no larger than 10MB in size.
 
 You’ll also get a webhook with a `customer_verification_document_uploaded` event to let you know the document was successfully uploaded.
 
@@ -390,7 +390,7 @@ If the document was found to be fraudulent or doesn’t match the identity of th
 
 ### Document failure
 
-A document can fail if, for example, the Customer uploaded the wrong type of document or the `.jpg` or `.png` file supplied was not readable (i.e. blurry, not well lit, or cuts off a portion of the identifying image). If you receive a `customer_verification_document_failed` webhook, you’ll need to upload another document. To retrieve the failure reason for the document upload, you’ll retrieve the document by its ID. Contained in the response will be a `failureReason` which corresponds to one of the following values:
+A document can fail if, for example, the Customer uploaded the wrong type of document or the `.jpg` or `.png` file supplied was not readable (i.e. blurry, not well lit, not in color, or cuts off a portion of the identifying image). If you receive a `customer_verification_document_failed` webhook, you’ll need to upload another document. To retrieve the failure reason for the document upload, you’ll retrieve the document by its ID. Contained in the response will be a `failureReason` which corresponds to one of the following values:
 
 * `ScanNotReadable` - The photo was blurry, parts of the image were cut off, or the photo had glares on it preventing information from being read
 * `ScanNotUploaded` - A photo was uploaded, but it was not an ID
