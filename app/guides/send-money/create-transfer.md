@@ -4,15 +4,29 @@ section: guides
 type: guide
 guide:
     name: send-money
-    step: '3'
+    step: '4'
 title:  Creating an ACH transfer
 description: Create a transfer by specifying your funding source ID as the source and your Customer's funding source id as the destination.
 ---
-# Step 3: Create a transfer
+# Step 4: Initiating a transfer
 
-Create a transfer by specifying your Dwolla Master Account bank funding source as the `source` and the Customer bank funding source as the `destination`.
+Now that our user is onboarded and their funding source has been created, we’re ready to create a transfer to their bank account. In order to create the transfer, we’ll need Funding Source links that represent both the source and destination bank accounts. Your customer’s funding source URL should be stored from the previous step and retrieved on demand when creating the transfer. 
 
-You can learn more about initiating transfers in our [API Reference docs.](https://docs.dwolla.com/#initiate-a-transfer)
+## Identify Source and Destination Parties
+
+Since you are utilizing a `send` funds flow, you will need to ensure that you know exactly who will be receiving these funds.
+
+* Source - Your Dwolla Master Account Bank Funding Source
+* Destination - Your Customer’s Bank Funding Source
+
+## Step 4A: Initiate a Transfer
+
+To initiate a transfer, we will need to specify the funding source URL from in the `_links` parameter.
+
+| Parameter     | Required? | Type   | Description              |
+|---------------|-----------|--------|--------------------------|
+| _links        | yes       | object | A _links JSON object describing the desired source and destination of a transfer. |
+| amount        | yes       | object | An amount JSON object. |
 
 #### Request and response (view schema in 'raw')
 
@@ -135,7 +149,105 @@ print($transfer); # => https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e5
 ?>
 ```
 
+When the transfer is created, you will receive a `201` HTTP response with an empty response body. You can refer to the Location header to retrieve a link to the created Transfer resource. All bank transactions that are sourced from a bank or that are going to a bank will have an initial status of `pending`. We recommend storing the full Transfer URL for future use, as it will be needed for correlating transfer update webhooks that are triggered for the user in the Dwolla system.
+
+## Step 4B: Handle Webhooks
+
+A single API call to create a payment transfer can trigger several transfer-related webhook events. The number of webhooks and type of webhook events can vary depending on the Customer type(s) involved in the transfer, as well as the source and destination for the funds transfer.
+For more information on which webhooks will be fired for a given section of a transfer, refer to our [API Reference Docs](https://docs.dwolla.com/#events).
+
+## Step 4C: Simulate ACH Processing
+
+To simulate ACH processing in the Dwolla Sandbox environment, navigate to the Sandbox Dashboard. From here, you will want to click the “Process Bank Transfers” button on the top of the screen. Your Sandbox transfer will be moved out of a `pending` status and moved to a `processed` status.
+
+<img src="/images/process-bank-transfers.png">
+
+## Step 4D: Verify Status of Transfer
+
+Since ACH transactions can take a few days to complete, webhooks are an efficient way to notify you of when a transfer is completed and `processed` to a destination funding source. However, if you want to verify the status of a transfer at any given point in time, you can make a call to the API to retrieve the transfer by its unique id.
+
+```raw
+GET https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
+Accept: application/vnd.dwolla.v1.hal+json
+Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
+
+{
+  "_links": {
+    "cancel": {
+      "href": "https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388",
+      "type": "transfer"
+    },
+    "source": {
+      "href": "https://api-sandbox.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1",
+      "type": "account"
+    },
+    "funding-transfer": {
+      "href": "https://api-sandbox.dwolla.com/transfers/e73f5b8e-e458-e611-80e5-0aa34a9b2388",
+      "type": "transfer"
+    },
+    "self": {
+      "href": "https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388",
+      "type": "transfer"
+    },
+    "source-funding-source": {
+      "href": "https://api-sandbox.dwolla.com/funding-sources/5cfcdc41-10f6-4a45-b11d-7ac89893d985",
+      "type": "funding-source"
+    },
+    "destination": {
+      "href": "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747",
+      "type": "customer"
+    }
+  },
+  "id": "d76265cd-0951-e511-80da-0aa34a9b2388",
+  "status": "processed",
+  "amount": {
+    "value": "42.00",
+    "currency": "usd"
+  },
+  "created": "2015-09-01T19:08:55.500Z"
+}
+```
+
+```ruby
+transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
+
+# Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
+transfer = app_token.get transfer_url
+transfer.status # => "processed"
+```
+
+```javascript
+var transferUrl = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388';
+
+appToken
+  .get(transferUrl)
+  .then(function(res) {
+    res.body.status; // => 'processed'
+  });
+```
+
+```python
+transfer_url = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
+
+# Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
+fees = app_token.get(transfer_url)
+fees.body['status'] # => 'processed'
+```
+
+```php
+<?php
+$transferUrl = 'https://api.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388';
+
+$transfersApi = new DwollaSwagger\TransfersApi($apiClient);
+
+$transfer = $transfersApi->byId($transferUrl);
+print($transfer->status); # => "processed"
+?>
+```
+
+That’s it! You’ve successfully transferred money to a recipient. Please continue to the Webhooks guide for information on implementing notifications for your customers about the status of the transfer.
+
 <nav class="pager-nav">
     <a href="fetch-funding-sources.html">Back: Fetch funding sources</a>
-    <a href="check-transfer.html">Next: Check the transfer status</a>
+    <a href="/guides/webhooks">Next: Webhooks</a>
 </nav>

@@ -236,6 +236,7 @@ However, if the Customer was unable to be verified on the initial flow, they wil
 
 ***
 
-#### View
+#### Next Steps:
 
 * [Handling verification statuses](/resources/personal-verified-customer/handling-verification-statuses-personal.html)  for personal verified Customers.
+* [Frequently asked questions](/resources/personal-verified-customer/frequently-asked-questions.html) for personal verified Customers

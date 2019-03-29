@@ -171,6 +171,10 @@ When a Customer has a `recertify` beneficial ownership status, they will have up
 
 * * *
 
+#### Next steps
+
+* [Frequently Asked Questions](/resources/business-verified-customer/frequently-asked-questions.html)
+
 #### Review previous steps
 
 * [Creating business verified Customer](/resources/business-verified-customer/create-business-verified-customers.html)

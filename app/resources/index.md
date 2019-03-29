@@ -21,6 +21,10 @@ description: Use this page to understand the different features, customer types 
         <p>A walkthrough of the ACH transfer process, including transfer statuses and processing times.</p>
     </li>
     <li>
+        <h3><a href="/resources/balance-funding-source.html">Balance Funding Source</a></h3>
+        <p>The Dwolla Balance is a funding source available for Verified Customers and your Dwolla Master Account</p>
+    </li>
+    <li>
         <h3><a href="/resources/business-verified-customer.html">Business customer verification</a></h3>
         <p>Business identity verified customer account creation and how to respond when additional information is required.</p>
     </li>

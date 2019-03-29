@@ -552,6 +552,7 @@ To learn how to certify beneficial owners to your Customer, read on to our next 
 #### Next steps
 
 * [Certifying beneficial owners](/resources/business-verified-customer/handling-beneficial-owner-certification.html)
+* [Frequently Asked Questions](/resources/business-verified-customer/frequently-asked-questions.html)
 
 #### Review previous steps
 

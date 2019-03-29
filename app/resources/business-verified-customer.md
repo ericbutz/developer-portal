@@ -7,7 +7,7 @@ description: A business verified Customer represents a business that intends to 
 ---
 # Business Customer Verification
 
-This article will walk through the identity verification process for [business verified Customers](https://developers.dwolla.com/resources/account-types.html) within the Dwolla API. For more information on going live with the Dwolla Platform, please [contact sales](https://www.dwolla.com/contact).
+This article will walk through the identity verification process for [business verified Customers](https://developers.dwolla.com/resources/account-types.html) within the Dwolla API.
 
 ## The basics
 
@@ -51,6 +51,9 @@ Reference the steps below for guidance on getting your business verified Custome
 4. [**Certifying beneficial owner(s) information**](/resources/business-verified-customer/handling-beneficial-owner-certification.html)
  * Determine if you need to certify beneficial ownership for your Customer
  * Certify beneficial ownership
+5. [**Certifying beneficial owner(s) information**](/resources/business-verified-customer/frequently-asked-questions.html)
+ * A reference article to answer common questions about business verified Customers
+
 
 * * *
 
@@ -60,3 +63,4 @@ Reference the steps below for guidance on getting your business verified Custome
 * [Handling business verified Customer statuses](/resources/business-verified-customer/handling-controller-and-customer-statuses.html)
 * [Adding beneficial owners](/resources/business-verified-customer/adding-beneficial-owners.html)
 * [Certifying beneficial owner(s)](/resources/business-verified-customer/handling-beneficial-owner-certification.html)
+* [Frequently Asked Questions](/resources/business-verified-customer/frequently-asked-questions.html)
