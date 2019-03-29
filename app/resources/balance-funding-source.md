@@ -121,7 +121,7 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 account_url = 'https://api.dwolla.com/accounts/ca32853c-48fa-40be-ae75-77b37504581b'
 
 funding_sources = app_token.get "#{account_url}/funding-sources"
-funding_sources._embedded['funding-sources'][0].name # => "Jane Doe's Checking"
+funding_sources._embedded['funding-sources'][1].name # => "Balance"
 ```
 
 ```javascript
@@ -129,7 +129,7 @@ var accountUrl = 'https://api-sandbox.dwolla.com/accounts/ca32853c-48fa-40be-ae7
 
 appToken
   .get(`${accountUrl}/funding-sources`)
-  .then(res => res.body._embedded['funding-sources'][0].name); // => 'ABC Bank Checking'
+  .then(res => res.body._embedded['funding-sources'][1].name); // => 'Balance'
 ```
 
 ```python
@@ -137,7 +137,7 @@ appToken
 account_url = 'https://api.dwolla.com/accounts/ca32853c-48fa-40be-ae75-77b37504581b'
 
 funding_sources = app_token.get('%s/funding-sources' % account_url)
-funding_sources.body['_embedded']['funding-sources'][0]['name'] # => 'Jane Doe’s Checking'
+funding_sources.body['_embedded']['funding-sources'][1]['name'] # => 'Balance'
 ```
 
 ```php
@@ -147,7 +147,7 @@ $accountUrl = 'https://api.dwolla.com/accounts/ca32853c-48fa-40be-ae75-77b375045
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
 
 $fundingSources = $fsApi->getAccountFundingSources($accountUrl);
-$fundingSources->_embedded->{'funding-sources'}[0]->name; # => "Jane Doe’s Checking"
+$fundingSources->_embedded->{'funding-sources'}[1]->name; # => "Balance"
 ?>
 ```
 
@@ -226,7 +226,7 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 customer_url = 'https://api-sandbox.dwolla.com/customers/5b29279d-6359-4c87-a318-e09095532733'
 
 funding_sources = app_token.get "#{customer_url}/funding-sources"
-funding_sources._embedded['funding-sources'][0].name # => "Jane Doe’s Checking"
+funding_sources._embedded['funding-sources'][0].name # => "Balance"
 ```
 
 ```javascript
@@ -234,7 +234,7 @@ var customerUrl = 'https://api-sandbox.dwolla.com/customers/5b29279d-6359-4c87-a
 
 appToken
   .get(`${customerUrl}/funding-sources`)
-  .then(res => res.body._embedded['funding-sources'][0].name); // => 'Jane Doe’s Checking'
+  .then(res => res.body._embedded['funding-sources'][0].name); // => 'Balance'
 ```
 
 ```python
@@ -242,7 +242,7 @@ appToken
 customer_url = 'https://api-sandbox.dwolla.com/customers/5b29279d-6359-4c87-a318-e09095532733'
 
 funding_sources = app_token.get('%s/funding-sources' % customer_url)
-funding_sources.body['_embedded']['funding-sources'][0]['name'] # => 'Jane Doe’s Checking'
+funding_sources.body['_embedded']['funding-sources'][0]['name'] # => 'Balance'
 ```
 
 ```php
@@ -252,7 +252,7 @@ $customerUrl = 'https://api-sandbox.dwolla.com/customers/5b29279d-6359-4c87-a318
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
 
 $fundingSources = $fsApi->getCustomerFundingSources($customerUrl);
-$fundingSources->_embedded->{'funding-sources'}[0]->name; # => "Jane Doe’s Checking"
+$fundingSources->_embedded->{'funding-sources'}[0]->name; # => "Balance"
 ?>
 ```
 
