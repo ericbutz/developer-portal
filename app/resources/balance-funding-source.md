@@ -9,9 +9,9 @@ description: The Dwolla balance is made available for account types that have co
 
 ## Overview
 
-There are two types of [Funding Sources](https://docs.dwolla.com/#funding-sources) available within the Dwolla Platform which include a bank or a balance. A bank account is commonly used as the source or destination for ACH transfers. A `balance` is a Funding Source that can be utilized like a “wallet” for holding a stored value of USD funds. The Dwolla balance is made available for account types that have completed [“KYC” requirements](https://www.dwolla.com/updates/guide-customer-identification-program-payments-api/), which includes customers of Dwolla and their end users that have been on-boarded as [Verified Customers](https://developers.dwolla.com/resources/account-types.html#verified-customer).
-  
-What makes the Dwolla balance useful in relation to the platform is that the funds live within the Dwolla network. This means the Dwolla balance acts as a funding source associated directly with each Customer within your application.  This funding source can only be accessed within your application by the end user, and you must provide an easily accessible and accurate summary of the transfer history for the Customer’s balance.
+There are two types of [Funding Sources](https://docs.dwolla.com/#funding-sources) available within the Dwolla Platform which include a bank or a Dwolla balance. A bank account is commonly used as the source or destination for ACH transfers. The Dwolla `balance` is a Funding Source that can be utilized like a “wallet” for holding a stored value of USD funds. The Dwolla balance is made available for account types that have completed [“KYC” requirements](https://www.dwolla.com/updates/guide-customer-identification-program-payments-api/), which includes customers of Dwolla and their end users that have been on-boarded as [Verified Customers](https://developers.dwolla.com/resources/account-types.html#verified-customer).
+
+What makes the Dwolla balance useful in relation to the platform is that the funds are held within the Dwolla network. This means the Dwolla balance acts as a funding source associated directly with each Verified Customer within your application.  This funding source can only be accessed from your application by the end user, and you must provide an easily accessible and accurate summary of the available balance and transfer history for the Customer’s Dwolla balance.
 
 ## Functionality and Benefits
 
@@ -19,10 +19,10 @@ The Dwolla balance allows for greater flexibility for your desired funds flow an
 
 ### Transfers
 
-As a funding source, you can use the balance to:
+As a funding source, you can use the Dwolla balance to:
 
-* Receive funds from a bank funding source into the Dwolla Balance
-* Send funds from the Dwolla Balance into a bank funding source
+* Receive funds from a bank funding source into the Dwolla Balance 
+* Send funds from the Dwolla Balance into a bank funding source 
 * Make instant payment transfers between two Dwolla Balance funding sources
 * Hold funds in a Dwolla Balance
 
@@ -30,7 +30,7 @@ To learn more about how to initiate transfers with the Dwolla API, check out [ou
 
 ### Balance Transfer Timing
 
-In production, transfer timing will vary depending on whether the balance is specified as the `source` or `destination` of the bank transfer. If transferring between two balance funding sources, the funds will settle instantly. 
+In production, transfer timing will vary depending on whether the balance is specified as the `source` or `destination` of the bank transfer. If transferring between two balance funding sources, the funds will transfer instantly. 
 
 | Bank to Balance   | Balance to Bank   | Balance to Balance |
 |-------------------|-------------------|--------------------|
@@ -258,8 +258,7 @@ $fundingSources->_embedded->{'funding-sources'}[0]->name; # => "Balance"
 
 ### Check the Balance Amount
 
-The Dwolla balance also entails a feature in which you can check the value of the balance at any given time. Being able to know the amount of funds in your balance is necessary information to have prior to sending funds. You must also be able to show the available balance at all times within your application to your Customers.
-Check out our [API Reference Docs to learn more](https://docs.dwolla.com/#retrieve-a-funding-source-balance).
+The Dwolla balance also entails a feature in which you can check the value of the balance at any given time. Being able to know the amount of funds in your balance is necessary information to have prior to sending funds. You must also be able to show the available balance at all times within your application to your Verified Customers. Check out our [API Reference Docs](https://docs.dwolla.com/#retrieve-a-funding-source-balance) to learn more.
 
 ##### Example request and response
 
@@ -325,6 +324,14 @@ $fundingSource = $fsApi->getBalance($fundingSourceUrl);
 
 The amount in a Dwolla balance can be adjusted when a bank transfer failure occurs. In a transaction, if funds fail to process to a destination bank, they will be sent back to a Dwolla Balance.
 
+Funds can also be pulled from a balance funding source in a transfer failure. In the case of transfer failure, funds may be pulled out of a Dwolla balance to fund the transfer. In this case, responsibility falls on the Client to bring the transfer balance back to zero.
+
+<ol class = "alerts">
+    <li class="alert icon-alert-info">
+        Dwolla reserves the right to pull funds from the Client’s attached funding sources to make Client’s or any Verified Customer’s negative balance back to zero.
+    </li>
+</ol>
+
 ### Transfer failure example
 
 Let’s illustrate a transfer failure with an example:
@@ -332,8 +339,7 @@ Let’s illustrate a transfer failure with an example:
 * Source - Dwolla Master Account’s Bank Funding Source
 * Destination  - Receive-only User’s Bank Funding Source
 
-In this example, our Receive-only User closes down their bank account while the transaction is still in-flight and in a `pending` status.
+In this example, our Receive-only User closes down their bank account while the transaction is still in-flight and in a `pending` status 
+Rather than the funds clearing to their now-closed bank account, an ACH return will be triggered which pushes these funds back to the Dwolla Master Account  balance funding source. It is then up to you on whether your application will prompt your user to add another bank or to make payment to the Receive-Only User outside of Dwolla.
 
-Rather than the funds clearing to their now-closed bank account, an ACH return will be triggered which pushes these funds back to the Dwolla Master Account  balance funding source. It is then up to you on whether your application will  prompt your user to add another bank, or to return the funds to the source party’s bank account.
-
-For more information on possible transfer failure scenarios and the Return Codes associated with each, check out our [Transfer Failures](https://developers.dwolla.com/resources/bank-transfer-workflow/transfer-failures.html) developer resources article.
+For more information on possible transfer failure scenarios and the Return Codes associated with each, check out our [Transfer Failures developer resources article](https://developers.dwolla.com/resources/bank-transfer-workflow/transfer-failures.html).
