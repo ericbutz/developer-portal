@@ -47,7 +47,7 @@ description: Frequently asked questions for personal verified Customers
 + Your Customer is able to send multiple separate transfers as long as each transfer amount is less than the transfer limit defined in your services agreement.
 
       >Example Scenario: The transaction limit for my Customer is $10,000 and they need to send $15,000.  
-      In this case, you can encourage your Customer to send two transfers. One for $10,000 and another for $5,000.  
+      In this case, you can prompt your Customer to send two transfers. One for $10,000 and another for $5,000.  
 
 * * *
 

@@ -32,7 +32,7 @@ In this step, we will be adding a bank account to our receive-only user by colle
 
 <ol class = "alerts">
     <li class="alert icon-alert-alert">
-        For more information on securely submitting a user’s bank details directly to Dwolla from the client-side of your application, reference our helper library dwolla.js.
+        For more information on securely submitting a user’s bank details directly to Dwolla from the client-side of your application, reference our [helper library dwolla.js](/resources/dwolla-js/add-a-bank-account.html).
     </li>
 </ol>
 

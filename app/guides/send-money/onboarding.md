@@ -10,7 +10,7 @@ description: End users create their accounts entirely within your application Dw
 ---
 # Step 1: Create recipients using the Dwolla API
 
-## Choose the Customer Type for your Receipient
+## Choose the Customer Type for your Recipient
 
 Before your end user can receive funds to their connected bank account, they must be created as a Customer via the Dwolla API. The ability to send funds to end users is very flexible in that all Customer types can be used to leverage this funds flow. To learn more about the different types of Customers and the capabilities of each, [check out our developer resource article.](https://developers.dwolla.com/resources/account-types.html)
 
@@ -116,7 +116,7 @@ When the Customer is successfully created on your application, you will receive 
 
 ## Step 1B. Handle Webhooks
 
-If you have an active webhook subscription, you will receive the `customer_created` webhook immediately after the resource has been created.
+If you have an active [webhook subscription](/guides/webhooks/create-subscription.html), you will receive the `customer_created` webhook immediately after the resource has been created.
 
 <nav class="pager-nav">
     <a href="./">Back: Overview</a>

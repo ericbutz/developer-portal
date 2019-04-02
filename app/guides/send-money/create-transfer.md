@@ -10,7 +10,7 @@ description: Create a transfer by specifying your funding source ID as the sourc
 ---
 # Step 4: Initiating a transfer
 
-Now that our user is onboarded and their funding source has been created, we’re ready to create a transfer to their bank account. In order to create the transfer, we’ll need Funding Source links that represent both the source and destination bank accounts. Your customer’s funding source URL should be stored from the previous step and retrieved on demand when creating the transfer. 
+Now that our user is onboarded and their funding source has been created, we’re ready to create a transfer to their bank account. In order to create the transfer, we’ll need Funding Source links that represent both the source and destination bank accounts. Your customer’s funding source URL should be stored from the previous step and retrieved on demand when creating the transfer.
 
 ## Identify Source and Destination Parties
 
@@ -154,7 +154,7 @@ When the transfer is created, you will receive a `201` HTTP response with an emp
 ## Step 4B: Handle Webhooks
 
 A single API call to create a payment transfer can trigger several transfer-related webhook events. The number of webhooks and type of webhook events can vary depending on the Customer type(s) involved in the transfer, as well as the source and destination for the funds transfer.
-For more information on which webhooks will be fired for a given section of a transfer, refer to our [API Reference Docs](https://docs.dwolla.com/#events).
+For more information on which webhooks will be fired, refer to our [API Reference Docs](https://docs.dwolla.com/#events).
 
 ## Step 4C: Simulate ACH Processing
 
