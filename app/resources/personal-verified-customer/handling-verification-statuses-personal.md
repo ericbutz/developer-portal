@@ -360,6 +360,10 @@ If the Customer is `suspended`, there’s no further action you can take to corr
 
 ***
 
-View
+#### Next steps:
+
+* [Frequently asked questions](/resources/personal-verified-customer/frequently-asked-questions.html) for personal verified Customers
+
+#### View previous steps:
 
 * [Personal verified Customers](/resources/personal-verified-customer/create-personal-verified-customers.html) creation and verification.

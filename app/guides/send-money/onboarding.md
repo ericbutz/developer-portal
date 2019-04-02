@@ -6,19 +6,28 @@ guide:
     step: '1'
 type: guide
 title:  Onboarding a customer with Dwolla's API
-description: End users create their accounts entirely within your application and you prompt for their bank or credit union account information. Dwolla will securely store this sensitive information.
+description: End users create their accounts entirely within your application Dwolla will securely store this sensitive information.
 ---
 # Step 1: Create recipients using the Dwolla API
 
-In this experience, end users create their accounts entirely within your application and you prompt for their bank or credit union account information. Dwolla will securely store this sensitive information.
+## Choose the Customer Type for your Recipient
 
-## Step 1A. Obtain an application access token
+Before your end user can receive funds to their connected bank account, they must be created as a Customer via the Dwolla API. The ability to send funds to end users is very flexible in that all Customer types can be used to leverage this funds flow. To learn more about the different types of Customers and the capabilities of each, [check out our developer resource article.](https://developers.dwolla.com/resources/account-types.html)
 
-Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an [application access token](https://docs.dwolla.com/#application-authorization). An application access token can then be used to make calls to the API on behalf of your application.
+## Step 1A. Create the Customer
 
-## Step 1B. Create a Customer
+While you can use any Customer type for this funds flow, we will be creating a `receive-only` user in this guide, as it offers a lightweight onboarding experience for users. Just as the name implies, receive-only users are only eligible to receive funds into their attached bank account.
 
-Create a Customer for each user you’d like to transfer funds to. At a minimum, provide the user’s full name, and email address to create the Customer. More detail is available in [API docs](https://docs.dwolla.com/#create-a-customer). For the purpose of this guide we'll be creating the `Unverified Customer` type, however if your use case doesn't require the need for your user to send funds then the `Receive-only User` type is recommended.
+#### Request Parameters - Receive-only User
+
+| Parameter     | Required? | Type   | Description              |
+|---------------|-----------|--------|--------------------------|
+| firstName     | yes       | string | Customer's first name    |
+| lastName      | yes       | string | Customer's last name     |
+| email         | yes       | string | Customer's email address |
+| type          | yes       | string | Value of `receive-only`  |
+| businessName  | no        | string | Customer's registered business name (optional if not a business entity) |
+| ipAddress     | no        | string | Customer's IP address    |
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers
@@ -29,6 +38,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
   "firstName": "Jane",
   "lastName": "Merchant",
   "email": "jmerchant@nomail.net",
+  "type": "receive-only",
   "ipAddress": "99.99.99.99"
 }
 
@@ -41,6 +51,7 @@ request_body = {
   :firstName => 'Jane',
   :lastName => 'Merchant',
   :email => 'jmerchant@nomail.net',
+  :type => 'receive-only',
   :ipAddress => '99.99.99.99'
 }
 
@@ -54,6 +65,7 @@ var requestBody = {
   firstName: 'Jane',
   lastName: 'Merchant',
   email: 'jmerchant@nomail.net',
+  type: 'receive-only',
   ipAddress: '99.99.99.99'
 };
 
@@ -69,6 +81,7 @@ request_body = {
   'firstName': 'Jane',
   'lastName': 'Merchant',
   'email': 'jmerchant@nomail.net',
+  'type': 'receive-only',
   'ipAddress': '99.99.99.99'
 }
 
@@ -85,6 +98,7 @@ $customer = $customersApi->create([
   'firstName' => 'Jane',
   'lastName' => 'Merchant',
   'email' => 'jmerchant@nomail.net',
+  'type' => 'receive-only'
   'ipAddress' => '99.99.99.99'
 ]);
 
@@ -92,120 +106,19 @@ print($customer); # => "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4
 ?>
 ```
 
-```java
-CustomersApi cApi = new CustomersApi(a);
-
-CreateCustomer newCustomerData = new CreateCustomer();
-
-myNewCust.setFirstName("Jane");
-myNewCust.setLastName("Merchant");
-myNewCust.setEmail("jmerchant@nomail.net");
-myNewCust.setIpAddress("99.99.99.99");
-
-try {
-    Unit$ r = cApi.create(myNewCust);
-    System.out.println(r.getLocationHeader()); // => https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747
-}
-catch (Exception e) {
-    System.out.println("Something's up!");
-}
-```
-
-When the Customer is created, you’ll receive the Customer URL in the location header.
-
 <ol class = "alerts">
     <li class="alert icon-alert-alert">
       Provide the IP address of the end-user accessing your application as the `ipAddress` parameter. This enhances fraud detection and tracking.
     </li>
 </ol>
 
-### Step 1C. Attach a funding source to the Customer
+When the Customer is successfully created on your application, you will receive a `201` HTTP response with an empty response body. You can reference the Location header to retrieve a link that represents the created Customer resource. We recommend storing the full URL for future use, as it will be needed for actions such as attaching a bank or correlating webhooks that are triggered for the user in the Dwolla system.
 
-The next step is to attach a bank or credit union account to the Customer by providing the bank account’s routing number, account number, account type, and an arbitrary name.
+## Step 1B. Handle Webhooks
 
-Funds transferred to this Customer will be automatically swept into the funding source. The example below shows sample bank information, but you will include actual routing, account, and bank name after prompting your customer for this information within your application. Possible values for `type` can be either “checking” or “savings”. More detail is available in [API docs](https://docs.dwolla.com/#create-a-funding-source-for-a-customer).
-
-The created funding source URL is returned in the location header.
-
-```raw
-POST https://api.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747/funding-sources
-Content-Type: application/vnd.dwolla.v1.hal+json
-Accept: application/vnd.dwolla.v1.hal+json
-Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
-{
-    "routingNumber": "222222226",
-    "accountNumber": "123456789",
-    "bankAccountType": "checking",
-    "name": "Jane Merchant - Checking 6789"
-}
-
-HTTP/1.1 201 Created
-Location: https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31
-```
-
-```ruby
-customer_url = 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747'
-request_body = {
-  routingNumber: '222222226',
-  accountNumber: '123456789',
-  bankAccountType: 'checking',
-  name: 'Jane Merchant - Checking 6789'
-}
-
-# Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-funding_source = app_token.post "#{customer_url}/funding-sources", request_body
-funding_source.response_headers[:location] # => "https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31"
-
-```
-
-```javascript
-var customerUrl = 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747';
-var requestBody = {
-  'routingNumber': '222222226',
-  'accountNumber': '123456789',
-  'bankAccountType': 'checking',
-  'name': 'Jane Merchant - Checking 6789'
-};
-
-appToken
-  .post(`${customerUrl}/funding-sources`, requestBody)
-  .then(function(res) {
-    res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
-  });
-```
-
-```python
-customer_url = 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747'
-request_body = {
-  'routingNumber': '222222226',
-  'accountNumber': '123456789',
-  'bankAccountType': 'checking',
-  'name': 'Jane Merchant - Checking 6789'
-}
-
-# Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-customer = app_token.post('%s/funding-sources' % customer_url, request_body)
-customer.headers['location'] # => 'https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31'
-
-```
-
-```php
-<?php
-$fundingApi = new DwollaSwagger\FundingsourcesApi($apiClient);
-
-$new_fs = $fundingApi->createCustomerFundingSource([
-  "routingNumber" => "222222226",
-  "accountNumber" => "123456789",
-  "bankAccountType" => "checking",
-  "name" => "Jane Merchant - Checking 6789"
-  ], "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747"
-);
-
-print($new_fs); # => https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7-db7d2f6ffb31
-?>
-```
+If you have an active [webhook subscription](/guides/webhooks/create-subscription.html), you will receive the `customer_created` webhook immediately after the resource has been created.
 
 <nav class="pager-nav">
     <a href="./">Back: Overview</a>
-    <a href="fetch-funding-sources.html">Next: Fetch funding sources</a>
+    <a href="add-funding-source.html">Next: Add funding source</a>
 </nav>

@@ -4,27 +4,27 @@ section: guides
 type: guide
 guide:
     name: send-money
-    step: '2'
-title:  Fetch funding sources
+    step: '3'
+title:  Retrieve funding sources
 description: After creating a Customer and associated its funding source, you can initiate your first transfer.
 ---
-# Step 2: Fetch funding sources
+# Step 3: Retrieve funding sources
 
 Now that you’ve created a Customer and associated its funding source, you are close to being able to initiate your first transfer. The transfer requires the following information:
 
-- The funding source to pull the funds from (your linked bank account)
-- The recipient to push the funds to
+* The funding source to pull the funds from (a bank attached to your Dwolla Master Account)
+* The funding source to push the funds to (a bank attached to your created Customer)
 
-Dwolla uses URLs to represent relations between resources. Therefore, you’ll need to provide the full URL of the funding source and recipient.
+Dwolla uses URLs to represent relations between resources. Therefore, you’ll need to provide the full URL of the funding source when creating the transfer.
 
-## Fetch your Account's list of available funding sources
+## Step 3A: Retrieve your Dwolla Master Account's list of available Funding Sources
 
-Use the [list an account's funding sources](https://docs.dwolla.com/#list-funding-sources-for-an-account) endpoint to fetch a list of your own funding sources. You'll need your account URL which can be retrieved by calling [the Root](https://docs.dwolla.com/#root) of the API.
+Use the [list an account’s funding sources endpoint](https://docs.dwolla.com/#list-funding-sources-for-an-account) to fetch a list of your own funding sources. You’ll need your account URL which can be retrieved by calling [the Root](https://docs.dwolla.com/#root) of the API.
 
-#### Request and response (view schema in 'raw')
+#### Request and Response (view schema in `raw`)
 
 ```raw
-GET https://api-sandbox.dwolla.com/accounts/4BB512E4-AD4D-4F7E-BFD0-A232007F21A1/funding-sources
+GET https://api-sandbox.dwolla.com/accounts/4BB512E4-AD4D-4F7E-BFD0-A232007F21A1/funding-sources?removed=false
 Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 
@@ -78,7 +78,7 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 account_url = 'https://api.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-funding_sources = app_token.get "#{account_url}/funding-sources"
+funding_sources = app_token.get "#{account_url}/funding-sources?removed=false"
 funding_sources._embedded['funding-sources'][0].name # => "ABC Bank Checking"
 ```
 
@@ -86,7 +86,7 @@ funding_sources._embedded['funding-sources'][0].name # => "ABC Bank Checking"
 var accountUrl = 'https://api-sandbox.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1';
 
 appToken
-  .get(`${accountUrl}/funding-sources`)
+  .get(`${accountUrl}/funding-sources?removed=false`)
   .then(function(res) {
     res.body._embedded['funding-sources'][0].name; // => 'ABC Bank Checking'
   });
@@ -96,9 +96,8 @@ appToken
 account_url = 'https://api.dwolla.com/accounts/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-funding_sources = app_token.get('%s/funding-sources' % account_url)
+funding_sources = app_token.get('%s/funding-sources?removed=false' % account_url)
 funding_sources.body['_embedded']['funding-sources'][0]['name'] # => 'ABC Bank Checking'
-
 ```
 
 ```php
@@ -107,17 +106,19 @@ $accountUrl = 'https://api.dwolla.com/accounts/4BB512E4-AD4D-4F7E-BFD0-A232007F2
 
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
 
-$fundingSources = $fsApi->getAccountFundingSources($accountUrl);
+$fundingSources = $fsApi->getAccountFundingSources($accountUrl, $removed = false);
 # Access desired information in response object fields
 print($fundingSources->_embedded) # => PHP associative array of _embedded contents in schema
 ?>
 ```
 
-## Fetch your Customer's list of available funding sources
+When the funding sources list is successfully retrieved, you will receive a `200` HTTP response with the details of each funding source. After retrieving your list of funding sources, we recommend storing the full URL for future use as it will be referenced when creating the transfer to your user’s bank account.
 
-Use the [list an Customer's funding sources](https://docs.dwolla.com/#list-funding-sources-for-a-customer) endpoint to fetch a list of your own funding sources. You'll need the Customer URL which can be [retrieved from the API.](https://docs.dwolla.com/#list-and-search-customers)
+## Step 3B: Fetch your Customer's list of available funding sources
 
-#### Request and response (view schema in 'raw')
+Use the [list an Customer’s funding sources](https://docs.dwolla.com/#list-funding-sources-for-a-customer) endpoint to fetch a list of your own funding sources. You’ll need the Customer URL which can be [retrieved from the API.](https://docs.dwolla.com/#list-and-search-customers)
+
+#### Request and Response (view schema in `raw`)
 
 ```raw
 GET https://api-sandbox.dwolla.com/customers/4BB512E4-AD4D-4F7E-BFD0-A232007F21A1/funding-sources
@@ -194,7 +195,6 @@ customers_url = 'https://api.dwolla.com/customers/4bb512e4-ad4d-4f7e-bfd0-a23200
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
 funding_sources = app_token.get('%s/funding-sources' % customer_url)
 funding_sources.body['_embedded']['funding-sources'][0]['name'] # => 'ABC Bank Checking'
-
 ```
 
 ```php
@@ -209,7 +209,9 @@ print($fundingSources->_embedded) # => PHP associative array of _embedded conten
 ?>
 ```
 
+When the funding sources are successfully retrieved, you will receive a `200` HTTP response with the details of the funding sources. After retrieving the funding sources, we recommend storing the full URL for future use as it will be referenced when creating the transfer to this user’s bank account.
+
 <nav class="pager-nav">
-    <a href="/guides/send-money/onboarding.html">Back: Customer onboarding</a>
+    <a href="add-funding-source.html">Back: Add funding source</a>
     <a href="create-transfer.html">Next: Create a transfer</a>
 </nav>

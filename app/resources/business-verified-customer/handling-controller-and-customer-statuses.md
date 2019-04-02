@@ -473,6 +473,7 @@ To learn how to add beneficial owner(s) to your Customer, read on to our [next a
 
 * [Adding beneficial owner(s)](/resources/business-verified-customer/adding-beneficial-owners.html)
 * [Certifying beneficial owner(s)](/resources/business-verified-customer/handling-beneficial-owner-certification.html)
+* [Frequently Asked Questions](/resources/business-verified-customer/frequently-asked-questions.html)
 
 #### Review previous steps
 
