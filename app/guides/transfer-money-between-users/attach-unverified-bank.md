@@ -16,7 +16,7 @@ Next, we’ll add Jane Merchant’s bank or credit union account as an unverifie
 The example below shows sample bank information, but you will include actual bank name, routing, and account numbers after prompting your customer for this information within your application. Possible values for `bankAccountType` can be either “checking” or “savings”. More detail is available in [API docs](https://docs.dwolla.com/#create-a-funding-source-for-a-customer).
 
 ```raw
-POST https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C/funding-sources
+POST https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5/funding-sources
 Content-Type: application/vnd.dwolla.v1.hal+json
 Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
@@ -32,7 +32,7 @@ Location: https://api-sandbox.dwolla.com/funding-sources/375c6781-2a17-476c-84f7
 ```
 
 ```ruby
-customer_url = 'https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C'
+customer_url = 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 request_body = {
   routingNumber: '222222226',
   accountNumber: '123456789',
@@ -46,7 +46,7 @@ funding_source.response_headers[:location] # => "https://api-sandbox.dwolla.com/
 ```
 
 ```javascript
-var customerUrl = 'https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C';
+var customerUrl = 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5';
 var requestBody = {
   'routingNumber': '222222226',
   'accountNumber': '123456789',
@@ -60,7 +60,7 @@ appToken
 ```
 
 ```python
-customer_url = 'https://api-sandbox.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C'
+customer_url = 'https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5'
 request_body = {
   'routingNumber': '222222226',
   'accountNumber': '123456789',
@@ -77,7 +77,7 @@ customer.headers['location'] # => 'https://api-sandbox.dwolla.com/funding-source
 <?php
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
 
-$customer = 'https://api.dwolla.com/customers/AB443D36-3757-44C1-A1B4-29727FB3111C/funding-sources'
+$customer = 'https://api.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5/funding-sources'
 $new_fs = $fsApi->createCustomerFundingSource(array (
   'routingNumber' => '222222226',
   'accountNumber' => '123456789',
