@@ -140,9 +140,9 @@ Below is a table of the most common return codes we see involved in transactions
 | R06 | Returned per ODFI’s Request                              | No | No |
 | R07 | Authorization Revoked by Customer                        | Yes | Yes |
 | R08 | Payment Stopped                                          | Yes | Yes |
-| R09 | Uncollected Funds                                        | No | Yes |
+| R09 | Uncollected Funds                                        | No | No |
 | R10 | Customer Advises Not Authorized, Improper, or Ineligible | Yes | Yes |
-| R16 | Bank Account Frozen                                      | No | No |
+| R16 | Bank Account Frozen                                      | Yes | Yes |
 | R20 | Non-Transaction Account                                  | Yes | Yes |
 | R23 | Credit Entry Refused by Receiver                         | No | Yes |
 | R29 | Corporate Customer Advises Not Authorized                | Yes | Yes |
