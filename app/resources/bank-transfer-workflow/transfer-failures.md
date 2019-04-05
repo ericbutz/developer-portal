@@ -21,7 +21,7 @@ There are several reasons bank transfers can fail, a few of which are outlined b
 
 You can check the status of a transfer at any time by [retrieving the transfer via the API.](https://docs.dwolla.com/#retrieve-a-transfer) When a bank transfer is unable to be completed, its status will be updated to `failed`. The response from the API when retrieving the transfer should contain a `"failure"` link that your application will follow to [retrieve the transfer failure reason](https://docs.dwolla.com/#retrieve-a-transfer-failure-reason) in the next step.
 
-##### Example failure link 
+##### Example failure link
 
 ```noselect
 "failure": {
@@ -143,6 +143,6 @@ Below is a table of the most common return codes we see involved in transactions
 | R09 | Uncollected Funds                                        | No | Yes |
 | R10 | Customer Advises Not Authorized, Improper, or Ineligible | Yes | Yes |
 | R16 | Bank Account Frozen                                      | No | No |
-| R20 | Non-Transaction Account                                  | No | Yes |
+| R20 | Non-Transaction Account                                  | Yes | Yes |
 | R23 | Credit Entry Refused by Receiver                         | No | Yes |
 | R29 | Corporate Customer Advises Not Authorized                | Yes | Yes |
