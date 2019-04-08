@@ -12,7 +12,7 @@ description: When the customer is created, you’ll receive the customer URL in 
 
 First, we’ll create a `Verified Customer` for Jane Merchant.
 
-The following information is required for a `Verified Customer`. In this example, we use [business verified customers](https://developers.dwolla.com/resources/business-verified-customer.html) (sole proprietorship) to represent the merchant who will be receiving funds.
+There are two types of verified Customers you can create; [Personal Verified Customers](https://developers.dwolla.com/resources/personal-verified-customer.html) and [Business Verified Customers.](https://developers.dwolla.com/resources/business-verified-customer.html) In this example, we use [business verified customers](https://developers.dwolla.com/resources/business-verified-customer.html) (sole proprietorship) to represent the merchant who will be receiving funds.
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers
