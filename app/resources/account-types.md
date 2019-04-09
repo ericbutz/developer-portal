@@ -9,6 +9,8 @@ description: Use this page to understand the different features, customer types 
 
 A Dwolla API customer is created programmatically by your CIP verified Dwolla Master Account via the [Create a Customer](https://docs.dwolla.com/#create-a-customer) endpoint. All of the Customer's required information will be handled through the API and the Customer will interact directly with your application to manage their account. As a developer, you will want to create a Customer that best suits the business case of your application. Below is a very high level detailing of the Customer types available with Dwolla.
 
+> **Note**: Regardless of which Customer type(s) you choose to create for your application, keep in mind that all users onboarded as Customers must be US persons of age 18 or older.
+
 | **Customer Type** | CIP Verification | Dwolla `balance` | Transaction Limit | Transact with |
 |---------------------------|----------------------|------------------------|------------------------|--------------------|
 | **Personal verified Customer** | Required | Yes | $5,000 per **transfer** | All Customer types |
