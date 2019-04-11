@@ -4,7 +4,7 @@ section: Funding source verification
 type: article
 title:  Instant account verification
 weight: 1
-description: Instant Account Verification gives you the ability to add and verify a Customer's bank account in a matter of seconds. 
+description: Instant Account Verification gives you the ability to add and verify a Customer's bank account in a matter of seconds.
 ---
 
 # Funding source verification
@@ -95,21 +95,21 @@ Now that you have initialized dwolla.js on your page you can configure and creat
 
 ```javascriptnoselect
 <script type="text/javascript">
-$('#start').click(function() {
-  var iavToken = '4adF858jPeQ9RnojMHdqSD2KwsvmhO7Ti7cI5woOiBGCpH5krY';
-  dwolla.configure('sandbox');
-  dwolla.iav.start('8zN400zyPUobbdmeNfhTGH2Jh5JkFREJa9YBI8SLXp0ERXNTMT', {
-  container: 'iavContainer',
-  stylesheets: [
-    'http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
-    'http://myapp.com/iav/someStylesheet.css'
-  ],
-  microDeposits: false,
-  fallbackToMicroDeposits: false
-}, function(err, res) {
-  console.log('Error: ' + JSON.stringify(err) + ' -- Response: ' + JSON.stringify(res));
-});
-});
+  $('#start').click(function() {
+    var iavToken = '4adF858jPeQ9RnojMHdqSD2KwsvmhO7Ti7cI5woOiBGCpH5krY';
+    dwolla.configure('sandbox');
+    dwolla.iav.start(iavToken, {
+      container: 'iavContainer',
+      stylesheets: [
+        'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
+        'https://myapp.com/iav/someStylesheet.css'
+      ],
+      microDeposits: false,
+      fallbackToMicroDeposits: false
+    }, function(err, res) {
+      console.log('Error: ' + JSON.stringify(err) + ' -- Response: ' + JSON.stringify(res));
+    });
+  });
 </script>
 ```
 
