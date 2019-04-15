@@ -293,6 +293,7 @@ A document can fail if, for example, the Customer uploaded the wrong type of doc
 * `ScanNotUploaded` - A photo was uploaded, but it was not an ID
 * `ScanIdTypeNotSupported` - An ID was uploaded, but it is not a form of ID we accept
 * `ScanNameMismatch` - The name on the ID does not match the name on the account
+* `ScanDobMismatch` - The date of birth on the ID does not match the date of birth on the account.
 
 ##### Request and response
 
