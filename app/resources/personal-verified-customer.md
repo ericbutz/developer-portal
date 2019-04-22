@@ -7,7 +7,7 @@ description: A Customer represents an individual or business needing to send or 
 ---
 # Personal Customer Verification
 
-This article will walk through the identity verification process for [personal verified Customers]((https://developers.dwolla.com/resources/account-types.html)) within the Dwolla API.
+This article will walk through the identity verification process for [personal verified Customers](https://developers.dwolla.com/resources/account-types.html) within the Dwolla API.
 
 A `personal` verified Customer represents an individual that intends to send or receive funds on your platform. In any transaction, at least one party—either the sender or the receiver—must complete the [identity verification](https://www.dwolla.com/updates/guide-to-cip-customer-identification-program-dwolla-payments-api/) process as outlined in this article.
 
