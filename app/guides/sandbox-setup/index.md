@@ -61,7 +61,7 @@ Once you have a valid Sandbox account, you can start making calls to the API. To
         <p>-  Facilitator pay-ins</p>
     </a>
     <a href="/guides/transfer-money-between-users" class="icon-guides-transfer-small grid-nav__item">
-        <h3>Transfer money betwen users</h3>
+        <h3>Transfer money between users</h3>
         <p><strong>Funds flows</strong></p>
         <p>-  Pay-ins</p>
         <p>-  Pay-outs</p>

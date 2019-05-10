@@ -415,7 +415,7 @@ If a beneficial owner is not `verified`, the only other state the beneficial own
 
 #### US persons
 
-A color scanned photo of the Beneficial Owner’s identifying document can be specified as documentType: `license` (state issued driver's license), `other` or `idCard` (other U.S. government-issued photo id card).
+A color scanned photo of the Beneficial Owner’s identifying document can be specified as documentType: `license` (state issued driver's license), or `idCard` (U.S. government-issued photo id card).
 
 #### Non-US persons
 
