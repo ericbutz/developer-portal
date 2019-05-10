@@ -41,4 +41,4 @@ The events below are sent to Sift on your behalf by Dwolla’s API, and there is
 | [Transfers In](https://docs.dwolla.com/#initiate-a-transfer) | [$transaction](https://siftscience.com/developers/docs/curl/events-api/reserved-events/transaction) with $transaction_type = '$deposit' |
 | [Transfers Out](https://docs.dwolla.com/#initiate-a-transfer) | [$transaction](https://siftscience.com/developers/docs/curl/events-api/reserved-events/transaction) with $transaction_type = '$withdrawal' |
 
-If you would like to go live with your Dwolla API integration, please [reach out to our sales team](https://www.dwolla.com/contact/). If you already have an Dwolla API Integration and would like to get started with Sift Science, [log in and connect your Sift account](https://dashboard.dwolla.com/account/integrations) now.
+If you would like to go live with your Dwolla API integration, please [reach out to our sales team](https://www.dwolla.com/get-started/). If you already have an Dwolla API Integration and would like to get started with Sift Science, [log in and connect your Sift account](https://dashboard.dwolla.com/account/integrations) now.

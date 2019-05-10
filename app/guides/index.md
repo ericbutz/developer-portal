@@ -18,7 +18,7 @@ description: "Before integrating with the Dwolla API first understand the basic 
         <p>Accept ACH transfers.</p>
     </a>
     <a href="/guides/transfer-money-between-users" class="icon-guides-transfer-small grid-nav__item">
-        <h3>Transfer money betwen users</h3>
+        <h3>Transfer money between users</h3>
         <p>Facilitate ACH transfers between two distinct parties, e.g. for marketplace applications that connect buyers with sellers for bank to bank payments.</p>
     </a>
     <a href="/guides/auth" class="icon-guides-oauth-small grid-nav__item">
