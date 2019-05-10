@@ -33,7 +33,7 @@ description: Frequently asked questions for business verified Customers
 
 ##### Q: My Customer has a `verified` status, but unable to send funds. Why is this?
 
-+ Your Customer has likely not completed the bank verification process. You can check to see the status of the funding source [via the API](https://docs.dwolla.com/#list-funding-sources-for-a-customer) or  by going into the [Dwolla dashboard](https://www.dwolla.com/platform/dwolla-dashboard-admin).
++ Your Customer has likely not completed the bank verification process. You can check to see the status of the funding source [via the API](https://docs.dwolla.com/#list-funding-sources-for-a-customer) or  by going into the [Dwolla dashboard](https://www.dwolla.com/platform/dashboard/).
 
 ##### Q: Can I `change` a ‘business verified’ Customer type to an `Unverified` Customer type?
 

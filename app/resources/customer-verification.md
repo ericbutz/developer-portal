@@ -8,7 +8,7 @@ description: A Customer is an individual or business that intends to send or rec
 
 # Customer Verification
 
-These articles will walk through the identity verification process for verified Customers within the Dwolla API. For more information on going live with the Dwolla API, please [contact sales](https://www.dwolla.com/contact).
+These articles will walk through the identity verification process for verified Customers within the Dwolla API. For more information on going live with the Dwolla API, please [contact sales](https://www.dwolla.com/get-started?b=nav).
 
 A `Customer` represents an individual or business that intends to send or receive funds on your platform. In any transaction at least one party—either the sender or the recipient—must complete the [identity verification](https://www.dwolla.com/updates/guide-to-cip-customer-identification-program-dwolla-payments-api/) process as outlined in this article. In cases where a Customer is only sending funds to or receiving funds from your full Dwolla account, the Customer is not required to complete the process set out below.
 

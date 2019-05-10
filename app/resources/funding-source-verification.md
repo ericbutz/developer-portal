@@ -10,7 +10,7 @@ description: Before a customer is eligible to transfer money from their bank or 
 
 Before a customer is eligible to transfer money from their bank or credit union account they need to verify ownership of the account, either via micro-deposits, Instant Account Verifications (IAV), or Plaid’s Auth. This series of articles demonstrates how to verify a bank or credit union account using these options. We use the example of verifying a Customer’s bank account and detail the interaction between Dwolla, your application, and the Customer.
 
-For more information about the Dwolla API and IAV, please [contact sales](https://www.dwolla.com/contact).
+For more information about the Dwolla API and IAV, please [contact sales](https://www.dwolla.com/get-started/).
 
 For more information about account authentication by Plaid, please [view the API docs](https://developers.dwolla.com/resources/dwolla-plaid-integration.html) or [reach out to Plaid](https://plaid.com/contact/).
 

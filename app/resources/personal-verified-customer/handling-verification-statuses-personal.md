@@ -212,7 +212,7 @@ When a Customer is placed in the `document` verification status, Dwolla will ret
 
 ### Uploading a document
 
-To upload a color photo of the document, you’ll initiate a multipart form-data POST request from your backend server to `https://api.dwolla.com/customers/{id}/documents`. The file must be either a .jpg, .jpeg, .png, .tif, or .pdf. Files must be no larger than 10MB in size.
+To upload a color photo of the document, you’ll initiate a multipart form-data POST request from your backend server to `https://api.dwolla.com/customers/{id}/documents`. The file must be either a .jpg, .jpeg, .png, or .pdf. Files must be no larger than 10MB in size.
 
 ```raw
 curl -X POST
