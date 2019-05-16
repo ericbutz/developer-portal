@@ -14,9 +14,9 @@ description: Use this page to keep track of changes to the Dwolla API or additio
   <h3>2019-05-16</h3>
   <h4><em>ADDED</em></h4>
   <ul class="bullet">
-       <li>Added a new endpoint called <code>labels</code> to the API.</li>
+       <li>Added a new <code>Labels</code> resource to the API.</li>
 	   <li>A Label represents a designated portion of funds within a Verified Customer's balance.</li>
-       <li>Jump to our <a href = "https://docs.dwolla.com/#labels"> API Docs</a> or check out our blog post <a href = "https://www.dwolla.com/updates/real-time-usd-ledger-labels/">  to learn more</a>.</li>
+       <li>Head over to our <a href = "https://docs.dwolla.com/#labels"> API Docs</a> or check out our blog post <a href = "https://www.dwolla.com/updates/real-time-usd-ledger-labels/"> to learn more</a>.</li>
   </ul>
   <h3>2019-03-01</h3>
   <h4><em>ADDED</em></h4>
