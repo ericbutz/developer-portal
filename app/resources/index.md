@@ -63,7 +63,7 @@ description: Use this page to understand the different features, customer types 
         <p>Leverage Plaid’s bank verification with Dwolla’s ACH API for secure account ownership validation.</p>
     </li>
     <li>
-        <h3><a href="/resources/dwolla-sift-science-integration.html">Dwolla + Sift Science</a></h3>
-        <p>Implement Sift Science’s machine learning model for real-time ACH fraud monitoring.</p>
+        <h3><a href="/resources/dwolla-sift-integration.html">Dwolla + Sift</a></h3>
+        <p>Implement Sift’s machine learning model for real-time ACH fraud monitoring.</p>
     </li>
 </ul>
