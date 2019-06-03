@@ -8,9 +8,16 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 
 <section class="change-log">
   <h1>Upcoming</h1>
-  <h3>2019-05-16</h3>
+  <h3>2019-06-03</h3>
   <h4><em>No upcoming changes</em></h4>
   <h1>Completed</h1>
+  <h3>2019-05-31</h3>
+  <h4><em>ADDED</em></h4>
+  <ul class="bullet">
+       <li>Added a new <code>total</code> attribute to the Balance object in the API.</li>
+	     <li>Introducing total and available balance amounts for a Dwolla Balance.</li>
+       <li>Head over to our <a href = "https://docs.dwolla.com/#retrieve-a-funding-source-balance"> API Docs</a> or check out our <a href = "https://developers.dwolla.com/resources/balance-funding-source.html#total-and-available-balance"> resource article</a> to learn more.</li>
+  </ul>
   <h3>2019-05-16</h3>
   <h4><em>ADDED</em></h4>
   <ul class="bullet">
