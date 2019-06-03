@@ -24,58 +24,119 @@ Use the [list an Customer's funding sources](https://docs.dwolla.com/#list-fundi
 #### Request and response (view schema in 'raw')
 
 ```raw
-GET https://api-sandbox.dwolla.com/customers/4BB512E4-AD4D-4F7E-BFD0-A232007F21A1/funding-sources
+GET https://api-sandbox.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254/funding-sources
 Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
 
 {
-  "_links": {
-    "self": {
-      "href": "https://api-sandbox.dwolla.com/customers/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1/funding-sources"
+    "_links": {
+        "self": {
+            "href": "https://api-sandbox.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254/funding-sources?removed=false",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "funding-source"
+        },
+        "customer": {
+            "href": "https://api-sandbox.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "customer"
+        }
+    },
+    "_embedded": {
+        "funding-sources": [
+            {
+                "_links": {
+                    "transfer-from-balance": {
+                        "href": "https://api-sandbox.dwolla.com/transfers",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "transfer"
+                    },
+                    "self": {
+                        "href": "https://api-sandbox.dwolla.com/funding-sources/acb5689c-3905-408d-bf0f-e50e951692dc",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "funding-source"
+                    },
+                    "remove": {
+                        "href": "https://api-sandbox.dwolla.com/funding-sources/acb5689c-3905-408d-bf0f-e50e951692dc",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "funding-source"
+                    },
+                    "initiate-micro-deposits": {
+                        "href": "https://api-sandbox.dwolla.com/funding-sources/acb5689c-3905-408d-bf0f-e50e951692dc/micro-deposits",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "micro-deposits"
+                    },
+                    "customer": {
+                        "href": "https://api-sandbox.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "customer"
+                    },
+                    "transfer-receive": {
+                        "href": "https://api-sandbox.dwolla.com/transfers",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "transfer"
+                    }
+                },
+                "id": "acb5689c-3905-408d-bf0f-e50e951692dc",
+                "status": "unverified",
+                "type": "bank",
+                "bankAccountType": "checking",
+                "name": "Jane Doe - Checking",
+                "created": "2019-05-31T16:07:38.564Z",
+                "removed": false,
+                "channels": [
+                    "ach"
+                ],
+                "bankName": "SANDBOX TEST BANK",
+                "fingerprint": "562b8325748e1e3ca482ede7cd36e9a1a7635e7c0f4f30630658fccea9bcc772"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "funding-source"
+                    },
+                    "balance": {
+                        "href": "https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61/balance",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "balance"
+                    },
+                    "transfer-send": {
+                        "href": "https://api-sandbox.dwolla.com/transfers",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "transfer"
+                    },
+                    "with-available-balance": {
+                        "href": "https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "funding-source"
+                    },
+                    "customer": {
+                        "href": "https://api-sandbox.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "customer"
+                    },
+                    "transfer-receive": {
+                        "href": "https://api-sandbox.dwolla.com/transfers",
+                        "type": "application/vnd.dwolla.v1.hal+json",
+                        "resource-type": "transfer"
+                    }
+                },
+                "id": "e5b8223f-08f7-4a7e-b952-88a773c0df61",
+                "status": "verified",
+                "type": "balance",
+                "name": "Balance",
+                "created": "2019-05-30T21:30:09.568Z",
+                "removed": false,
+                "channels": []
+            }
+        ]
     }
-  },
-  "_embedded": {
-    "funding-sources": [
-      {
-        "_links": {
-          "self": {
-            "href": "https://api-sandbox.dwolla.com/funding-sources/0094b1b4-e171-4dc8-865b-cb121c2377bb"
-          },
-          "customer": {
-            "href": "https://api-sandbox.dwolla.com/customers/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1"
-          },
-          "with-available-balance": {
-            "href": "https://api-sandbox.dwolla.com/funding-sources/0094b1b4-e171-4dc8-865b-cb121c2377bb"
-          }
-        },
-        "id": "0094b1b4-e171-4dc8-865b-cb121c2377bb",
-        "status": "verified",
-        "type": "balance",
-        "name": "Balance",
-        "created": "2013-09-07T14:42:52.000Z"
-      },
-      {
-        "_links": {
-          "self": {
-            "href": "https://api-sandbox.dwolla.com/funding-sources/5cfcdc41-10f6-4a45-b11d-7ac89893d985"
-          },
-          "customer": {
-            "href": "https://api-sandbox.dwolla.com/customers/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1"
-          }
-        },
-        "id": "5cfcdc41-10f6-4a45-b11d-7ac89893d985",
-        "status": "verified",
-        "type": "bank",
-        "name": "ABC Bank Checking",
-        "created": "2014-09-04T23:19:19.543Z"
-      }
-    ]
-  }
 }
 ```
 
 ```ruby
-customer_url = 'https://api.dwolla.com/customers/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1'
+customer_url = 'https://api.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
 funding_sources = app_token.get "#{customer_url}/funding-sources"
@@ -83,7 +144,7 @@ funding_sources._embedded['funding-sources'][0].name # => "ABC Bank Checking"
 ```
 
 ```javascript
-var customerUrl = 'https://api-sandbox.dwolla.com/customers/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1';
+var customerUrl = 'https://api-sandbox.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254';
 
 appToken
   .get(`${accountUrl}/funding-sources`)
@@ -93,7 +154,7 @@ appToken
 ```
 
 ```python
-customers_url = 'https://api.dwolla.com/customers/4bb512e4-ad4d-4f7e-bfd0-a232007f21a1'
+customers_url = 'https://api.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
 funding_sources = app_token.get('%s/funding-sources' % customer_url)
@@ -103,7 +164,7 @@ funding_sources.body['_embedded']['funding-sources'][0]['name'] # => 'ABC Bank C
 
 ```php
 <?php
-$customerUrl = 'https://api.dwolla.com/customers/4BB512E4-AD4D-4F7E-BFD0-A232007F21A1';
+$customerUrl = 'https://api.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254';
 
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
 
@@ -153,13 +214,13 @@ Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
       {
         "_links": {
           "self": {
-            "href": "https://api-sandbox.dwolla.com/funding-sources/5cfcdc41-10f6-4a45-b11d-7ac89893d985"
+            "href": "https://api-sandbox.dwolla.com/funding-sources/b5e68264-7d4d-42a9-88d4-5616c77c6baa"
           },
           "account": {
             "href": "https://api-sandbox.dwolla.com/accounts/ca32853c-48fa-40be-ae75-77b37504581b"
           }
         },
-        "id": "5cfcdc41-10f6-4a45-b11d-7ac89893d985",
+        "id": "b5e68264-7d4d-42a9-88d4-5616c77c6baa",
         "status": "verified",
         "type": "bank",
         "name": "ABC Bank Checking",

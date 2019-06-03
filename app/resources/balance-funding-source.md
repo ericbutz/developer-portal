@@ -11,7 +11,7 @@ description: The Dwolla balance is made available for account types that have co
 
 There are two types of [Funding Sources](https://docs.dwolla.com/#funding-sources) available within the Dwolla Platform which include a bank or a Dwolla balance. A bank account is commonly used as the source or destination for ACH transfers. The Dwolla `balance` is a Funding Source that can be utilized like a “wallet” for holding a stored value of USD funds. The balance is made available for account types that have completed [“KYC” requirements](https://www.dwolla.com/updates/guide-customer-identification-program-payments-api/), which includes customers of Dwolla and their end users that have been on-boarded as [Verified Customers](https://developers.dwolla.com/resources/account-types.html#verified-customer).
 
-What makes the Dwolla balance useful in relation to the platform is that the funds are held within the Dwolla network. This means the Dwolla balance acts as a funding source associated directly with each Verified Customer within your application.  This funding source can only be accessed from your application by the end user, and you must provide an easily accessible and accurate summary of the available balance and transfer history for the Customer’s Dwolla balance.
+What makes the Dwolla balance useful in relation to the platform is that the funds are held within the Dwolla network. This means the Dwolla balance acts as a funding source associated directly with each Verified Customer within your application.  This funding source can only be accessed from your application by the end user, and you must provide an easily accessible and accurate summary of the [total and available balance](/resources/balance-funding-source.html#total-and-available-balance) as well as transfer history for the Customer’s Dwolla balance.
 
 ## Functionality and Benefits
 
@@ -38,13 +38,11 @@ In production, transfer timing will vary depending on whether the balance is spe
 
 ## Viewing and Displaying the Balance
 
-### Retrieving the Balance Funding Source
-
-The balance Funding Source can be accessed when an account has successfully completed the identity verification process and has a status of `verified`. Since this funding source exists within the Dwolla Network you can obtain the details by utilizing the Dwolla API to retrieve the account’s list of funding sources.
+The balance Funding Source can be accessed when an account (your [Master Dwolla Account](https://docs.dwolla.com/#accounts) or a [Verified Customer account](/resources/account-types.html#verified-customer)) has successfully completed the identity verification process and has a status of `verified`. Since this funding source exists within the Dwolla Network you can obtain the details by utilizing the Dwolla API to retrieve the account’s list of funding sources.
 
 #### Retrieve Dwolla Master Account Balance Funding Source
 
-Check out our API Reference Docs to learn more about retrieving the balance funding source for [your Dwolla Master Account](https://docs.dwolla.com/#list-funding-sources-for-an-account).
+To retrieve your Account ID, you will need to call the [root](https://docs.dwolla.com/#root) of the API. Check out our API Reference Docs to learn more about retrieving the balance funding source for [your Dwolla Master Account](https://docs.dwolla.com/#list-funding-sources-for-an-account).
 
 ##### Example request and response
 
@@ -256,47 +254,67 @@ $fundingSources->_embedded->{'funding-sources'}[0]->name; # => "Balance"
 ?>
 ```
 
-### Check the Balance Amount
+## Retrieve the Balance Amount
 
 The Dwolla balance also entails a feature in which you can check the value of the balance at any given time. Being able to know the amount of funds in your balance is necessary information to have prior to sending funds. You must also be able to show the available balance at all times within your application to your Verified Customers. Check out our [API Reference Docs](https://docs.dwolla.com/#retrieve-a-funding-source-balance) to learn more.
+
+#### Total and Available Balance
+There are two different amounts returned in the API response when [retrieving a balance](https://docs.dwolla.com/#retrieve-a-funding-source-balance) which correspond to a `total` and `available` balance. **Note:** Unless your application utilizes [Labels](https://docs.dwolla.com/#labels) functionality, the amounts that are returned in both the balance and total object will be the same. Available balance can be accessed via the `balance` attribute, whereas total balance can be accessed via the `total` attribute within the Balance object. Both `balance` and `total` are JSON objects that contain key value pairs for `value` and `currency`.
+
+##### Available Balance
+The amount of funds readily available in a Verified Customer Record’s balance that can be sent, withdrawn, or labeled. The “Available Balance” does not include labeled funds. The amount of funds for the following actions are limited to the amount of the Available Balance:
+
+* Creating and adding funds to a new Label
+* Increasing an existing Label
+* Withdrawing funds
+* Available Balance transfers, i.e. send or withdraw
+
+**Note:** If a return occurs on a Verified Customer Record that return will only impact the Available Balance, but not labeled funds. This could result in a negative Available Balance and the inability to complete the items listed above.
+
+##### Total Balance
+Represents the Verified Customer Record’s total balance held in the Dwolla network. This includes both labeled funds and the Available Balance, i.e. both labeled and unlabeled funds.
 
 ##### Example request and response
 
 ```raw
-GET https://api-sandbox.dwolla.com/funding-sources/c2eb3f03-1b0e-4d18-a4a2-e552cc111418/balance
+GET https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61/balance
 Accept: application/vnd.dwolla.v1.hal+json
 Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 
 {
-  "_links": {
-    "self": {
-      "href": "https://api-sandbox.dwolla.com/funding-sources/c2eb3f03-1b0e-4d18-a4a2-e552cc111418/balance",
-      "type": "application/vnd.dwolla.v1.hal+json",
-      "resource-type": "balance"
+    "_links": {
+        "self": {
+            "href": "https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61/balance",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "balance"
+        },
+        "funding-source": {
+            "href": "https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "funding-source"
+        }
     },
-    "funding-source": {
-      "href": "https://api-sandbox.dwolla.com/funding-sources/c2eb3f03-1b0e-4d18-a4a2-e552cc111418",
-      "type": "application/vnd.dwolla.v1.hal+json",
-      "resource-type": "funding-source"
-    }
-  },
-  "balance": {
-    "value": "4616.87",
-    "currency": "USD"
-  },
-  "lastUpdated": "2017-04-18T15:20:25.880Z"
+    "balance": {
+        "value": "142.50",
+        "currency": "USD"
+    },
+    "total": {
+        "value": "142.50",
+        "currency": "USD"
+    },
+    "lastUpdated": "2019-06-03T14:28:12.679Z"
 }
 ```
 
 ```ruby
-funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/c2eb3f03-1b0e-4d18-a4a2-e552cc111418'
+funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61'
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby
 funding_source = app_token.get "#{funding_source_url}/balance"
 ```
 
 ```javascript
-var fundingSourceUrl = 'https://api-sandbox.dwolla.com/funding-sources/c2eb3f03-1b0e-4d18-a4a2-e552cc111418';
+var fundingSourceUrl = 'https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61';
 
 appToken
   .get(`${fundingSourceUrl}/balance`)
@@ -305,14 +323,14 @@ appToken
 
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python
-funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/c2eb3f03-1b0e-4d18-a4a2-e552cc111418'
+funding_source_url = 'https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61'
 
 funding_source = app_token.get('%s/balance' % funding_source_url)
 ```
 
 ```php
 <?php
-$fundingSourceUrl = 'https://api-sandbox.dwolla.com/funding-sources/c2eb3f03-1b0e-4d18-a4a2-e552cc111418';
+$fundingSourceUrl = 'https://api-sandbox.dwolla.com/funding-sources/e5b8223f-08f7-4a7e-b952-88a773c0df61';
 
 $fsApi = new DwollaSwagger\FundingsourcesApi($apiClient);
 
