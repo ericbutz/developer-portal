@@ -40,7 +40,6 @@ HTTP/1.1 201 Created
 Location: https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
 </code></pre></div></div><div class="code-snippet js-code-snippet language-php"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-php data-lang=php><span class=cp>&lt;?php</span>
 <span class=nv>$customersApi</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>DwollaSwagger\CustomersApi</span><span class=p>(</span><span class=nv>$apiClient</span><span class=p>);</span>
-<span class=nv>$new_customer</span> <span class=o>=</span> <span class=s1>'https://api-sandbox.dwolla.com/customers/b70c3194-35fa-49e8-9243-d55a30e06d1e'</span><span class=p>;</span>
 <span class=nv>$new_customer</span> <span class=o>=</span> <span class=nv>$customersApi</span><span class=o>-&gt;</span><span class=na>create</span><span class=p>([</span>
     <span class=s1>'firstName'</span> <span class=o>=&gt;</span> <span class=s1>'Business'</span><span class=p>,</span>
     <span class=s1>'lastName'</span> <span class=o>=&gt;</span> <span class=s1>'Owner'</span><span class=p>,</span>
@@ -162,7 +161,6 @@ HTTP/1.1 201 Created
 Location: https://api-sandbox.dwolla.com/customers/62c3aa1b-3a1b-46d0-ae90-17304d60c3d5
 </code></pre></div></div><div class="code-snippet js-code-snippet language-php"><button class="btn alternative">copy</button><div class=code-snippet__selector><nav><button class=selector_switch id=raw>raw</button> <button class=selector_switch id=php>php</button> <button class=selector_switch id=ruby>ruby</button> <button class=selector_switch id=python>python</button> <button class=selector_switch id=javascript>javascript</button></nav></div><div class="code-snippet__cnt highlight"><pre><code class=language-php data-lang=php><span class=cp>&lt;?php</span>
 <span class=nv>$customersApi</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>DwollaSwagger\CustomersApi</span><span class=p>(</span><span class=nv>$apiClient</span><span class=p>);</span>
-<span class=nv>$new_customer</span> <span class=o>=</span> <span class=s1>'https://api-sandbox.dwolla.com/customers/b70c3194-35fa-49e8-9243-d55a30e06d1e'</span><span class=p>;</span>
 <span class=nv>$new_customer</span> <span class=o>=</span> <span class=nv>$customersApi</span><span class=o>-&gt;</span><span class=na>create</span><span class=p>([</span>
   <span class=s1>'firstName'</span> <span class=o>=&gt;</span> <span class=s1>'Account'</span><span class=p>,</span>
   <span class=s1>'lastName'</span> <span class=o>=&gt;</span> <span class=s1>'Admin'</span><span class=p>,</span>
