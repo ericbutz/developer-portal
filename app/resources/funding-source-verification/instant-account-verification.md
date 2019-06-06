@@ -17,7 +17,7 @@ Instant Account Verification (IAV) gives you the ability to add and verify a Cus
 </ol>
 
 ### Step 1: Generate a single-use IAV token for a Customer
-To initiate the IAV flow, dwolla.js requires a single-use IAV token for a Customer. Your server initiates a POST request to Dwolla, specifying for which Customer you want to add/verify a bank account. Dwolla will respond with a non-expiring single-use `token`. This IAV token will be sent to the client and used to authenticate the HTTP request asking Dwolla to render the IAV flow.
+To initiate the IAV flow, dwolla.js requires a single-use IAV token for a Customer. Your server initiates a POST request to Dwolla, specifying for which Customer you want to add/verify a bank account. Dwolla will respond with a single-use `token` which expires an hour after its creation. This IAV token will be sent to the client and used to authenticate the HTTP request asking Dwolla to render the IAV flow.
 
 ```raw
 curl -X POST

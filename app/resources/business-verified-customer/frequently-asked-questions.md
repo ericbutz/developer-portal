@@ -13,14 +13,14 @@ description: Frequently asked questions for business verified Customers
 ##### Q: My Customer has a `retry` status. What activity would they able to engage in while being in ‘retry’ status, as it relates to the Dwolla Platform?
 
 + Send funds - No
-+ Receive funds - Yes
++ Receive funds - Yes - Note that funds will only process to their balance and the transfer will stay `pending` until the Customer has been verified.
 + Add and verify a bank funding source - Yes
 + Add and verify a Beneficial Owner - Yes
 
 ##### Q: My Customer has a `document` status. What activity would they able to engage in while being in ‘document’ status, as it relates to the Dwolla Platform?
 
 + Send funds - No
-+ Receive funds - Yes
++ Receive funds - Yes - Note that funds will only process to their balance and the transfer will stay `pending` until the Customer has been verified.
 + Add and verify a bank funding source - Yes
 + Add and verify a Beneficial Owner - Yes
 
@@ -37,7 +37,7 @@ description: Frequently asked questions for business verified Customers
 
 ##### Q: Can I `change` a ‘business verified’ Customer type to an `Unverified` Customer type?
 
-+ No.
++ No. Downgrade functionality is not supported for Dwolla Verified Customers.
 
 ##### Q: My Customer has a `document` status. Can I submit more than one document via the API?
 
