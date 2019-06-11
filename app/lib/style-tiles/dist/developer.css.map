@@ -12,6 +12,7 @@
 		"../sass/developer/globals/_silents.scss",
 		"../sass/developer/globals/_styles.scss",
 		"../sass/developer/overrides/_prism.scss",
+		"../sass/developer/partials/_accordion.scss",
 		"../sass/developer/partials/_alerts.scss",
 		"../sass/developer/partials/_article-list.scss",
 		"../sass/developer/partials/_banner.scss",

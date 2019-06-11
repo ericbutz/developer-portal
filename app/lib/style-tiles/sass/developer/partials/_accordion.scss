@@ -1,0 +1,45 @@
+button.accordion {
+  width: auto;
+  background-color: transparent;
+  padding: 4px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-bottom: 5px;
+}
+
+button.accordion:after {
+  content: 'View example';
+  font: inherit;
+  font-size: 0.9285714286rem;
+  float: left;
+}
+
+button.accordion.is-open:after {
+  content: 'Hide example';
+}
+
+button.accordion:hover, button.accordion.is-open {
+  color: #d9725c;
+}
+button:focus {outline:0 !important;}
+
+.accordion-content {
+  max-width: 65%;
+  overflow: auto;
+  max-height: 0;
+  transition: max-height 0.2s ease-in-out;
+}
+
+td > p {
+  font: inherit;
+  max-width: 65%;
+  margin-bottom: 0;
+  overflow: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
