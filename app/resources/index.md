@@ -8,7 +8,7 @@ description: Use this page to understand the different features, customer types 
 <ul class="icon-links">
     <li><a href="https://dashboard-sandbox.dwolla.com" target="_blank" class="icon-tools-sandbox">Sandbox Dashboard</a></li>
     <li><a href="/resources/changelog.html" class="icon-tools-change-log">Change log</a></li>
-    <li><a href="http://status.dwolla.com" target="_blank" class="icon-tools-status">Status</a></li>
+    <li><a href="https://status.dwolla.com" target="_blank" class="icon-tools-status">Status</a></li>
 </ul>
 <h1>The API Basics</h1>
 <ul class="article-list">

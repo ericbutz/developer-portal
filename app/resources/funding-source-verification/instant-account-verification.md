@@ -54,7 +54,7 @@ appToken
   });
 ```
 ```python
-customer_url = 'http://api.dwolla.com/customers/06b51d56-7a6c-4535-a0cc-2c0106f56ba6'
+customer_url = 'https://api.dwolla.com/customers/06b51d56-7a6c-4535-a0cc-2c0106f56ba6'
 customers_api = dwollaswagger.CustomersApi(client)
 
 token = customers_api.get_customer_iav_token(customer_url)
@@ -101,8 +101,7 @@ Now that you have initialized dwolla.js on your page you can configure and creat
     dwolla.iav.start(iavToken, {
       container: 'iavContainer',
       stylesheets: [
-        'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
-        'https://myapp.com/iav/someStylesheet.css'
+        'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext'
       ],
       microDeposits: false,
       fallbackToMicroDeposits: false

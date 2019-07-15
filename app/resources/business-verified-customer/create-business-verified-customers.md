@@ -20,7 +20,7 @@ Creating a business verified Customer will require you to provide information ab
 | Unincorporated association          | `soleProprietorship`                           | No                        |
 | Trust                               | `soleProprietorship`                           | No                        |
 | Corporation                         | `corporation`                                  | Yes                       |
-| Public corporations                 | `corporation`                                  | Yes                       |
+| Publicly traded corporations        | `corporation`                                  | Yes                       |
 | Non-profits                         | `corporation` or `llc`                         | Yes                       |
 | LLCs                                | `llc`                                          | Yes                       |
 | Partnerships, LP's,  LLP's          | `partnership`                                  | Yes                       |
@@ -440,7 +440,7 @@ var requestBody = {
       lastName: 'Controller',
       title: 'CEO',
       dateOfBirth: '1980-01-31',
-      ssn: '1234'
+      ssn: '1234',
       address: {
         address1: '1749 18th st',
         address2: 'apt 12',

@@ -33,8 +33,7 @@ callback | function | A callback function that handles the response from Dwolla.
 dwolla.iav.start('8zN400zyPUobbdmeNfhTGH2Jh5JkFREJa9YBI8SLXp0ERXNTMT', {
   container: 'iavContainer',
   stylesheets: [
-    'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
-    'https://myapp.com/iav/customStylesheet.css'
+    'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext'
   ],
   microDeposits: false,
   fallbackToMicroDeposits: true,
