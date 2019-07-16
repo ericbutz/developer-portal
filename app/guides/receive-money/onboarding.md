@@ -164,7 +164,7 @@ appToken
 ```
 
 ```python
-customer_url = 'http://api.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
+customer_url = 'https://api.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
 customer = app_token.post('%s/iav-token' % customer_url)
@@ -208,8 +208,7 @@ $('#start').click(function() {
   dwolla.iav.start(iavToken, {
           container: 'iavContainer',
           stylesheets: [
-            'http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
-            'http://localhost:8080/iav/customStylesheet.css'
+            'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext'
           ],
           microDeposits: 'true',
           fallbackToMicroDeposits: (fallbackToMicroDeposits.value === 'true')

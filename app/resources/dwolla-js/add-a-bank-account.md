@@ -72,7 +72,7 @@ appToken
   });
 ```
 ```python
-customer_url = 'http://api.dwolla.com/customers/28138609-30ff-4607-b28c-4a3872f8fd4a'
+customer_url = 'https://api.dwolla.com/customers/28138609-30ff-4607-b28c-4a3872f8fd4a'
 customers_api = dwollaswagger.CustomersApi(client)
 
 token = customers_api.create_funding_sources_token_for_customer(customer_url)

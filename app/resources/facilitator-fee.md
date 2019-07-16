@@ -51,10 +51,10 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 {  
    "_links":{  
       "source":{  
-         "href":"http://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4"
+         "href":"https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4"
       },
       "destination":{  
-         "href":"http://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8"
+         "href":"https://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8"
       }
    },
    "amount":{  
@@ -65,7 +65,7 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
       {  
          "_links":{  
             "charge-to":{  
-               "href":"http://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8"
+               "href":"https://api-sandbox.dwolla.com/customers/07D59716-EF22-4FE6-98E8-F3190233DFB8"
             }
          },
          "amount":{  
@@ -97,7 +97,7 @@ $transfer = $transfersApi->create([
      [
         '_links' => [
            'charge-to' => [
-              'href' => 'http://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408'
+              'href' => 'https://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408'
            ]
         ],
         'amount' => [
@@ -130,7 +130,7 @@ request_body = {
      {  
         :_links => {  
            :charge-to => {  
-              :href => "http://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408"
+              :href => "https://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408"
            }
         },
         :amount => {  
@@ -163,7 +163,7 @@ request_body = {
       {  
          '_links': {  
             'charge-to': {  
-               'href': 'http://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408'
+               'href': 'https://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408'
             }
          },
          'amount':{  
@@ -195,7 +195,7 @@ var requestBody = {
      {  
         _links: {  
            charge-to: {  
-              href: 'http://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408'
+              href: 'https://api-sandbox.dwolla.com/customers/479ce4c8-385f-4cfa-9693-262c0c3b6408'
            }
         },
         amount: {  

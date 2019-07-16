@@ -69,7 +69,7 @@ customer.token # => "lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL"
 
 ```python
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-customer_url = 'http://api.dwolla.com/customers/247B1BD8-F5A0-4B71-A898-F62F67B8AE1C'
+customer_url = 'https://api.dwolla.com/customers/247B1BD8-F5A0-4B71-A898-F62F67B8AE1C'
 
 app_token.post('%s/iav-token' % customer_url)
 ```
@@ -110,8 +110,7 @@ Now that you have dwolla.js initialized on the page and the container created wh
     dwolla.iav.start(iavToken, {
       container: 'iavContainer',
       stylesheets: [
-        'http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext',
-        'http://myapp.com/iav/someStylesheet.css'
+        'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext'
       ],
       microDeposits: false,
       fallbackToMicroDeposits: false

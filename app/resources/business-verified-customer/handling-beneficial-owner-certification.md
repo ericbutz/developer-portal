@@ -22,7 +22,7 @@ Certification of beneficial owners should be included as part of the Customer ac
 | Unincorporated association                | No (exempt)                                           |
 | Trust                                     | No (exempt)                                           |
 | Corporation                               | Yes                                                   |
-| Public corporations                       | Yes                                                   |
+| Publicly traded corporations                       | Yes                                                   |
 | Non-profits                               | Yes                                                   |
 | LLCs                                      | Yes                                                   |
 | Partnerships, LP's, LLP's                 | Yes                                                   |

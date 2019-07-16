@@ -20,7 +20,6 @@ A business verified Customer represents a business that intends to send or recei
 * **Beneficial owner** - Any natural person who, directly or indirectly, owns 25% or more of the equity interests of the company.
 * **Beneficial ownership certification** - An action taken by the Account Admin to confirm that the information provided is correct.
 * **EIN (Employer Identification Number)** - A unique identification number that is assigned to a business entity so that they can easily be identified by the Internal Revenue Service.
-* **TIN (Taxpayer Identification Number)** - An identifying number used for tax purposes in the United States. A TIN may be: a Social Security number (SSN) an Individual Taxpayer Identification Number (ITIN) an Employer Identification Number (EIN).
 
 ## Business Verified Customer Quick Guide
 
@@ -30,7 +29,7 @@ A business verified Customer represents a business that intends to send or recei
 | **Unincorporated association**   | *soleProprietorship*      | No (exempt)                                 | No (exempt)                                            |
 | **Trust**                        | *soleProprietorship*      | No (exempt)                                 | No (exempt)                                            |
 | **Corporation**                  | *corporation*             | Yes (if owns 25% or more)                   | Yes                                                    |
-| **Public corporations**          | *corporation*             | No (exempt)                                 | Yes                                                    |
+| **Publicly traded corporations**          | *corporation*             | No (exempt)                                 | Yes                                                    |
 | **Non-profits**                  | *corporation* or *llc*    | No (exempt)                                 | Yes                                                    |
 | **LLCs**                         | *llc*                     | Yes (if owns 25% or more)                   | Yes                                                    |
 | **Partnerships, LP's,  LLP's**   | *partnership*             | Yes (if owns 25% or more)                   | Yes                                                    |
@@ -51,7 +50,7 @@ Reference the steps below for guidance on getting your business verified Custome
 4. [**Certifying beneficial owner(s) information**](/resources/business-verified-customer/handling-beneficial-owner-certification.html)
  * Determine if you need to certify beneficial ownership for your Customer
  * Certify beneficial ownership
-5. [**Certifying beneficial owner(s) information**](/resources/business-verified-customer/frequently-asked-questions.html)
+5. [**Frequently asked questions**](/resources/business-verified-customer/frequently-asked-questions.html)
  * A reference article to answer common questions about business verified Customers
 
 

@@ -20,7 +20,7 @@ To help the government fight financial crime, the existing United States Federal
 | Unincorporated association                | No (exempt)                                           |
 | Trust                                     | No (exempt)                                           |
 | Corporation                               | Yes (if owns 25% or more)                             |
-| Public corporations                       | No (exempt)                                           |
+| Publicly traded corporations              | No (exempt)                                           |
 | Non-profits                               | No (exempt)                                           |
 | LLCs                                      | Yes (if owns 25% or more)                             |
 | Partnerships, LP's, LLP's                 | Yes (if owns 25% or more)                             |
