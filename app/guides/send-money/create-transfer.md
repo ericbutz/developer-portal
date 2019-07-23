@@ -248,6 +248,6 @@ print($transfer->status); # => "processed"
 That’s it! You’ve successfully transferred money to a recipient. Please continue to the Webhooks guide for information on implementing notifications for your customers about the status of the transfer.
 
 <nav class="pager-nav">
-    <a href="fetch-funding-sources.html">Back: Fetch funding sources</a>
-    <a href="/guides/webhooks">Next: Webhooks</a>
+    <a href="retrieve-funding-sources.html">Back: Retrieve funding sources</a>
+    <a href="" style="display:none;"></a>
 </nav>

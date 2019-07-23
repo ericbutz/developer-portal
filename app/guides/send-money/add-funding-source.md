@@ -130,5 +130,5 @@ If you have an active webhook subscription (required in production & optional in
 
 <nav class="pager-nav">
     <a href="onboarding.html">Back: Customer Onboarding</a>
-    <a href="fetch-funding-sources.html">Next: Fetch funding sources</a>
+    <a href="retrieve-funding-sources.html">Next: Retrieve funding sources</a>
 </nav>

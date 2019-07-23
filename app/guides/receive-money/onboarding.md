@@ -6,113 +6,101 @@ guide:
     name: receive-money
     step: '1'
 title:  Onboarding a customer with Dwolla's API
-description: Your application will exchange its client_id, client_secret, and grant_type=client_credentials for an application access token.
+description: This guide covers the key points of collecting money from your customers by utilizing the Dwolla API.
 ---
-# Step 1: Create a Customer and transfer
 
-## Step 1A: Obtain an application access token
+# Step 1: Creating your Customer
 
-Your application will exchange its `client_id`, `client_secret`, and `grant_type=client_credentials` for an application access token. An application access token can then be used to make calls to the Dwolla API on behalf of your application.
+## Choose the Customer Type for your Funds Flow
 
-## Step 1B: Create a Customer
+Before your end user can send funds, they must be created as a Customer via the Dwolla API. The pay-ins funds flow is flexible in terms of choosing a Customer type to onboard, as both the `unverified` Customer and `verified` Customer types are eligible to send funds. To learn more on the different Customer types and the capabilities of each, check out our [customer types resource article](https://developers.dwolla.com/resources/account-types.html).
 
-Create a Customer for each user you’d like to transfer funds from. At a minimum, provide the user’s full name, and email address to create the Customer. More detail is available in [API docs](https://docs.dwolla.com/#create-a-customer). For the purpose of this guide we'll be creating the `Unverified Customer` type.
+## Step 1A. Create the Customer
+
+While you can use the `verified` Customer type in this funds flow, we will be creating an `unverified` Customer in this guide.
+
+#### Request Parameters - Unverified Customer
+
+| Parameter     | Required? | Type   | Description              |
+|---------------|-----------|--------|--------------------------|
+| firstName     | yes       | string | Customer's first name    |
+| lastName      | yes       | string | Customer's last name     |
+| email         | yes       | string | Customer's email address |
+| businessName  | conditional       | string | Customer's registered business name (optional if not a business entity) |
+| ipAddress     | no        | string | Customer's IP address    |
 
 ```raw
 POST https://api-sandbox.dwolla.com/customers
 Content-Type: application/vnd.dwolla.v1.hal+json
 Accept: application/vnd.dwolla.v1.hal+json
-Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q
+Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 
 {
-"firstName": "Joe",
-"lastName": "Buyer",
-"email": "jbuyer@mail.net",
-"ipAddress": "99.99.99.99"
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "janeDoe@nomail.net",
+  "ipAddress": "99.99.99.99",
 }
 
 HTTP/1.1 201 Created
-Location: https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c
+Location: https://api-sandbox.dwolla.com/customers/FC451A7A-AE30-4404-AB95-E3553FCD733F
 ```
 
 ```ruby
 request_body = {
-  :firstName => 'Joe',
-  :lastName => 'Buyer',
-  :email => 'jbuyer@mail.net',
+  :firstName => 'Jane',
+  :lastName => 'Doe',
+  :email => 'janeDoe@nomail.net',
   :ipAddress => '99.99.99.99'
 }
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-new_customer = app_token.post "customers", request_body
-new_customer.response_headers[:location] # => "https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c"
-
+customer = app_token.post "customers", request_body
+customer.response_headers[:location] # => "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747"
 ```
 
 ```javascript
 var requestBody = {
-  firstName: 'Joe',
-  lastName: 'Buyer',
-  email: 'jbuyer@mail.net',
+  firstName: 'Jane',
+  lastName: 'Merchant',
+  email: 'jmerchant@nomail.net',
   ipAddress: '99.99.99.99'
 };
 
 appToken
   .post('customers', requestBody)
   .then(function(res) {
-    res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
+    res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747'
   });
 ```
 
 ```python
 request_body = {
-  'firstName': 'Joe',
-  'lastName': 'Buyer',
-  'email': 'jbuyer@mail.net',
+  'firstName': 'Jane',
+  'lastName': 'Merchant',
+  'email': 'jmerchant@nomail.net',
   'ipAddress': '99.99.99.99'
 }
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-new_customer = app_token.post('customers', request_body)
-new_customer.headers['location'] # => 'https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
-
+customer = app_token.post('customers', request_body)
+customer.headers['location'] # => 'https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747'
 ```
 
 ```php
 <?php
 $customersApi = new DwollaSwagger\CustomersApi($apiClient);
 
-$new_customer = $customersApi->create([
-  'firstName' => 'Joe',
-  'lastName' => 'Buyer',
-  'email' => 'jbuyer@mail.net',
+$customer = $customersApi->create([
+  'firstName' => 'Jane',
+  'lastName' => 'Merchant',
+  'email' => 'jmerchant@nomail.net',
   'ipAddress' => '99.99.99.99'
 ]);
 
-print($new_customer); # => https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c
+print($customer); # => "https://api-sandbox.dwolla.com/customers/c7f300c0-f1ef-4151-9bbe-005005aa3747"
 ?>
 ```
-
-```java
-CustomersApi cApi = new CustomersApi(a);
-
-CreateCustomer newCustomerData = new CreateCustomer();
-
-myNewCust.setFirstName("Joe");
-myNewCust.setLastName("Buyer");
-myNewCust.setEmail("jbuyer@mail.com");
-myNewCust.setIpAddress("99.99.99.99");
-
-try {
-    Unit$ r = cApi.create(myNewCust);
-    System.out.println(r.getLocationHeader()); // => https://api-sandbox.dwolla.com/customers/247B1BD8-F5A0-4B71-A898-F62F67B8AE1C
-}
-catch (Exception e) {
-    System.out.println("Something's up!");
-}
-```
-
-When the Customer is created, you’ll receive the Customer URL in the location header.
 
 <ol class = "alerts">
     <li class="alert icon-alert-alert">
@@ -120,112 +108,13 @@ When the Customer is created, you’ll receive the Customer URL in the location 
     </li>
 </ol>
 
-## Step 1C: Attach a funding source to the Customer
+When the Customer is successfully created by your application, you will receive a `201` HTTP response with an empty response body. You can reference the Location header to retrieve a link that represents the created Customer resource. We recommend storing the full URL for future use, as it will be necessary to complete additional  actions, such as attaching a bank or correlating webhooks that are triggered for the end user in the Dwolla system.
 
-Next you will attach a verified funding source to the Customer, which will be done using Instant Account Verification (IAV). This method will give the Customer the ability to add and verify their bank account in a matter of seconds by authenticating with their online banking credentials. Once the Customer reaches the page in your application to add a bank account you'll ask Dwolla’s server to [generate an IAV token](http://docs.dwolla.com/#generate-an-iav-token).
+## Step 1B. Handle Webhooks
 
-Generate a single-use IAV token for our Customer:
-
-```raw
-curl -X POST
-\ -H "Content-Type: application/vnd.dwolla.v1.hal+json"
-\ -H "Accept: application/vnd.dwolla.v1.hal+json"
-\ -H "Authorization: Bearer 0Sn0W6kzNicvoWhDbQcVSKLRUpGjIdlPSEYyrHqrDDoRnQwE7Q"
-\ "https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c/iav-token"
-
-HTTP/1.1 200 OK
-{
-   "_links":{
-      "self":{
-         "href":"https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c/iav-token"
-      }
-   },
-   "token":"lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL"
-}
-```
-
-```ruby
-customer_url = 'https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
-
-# Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-customer = app_token.post "#{customer_url}/iav-token"
-customer.token # => "lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL"
-```
-
-```javascript
-// Using dwolla-v2 - https://github.com/Dwolla/dwolla-v2-node
-var customerUrl = 'https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c';
-
-appToken
-  .post(`${customerUrl}/iav-token`)
-  .then(function(res) {
-    res.body.token; // => 'lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL'
-  });
-```
-
-```python
-customer_url = 'https://api.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c'
-
-# Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-customer = app_token.post('%s/iav-token' % customer_url)
-customer.body['token'] # => 'lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL'
-```
-
-```php
-<?php
-$customersApi = new DwollaSwagger\CustomersApi($apiClient);
-
-$fsToken = $customersApi->getCustomerIavToken("https://api-sandbox.dwolla.com/customers/247b1bd8-f5a0-4b71-a898-f62f67b8ae1c");
-$fsToken->token; # => "lr0Ax1zwIpeXXt8sJDiVXjPbwEeGO6QKFWBIaKvnFG0Sm2j7vL"
-?>
-```
-
-Then, you’ll pass this single-use IAV token to the client-side of your application where it will be used in the JavaScript function `dwolla.iav.start`. This token will be used to authenticate the request asking Dwolla to render the IAV flow. Before calling this function you'll want to include `dwolla.js` in the HEAD of your page.
-
-```htmlnoselect
-<head>
-<script src="https://cdn.dwolla.com/1/dwolla.js"></script>
-</head>
-```
-
-Next, you'll add in a container to the body of your page where you want to render the IAV flow.
-
-```htmlnoselect
-<div id="mainContainer">
-  <input type="button" id="start" value="Add Bank">
-</div>
-
-<div id="iavContainer"></div>
-```
-
-Now that you have `dwolla.js` initialized on the page and the container created where you'll render the IAV flow, you'll create a JavaScript function that responds to the Customer clicking the "Add bank" button on your page. Once the Customer clicks "Add Bank", your application will call `dwolla.iav.start()` passing in the following arguments: a string value of your single-use IAV token, options such as the iavContainer element where IAV will render, and a callback function that will handle any error or response.
-
-```javascriptnoselect
-<script type="text/javascript">
-$('#start').click(function() {
-  var iavToken = '4adF858jPeQ9RnojMHdqSD2KwsvmhO7Ti7cI5woOiBGCpH5krY';
-  dwolla.configure('sandbox');
-  dwolla.iav.start(iavToken, {
-          container: 'iavContainer',
-          stylesheets: [
-            'https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext'
-          ],
-          microDeposits: 'true',
-          fallbackToMicroDeposits: (fallbackToMicroDeposits.value === 'true')
-        }, function(err, res) {
-    console.log('Error: ' + JSON.stringify(err) + ' -- Response: ' + JSON.stringify(res));
-  });
-});
-</script>
-```
-
-The customer will complete the IAV flow by authenticating with their online banking credentials. You'll know their bank account was successfully added and verified if you receive a JSON response in your callback that includes a link to the newly created funding source.
-
-* Sample response:  `{"_links":{"funding-source":{"href":"https://api-sandbox.dwolla.com/funding-sources/80275e83-1f9d-4bf7-8816-2ddcd5ffc197"}}}`
-
-Great! The funding source should now be verified.
+If you have an active webhook subscription, you will receive the `customer_created` webhook immediately after the resource has been created.
 
 <nav class="pager-nav">
-    <a href="">Back: Overview</a>
-    <a href="fetch-funding-sources.html">Next: Fetch Funding Sources</a>
+    <a href="./">Back: Overview</a>
+    <a href="add-funding-source.html">Next: Add funding source</a>
 </nav>

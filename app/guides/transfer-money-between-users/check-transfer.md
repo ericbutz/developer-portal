@@ -84,6 +84,6 @@ appToken
 That’s it!  You’ve successfully transferred money from Joe Buyer to Jane Merchant. Please continue to the Webhooks guide for information on implementing notifications for your customers about the transfer.
 
 <nav class="pager-nav">
-    <a href="create-transfer.html">Back: Overview</a>
-    <a href="/guides/webhooks">Next: Webhooks</a>
+    <a href="create-transfer.html">Back: Create a transfer</a>
+    <a href="" style="display:none;"></a>
 </nav>

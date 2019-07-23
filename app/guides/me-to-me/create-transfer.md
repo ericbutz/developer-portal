@@ -361,6 +361,6 @@ appToken
 Your Customer’s funds are now en route to their final destination. Refer to the previous step for reference on how to check the transfer status, simulate bank transfer processing, and handle webhooks in the sandbox environment.
 
 <nav class="pager-nav">
-    <a href="fetch-funding-source.html">Back: Fetch Funding Source</a>
+    <a href="retrieve-funding-sources.html">Back: Fetch Funding Source</a>
     <a href="" style="display:none;"></a>
 </nav>
