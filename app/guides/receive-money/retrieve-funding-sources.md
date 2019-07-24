@@ -17,7 +17,7 @@ Now that you’ve created a Customer and associated its funding source, you are 
 
 Dwolla uses URLs to represent relations between resources. Therefore, you’ll need to provide the full URL of the funding source and recipient.
 
-## Step 3A: Retreive your Customer’s list of available Funding Sources
+## Step 3A: Retrieve your Customer’s list of available Funding Sources
 
 In order to find your Customer’s available bank and balance funding sources, you will need to first retrieve the funding sources from your Customer, via the API.
 
