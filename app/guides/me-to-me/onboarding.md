@@ -190,13 +190,11 @@ Not all Customers will have a `verified` status upon initial Customer creation. 
 
 ### Balance Funding Source
 
-On successful Customer verification, Dwolla will also create a Balance Funding Source for this Customer. This funding source is crucial for a successful integration with this funds flow and an important piece to moving funds between your Customer’s two bank funding sources.
+On successful Customer verification, Dwolla will also create a [Balance Funding Source](https://developers.dwolla.com/resources/balance-funding-source.html) for this Customer.
 
 **A Note on the Balance Funding Source**
 
-There are two types of Funding Sources available within the Dwolla Platform which include a bank or a balance. A bank account is commonly used as the source or destination for ACH transfers. A `balance` is a Funding Source that can be utilized like a “wallet” for holding a stored value of funds. The Dwolla balance is made available for Customers that have fully `verified` their identity within Dwolla. 
-
-We will review this funding source further in the next section.
+There are two types of Funding Sources available within the Dwolla Platform which include a bank or a balance. A bank account is commonly used as the source or destination for ACH transfers. A `balance` is a Funding Source that can be utilized like a “wallet” for holding a stored value of funds. The Dwolla balance is made available for Customers that have fully `verified` their identity within Dwolla.
 
 <nav class="pager-nav">
     <a href="./">Back: Overview</a>

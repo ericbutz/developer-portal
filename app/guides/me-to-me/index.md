@@ -21,8 +21,7 @@ In this quickstart guide, you’ll learn the key concepts involved with sending 
 1. Choosing a Customer type and creating a verified Customer record
 2. Attaching a `source` and `destination` funding source (bank account) to the Customer record
 3. Fetching the available funding sources
-4. Sending funds from the Customer’s checking account to the Dwolla Balance
-5. Sending funds from the Dwolla Balance to the Customer’s savings account
+4. Sending funds from the Customer’s checking account to the Customer’s savings account
 
 ## Before you begin
 

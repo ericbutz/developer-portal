@@ -8,16 +8,21 @@ guide:
 title:  Creating an ACH transfer
 description: Create a transfer by specifying your Customer's bank funding source ID as the source and your Customer’s balance funding source ID as the destination.
 ---
-# Step 4: Initiating a Transfer (Part 1)
+# Step 4: Initiating a Transfer
 
-Sending funds from the Customer’s checking account to the Dwolla Balance
+Sending funds from the Customer’s checking account to their savings account.
 
 ## Identify Source and Destination For Transfer
 
-Since you are utilizing a `me-to-me` funds flow, the first step is to send funds from the bank to the balance.
+The first step is to determine where the funds are being sourced from and where the funds are going to.
 
 - `Source` - Your Customer’s Checking Bank Funding Source
-- `Destination` - Your Customer’s Balance Funding Source
+- `Destination` - Your Customer’s Savings Bank Funding Source
+
+Since you are utilizing a `me-to-me` funds flow, you will need to know that there are two parts to a transfer,
+
+- Source funding source to Balance funding source
+- Balance funding source to Destination funding source
 
 ## Step 4A: Initiate a Transfer
 To initiate a transfer, we will need to specify the source and destination funding source URLs in the _links parameter.
@@ -31,7 +36,7 @@ To initiate a transfer, we will need to specify the source and destination fundi
 
 <ol class = "alerts">
     <li class="alert icon-alert-alert">
-      Within a transfer request, Dwolla supports additional optional parameters. These can range from a <code>facilitator-fee</code> to collect a portion of the transfer amount that is sent to your Dwolla account, or <code>correlationId</code> to help correlate transfers from end-to-end. For more information on all available transfer request parameters, check out our <a href="https://docs.dwolla.com/#initiate-a-transfer">API reference documentation. </a>
+      Within a transfer request, Dwolla supports additional optional parameters. These can range from <code>clearing</code> to specify the processing timing for the transfer, or <code>correlationId</code> to help correlate transfers from end-to-end. The object <code>facilitator-fee</code> isn't supported for this funds flow. For more information on all available transfer request parameters, check out our <a href="https://docs.dwolla.com/#initiate-a-transfer">API reference documentation. </a>
     </li>
 </ol>
 
@@ -62,7 +67,7 @@ Idempotency-Key: 19051a62-3403-11e6-ac61-9e71128cae77
 ...
 
 HTTP/1.1 201 Created
-Location: https://api-sandbox.dwolla.com/transfers/74c9129b-d14a-e511-80da-0aa34a9b2388
+Location: https://api-sandbox.dwolla.com/transfers/81643da1-b1b3-e911-811b-f08aa77f5aa3
 ```
 
 ```php
@@ -72,7 +77,7 @@ $transfer_request = array (
   array (
     'source' =>
     array (
-      'href' => 'https://api-sandbox.dwolla.com/funding-sources/b5e68264-7d4d-42a9-88d4-5616c77c6baa',
+      'href' => 'https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4',
     ),
     'destination' =>
     array (
@@ -89,7 +94,7 @@ $transfer_request = array (
 $transferApi = new DwollaSwagger\TransfersApi($apiClient);
 $transfer = $transferApi->create($transfer_request);
 
-print($transfer); # => https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
+print($transfer); # => https://api-sandbox.dwolla.com/transfers/81643da1-b1b3-e911-811b-f08aa77f5aa3
 ?>
 ```
 
@@ -97,7 +102,7 @@ print($transfer); # => https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e5
 transfer_request = {
   :_links => {
     :source => {
-      :href => "https://api-sandbox.dwolla.com/funding-sources/b5e68264-7d4d-42a9-88d4-5616c77c6baa"
+      :href => "https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4"
     },
     :destination => {
       :href => "https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e"
@@ -111,14 +116,14 @@ transfer_request = {
 
 # Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
 transfer = app_token.post "transfers", transfer_request
-transfer.response_headers[:location] # => "https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
+transfer.response_headers[:location] # => "https://api-sandbox.dwolla.com/transfers/81643da1-b1b3-e911-811b-f08aa77f5aa3"
 ```
 
 ```python
 transfer_request = {
   '_links': {
     'source': {
-      'href': 'https://api-sandbox.dwolla.com/funding-sources/b5e68264-7d4d-42a9-88d4-5616c77c6baa'
+      'href': 'https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4'
     },
     'destination': {
       'href': 'https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e'
@@ -132,14 +137,14 @@ transfer_request = {
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
 transfer = app_token.post('transfers', transfer_request)
-transfer.headers['location'] # => 'https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
+transfer.headers['location'] # => 'https://api-sandbox.dwolla.com/transfers/81643da1-b1b3-e911-811b-f08aa77f5aa3'
 ```
 
 ```javascript
 var transferRequest = {
   _links: {
     source: {
-      href: 'https://api-sandbox.dwolla.com/funding-sources/b5e68264-7d4d-42a9-88d4-5616c77c6baa'
+      href: 'https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4'
     },
     destination: {
       href: 'https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e'
@@ -154,7 +159,7 @@ var transferRequest = {
 appToken
   .post('transfers', transferRequest)
   .then(function(res) {
-    res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
+    res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/transfers/81643da1-b1b3-e911-811b-f08aa77f5aa3'
   });
 ```
 
@@ -162,7 +167,7 @@ When the transfer is created, you will receive a `201` HTTP response with an emp
 
 ## Step 4B: Handle Webhooks
 
-If you have an active webhook subscription (required in production & optional in Sandbox), you will receive the `customer_bank_transfer_created` webhook immediately after the transfer resource has been created.
+If you have an active webhook subscription (required in production & optional in Sandbox), you will receive the `customer_bank_transfer_created` webhook immediately after the transfer resource has been created. This denotes that the first part of the transfer has been initiated from the checking bank funding source to the Balance funding source.
 
 ## Step 4C: Simulate Bank Transfer Processing
 
@@ -176,189 +181,86 @@ While pending bank transfers can be processed at any time in the Sandbox, behavi
 
 ## Step 4D: Handle Webhooks
 
-If you have an active webhook subscription (required in production & optional in Sandbox), you will receive the `customer_bank_transfer_completed` webhook when the status of the transfer has changed from pending to processed.
-
-For more information on transfer related webhooks and when they are fired, refer to our [Developer Resource Article](https://developers.dwolla.com/resources/webhook-events.html).
+If you have an active webhook subscription (required in production & optional in Sandbox), you will receive the `customer_bank_transfer_completed` webhook when the status of the first part of the transfer has changed from `pending` to `processed`. The second part of the transfer is then automatically initiated from the Balance funding source to the savings bank funding-source which triggers another `customer_bank_transfer_created` webhook. Repeat [Step 4C](#step-4c-simulate-bank-transfer-processing) to simulate bank transfer processing again. Once the transfer has cleared into the final destination bank funding source, you will receive another `customer_bank_transfer_completed` webhook denoting that the transfer is now complete.
 
 ## Step 4E: Verify Status of Transfer
 
 Since ACH transfers in production can take a few days to complete, webhooks are an efficient way to notify you of when a transfer’s status has been updated from `pending` to `processed` to a destination funding source. However, if you want to verify the status of a transfer at any given point in time, you can make a call to the API to retrieve the transfer by its unique id.
 
+
+#### Example response for the first part of the transfer
+
 ```noselect
 {
     "_links": {
-        "source": {
-            "href": "https://api-sandbox.dwolla.com/accounts/30a6cb55-1754-4948-b431-ebe48288ef25",
-            "type": "application/vnd.dwolla.v1.hal+json",
-            "resource-type": "account"
-        },
-        "funding-transfer": {
-            "href": "https://api-sandbox.dwolla.com/transfers/6fdd095c-afd7-e811-8111-bec1f96924ed",
-            "type": "application/vnd.dwolla.v1.hal+json",
-            "resource-type": "transfer"
-        },
-        "destination-funding-source": {
-            "href": "https://api-sandbox.dwolla.com/funding-sources/AB443D36-3757-44C1-A1B4-29727FB3111C",
-            "type": "application/vnd.dwolla.v1.hal+json",
-            "resource-type": "funding-source"
-        },
         "self": {
-            "href": "https://api-sandbox.dwolla.com/transfers/74c9129b-d14a-e511-80da-0aa34a9b2388",
+            "href": "https://api-sandbox.dwolla.com/transfers/81643da1-b1b3-e911-811b-f08aa77f5aa3",
             "type": "application/vnd.dwolla.v1.hal+json",
             "resource-type": "transfer"
         },
-        "source-funding-source": {
+        "source": {
             "href": "https://api-sandbox.dwolla.com/funding-sources/707177c3-bf15-4e7e-b37c-55c3898d9bf4",
             "type": "application/vnd.dwolla.v1.hal+json",
             "resource-type": "funding-source"
         },
         "destination": {
-            "href": "https://api-sandbox.dwolla.com/customers/4e988dba-0a1e-4591-ad04-eab3613e2f83",
+            "href": "https://api-sandbox.dwolla.com/customers/cf3f1ad4-fc48-45d3-8aff-0ef5577b8a17",
             "type": "application/vnd.dwolla.v1.hal+json",
             "resource-type": "customer"
+        },
+        "cancel": {
+            "href": "https://api-sandbox.dwolla.com/transfers/81643da1-b1b3-e911-811b-f08aa77f5aa3",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "transfer"
         }
     },
-    "id": "74c9129b-d14a-e511-80da-0aa34a9b2388",
+    "id": "81643da1-b1b3-e911-811b-f08aa77f5aa3",
+    "created": "2019-08-01T15:32:05.620Z",
     "status": "processed",
     "amount": {
-        "value": "10.00",
+        "value": "225.00",
         "currency": "USD"
-    }
+    },
+    "individualAchId": "IQ8M922R"
 }
 ```
 
-# Step 5: Initiating a Transfer (Part 2)
+#### Example response for the second part of the transfer
 
-Sending funds from the Dwolla Balance to the Customer’s savings account
-
-In the previous step, you initiated a transfer from your Customer’s checking account to their Dwolla Balance funding source. When the funds have successfully transferred to this funding source, you can then complete the second half of the overall transfer by calling the Dwolla API to push funds to their savings account from the Dwolla balance.
-
-To move funds from your Customer’s Dwolla balance to their attached savings account, you will simply repeat the steps from [Part 1](#step-4-initiating-a-transfer-part-1) by specifying different Funding Sources specified for the `source` and `destination`.
-
-#### Request and response (view schema in ‘raw’)
-
-```raw
-POST https://api-sandbox.dwolla.com/transfers
-Accept: application/vnd.dwolla.v1.hal+json
-Content-Type: application/vnd.dwolla.v1.hal+json
-Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
-Idempotency-Key: 19051a62-3403-11e6-ac61-9e71128cae77
-
+```noselect
 {
-   "_links": {
-       "source": {
-           "href": "https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e"
-       },
-       "destination": {
-           "href": "https://api-sandbox.dwolla.com/funding-sources/AB443D36-3757-44C1-A1B4-29727FB3111C"
-       }
-   },
-   "amount": {
-       "currency": "USD",
-       "value": "10.00"
+    "_links": {
+        "self": {
+            "href": "https://api-sandbox.dwolla.com/transfers/a00ff82d-73b4-e911-811b-f08aa77f5aa3",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "transfer"
+        },
+        "source": {
+            "href": "https://api-sandbox.dwolla.com/customers/cf3f1ad4-fc48-45d3-8aff-0ef5577b8a17",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "customer"
+        },
+        "destination": {
+            "href": "https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "funding-source"
+        },
+        "funding-transfer": {
+            "href": "https://api-sandbox.dwolla.com/transfers/81643da1-b1b3-e911-811b-f08aa77f5aa3",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "transfer"
+        }
     },
+    "id": "a00ff82d-73b4-e911-811b-f08aa77f5aa3",
+    "created": "2019-08-01T15:44:06.290Z",
+    "status": "processed",
+    "amount": {
+        "value": "225.00",
+        "currency": "USD"
+    },
+    "individualAchId": "IQKBPJAY"
 }
-
-...
-
-HTTP/1.1 201 Created
-Location: https://api-sandbox.dwolla.com/transfers/74c9129b-d14a-e511-80da-0aa34a9b2388
 ```
-
-```php
-<?php
-$transfer_request = array (
-  '_links' =>
-  array (
-    'source' =>
-    array (
-      'href' => 'https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e',
-    ),
-    'destination' =>
-    array (
-      'href' => 'https://api-sandbox.dwolla.com/funding-sources/AB443D36-3757-44C1-A1B4-29727FB3111C',
-    ),
-  ),
-  'amount' =>
-  array (
-    'currency' => 'USD',
-    'value' => '225.00',
-  )
-);
-
-$transferApi = new DwollaSwagger\TransfersApi($apiClient);
-$transfer = $transferApi->create($transfer_request);
-
-print($transfer); # => https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388
-?>
-```
-
-```ruby
-transfer_request = {
-  :_links => {
-    :source => {
-      :href => "https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e"
-    },
-    :destination => {
-      :href => "https://api-sandbox.dwolla.com/funding-sources/AB443D36-3757-44C1-A1B4-29727FB3111C"
-    }
-  },
-  :amount => {
-    :currency => "USD",
-    :value => "225.00"
-  }
-}
-
-# Using DwollaV2 - https://github.com/Dwolla/dwolla-v2-ruby (Recommended)
-transfer = app_token.post "transfers", transfer_request
-transfer.response_headers[:location] # => "https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388"
-```
-
-```python
-transfer_request = {
-  '_links': {
-    'source': {
-      'href': 'https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e'
-    },
-    'destination': {
-      'href': 'https://api-sandbox.dwolla.com/funding-sources/AB443D36-3757-44C1-A1B4-29727FB3111Ce'
-    }
-  },
-  'amount': {
-    'currency': 'USD',
-    'value': '225.00'
-  }
-}
-
-# Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
-transfer = app_token.post('transfers', transfer_request)
-transfer.headers['location'] # => 'https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
-```
-
-```javascript
-var transferRequest = {
-  _links: {
-    source: {
-      href: 'https://api-sandbox.dwolla.com/funding-sources/3152c22b-3d72-442d-a83b-e575df3a043e'
-    },
-    destination: {
-      href: 'https://api-sandbox.dwolla.com/funding-sources/AB443D36-3757-44C1-A1B4-29727FB3111C'
-    }
-  },
-  amount: {
-    currency: 'USD',
-    value: '225.00'
-  }
-};
-
-appToken
-  .post('transfers', transferRequest)
-  .then(function(res) {
-    res.headers.get('location'); // => 'https://api-sandbox.dwolla.com/transfers/d76265cd-0951-e511-80da-0aa34a9b2388'
-  });
-```
-
-Your Customer’s funds are now en route to their final destination. Refer to the previous step for reference on how to check the transfer status, simulate bank transfer processing, and handle webhooks in the sandbox environment.
 
 <nav class="pager-nav">
     <a href="retrieve-funding-sources.html">Back: Fetch Funding Source</a>
