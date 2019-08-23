@@ -1,0 +1,41 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="125" height="55" viewBox="0 0 125 55">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ccd6dd;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-3);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.964" y1="35.728" x2="26.114" y2="9.232" gradientUnits="userSpaceOnUse">
+      <stop offset="0.001" stop-color="#aabac1"/>
+      <stop offset="1" stop-color="#dae1e5"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="22.039" y1="32.834" x2="9.25" y2="42.849" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="1.401" y1="21.839" x2="10.692" y2="12.79" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dae1e5"/>
+      <stop offset="0.999" stop-color="#aabac1"/>
+    </linearGradient>
+  </defs>
+  <title>koltin-logo</title>
+  <g>
+    <g>
+      <path class="cls-1" d="M35.537,14.619h5.591v11.11L51.44,14.619h6.754L47.846,25.4l10.82,14.633H51.948l-7.879-10.82-2.941,3.05v7.77H35.537Z"/>
+      <path class="cls-1" d="M55.694,30.413v-.072A10.215,10.215,0,0,1,66.26,20.21c6.027,0,10.493,4.466,10.493,10.058v.073a10.215,10.215,0,0,1-10.566,10.13C60.16,40.471,55.694,36.005,55.694,30.413Zm15.613,0v-.072a5.171,5.171,0,0,0-5.12-5.374,4.985,4.985,0,0,0-5.047,5.3v.073a5.171,5.171,0,0,0,5.12,5.373A4.985,4.985,0,0,0,71.307,30.413Z"/>
+      <path class="cls-1" d="M78.277,34.516V25.294H75.953v-4.72h2.324V15.6H83.8v4.974h4.575v4.721H83.8v8.315c0,1.27.544,1.888,1.779,1.888a5.607,5.607,0,0,0,2.723-.691v4.43a8.135,8.135,0,0,1-4.357,1.126c-3.376,0-5.664-1.344-5.664-5.846ZM89.955,13.529h5.519V40.035H89.955Zm7.514,0h5.809v4.9H97.469Zm.146,7.044h5.518V40.035H97.614Zm7.618,0h5.519v2.76a6.886,6.886,0,0,1,5.7-3.123c4.176,0,6.609,2.76,6.609,7.226v12.6h-5.519V29.179c0-2.615-1.235-3.958-3.341-3.958s-3.449,1.343-3.449,3.958V40.035h-5.519Z"/>
+    </g>
+    <path class="cls-2" d="M14.7,14.606,1.939,28.023v12l12.74-12.763L27.351,14.606Z"/>
+    <path class="cls-3" d="M1.939,40.018l12.74-12.763L27.351,40.018Z"/>
+    <path class="cls-4" d="M1.939,14.606H14.7L1.939,28.023Z"/>
+  </g>
+</svg>
