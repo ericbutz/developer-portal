@@ -208,8 +208,8 @@ Since ACH transfers in production can take a few days to complete, webhooks are 
             "type": "application/vnd.dwolla.v1.hal+json",
             "resource-type": "customer"
         },
-        "cancel": {
-            "href": "https://api-sandbox.dwolla.com/transfers/81643da1-b1b3-e911-811b-f08aa77f5aa3",
+        "funded-transfer": {
+            "href": "https://api-sandbox.dwolla.com/transfers/a00ff82d-73b4-e911-811b-f08aa77f5aa3",
             "type": "application/vnd.dwolla.v1.hal+json",
             "resource-type": "transfer"
         }
