@@ -291,6 +291,7 @@ A document can fail if, for example, the Customer uploaded the wrong type of doc
 
 * `ScanNotReadable` - The photo was blurry, parts of the image were cut off, or the photo had glares on it preventing information from being read
 * `ScanNotUploaded` - A photo was uploaded, but it was not an ID
+* `ScanIdExpired` - An ID was uploaded, but it has expired
 * `ScanIdTypeNotSupported` - An ID was uploaded, but it is not a form of ID we accept
 * `ScanNameMismatch` - The name on the ID does not match the name on the account
 * `ScanDobMismatch` - The date of birth on the ID does not match the date of birth on the account
