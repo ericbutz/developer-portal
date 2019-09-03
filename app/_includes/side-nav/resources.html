@@ -73,7 +73,16 @@
                 </ul>
             </li>
             {% endif %}
+
+            {% if item.section == 'resources' and item.type == 'integration' %}
+            <li>
+              <a href="{{ item.url }}" {% if page.url == item.url or second_level_dir == file_name %}class="active"{% endif %}>
+                  {{ item.title }}
+              </a>
+            </li>
+            {% endif %}
         {% endfor %}
-        </ul>
+        <a href="https://www.dwolla.com/partnerships/">Partner Ecosystem</a>
+        </ul
     </section>
 </nav>
