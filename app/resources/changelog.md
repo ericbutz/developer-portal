@@ -8,9 +8,28 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 
 <section class="change-log">
   <h1>Upcoming</h1>
-  <h3>2019-06-03</h3>
+  <h3>2019-09-06</h3>
   <h4><em>No upcoming changes</em></h4>
   <h1>Completed</h1>
+  <h3>2019-09-06</h3>
+  <h4><em>CHANGED</em></h4>
+  <ul class="bullet">
+       <li>Added a new JSON object called <code>allFailureReasons</code> to the Document resource, which helps with further identifying the reason for the rejection of an identity verification document uploaded for a Verified Customer. </li>
+	     <li> Check out our <a href = "https://developers.dwolla.com/resources/business-verified-customer/handling-controller-and-customer-statuses.html#document-failure">Developer documentation</a> or view the full dev docs commit changes on our <a href = "https://github.com/Dwolla/open-source-developer-portal">Github</a>. </li>
+  </ul>
+  <h3>2019-08-26</h3>
+  <h4><em>CHANGED</em></h4>
+  <ul class="bullet">
+       <li>Updated the me-to-me funds flow to support creating transfers between two banks of a Customer with a single transfer request.</li>
+	     <li>Check out our <a href = "https://developers.dwolla.com/guides/me-to-me/">Resource Article</a> to learn more. </li>
+  </ul>
+  <h3>2019-08-26</h3>
+  <h4><em>ADDED</em></h4>
+  <ul class="bullet">
+       <li>Added a new Kotlin SDK.</li>
+	     <li>*Note*: Currently under preview to gather feedback. </li>
+       <li>Check it out on our <a href = "https://github.com/Dwolla/dwolla-v2-kotlin">Github</a>) for more information and to provide feedback. </li>
+  </ul>
   <h3>2019-05-31</h3>
   <h4><em>ADDED</em></h4>
   <ul class="bullet">

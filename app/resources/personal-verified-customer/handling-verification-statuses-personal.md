@@ -287,14 +287,17 @@ If the document was found to be fraudulent or doesn’t match the identity of th
 
 ### Document failure
 
-A document can fail if, for example, the Customer uploaded the wrong type of document or the `.jpg` or `.png` file supplied was not readable (i.e. blurry, not well lit, not in color, or cuts off a portion of the identifying image). If you receive a `customer_verification_document_failed` webhook, you’ll need to upload another document. To retrieve the failure reason for the document upload, you’ll retrieve the document by its ID. Contained in the response will be a `failureReason` which corresponds to one of the following values:
+A document can fail if, for example, the Customer uploaded the wrong type of document or the `.jpg` or `.png` file supplied was not readable (i.e. blurry, not well lit, not in color, or cuts off a portion of the identifying image). If you receive a `customer_verification_document_failed` webhook, you’ll need to upload another document. To retrieve the failure reason for the document upload, you’ll retrieve the document by its ID. Contained in the response will be a `failureReason` field which corresponds to one or more of the following values. In case of a failure due to multiple reasons, an additional  `allFailureReasons` array of `reason`s and `description`s is also returned :
 
-* `ScanNotReadable` - The photo was blurry, parts of the image were cut off, or the photo had glares on it preventing information from being read
-* `ScanNotUploaded` - A photo was uploaded, but it was not an ID
-* `ScanIdExpired` - An ID was uploaded, but it has expired
-* `ScanIdTypeNotSupported` - An ID was uploaded, but it is not a form of ID we accept
-* `ScanNameMismatch` - The name on the ID does not match the name on the account
-* `ScanDobMismatch` - The date of birth on the ID does not match the date of birth on the account
+| Failure reason               | Description |
+|------------------------------|------------ |
+| <code>ScanNotReadable</code> | Image blurry, too dark, or obscured by glare |
+| <code>ScanNotUploaded</code> | Scan not uploaded |
+| <code>ScanIdExpired</code> | ID is expired |
+| <code>ScanIdTypeNotSupported</code> | ID may be a military ID, firearm license, or other unsupported ID type |
+| <code>ScanNameMismatch</code> | Name mismatch |
+| <code>ScanDobMismatch</code> | Date of birth mismatch |
+| <code>ScanFailedOther</code> | ID may be fraudulent or a generic example ID image |
 
 ##### Request and response
 
@@ -315,7 +318,17 @@ Authorization: Bearer tJlyMNW6e3QVbzHjeJ9JvAPsRglFjwnba4NdfCzsYJm7XbckcR
   "status": "reviewed",
   "type": "license",
   "created": "2016-01-29T21:22:22.000Z",
-  "failureReason": "ScanNotReadable"
+  "failureReason": "ScanNotReadable",
+  "allFailureReasons": [
+      {
+          "reason": "ScanDobMismatch",
+          "description": "Date of Birth mismatch"
+      },
+      {
+          "reason": "ScanIdExpired",
+          "description": "ID is expired"
+      }
+  ]
 }
 ```
 
