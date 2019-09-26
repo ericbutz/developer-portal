@@ -35,6 +35,12 @@ button:focus {outline:0 !important;}
   transition: max-height 0.2s ease-in-out;
 }
 
+.email-content {
+  overflow: auto;
+  max-height: 0;
+  transition: max-height 0.2s ease-in-out;
+}
+
 td > p {
   font: inherit;
   max-width: 65%;
@@ -42,4 +48,9 @@ td > p {
   overflow: auto;
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+
+pre {
+  background: #D8E0E6;
+  margin-left: -40px;
 }
