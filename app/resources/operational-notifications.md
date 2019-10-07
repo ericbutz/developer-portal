@@ -33,7 +33,7 @@ When configuring Operational Notifications, there are several items that can be 
 | <strong>Account Name</strong> | Yes | The name that will display in the **From** section, defaults to the name on your Dwolla account or specified DBA name.<br> Example: <code>Your Business Name</code>|
 | <strong>From Email Address</strong> | Yes | The email address that will display in the [From] address, only the local-part can be customized.<br> Example: <code>yourbusinessname@dwolla.com</code>|
 | <strong>Reply-to Email Address</strong> | Yes | The email address your company will specify to receive replies.<br> Example: <code>support@yourbusinessname.com</code>|
-| <strong>Logo</strong>| No | The branded image for your company, to be displayed at the top of the email content. The upload file format must be: .jpg, .png, or .gif. |
+| <strong>Logo</strong>| No | The branded image for your company, to be displayed at the top of the email content. The upload file format must be: .jpg, .png, or .gif. The max file size is 10 MB. The recommended width is 135 pixels. |
 | <strong>Logo Link</strong> | No | The link that when the logo is clicked on, will redirect the receiver.<br> Example: <code>www.yourbusinessname.com</code> |
 | <strong>Support Address | Yes | The physical address that will display in the email footer, defaulted to the address on the account.<br> Example: <code>123 Main Street, Des Moines, IA 50309</code> |
 | <strong>Support phone</strong> | Conditional | An optional item. Required if a <code>Support email</code> isn't provided. The phone number that will show up in the support section, defaulted to the account phone number.<br> Example: <code>"If you have any questions or concerns please contact support at 555-555-5555."</code> |
