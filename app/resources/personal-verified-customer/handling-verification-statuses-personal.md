@@ -20,7 +20,7 @@ It is recommended to have an active [webhook subscription](https://docs.dwolla.c
 |-----------------|-------|-------------|
 | verified | customer_verified | The identifying information submitted was sufficient in verifying the Customer account. |
 | retry | customer\_reverification\_needed | The initial identity verification attempt failed because the information provided did not satisfy Dwolla’s verification check. You can make one additional attempt by changing some or all the attributes of the existing Customer with a POST request. All fields are required on the retry attempt. If the additional attempt fails, the resulting status will be either `document` or `suspended`. |
-| kba | customer\_kba\_verification\_needed | The `retry` identity verification attempt failed due to insufficient scores on the submitted data. The end-user will have a single kba attempt to answer a set of “out of wallet” questions about themselves for identity verification. |
+| kba | customer\_kba\_verification\_needed | The `retry` identity verification attempt failed due to insufficient scores on the submitted data. The end-user will have a single kba attempt to answer a set of “out of wallet” questions about themselves for identity verification. **Note:** KBA is a premium feature. Please contact Sales or your account manager for more information on enabling KBA functionality. |
 | document | customer\_verification\_document\_needed | Dwolla requires additional documentation to identify the Customer in the document status. Once a document is uploaded it will be reviewed for verification. |
 | suspended | customer_suspended | The Customer is suspended and may neither send nor receive funds. Contact Account Management for more information. |
 
@@ -155,6 +155,13 @@ Check the Customer’s status again. The Customer will either be in the `verifie
 A `KBA` status occurs when a Customer’s identity scores are too low after the `retry` verification attempt. Knowledge based authentication (KBA), is used to identify end users by asking them to answer specific security questions about themselves pulled from a set of known data. These questions are also known as “out of wallet” questions which are dynamically generated on the spot. The Customer must answer at least three out of four (total) questions correctly in order to pass verification, which translates to a score of 75%. If the end user fails to pass KBA verification, they will be placed in a `document` status. The KBA flow is a three step process which includes: initiating the KBA session, retrieving the question set and answering the question set.
 
 > [Learn more](https://developers.dwolla.com/resources/testing.html) on testing KBA in the sandbox environment.
+
+<ol class="alerts">
+   <li class="alert icon-alert-info">
+       This section outlines a premium feature for the Dwolla API. Please contact Sales or your account manager for more information on enabling KBA functionality.
+   </li>
+</ol>
+
 
 ### Initiating the KBA session
 

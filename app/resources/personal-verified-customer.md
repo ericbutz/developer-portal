@@ -20,7 +20,7 @@ We’ll outline the verification process for `personal` verified Customers.
  * &#8226; Check the status of the personal Customer
 2. [Handling verification statuses](/resources/personal-verified-customer/handling-verification-statuses-personal.html)
  * &#8226; If necessary, `retry` verification
- * &#8226; If necessary, `kba` verification
+ * &#8226; If necessary, `kba` verification (*premium feature*)
  * &#8226; If necessary, upload a `document`
  * &#8226; Overview of `suspended` status
 3. [Frequently asked questions](/resources/personal-verified-customer/frequently-asked-questions.html)
