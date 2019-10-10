@@ -8,9 +8,23 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 
 <section class="change-log">
   <h1>Upcoming</h1>
-  <h3>2019-09-06</h3>
+  <h3>2019-10-09</h3>
   <h4><em>No upcoming changes</em></h4>
   <h1>Completed</h1>
+  <h3>2019-10-09</h3>
+  <h4><em>ADDED</em></h4>
+  <ul class="bullet">
+       <li>Added a new Knowledge-based Authentication (<code>KBA</code>) resource to the API.</li>
+	   <li>KBA is a component of verifying the identity of Personal Verified Customers.</li>
+       <li>Head over to our <a href = "https://docs.dwolla.com/#knowledge-based-authentication-kba"> API Docs</a> or check out our <a href = "https://discuss.dwolla.com/t/september-2019-updates-featuring-kba/5367">Developer forum announcement</a> to learn more.</li>
+  </ul>
+  <h3>2019-10-09</h3>
+  <h4><em>ADDED</em></h4>
+  <ul class="bullet">
+       <li>Added support for including the <code>clearing</code> JSON object when creating a mass payment.</li>
+	   <li>The <code>clearing</code> object allows for the clearing time of individual mass payment items to be upgraded or downgraded from the default ACH processing time.</li>
+       <li>Head over to our <a href = "https://docs.dwolla.com/#mass-payments"> API Docs</a> to learn more</a>.</li>
+  </ul>
   <h3>2019-09-06</h3>
   <h4><em>CHANGED</em></h4>
   <ul class="bullet">
