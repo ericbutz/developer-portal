@@ -20,12 +20,13 @@ It is recommended to have an active [webhook subscription](https://docs.dwolla.c
 |-----------------|-------|-------------|
 | verified | customer_verified | The identifying information submitted was sufficient in verifying the Customer account. |
 | retry | customer\_reverification\_needed | The initial identity verification attempt failed because the information provided did not satisfy Dwolla’s verification check. You can make one additional attempt by changing some or all the attributes of the existing Customer with a POST request. All fields are required on the retry attempt. If the additional attempt fails, the resulting status will be either `document` or `suspended`. |
+| kba | customer\_kba\_verification\_needed | The `retry` identity verification attempt failed due to insufficient scores on the submitted data. The end-user will have a single kba attempt to answer a set of “out of wallet” questions about themselves for identity verification. |
 | document | customer\_verification\_document\_needed | Dwolla requires additional documentation to identify the Customer in the document status. Once a document is uploaded it will be reviewed for verification. |
 | suspended | customer_suspended | The Customer is suspended and may neither send nor receive funds. Contact Account Management for more information. |
 
 ### Testing verification statuses in Sandbox
 
-Dwolla’s Sandbox environment allows you to submit `verified`, `retry`, `document`, or `suspended` as the value of the firstName parameter to create a new verified Customer with their respective status. To simulate transitioning a verified Customer with a `retry` status to `verified`, you’ll need to call the [Update a Customer](https://docs.dwolla.com/#update-a-customer) endpoint and submit full identifying information with an updated firstName value and full SSN. To simulate transitioning a verified Customer with a `document` status to `verified` in the Sandbox, you’ll need to upload a test document as outlined in the [Testing in the Sandbox](https://developers.dwolla.com/resources/testing.html#simulate-document-upload-approved-and-failed-events) resource article.
+Dwolla’s Sandbox environment allows you to submit `verified`, `retry`, `kba`, `document`, or `suspended` as the value of the firstName parameter to create a new verified Customer with their respective status. To simulate transitioning a verified Customer with a `retry` status to `verified`, you’ll need to call the [Update a Customer](https://docs.dwolla.com/#update-a-customer) endpoint and submit full identifying information with an updated firstName value and full SSN. To simulate transitioning a verified Customer with a `document` status to `verified` in the Sandbox, you’ll need to upload a test document as outlined in the [Testing in the Sandbox](https://developers.dwolla.com/resources/testing.html#simulate-document-upload-approved-and-failed-events) resource article.
 
 ## Handling status: `retry`
 
@@ -147,7 +148,312 @@ print($retryCustomer->id); # => 132681fa-1b4d-4181-8ff2-619ca46235b1
 ?>
 ```
 
-Check the Customer’s status again. The Customer will either be in the `verified`, `document`, or `suspended` state of verification.
+Check the Customer’s status again. The Customer will either be in the `verified`, `kba`, `document`, or `suspended` state of verification.
+
+## Handling status: `kba`
+
+A `KBA` status occurs when a Customer’s identity scores are too low after the `retry` verification attempt. Knowledge based authentication (KBA), is used to identify end users by asking them to answer specific security questions about themselves pulled from a set of known data. These questions are also known as “out of wallet” questions which are dynamically generated on the spot. The Customer must answer at least three out of four (total) questions correctly in order to pass verification, which translates to a score of 75%. If the end user fails to pass KBA verification, they will be placed in a `document` status. The KBA flow is a three step process which includes: initiating the KBA session, retrieving the question set and answering the question set.
+
+> [Learn more](https://developers.dwolla.com/resources/testing.html) on testing KBA in the sandbox environment.
+
+### Initiating the KBA session
+
+The first step in the KBA flow is to make a request to the Dwolla API to [generate a unique KBA ID](http://docs.dwolla.com/#initiate-kba-session) which is used to represent the KBA session.
+
+#### Example request and response
+
+```raw
+POST https://api.dwolla.com/customers/33aa88b1-97df-424a-9043-d5f85809858b/kba
+Authorization: Bearer cRahPzURfaIrTKL18tmslWPqKdzkLeYJm0oB1hGJ1vMPArft1v
+Content-Type: application/json
+Accept: application/vnd.dwolla.v1.hal+json
+
+...
+
+HTTP/1.1 201 Created\
+Location: https://api.dwolla.com/kba/33aa88b1-97df-424a-9043-d5f85809858b
+```
+
+```ruby
+customer_url = 'https://api-sandbox.dwolla.com/customers/ca22d192-48f1-4b72-b29d-681e9e20795d'
+
+kba = app_token.post "#{customer_url}/kba"
+kba.response_headers[:location] # => "https://api-sandbox.dwolla.com/kba/70b0e9cc-020d-4de2-9a82-a2281afa4c31"
+```
+```php
+/**
+ * No example for this language yet. Coming soon to the dwolla-swagger-php SDK.
+ **/
+```
+```python
+customer_url = 'https://api-sandbox.dwolla.com/customers/61a74e62-e27d-46f1-9fa6-a8e57226bb3e'
+
+kba = app_token.post('%s/kba' % customer_url)
+kba.headers['location'] # => "https://api-sandbox.dwolla.com/kba/70b0e9cc-020d-4de2-9a82-a2281afa4c31"
+```
+```javascript
+var customerUrl = 'https://api-sandbox.dwolla.com/customers/61a74e62-e27d-46f1-9fa6-a8e57226bb3e';
+
+appToken
+  .post(`${customerUrl}/kba`)
+  .then(res => res.headers.get('location')); // => 'https://api-sandbox.dwolla.com/kba/70b0e9cc-020d-4de2-9a82-a2281afa4c31'
+```
+
+### Retrieve KBA Question set
+
+Once the KBA ID is created, your application will have a **single attempt** to [retrieve](http://docs.dwolla.com/#retrieve-kba-questions) and [answer](http://docs.dwolla.com/#verify-kba-questions) the question set returned from the Dwolla API. Upon a successful request to retrieve the question set, your end user will have two minutes to complete the submission of their selected answers.
+
+#### Example request and response
+
+```raw
+GET https://api.dwolla.com/kba/33aa88b1-97df-424a-9043-d5f85809858b
+Accept: application/vnd.dwolla.v1.hal+json
+Authorization: Bearer cRahPzURfaIrTewKL18tmslWPqKdzkLeYJm0oB1hGJ1vMPArft1v
+
+...
+
+{
+    "_links": {
+        "answer": {
+            "href": "https://api-sandbox.dwolla.com/kba/33aa88b1-97df-424a-9043-d5f85809858b",
+            "type": "application/vnd.dwolla.v1.hal+json",
+            "resource-type": "kba"
+        }
+    },
+    "id": "33aa88b1-97df-424a-9043-d5f85809858b",
+    "questions": [
+        {
+            "id": "2355953375",
+            "text": "In what county do you currently live?",
+            "answers": [
+                {
+                    "id": "2687969295",
+                    "text": "Pulaski"
+                },
+                {
+                    "id": "2687969305",
+                    "text": "St. Joseph"
+                },
+                {
+                    "id": "2687969315",
+                    "text": "Daviess"
+                },
+                {
+                    "id": "2687969325",
+                    "text": "Jackson"
+                },
+                {
+                    "id": "2687969335",
+                    "text": "None of the above"
+                }
+            ]
+        },
+        {
+            "id": "2355953385",
+            "text": "Which team nickname is associated with a college you attended?",
+            "answers": [
+                {
+                    "id": "2687969345",
+                    "text": "Colts"
+                },
+                {
+                    "id": "2687969355",
+                    "text": "Eagles"
+                },
+                {
+                    "id": "2687969365",
+                    "text": "Gator"
+                },
+                {
+                    "id": "2687969375",
+                    "text": "Sentinels"
+                },
+                {
+                    "id": "2687969385",
+                    "text": "None of the above"
+                }
+            ]
+        },
+        {
+            "id": "2355953395",
+            "text": "What kind of IA license plate has been on your 1996 Acura TL?",
+            "answers": [
+                {
+                    "id": "2687969395",
+                    "text": "Antique"
+                },
+                {
+                    "id": "2687969405",
+                    "text": "Disabled Veteran"
+                },
+                {
+                    "id": "2687969415",
+                    "text": "Educational Affiliation"
+                },
+                {
+                    "id": "2687969425",
+                    "text": "Military Honor"
+                },
+                {
+                    "id": "2687969435",
+                    "text": "I have never been associated with this vehicle"
+                }
+            ]
+        }
+    ]
+}
+```
+
+```ruby
+kba_url = 'https://api-sandbox.dwolla.com/kba/70b0e9cc-020d-4de2-9a82-a2281afa4c31'
+
+kba_questions = app_token.get kba_url
+kba_questions.id # => "70b0e9cc-020d-4de2-9a82-a2281afa4c31"
+```
+```php
+/**
+ * No example for this language yet. Coming soon to the dwolla-swagger-php SDK.
+ **/
+```
+```python
+kba_url = 'https://api-sandbox.dwolla.com/kba/70b0e9cc-020d-4de2-9a82-a2281afa4c31'
+
+kba_questions = app_token.get(kba_url)
+kba_questions.id # => '70b0e9cc-020d-4de2-9a82-a2281afa4c31'
+```
+```javascript
+var kbaUrl = 'https://api-sandbox.dwolla.com/kba/70b0e9cc-020d-4de2-9a82-a2281afa4c31';
+
+appToken
+  .get(kbaUrl)
+  .then(res => res.body.id); // => '70b0e9cc-020d-4de2-9a82-a2281afa4c31'
+```
+
+### Answer KBA Questions
+
+Questions and answers will have their own unique identifiers. Questions and answers are submitted via an `answers` array that contains a list of four JSON objects that include key-value pairs for specifying a questionId and answerId.
+
+#### Example request and response
+
+```raw
+POST https://api.dwolla.com/kba/33aa88b1-97df-424a-9043-d5f85809858b
+Accept: application/vnd.dwolla.v1.hal+json
+Authorization: Bearer cRahPzURfaIrTewKL18tmslWPqKdzkLeYJm0oB1hGJ1vMPArft1v
+
+...
+
+{
+    "answers": [
+        {
+            "questionId": "2355953375",
+            "answerId": "2687969335"
+        },
+        {
+            "questionId": "2355953385",
+            "answerId": "2687969385"
+        },
+        {
+            "questionId": "2355953395",
+            "answerId": "2687969435"
+        },
+        {
+            "questionId": "2355953405",
+            "answerId": "2687969485"
+        }
+    ]
+}
+```
+```ruby
+kba_url = 'https://api-sandbox.dwolla.com/kba/70b0e9cc-020d-4de2-9a82-a2281afa4c31'
+
+request_body = {
+    :answers => [
+        {
+            :questionId => "2355953375",
+            :answerId => "2687969335"
+        },
+        {
+            :questionId => "2355953385",
+            :answerId => "2687969385"
+        },
+        {
+            :questionId => "2355953395",
+            :answerId => "2687969435"
+        },
+        {
+            :questionId => "2355953405",
+            :answerId => "2687969485"
+        }
+    ]
+}
+
+kba_answers = app_token.post kba_url, request_body
+```
+```php
+/**
+ * No example for this language yet. Coming soon to the dwolla-swagger-php SDK.
+ **/
+```
+```python
+kba_url = 'https://api-sandbox.dwolla.com/kba/70b0e9cc-020d-4de2-9a82-a2281afa4c31'
+
+request_body = {
+    'answers' : [
+        {
+            'questionId': "2355953375",
+            'answerId': "2687969335"
+        },
+        {
+            'questionId': "2355953385",
+            'answerId': "2687969385"
+        },
+        {
+            'questionId': "2355953395",
+            'answerId':"2687969435"
+        },
+        {
+            'questionId': "2355953405",
+            'answerId': "2687969485"
+        }
+    ]
+}
+
+kba_answers = app_token.post (kba_url, request_body)
+```
+```javascript
+var kbaUrl = 'https://api.dwolla.com/kba/70b0e9cc-020d-4de2-9a82-a2281afa4c31';
+var requestBody = {
+  answers : [
+        {
+            questionId: '2355953375',
+            answerId: '2687969335'
+        },
+        {
+            questionId: '2355953385',
+            answerId: '2687969385'
+        },
+        {
+            questionId: '2355953395',
+            answerId:'2687969435'
+        },
+        {
+            questionId: '2355953405',
+            answerId: '2687969485'
+        }
+    ]
+};
+
+appToken
+  .post(kbaUrl, requestBody)
+```
+
+#### KBA Success
+
+If your Customer is able to correctly answer at least three of the four (total) KBA questions, your Customer will move into a `verified` status and you will receive a `customer_verified` webhook.
+
+#### KBA Failure
+
+A Customer that is unable to answer at least three questions correctly will be moved into `document` status. You will receive the `customer_kba_failed` and `customer_verification_document_needed` webhook to indicate that your Customer has failed and must upload a photo Id in order to become `verified`.
 
 ## Handling status: `document`
 

@@ -232,7 +232,7 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
 
 Congrats! Our Customer was successfully verified!
 
-However, if the Customer was unable to be verified on the initial flow, they will given a verification status of either `retry`, `document`, or `suspended`. Continue reading for instructions on [handling various Customer verification statuses](/resources/personal-verified-customer/handling-verification-statuses-personal.html) and guidelines for providing additional information to verify these Customers.
+However, if the Customer was unable to be verified on the initial flow, they will given a verification status of either `retry`, `kba`, `document`, or `suspended`. Continue reading for instructions on [handling various Customer verification statuses](/resources/personal-verified-customer/handling-verification-statuses-personal.html) and guidelines for providing additional information to verify these Customers.
 
 ***
 
