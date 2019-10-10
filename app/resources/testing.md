@@ -30,11 +30,19 @@ The [Sandbox Dashboard](https://dashboard-sandbox.dwolla.com) allows you to mana
 
 There are various reasons a Verified Customer may have a status other than `verified` after the initial Customer creation. You will want your app to be prepared to handle these alternative statuses.
 
-In production, Dwolla will place the Verified Customer in either the `retry`, `document`, `verified`, or `suspended` state of verification after an initial identity verification check.
+In production, Dwolla will place the Verified Customer in either the `retry`, `kba`, `document`, `verified`, or `suspended` state of verification after an initial identity verification check.
 
-**For personal verified Customers**, reference the resource article on [customer verification](https://developers.dwolla.com/resources/personal-verified-customer/handling-verification-statuses-personal.html) for more information on handling identity verification for Verified Customers. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the **firstName** parameter in order to [create a new Verified Customer](https://docs.dwolla.com/#request-parameters---verified-customer) with that status.
+**For personal verified Customers**, reference the resource article on [customer verification](https://developers.dwolla.com/resources/personal-verified-customer/handling-verification-statuses-personal.html) for more information on handling identity verification for Verified Customers. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `kba`, `document`, or `suspended` in the **firstName** parameter in order to [create a new Verified Customer](https://docs.dwolla.com/#request-parameters---verified-customer) with that status.
 
 **For business verified Customers**, reference the resource article on [customer verification](https://developers.dwolla.com/resources/business-verified-customer/create-business-verified-customers.html) article that goes over information on properly verifying your Controllers and Beneficial Owners. To simulate the various statuses in the Sandbox, submit either `verified`, `retry`, `document`, or `suspended` in the **controller firstName** parameter in order to [create a new Verified Customer](https://docs.dwolla.com/#request-parameters---verified-customer) with that status.
+
+##### **Simulate KBA verified and failed events**
+
+If a Personal Verified Customer isn’t systematically identity-verified after their second attempt to retry their information, the Customer may be placed in a `kba` status and will be required to successfully answer at least three out of four knowledge based authentication(KBA) questions in order to pass verification. 
+
+To simulate the `customer_kba_verification_passed` event as the result of KBA success in Sandbox, answer all four questions with either “None of the above” or “I have never been associated with this vehicle”. As a result, the Customer will be placed in a verified status and the `customer_verified` event is triggered.
+
+To simulate the `customer_kba_verification_failed` event as the result of KBA failure in Sandbox, answer the questions with any answer choices other than “None of the above” or “I have never been associated with this vehicle”. As a result, the Customer will be placed in a document status and the `customer_verification_document_needed` event is triggered.
 
 ##### **Simulate document upload approved and failed events**
 
