@@ -72,6 +72,105 @@ samples:
 
         ```
 
+    customerKbaVerificationNeeded: >
+        ```jsonnoselect
+
+        {
+          "_links": {
+              "self": {
+                "href": "https://api-sandbox.dwolla.com/events/36c99d4e-ec2f-4a31-8318-2f39121dc6dc",
+                "type": "application/vnd.dwolla.v1.hal+json",
+                "resource-type": "event"
+              },
+              "resource": {
+                "href": "https://api-sandbox.dwolla.com/customers/5da64ab9-785e-4b67-96b1-7ab5f1a12e22",
+                "type": "application/vnd.dwolla.v1.hal+json"
+              },
+              "account": {
+                "href": "https://api-sandbox.dwolla.com/accounts/0ee84069-47c5-455c-b425-633523291dc3",
+                "type": "application/vnd.dwolla.v1.hal+json",
+                "resource-type": "account"
+              },
+              "customer": {
+                "href": "https://api-sandbox.dwolla.com/customers/5da64ab9-785e-4b67-96b1-7ab5f1a12e22",
+                "type": "application/vnd.dwolla.v1.hal+json",
+                "resource-type": "customer"
+              }
+          },
+          "id": "36c99d4e-ec2f-4a31-8318-2f39121dc6dc",
+          "created": "2019-10-30T15:39:23.560Z",
+          "topic": "customer_kba_verification_needed",
+          "resourceId": "5da64ab9-785e-4b67-96b1-7ab5f1a12e22"
+        }
+
+        ```
+
+    customerKbaVerificationPassed: >
+        ```jsonnoselect
+
+        {
+          "_links": {
+            "self": {
+              "href": "https://api-sandbox.dwolla.com/events/e94951e3-6c83-40e2-990f-b25a76ce753e",
+              "type": "application/vnd.dwolla.v1.hal+json",
+              "resource-type": "event"
+            },
+            "resource": {
+              "href": "https://api-sandbox.dwolla.com/customers/5da64ab9-785e-4b67-96b1-7ab5f1a12e22",
+              "type": "application/vnd.dwolla.v1.hal+json"
+            },
+            "account": {
+              "href": "https://api-sandbox.dwolla.com/accounts/0ee84069-47c5-455c-b425-633523291dc3",
+              "type": "application/vnd.dwolla.v1.hal+json",
+              "resource-type": "account"
+            },
+            "customer": {
+              "href": "https://api-sandbox.dwolla.com/customers/5da64ab9-785e-4b67-96b1-7ab5f1a12e22",
+              "type": "application/vnd.dwolla.v1.hal+json",
+              "resource-type": "customer"
+            }
+          },
+          "id": "e94951e3-6c83-40e2-990f-b25a76ce753e",
+          "created": "2019-10-30T15:40:02.379Z",
+          "topic": "customer_kba_verification_passed",
+          "resourceId": "5da64ab9-785e-4b67-96b1-7ab5f1a12e22"
+        }
+
+        ```
+
+    customerKbaVerificationFailed: >
+        ```jsonnoselect
+
+        {
+          "_links": {
+            "self": {
+              "href": "https://api-sandbox.dwolla.com/events/83602871-b142-47cb-a5d6-ddf240416955",
+              "type": "application/vnd.dwolla.v1.hal+json",
+              "resource-type": "event"
+            },
+            "resource": {
+              "href": "https://api-sandbox.dwolla.com/customers/a811608d-140a-4e2c-9eed-ee26dd5172b0",
+              "type": "application/vnd.dwolla.v1.hal+json"
+            },
+            "account": {
+              "href": "https://api-sandbox.dwolla.com/accounts/0ee84069-47c5-455c-b425-633523291dc3",
+              "type": "application/vnd.dwolla.v1.hal+json",
+              "resource-type": "account"
+            },
+            "customer": {
+              "href": "https://api-sandbox.dwolla.com/customers/a811608d-140a-4e2c-9eed-ee26dd5172b0",
+              "type": "application/vnd.dwolla.v1.hal+json",
+              "resource-type": "customer"
+            }
+          },
+          "id": "83602871-b142-47cb-a5d6-ddf240416955",
+          "created": "2019-10-30T15:43:26.256Z",
+          "topic": "customer_kba_verification_failed",
+          "resourceId": "a811608d-140a-4e2c-9eed-ee26dd5172b0"
+        }
+
+        ```
+
     customerVerificationDocumentNeeded: >
         ```jsonnoselect
 
@@ -1266,6 +1365,39 @@ Webhooks are available for the list of Events shown below. As API enhancements a
           <div class="accordion-content">
             {{ page.samples.customerReverificationNeeded | markdownify }}
           </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>customer_kba_verification_needed</td>
+      <td><p><strong>Description</strong>: The <code>retry</code> verification attempt failed; additional knowledge-based authentication is needed from the customer.</p>
+      <p><strong>Timing</strong>: Occurs upon a POST request to the <a href="https://docs.dwolla.com/#update-a-customer">Update a Customer</a> endpoint.</p>
+        <button class="accordion"></button>
+        <div class="accordion-content">
+          {{ page.samples.customerKbaVerificationNeeded | markdownify }}
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>customer_kba_verification_failed</td>
+      <td><p><strong>Description</strong>: The Customer failed to pass knowledge-based authentication.</p>
+      <p><strong>Timing</strong>: Occurs upon a POST request to the <a href="https://docs.dwolla.com/#verify-kba-questions">Verify KBA questions</a> endpoint.</p>
+        <button class="accordion"></button>
+        <div class="accordion-content">
+          {{ page.samples.customerKbaVerificationFailed | markdownify }}
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>customer_kba_verification_passed</td>
+      <td><p><strong>Description</strong>: The Customer successfully passed knowledge-based authentication.</p>
+      <p><strong>Timing</strong>: Occurs upon a POST request to the <a href="https://docs.dwolla.com/#verify-kba-questions">Verify KBA questions</a> endpoint.</p>
+        <button class="accordion"></button>
+        <div class="accordion-content">
+          {{ page.samples.customerKbaVerificationPassed | markdownify }}
+        </div>
       </td>
     </tr>
 
