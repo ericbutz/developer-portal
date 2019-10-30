@@ -169,7 +169,7 @@ When the funding sources list is successfully retrieved, you will receive a `200
 
 ## Step 3B: Fetch your Customer's list of available funding sources
 
-Use the [list an Customer’s funding sources](https://docs.dwolla.com/#list-funding-sources-for-a-customer) endpoint to fetch a list of your own funding sources. You’ll need the Customer URL which can be [retrieved from the API.](https://docs.dwolla.com/#list-and-search-customers)
+Use the [list a Customer’s funding sources](https://docs.dwolla.com/#list-funding-sources-for-a-customer) endpoint to fetch a list of your own funding sources. You’ll need the Customer URL which can be [retrieved from the API.](https://docs.dwolla.com/#list-and-search-customers)
 
 #### Request and Response (view schema in `raw`)
 
@@ -236,14 +236,14 @@ funding_sources._embedded['funding-sources'][0].name # => "ABC Bank Checking"
 var customerUrl = 'https://api-sandbox.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254';
 
 appToken
-  .get(`${accountUrl}/funding-sources`)
+  .get(`${customerUrl}/funding-sources`)
   .then(function(res) {
     res.body._embedded['funding-sources'][0].name; // => 'ABC Bank Checking'
   });
 ```
 
 ```python
-customers_url = 'https://api.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254'
+customer_url = 'https://api.dwolla.com/customers/ad5f2162-404a-4c4c-994e-6ab6c3a13254'
 
 # Using dwollav2 - https://github.com/Dwolla/dwolla-v2-python (Recommended)
 funding_sources = app_token.get('%s/funding-sources' % customer_url)

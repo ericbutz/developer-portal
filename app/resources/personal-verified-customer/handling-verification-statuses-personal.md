@@ -456,11 +456,11 @@ appToken
 
 #### KBA Success
 
-If your Customer is able to correctly answer at least three of the four (total) KBA questions, your Customer will move into a `verified` status and you will receive a `customer_verified` webhook.
+If your Customer is able to correctly answer at least three of the four (total) KBA questions, your Customer will be moved into `verified` status. You will receive the `customer_kba_verification_passed` and   `customer_verified` webhooks to indicate that your Customer has passed the KBA attempt and has been successfully verified.
 
 #### KBA Failure
 
-A Customer that is unable to answer at least three questions correctly will be moved into `document` status. You will receive the `customer_kba_failed` and `customer_verification_document_needed` webhook to indicate that your Customer has failed and must upload a photo Id in order to become `verified`.
+A Customer that is unable to answer at least three questions correctly will be moved into `document` status. You will receive the `customer_kba_verification_failed` and `customer_verification_document_needed` webhooks to indicate that your Customer has failed the KBA attempt and must upload a photo Id in order to become `verified`.
 
 ## Handling status: `document`
 
