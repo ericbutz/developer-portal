@@ -94,6 +94,87 @@
   </span><span class=nt>"resourceId"</span><span class=p>:</span><span class=w> </span><span class=s2>"15b9ecc2-0c83-4e85-bf9f-948458a8be63"</span><span class=p>,</span><span class=w>
   </span><span class=nt>"topic"</span><span class=p>:</span><span class=w> </span><span class=s2>"customer_reverification_needed"</span><span class=w>
 </span><span class=p>}</span><span class=w>
+</span></code></pre></div></div></div></td></tr><tr><td>customer_kba_verification_needed</td><td><p><strong>Description</strong>: The <code>retry</code> verification attempt failed; additional knowledge-based authentication is needed from the customer.</p><p><strong>Timing</strong>: Occurs upon a POST request to the <a href=https://docs.dwolla.com/#update-a-customer>Update a Customer</a> endpoint.</p><button class=accordion></button><div class=accordion-content><div class="code-snippet js-code-snippet language-jsonnohide"><button class="btn alternative">copy</button><div class="code-snippet__cnt highlight"><pre><code class=language-jsonnohide data-lang=jsonnohide><span class=p>{</span><span class=w>
+  </span><span class=nt>"_links"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nt>"self"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+        </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/events/36c99d4e-ec2f-4a31-8318-2f39121dc6dc"</span><span class=p>,</span><span class=w>
+        </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+        </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"event"</span><span class=w>
+      </span><span class=p>},</span><span class=w>
+      </span><span class=nt>"resource"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+        </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/5da64ab9-785e-4b67-96b1-7ab5f1a12e22"</span><span class=p>,</span><span class=w>
+        </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=w>
+      </span><span class=p>},</span><span class=w>
+      </span><span class=nt>"account"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+        </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/accounts/0ee84069-47c5-455c-b425-633523291dc3"</span><span class=p>,</span><span class=w>
+        </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+        </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"account"</span><span class=w>
+      </span><span class=p>},</span><span class=w>
+      </span><span class=nt>"customer"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+        </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/5da64ab9-785e-4b67-96b1-7ab5f1a12e22"</span><span class=p>,</span><span class=w>
+        </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+        </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"customer"</span><span class=w>
+      </span><span class=p>}</span><span class=w>
+  </span><span class=p>},</span><span class=w>
+  </span><span class=nt>"id"</span><span class=p>:</span><span class=w> </span><span class=s2>"36c99d4e-ec2f-4a31-8318-2f39121dc6dc"</span><span class=p>,</span><span class=w>
+  </span><span class=nt>"created"</span><span class=p>:</span><span class=w> </span><span class=s2>"2019-10-30T15:39:23.560Z"</span><span class=p>,</span><span class=w>
+  </span><span class=nt>"topic"</span><span class=p>:</span><span class=w> </span><span class=s2>"customer_kba_verification_needed"</span><span class=p>,</span><span class=w>
+  </span><span class=nt>"resourceId"</span><span class=p>:</span><span class=w> </span><span class=s2>"5da64ab9-785e-4b67-96b1-7ab5f1a12e22"</span><span class=w>
+</span><span class=p>}</span><span class=w>
+</span></code></pre></div></div></div></td></tr><tr><td>customer_kba_verification_failed</td><td><p><strong>Description</strong>: The Customer failed to pass knowledge-based authentication.</p><p><strong>Timing</strong>: Occurs upon a POST request to the <a href=https://docs.dwolla.com/#verify-kba-questions>Verify KBA questions</a> endpoint.</p><button class=accordion></button><div class=accordion-content><div class="code-snippet js-code-snippet language-jsonnohide"><button class="btn alternative">copy</button><div class="code-snippet__cnt highlight"><pre><code class=language-jsonnohide data-lang=jsonnohide><span class=p>{</span><span class=w>
+  </span><span class=nt>"_links"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+    </span><span class=nt>"self"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/events/83602871-b142-47cb-a5d6-ddf240416955"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"event"</span><span class=w>
+    </span><span class=p>},</span><span class=w>
+    </span><span class=nt>"resource"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/a811608d-140a-4e2c-9eed-ee26dd5172b0"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=w>
+    </span><span class=p>},</span><span class=w>
+    </span><span class=nt>"account"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/accounts/0ee84069-47c5-455c-b425-633523291dc3"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"account"</span><span class=w>
+    </span><span class=p>},</span><span class=w>
+    </span><span class=nt>"customer"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/a811608d-140a-4e2c-9eed-ee26dd5172b0"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"customer"</span><span class=w>
+    </span><span class=p>}</span><span class=w>
+  </span><span class=p>},</span><span class=w>
+  </span><span class=nt>"id"</span><span class=p>:</span><span class=w> </span><span class=s2>"83602871-b142-47cb-a5d6-ddf240416955"</span><span class=p>,</span><span class=w>
+  </span><span class=nt>"created"</span><span class=p>:</span><span class=w> </span><span class=s2>"2019-10-30T15:43:26.256Z"</span><span class=p>,</span><span class=w>
+  </span><span class=nt>"topic"</span><span class=p>:</span><span class=w> </span><span class=s2>"customer_kba_verification_failed"</span><span class=p>,</span><span class=w>
+  </span><span class=nt>"resourceId"</span><span class=p>:</span><span class=w> </span><span class=s2>"a811608d-140a-4e2c-9eed-ee26dd5172b0"</span><span class=w>
+</span><span class=p>}</span><span class=w>
+</span></code></pre></div></div></div></td></tr><tr><td>customer_kba_verification_passed</td><td><p><strong>Description</strong>: The Customer successfully passed knowledge-based authentication.</p><p><strong>Timing</strong>: Occurs upon a POST request to the <a href=https://docs.dwolla.com/#verify-kba-questions>Verify KBA questions</a> endpoint.</p><button class=accordion></button><div class=accordion-content><div class="code-snippet js-code-snippet language-jsonnohide"><button class="btn alternative">copy</button><div class="code-snippet__cnt highlight"><pre><code class=language-jsonnohide data-lang=jsonnohide><span class=p>{</span><span class=w>
+  </span><span class=nt>"_links"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+    </span><span class=nt>"self"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/events/e94951e3-6c83-40e2-990f-b25a76ce753e"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"event"</span><span class=w>
+    </span><span class=p>},</span><span class=w>
+    </span><span class=nt>"resource"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/5da64ab9-785e-4b67-96b1-7ab5f1a12e22"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=w>
+    </span><span class=p>},</span><span class=w>
+    </span><span class=nt>"account"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/accounts/0ee84069-47c5-455c-b425-633523291dc3"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"account"</span><span class=w>
+    </span><span class=p>},</span><span class=w>
+    </span><span class=nt>"customer"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nt>"href"</span><span class=p>:</span><span class=w> </span><span class=s2>"https://api-sandbox.dwolla.com/customers/5da64ab9-785e-4b67-96b1-7ab5f1a12e22"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"type"</span><span class=p>:</span><span class=w> </span><span class=s2>"application/vnd.dwolla.v1.hal+json"</span><span class=p>,</span><span class=w>
+      </span><span class=nt>"resource-type"</span><span class=p>:</span><span class=w> </span><span class=s2>"customer"</span><span class=w>
+    </span><span class=p>}</span><span class=w>
+  </span><span class=p>},</span><span class=w>
+  </span><span class=nt>"id"</span><span class=p>:</span><span class=w> </span><span class=s2>"e94951e3-6c83-40e2-990f-b25a76ce753e"</span><span class=p>,</span><span class=w>
+  </span><span class=nt>"created"</span><span class=p>:</span><span class=w> </span><span class=s2>"2019-10-30T15:40:02.379Z"</span><span class=p>,</span><span class=w>
+  </span><span class=nt>"topic"</span><span class=p>:</span><span class=w> </span><span class=s2>"customer_kba_verification_passed"</span><span class=p>,</span><span class=w>
+  </span><span class=nt>"resourceId"</span><span class=p>:</span><span class=w> </span><span class=s2>"5da64ab9-785e-4b67-96b1-7ab5f1a12e22"</span><span class=w>
+</span><span class=p>}</span><span class=w>
 </span></code></pre></div></div></div></td></tr><tr><td>customer_verification_document_needed</td><td style=max-width:100px><p><strong>Description</strong>: Additional documentation is needed to verify a Customer.</p><p><strong>Timing</strong>: Occurs when a second attempt to re-verify a Customer fails, which systematically places the Customer in <code>document</code> status immediately after a POST request to the <a href=https://docs.dwolla.com/#update-a-customer>Update a Customer</a> endpoint.</p><button class=accordion></button><div class=accordion-content><div class="code-snippet js-code-snippet language-jsonnohide"><button class="btn alternative">copy</button><div class="code-snippet__cnt highlight"><pre><code class=language-jsonnohide data-lang=jsonnohide><span class=p>{</span><span class=w>
   </span><span class=nt>"_links"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
     </span><span class=nt>"account"</span><span class=p>:</span><span class=w> </span><span class=p>{</span><span class=w>
