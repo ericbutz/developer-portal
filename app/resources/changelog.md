@@ -16,7 +16,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
   <ul class="bullet">
        <li>Added a new Knowledge-based Authentication (<code>KBA</code>) resource to the API.</li>
 	   <li>KBA is a component of verifying the identity of Personal Verified Customers.</li>
-       <li>Head over to our <a href = "https://docs.dwolla.com/#knowledge-based-authentication-kba"> API Docs</a> or check out our <a href = "https://discuss.dwolla.com/t/september-2019-updates-featuring-kba/5367">Developer forum announcement</a> to learn more.</li>
+       <li>Head over to our <a href = "https://docs.dwolla.com/#knowledge-based-authentication-kba"> API Docs</a> or check out our <a href = "https://www.dwolla.com/updates/kba-streamline-user-onboarding-individuals/">blog post</a> to learn more.</li>
   </ul>
   <h3>2019-10-09</h3>
   <h4><em>ADDED</em></h4>
@@ -42,7 +42,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
   <ul class="bullet">
        <li>Added a new Kotlin SDK.</li>
 	     <li>*Note*: Currently under preview to gather feedback. </li>
-       <li>Check it out on our <a href = "https://github.com/Dwolla/dwolla-v2-kotlin">Github</a>) for more information and to provide feedback. </li>
+       <li>Check it out on our <a href = "https://github.com/Dwolla/dwolla-v2-kotlin">Github</a> for more information and to provide feedback. </li>
   </ul>
   <h3>2019-05-31</h3>
   <h4><em>ADDED</em></h4>

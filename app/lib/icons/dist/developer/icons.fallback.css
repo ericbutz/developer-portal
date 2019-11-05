@@ -50,6 +50,10 @@
 
 .icon-lang-ruby { background-image: url('png/lang-ruby.png'); background-repeat: no-repeat; }
 
+.icon-nav-dev-community { background-image: url('png/nav-dev-community.png');}
+
+.icon-nav-dev-community-grey { background-image: url('png/nav-dev-community-grey.png');}
+
 .icon-side-nav-collapse-minus { background-image: url('png/side-nav-collapse-minus.png'); background-repeat: no-repeat; }
 
 .icon-side-nav-collapse-plus { background-image: url('png/side-nav-collapse-plus.png'); background-repeat: no-repeat; }
