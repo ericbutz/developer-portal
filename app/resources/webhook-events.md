@@ -225,8 +225,7 @@ samples:
           "created": "2017-01-21T17:09:49.860Z",
           "id": "e878da16-5d04-4285-b5e9-6d5b8ac4418a",
           "resourceId": "e6f84583-543e-438e-9db3-f9127f985fa5",
-          "topic": "customer_verification_document_uploaded",
-          "timestamp": "2017-01-21T17:09:49.860Z"
+          "topic": "customer_verification_document_uploaded"
         }
 
         ```
@@ -252,8 +251,7 @@ samples:
           "created": "2017-01-21T17:12:41.177Z",
           "id": "6d89da24-ca10-496b-bd3c-7e24ba1f6562",
           "resourceId": "e6f84583-543e-438e-9db3-f9127f985fa5",
-          "topic": "customer_verification_document_failed",
-          "timestamp": "2017-01-21T17:12:41.177Z"
+          "topic": "customer_verification_document_failed"
         }
 
         ```
@@ -279,8 +277,7 @@ samples:
           "created": "2017-01-21T17:16:21.723Z",
           "id": "aa4ebc7b-e3d0-4f1d-98e9-5a67620fdc3b",
           "resourceId": "e6f84583-543e-438e-9db3-f9127f985fa5",
-          "topic": "customer_verification_document_approved",
-          "timestamp": "2017-01-21T17:16:21.723Z"
+          "topic": "customer_verification_document_approved"
         }
 
         ```
@@ -339,8 +336,7 @@ samples:
           "created": "2017-01-20T22:10:39.309Z",
           "id": "9c949341-653e-41f3-a27c-00c772e41061",
           "resourceId": "e358a488-6699-4d79-bbfb-c5bf58100ea4",
-          "topic": "customer_suspended",
-          "timestamp": "2017-01-20T22:10:39.309Z"
+          "topic": "customer_suspended"
         }
 
         ```
@@ -366,8 +362,7 @@ samples:
           "created": "2017-01-20T22:11:58.983Z",
           "id": "0f0ab172-0800-42a7-86d4-768661861cea",
           "resourceId": "e358a488-6699-4d79-bbfb-c5bf58100ea4",
-          "topic": "customer_activated",
-          "timestamp": "2017-01-20T22:11:58.983Z"
+          "topic": "customer_activated"
         }
 
         ```
@@ -393,8 +388,7 @@ samples:
           "created": "2017-07-24T14:51:56.932Z",
           "id": "3dfa3922-c873-4d2e-a3de-ab80bb8ac67e",
           "resourceId": "be2d2322-fdee-4361-8722-4289f5601604",
-          "topic": "customer_deactivated",
-          "timestamp": "2017-07-24T14:51:56.932Z"
+          "topic": "customer_deactivated"
         }
 
         ```
@@ -685,7 +679,6 @@ samples:
           "id": "84f296e9-08a6-46b2-bb23-bd25552492f5",
           "resourceId": "00e17e13-8ebb-4160-96e7-c632170ef9f9",
           "topic": "customer_funding_source_added",
-          "timestamp": "2017-01-20T22:15:48.265Z",
           "created": "2017-01-20T22:15:48.265Z"
         }
 
@@ -712,7 +705,6 @@ samples:
           "id": "f8fef3b4-4d6a-4c10-94f4-2a11b4791b6a",
           "resourceId": "00e17e13-8ebb-4160-96e7-c632170ef9f9",
           "topic": "customer_funding_source_removed",
-          "timestamp": "2017-01-20T22:26:25.973Z",
           "created": "2017-01-20T22:26:25.973Z"
         }
 
@@ -739,7 +731,6 @@ samples:
           "id": "55886d20-e242-4f4d-b75f-f23851363237",
           "resourceId": "00e17e13-8ebb-4160-96e7-c632170ef9f9",
           "topic": "customer_funding_source_verified",
-          "timestamp": "2017-01-20T22:23:42.928Z",
           "created": "2017-01-20T22:23:42.928Z"
         }
 
@@ -766,7 +757,6 @@ samples:
           "id": "e2906820-d687-4201-98c2-055eb218fc22",
           "resourceId": "00e17e13-8ebb-4160-96e7-c632170ef9f9",
           "topic": "customer_funding_source_unverified",
-          "timestamp": "2017-01-20T22:26:25.973Z",
           "created": "2017-01-20T22:26:25.973Z"
         }
 
@@ -793,7 +783,6 @@ samples:
           "id": "da9de3aa-2fc9-46dc-9d5e-5055d1910e2c",
           "resourceId": "00e17e13-8ebb-4160-96e7-c632170ef9f9",
           "topic": "customer_funding_source_negative",
-          "timestamp": "2017-01-20T22:26:25.973Z",
           "created": "2017-01-20T22:26:25.973Z"
         }
 
@@ -853,7 +842,6 @@ samples:
           "id": "d765519c-a43f-49b8-8124-082d752065eb",
           "resourceId": "00e17e13-8ebb-4160-96e7-c632170ef9f9",
           "topic": "customer_microdeposits_added",
-          "timestamp": "2017-01-20T22:17:08.675Z",
           "created": "2017-01-20T22:17:08.675Z"
         }
 
@@ -880,7 +868,6 @@ samples:
           "id": "f025832c-a0e6-4e2a-a8c1-bcc255fdc720",
           "resourceId": "752fe4da-421e-4b4c-a422-48370d8a52a6",
           "topic": "customer_microdeposits_failed",
-          "timestamp": "2017-01-20T22:29:01.409Z",
           "created": "2017-01-20T22:29:01.409Z"
         }
 
@@ -907,7 +894,6 @@ samples:
           "id": "6c9d289c-26af-4fc0-a227-2ca1345172fd",
           "resourceId": "00e17e13-8ebb-4160-96e7-c632170ef9f9",
           "topic": "customer_microdeposits_completed",
-          "timestamp": "2017-01-20T22:21:21.328Z",
           "created": "2017-01-20T22:21:21.328Z"
         }
 
@@ -934,7 +920,6 @@ samples:
           "id": "6c9d289c-26af-4fc0-a227-2ca1345172fd",
           "resourceId": "00e17e13-8ebb-4160-96e7-c632170ef9f9",
           "topic": "customer_microdeposits_maxattempts",
-          "timestamp": "2017-01-20T22:21:21.328Z",
           "created": "2017-01-20T22:21:21.328Z"
         }
 
@@ -961,7 +946,6 @@ samples:
           "id": "c6694e91-a425-4e69-819a-2e033e33df8a",
           "resourceId": "98603beb-63df-e611-80ee-0aa34a9b2388",
           "topic": "customer_bank_transfer_completed",
-          "timestamp": "2017-01-20T22:58:44.900Z",
           "created": "2017-01-20T22:58:44.900Z"
         }
 
@@ -988,7 +972,6 @@ samples:
           "id": "9ae33508-1015-429c-ac14-ff05d29164b1",
           "resourceId": "4e8d29e9-00e0-e611-80ee-0aa34a9b2388",
           "topic": "customer_bank_transfer_cancelled",
-          "timestamp": "2017-01-21T17:42:16.492Z",
           "created": "2017-01-21T17:42:16.492Z"
         }
 
@@ -1015,7 +998,6 @@ samples:
           "id": "eef9f3d0-ea9d-474d-8b68-fba5b54cfc04",
           "resourceId": "55c89a4e-63df-e611-80ee-0aa34a9b2388",
           "topic": "customer_bank_transfer_failed",
-          "timestamp": "2017-01-20T22:53:47.421Z",
           "created": "2017-01-20T22:53:47.421Z"
         }
 
@@ -1042,7 +1024,6 @@ samples:
           "id": "c0b583dc-f7f2-4ac0-901f-e6f2e9ebbefc",
           "resourceId": "bc78e0a3-01e0-e611-80ee-0aa34a9b2388",
           "topic": "customer_bank_transfer_creation_failed",
-          "timestamp": "2017-01-21T17:47:59.932Z",
           "created": "2017-01-21T17:47:59.932Z"
         }
 
@@ -1069,7 +1050,6 @@ samples:
           "id": "6822a340-b8c4-432a-ba71-9ae90cb70ec4",
           "resourceId": "1e91b014-eedf-e611-80ee-0aa34a9b2388",
           "topic": "customer_bank_transfer_completed",
-          "timestamp": "2017-01-21T17:34:46.450Z",
           "created": "2017-01-21T17:34:46.450Z"
         }
 
@@ -1096,7 +1076,6 @@ samples:
           "id": "cac95329-9fa5-42f1-a4fc-c08af7b868fb",
           "resourceId": "cdb5f11f-62df-e611-80ee-0aa34a9b2388",
           "topic": "customer_transfer_created",
-          "timestamp": "2017-01-20T22:45:12.790Z",
           "created": "2017-01-20T22:45:12.790Z"
         }
 
@@ -1123,7 +1102,6 @@ samples:
           "id": "c3a889d4-9a79-4b41-a8ff-25fac33107e3",
           "resourceId": "cdb5f11f-62df-e611-80ee-0aa34a9b2388",
           "topic": "customer_transfer_cancelled",
-          "timestamp": "2017-01-20T22:48:07.552Z",
           "created": "2017-01-20T22:48:07.552Z"
         }
 
@@ -1150,7 +1128,6 @@ samples:
           "id": "eef9f3d0-ea9d-474d-8b68-fba5b54cfc04",
           "resourceId": "55c89a4e-63df-e611-80ee-0aa34a9b2388",
           "topic": "customer_transfer_failed",
-          "timestamp": "2017-01-20T22:53:47.421Z",
           "created": "2017-01-20T22:53:47.421Z"
         }
 
@@ -1177,7 +1154,6 @@ samples:
           "id": "ea7435f6-d7d6-4f14-9ed9-8602369d268b",
           "resourceId": "52de20f1-eddf-e611-80ee-0aa34a9b2388",
           "topic": "customer_transfer_completed",
-          "timestamp": "2017-01-21T15:27:07.438Z",
           "created": "2017-01-21T15:27:07.438Z"
         }
 
@@ -1204,7 +1180,6 @@ samples:
           "id": "cc8ace67-e6ee-4963-84f1-1936c558418f",
           "resourceId": "47ccaea8-6f7c-43b1-a368-a702012631c6",
           "topic": "customer_mass_payment_created",
-          "timestamp": "2017-01-21T17:51:06.927Z",
           "created": "2017-01-21T17:51:06.927Z"
         }
 
@@ -1231,7 +1206,6 @@ samples:
           "id": "c036bcf7-6b76-482c-af32-71df7175e7a2",
           "resourceId": "47ccaea8-6f7c-43b1-a368-a702012631c6",
           "topic": "customer_mass_payment_completed",
-          "timestamp": "2017-01-21T17:51:08.305Z",
           "created": "2017-01-21T17:51:08.305Z"
         }
 
@@ -1258,7 +1232,6 @@ samples:
           "id": "bdb4fc57-c844-41d5-9553-9e8bfb00498d",
           "resourceId": "47ccaea8-6f7c-43b1-a368-a702012631c6",
           "topic": "customer_mass_payment_cancelled",
-          "timestamp": "2017-01-21T17:51:08.305Z",
           "created": "2017-01-21T17:51:08.305Z"
         }
 
@@ -1268,7 +1241,7 @@ samples:
 
 # Webhooks Events
 
-When an action occurs within the Dwolla system on a resource (Customers, Transfers, etc.), an Event object is created to record a change to the state of the resource. All created Webhook Events follow the same format and include high level details such as: an event topic, a resource URL that identifies the specific resource that changed states, and a timestamp. If your application has an active [webhook subscription](https://developers.dwolla.com/guides/webhooks/create-subscription.html
+When an action occurs within the Dwolla system on a resource (Customers, Transfers, etc.), an Event object is created to record a change to the state of the resource. All created Webhook Events follow the same format and include high level details such as: an event topic, a resource URL that identifies the specific resource that changed states, and a timestamp of when the event was created. If your application has an active [webhook subscription](https://developers.dwolla.com/guides/webhooks/create-subscription.html
 ), all Events relevant to your integration will trigger a webhook notification each time they occur. The following resource article will provide guidance on the structure of webhook events, which will assist with handling incoming webhooks.
 
 **Note:** Dwolla **requires** all applications to have a created webhook subscription in production. The webhook subscription is used to notify your application to trigger an email notification to your end-users.

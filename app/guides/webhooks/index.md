@@ -34,7 +34,7 @@ Each webhook sent by the Dwolla API contains an `Event` with `_links` to: the as
   "id": "bb6531a2-5b13-4815-a83d-ed7a1fc70bd8",
   "resourceId": "6c57f372-e9a0-47d4-91f3-ab2b3aae56f0",
   "topic": "customer_created",
-  "timestamp": "2019-02-04T14:55:23.287Z",
+  "created": "2019-02-04T14:58:45.144Z",
   "_links": {
     "self": {
       "href": "https://api-sandbox.dwolla.com/events/bb6531a2-5b13-4815-a83d-ed7a1fc70bd8"
@@ -48,8 +48,7 @@ Each webhook sent by the Dwolla API contains an `Event` with `_links` to: the as
     "customer": {
       "href": "https://api-sandbox.dwolla.com/customers/6c57f372-e9a0-47d4-91f3-ab2b3aae56f0"
     }
-  },
-  "created": "2019-02-04T14:55:23.287Z"
+  }
 }
 ```
 
