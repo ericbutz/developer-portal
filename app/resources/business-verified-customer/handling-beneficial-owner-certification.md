@@ -75,7 +75,9 @@ When a business verified Customer needs to be `certified`, Dwolla will return a 
             "country": "US",
             "postalCode": "50266"
         }
-    }
+    },
+    "businessClassification": "9ed3f670-7d6f-11e3-b1ce-5404a6144203",
+    "businessType": "llc"
 }
 ```
 

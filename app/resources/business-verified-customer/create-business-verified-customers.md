@@ -550,7 +550,9 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
             "country": "US",
             "postalCode": "50266"
         }
-    }
+    },
+    "businessType": "llc",
+    "businessClassification": "9ED3F67A-7D6F-11E3-BB5B-5404A6144203"
 }
 ```
 ```php
