@@ -33,6 +33,7 @@
 		"../sass/developer/partials/_language-picker.scss",
 		"../sass/developer/partials/_learn-more.scss",
 		"../sass/developer/partials/_lng-reference.scss",
+		"../sass/developer/partials/_nav-community.scss",
 		"../sass/developer/partials/_pager-nav.scss",
 		"../sass/developer/partials/_reach-out.scss",
 		"../sass/developer/partials/_side-by-side-compare.scss",

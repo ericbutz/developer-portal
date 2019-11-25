@@ -42,7 +42,7 @@ description: Use this page to keep track of changes to the Dwolla API or additio
   <ul class="bullet">
        <li>Added a new Kotlin SDK.</li>
 	     <li>*Note*: Currently under preview to gather feedback. </li>
-       <li>Check it out on our <a href = "https://github.com/Dwolla/dwolla-v2-kotlin">Github</a>) for more information and to provide feedback. </li>
+       <li>Check it out on our <a href = "https://github.com/Dwolla/dwolla-v2-kotlin">Github</a> for more information and to provide feedback. </li>
   </ul>
   <h3>2019-05-31</h3>
   <h4><em>ADDED</em></h4>
