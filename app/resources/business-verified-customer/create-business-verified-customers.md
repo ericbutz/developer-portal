@@ -552,7 +552,7 @@ Authorization: Bearer pBA9fVDBEyYZCEsLf/wKehyh1RTpzjUj5KzIRfDi0wKTii7DqY
         }
     },
     "businessType": "llc",
-    "businessClassification": "9ED3F67A-7D6F-11E3-BB5B-5404A6144203"
+    "businessClassification": "9ed3f670-7d6f-11e3-b1ce-5404a6144203"
 }
 ```
 ```php
