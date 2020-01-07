@@ -594,7 +594,7 @@ You’ll also get a webhook with a `customer_verification_document_uploaded` eve
 
 Once created, the document will be reviewed by Dwolla. When our team has made a decision, which may take up to 1-2 business days to approve or reject, we’ll create either a `customer_verification_document_approved` or `customer_verification_document_failed` event.
 
-If the document was sufficient, the Customer may be verified in this process. If not, we may need additional documentation. Note: Reference the [determining verification documents needed](/resources/customer-verification/handling-verification-statuses.html#determining-verification-documents-needed) section for more information on determining if additional documents are needed after an approved or failed event is triggered.
+If the document was sufficient, the Customer may be verified in this process. If not, we may need additional documentation. Note: Reference the [determining verification documents needed](https://developers.dwolla.com/resources/personal-verified-customer/handling-verification-statuses-personal.html#handling-status-document) section for more information on determining if additional documents are needed after an approved or failed event is triggered.
 
 If the document was found to be fraudulent or doesn’t match the identity of the Customer, the Customer will be suspended.
 
