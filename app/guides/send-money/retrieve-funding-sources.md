@@ -169,7 +169,7 @@ When the funding sources list is successfully retrieved, you will receive a `200
 
 ## Step 3B: Fetch your Customer's list of available funding sources
 
-Use the [list a Customer’s funding sources](https://docs.dwolla.com/#list-funding-sources-for-a-customer) endpoint to fetch a list of your own funding sources. You’ll need the Customer URL which can be [retrieved from the API.](https://docs.dwolla.com/#list-and-search-customers)
+Use the [list a Customer’s funding sources](https://docs.dwolla.com/#list-funding-sources-for-a-customer) endpoint to fetch a list of your Customer's funding sources. You’ll need the Customer URL which can be [retrieved from the API.](https://docs.dwolla.com/#list-and-search-customers)
 
 #### Request and Response (view schema in `raw`)
 
