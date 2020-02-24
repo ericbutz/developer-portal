@@ -423,7 +423,7 @@ A color scanned photo of the Beneficial Owner’s identifying document can be sp
 
 ### Uploading a document
 
-To upload a color photo of the document, you’ll initiate a multipart form-data POST request from your backend server to the beneficial owners documents endpoint. The file must be either a .jpg, .jpeg, .png, or .pdf. Files must be no larger than 10MB in size.
+To upload a color photo of the document, you’ll initiate a multipart form-data POST request from your backend server to the beneficial owners documents endpoint. The file must be either a .jpg, .jpeg, or .png. Files must be no larger than 10MB in size.
 
 You’ll also get a `beneficial_owner_verification_document_uploaded` event to let you know the document was successfully uploaded.
 
