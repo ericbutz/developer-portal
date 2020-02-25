@@ -8,8 +8,12 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 
 <section class="change-log">
   <h1>Upcoming</h1>
-  <h3>2019-10-09</h3>
-  <h4><em>No upcoming changes</em></h4>
+  <h3>2020-02-25</h3>
+  <h4><em>UPDATING: VERIFICATION DOCUMENT UPLOAD</em></h4>
+  <ul class="bullet">
+       <li>Beginning on Tuesday, March 10th, 2020, Dwolla will no longer support uploading <a href = "https://developers.dwolla.com/resources/personal-verified-customer/handling-verification-statuses-personal.html#uploading-a-document">personal identification documents</a> in the file format of <code>.pdf</code>.</li>
+       <li>Dwolla will no longer support uploading duplicate documents for a Customer in <code>document</code> status. If a request to upload a duplicate document is sent, it will fail with an error response that includes a link to the already existing document for the Customer.</li>
+  </ul>
   <h1>Completed</h1>
   <h3>2019-10-09</h3>
   <h4><em>ADDED</em></h4>
