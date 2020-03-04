@@ -11,10 +11,15 @@ description: Use this page to keep track of changes to the Dwolla API or additio
   <h3>2020-03-10</h3>
   <h4><em>CHANGED/ADDED</em></h4>
   <ul class="bullet">
-       <li>Removed support for <a href = "https://docs.dwolla.com/#create-a-document-for-a-customer">uploading personal identification documents</a> in the file format of <code>.pdf</code>. A validation error will be returned with a <code>code</code> of "Invalid" and a <code>message</code> of "Invalid file type.".</li>
+    <li>Removed support for <a href = "https://docs.dwolla.com/#create-a-document-for-a-customer">uploading personal identification documents</a> in the file format of <code>.pdf</code>. A validation error will be returned with a <code>code</code> of "Invalid" and a <code>message</code> of "Invalid file type.".</li>
+  </ul>
+
+  <h1>Completed</h1>
+  <h3>2020-03-06</h3>
+  <h4><em>CHANGED/ADDED</em></h4>
+  <ul class="bullet">
        <li>Removed support for uploading duplicate documents for a Customer in <code>document</code> status. If a request to upload a duplicate document is sent, it will fail with a validation error response that includes a link to the existing uploaded document for the Customer.</li>
   </ul>
-  <h1>Completed</h1>
   <h3>2019-10-09</h3>
   <h4><em>ADDED</em></h4>
   <ul class="bullet">
