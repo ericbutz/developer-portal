@@ -9,12 +9,15 @@ description: Use this page to keep track of changes to the Dwolla API or additio
 <section class="change-log">
   <h1>Upcoming</h1>
   <h3>2020-03-10</h3>
+  <h4><em>No upcoming changes</em></h4>
+
+  <h1>Completed</h1>
+  <h3>2020-03-10</h3>
   <h4><em>CHANGED/ADDED</em></h4>
   <ul class="bullet">
     <li>Removed support for <a href = "https://docs.dwolla.com/#create-a-document-for-a-customer">uploading personal identification documents</a> in the file format of <code>.pdf</code>. A validation error will be returned with a <code>code</code> of "Invalid" and a <code>message</code> of "Invalid file type.".</li>
   </ul>
 
-  <h1>Completed</h1>
   <h3>2020-03-06</h3>
   <h4><em>CHANGED/ADDED</em></h4>
   <ul class="bullet">
